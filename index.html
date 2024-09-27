@@ -39,11 +39,7 @@ nav {
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    margin: 0;
+    display: flex; /* Display nav links in desktop view */
 }
 
 .nav-links li {
@@ -64,9 +60,9 @@ nav {
 }
 
 .hamburger {
-    display: none;
-    font-size: 30px;
+    display: none; /* Hide hamburger by default */
     cursor: pointer;
+    font-size: 30px;
 }
 
         .hero {
@@ -262,16 +258,24 @@ nav {
 
         @media (max-width: 768px) {
 
-            .nav-links {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%; /* Just below the header */
+             .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column; /* Stack links vertically */
+        position: absolute; /* Positioning for dropdown */
+        top: 60px; /* Adjust to position under the nav */
         right: 0;
-        width: 100%;
-        background-color: white;
+        background-color: white; /* Background for dropdown */
+        width: 100%; /* Full width */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
+    .nav-links.show {
+        display: flex; /* Show nav links when hamburger is clicked */
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
     .nav-links.active {
         display: flex;
     }
@@ -283,10 +287,7 @@ nav {
         border-bottom: 1px solid #ddd;
     }
 
-    .hamburger {
-        display: block;
-        color: black;
-    }
+   
 
     nav {
         justify-content: space-between;
@@ -341,30 +342,32 @@ nav {
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
-            </div>
-            <div class="hamburger" id="hamburger">&#9776;</div>
-             <ul class="nav-links" id="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Sample.html">Samples</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="order.html">Order</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Company Logo">
+        </div>
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- Hamburger icon -->
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Sample.html">Samples</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="order.html">Order</a></li>
+        </ul>
+    </nav>
+</header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Welcome to Our Writing Service</h1>
-                <p>Your one-stop solution for all your writing needs</p>
-                <button class="learn-more-button">Learn More</button>
-            </div>
-        </section>
+<main>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to Our Writing Service</h1>
+            <p>Your one-stop solution for all your writing needs</p>
+            <button class="learn-more-button" onclick="scrollToFeatures()">Learn More</button>
+        </div>
+    </section>
 
         <section class="features" id="features">
             <h2>Why Choose Us?</h2>
