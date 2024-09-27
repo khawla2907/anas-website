@@ -204,6 +204,12 @@
             font-size: 1rem;
             color: #333;
         }
+        .hamburger {
+    display: none; /* Hidden by default */
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
 
         .whatsapp-float {
             position: fixed;
@@ -220,6 +226,7 @@
             z-index: 100;
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
+        
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -258,20 +265,50 @@
         }
 
         @media (max-width: 768px) {
+            
+            .hamburger {
+    display: none; /* Hidden by default */
+    font-size: 30px;
+    cursor: pointer;
+    color: black;
+}
+
+/* For mobile view */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hide the nav links */
+        flex-direction: column;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
+        position: absolute;
+        top: 60px; /* Adjust depending on header height */
+        left: 0;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links a {
+        padding: 1rem;
+        text-align: center;
+        width: 100%;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger icon in mobile view */
+    }
+
+    .nav-links.active {
+        display: flex; /* Show links when active */
+    }
+}
+
+            
+            
             nav {
                 flex-direction: column;
             }
 
-            .nav-links {
-                flex-direction: column;
-                gap: 0;
-            }
+          
 
-            .nav-links a {
-                padding: 1rem 0;
-                width: 100%;
-                text-align: center;
-            }
 
             .hero h1 {
                 font-size: 2rem;
@@ -307,18 +344,19 @@
 <body>
     <header>
         <nav>
-            <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Sample.html">Samples</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="order.html">Order</a></li>
-            </ul>
-        </nav>
+    <div class="logo">
+        <img src="images/logo (2).png" alt="Company Logo">
+    </div>
+    <div class="hamburger" onclick="toggleNav()">&#9776;</div> <!-- Hamburger Icon -->
+    <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="About us.html">About Us</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="Sample.html">Samples</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="order.html">Order</a></li>
+    </ul>
+</nav>
     </header>
 
     <main>
