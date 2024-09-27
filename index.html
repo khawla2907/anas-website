@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,49 +15,58 @@
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.10);
-            color: black;
-            width: 100%;
-            position: fixed;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(50px);
-        }
+    background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
+    color: black; /* Change text color to black for visibility */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+}
+
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px; /* Add padding for better spacing */
+            padding: 1rem 1rem;
+            max-width: 1500px;
+            margin: auto;
         }
 
         .logo img {
-            height: 60px;
+            height: 60px; /* Adjusted logo size for better visibility */
         }
 
         .nav-links {
-              list-style-type: none; /* Remove default bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 0; /* Remove default margin */
-    flex-direction: row; /* Keep nav links in a single line */
-    gap: 1rem;
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline;
         }
 
         .nav-links a {
-            color: black;
-            text-decoration: none;
-            padding: 10px 15px; /* Add padding to links */
-            border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    color: black; /* Change link color to black */
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+}
 
-        .nav-links a:hover {
-            background-color: rgba(0, 123, 255, 0.6);
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
-        }
- .hero {
+
+.nav-links a:hover {
+    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+}
+
+        .hero {
             height: 100vh;
             background: url('images/Artboard.jpg') no-repeat center center/cover;
             color: white;
@@ -66,16 +76,19 @@
             text-align: center;
             padding: 0 2rem;
         }
+
         .hero-content {
             animation: fadeIn 2s ease-out;
         }
 
         .hero h1 {
             font-size: 3rem;
+            color: #fff;
         }
 
         .hero p {
             font-size: 1.25rem;
+            color: #ddd;
         }
 
         .hero button {
@@ -105,9 +118,11 @@
         }
 
         .feature {
-            width: 30%; /* Ensure features align in a row */
-            margin: 1rem;
             display: inline-block;
+            width: 30%;
+            margin: 1rem;
+            text-align: center;
+            background-color:whitesmoke;
         }
 
         .feature img {
@@ -121,7 +136,7 @@
         }
 
         .testimonials {
-            padding: 1rem 1rem;
+            padding: 3rem 1rem;
             background-color: #e0e0e0;
             text-align: center;
         }
@@ -137,7 +152,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            display: inline-block;
         }
 
         .testimonial:hover {
@@ -174,7 +188,6 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             transition: transform 0.3s ease;
-            display: inline-block;
         }
 
         .question:hover {
@@ -206,6 +219,21 @@
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
             transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -220,7 +248,6 @@
             width: 100px;
             height: 100px;
         }
-
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -230,62 +257,61 @@
             }
         }
 
-        /* Additional CSS for mobile responsiveness */
-        /* Update mobile width and navigation styles */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
 
-/* Mobile adjustments */
-@media screen and (max-width: 768px) {
-    .hero {
-        height: 250px; /* Smaller height for mobile */
-        background-size: contain; /* Ensure the image fits fully */
-    }
+            .nav-links {
+                flex-direction: column;
+                gap: 0;
+            }
 
-    nav {
-        width: 100%;
-        background-color: #f8f8f8; /* Change this to match your design */
-        position: absolute;
-        top: 50px; /* Adjust as needed */
-        left: 0;
-        display: none; /* Initially hide the nav */
-        flex-direction: column;
-        z-index: 1;
-    }
+            .nav-links a {
+                padding: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
 
-    nav.active {
-        display: flex; /* Show the nav when active */
-    }
+            .hero h1 {
+                font-size: 2rem;
+            }
 
-    .hamburger {
-        display: block; /* Show hamburger icon */
-        cursor: pointer;
-    }
+            .hero p {
+                font-size: 1rem;
+            }
 
-    .nav-links {
-        width: 100%; /* Full width for nav links */
-    }
+            .features h2 {
+                font-size: 1.5rem;
+            }
 
-    .nav-links li {
-        margin: 10px 0; /* Spacing between nav items */
-    }
-}
+            .feature {
+                width: 100%;
+                margin: 1rem 0;
+            }
 
-/* Hide the hamburger icon on larger screens */
-@media screen and (min-width: 769px) {
-    .hamburger {
-        display: none;
-    }
-}
+            .testimonials h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq h2 {
+                font-size: 1.5rem;
+            }
+
+            .question h3 {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo (2).png" alt="Logo">
+                <img src="images/logo (2).png" alt="Company Logo">
             </div>
-             <div class="hamburger" onclick="toggleNav()">☰</div> <!-- Hamburger Icon -->
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="home.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Sample.html">Samples</a></li>
@@ -332,43 +358,72 @@
             </div>
         </section>
 
-        <section class="testimonials" id="testimonials">
+        <section class="testimonials">
             <h2>What Our Clients Say</h2>
             <div class="testimonial">
-                <p>"Amazing service! My essay was done on time and exceeded my expectations."</p>
-                <span>- Henry Smith </span>
+                <p>"The service was exceptional! My essay was well-written and delivered on time. Highly recommend!"</p>
+                <span>- Jane Doe</span>
             </div>
             <div class="testimonial">
-                <p>"Great quality and excellent customer support!"</p>
-                <span>- Victoria </span>
+                <p>"Professional and reliable. I received a high-quality paper with zero plagiarism."</p>
+                <span>- John Smith</span>
             </div>
             <div class="testimonial">
-                <p>"I highly recommend their writing services!"</p>
-                <span>- Adam </span>
+                <p>"Excellent customer service and top-notch writing skills. I will definitely use this service again."</p>
+                <span>- Emily Johnson</span>
             </div>
         </section>
 
-        <section class="faq" id="faq">
+        <section class="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="question">
-                <h3>How does the ordering process work?</h3>
-                <p>You can place an order through our website by filling out the order form.</p>
+                <h3>What services do you offer?</h3>
+                <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
             </div>
             <div class="question">
-                <h3>What if I need my order urgently?</h3>
-                <p>We offer urgent services that can be completed within a short timeframe.</p>
+                <h3>How can I place an order?</h3>
+                <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
             </div>
             <div class="question">
-                <h3>Is my information confidential?</h3>
-                <p>Yes, we prioritize your privacy and ensure that your information is kept secure.</p>
+                <h3>Is your service confidential?</h3>
+                <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
             </div>
         </section>
     </main>
 
-    <div class="whatsapp-float">
-        <a href="https://wa.me/your-number">
-            <img src="images/whatsapp-removebg-preview.png" alt="WhatsApp" class="whatsapp-icon">
-        </a>
-    </div>
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
+
+    <script>
+        function openPopup(type) {
+            document.getElementById(`${type}-popup`).style.display = 'flex';
+        }
+
+        function closePopup(type) {
+            document.getElementById(`${type}-popup`).style.display = 'none';
+        }
+
+        // Optional: Close popup when clicking outside of it
+        window.onclick = function(event) {
+            const loginPopup = document.getElementById('login-popup');
+            const signupPopup = document.getElementById('signup-popup');
+            if (event.target === loginPopup) {
+                closePopup('login');
+            }
+            if (event.target === signupPopup) {
+                closePopup('signup');
+            }
+        }
+        document.querySelector('.learn-more-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+        });
+    </script>
 </body>
 </html>
