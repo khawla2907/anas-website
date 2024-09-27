@@ -319,20 +319,29 @@
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Sample.html">Samples</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="order.html">Order</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav>
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Company Logo">
+        </div>
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Sample.html">Samples</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="order.html">Order</a></li>
+        </ul>
+    </nav>
+</header>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active'); // Toggle the 'active' class
+    }
+</script>
+
 
     <main>
         <section class="hero" id="home">
