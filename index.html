@@ -435,45 +435,16 @@ nav {
     </a>
 
     <script>
-        function openPopup(type) {
-            document.getElementById(`${type}-popup`).style.display = 'flex';
-        }
-
-        function closePopup(type) {
-            document.getElementById(`${type}-popup`).style.display = 'none';
-        }
-
-        // Optional: Close popup when clicking outside of it
-        window.onclick = function(event) {
-            const loginPopup = document.getElementById('login-popup');
-            const signupPopup = document.getElementById('signup-popup');
-            if (event.target === loginPopup) {
-                closePopup('login');
-            }
-            if (event.target === signupPopup) {
-                closePopup('signup');
-            }
-        }
-        document.querySelector('.learn-more-button').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for subscribing!');
-            document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('show');  });
-           
-document.getElementById('hamburger').addEventListener('click', function () {
+       document.getElementById('hamburger').addEventListener('click', function () {
     const navLinks = document.getElementById('nav-links');
     navLinks.classList.toggle('show'); // Toggle the dropdown menu
 });
 
-function scrollToFeatures() {
-    document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
-}
-
+// Smooth scrolling for the Learn More button
+document.getElementById('learnMoreButton').addEventListener('click', function () {
+    const featuresSection = document.getElementById('features');
+    featuresSection.scrollIntoView({ behavior: 'smooth' });
+});
 
        
     </script>
