@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing Service</title>
     <style>
-     body {
+
+         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -25,8 +26,7 @@
             backdrop-filter: blur(50px);
         }
 
-
-         nav {
+        nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -39,7 +39,6 @@
             height: 60px;
         }
 
-       
         .nav-links {
             list-style: none;
             display: flex;
@@ -53,19 +52,39 @@
         }
 
         .nav-links a {
-    color: black; /* Change link color to black */
-    text-decoration: none;
-    padding: 1rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
-}
+            color: black;
+            text-decoration: none;
+            padding: 1rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 123, 255, 0.6);
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
+        }
+
+        /* Hamburger icon */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: black;
+            transition: all 0.3s ease;
+        }
 
 
-.nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
-}
+         
+
+       
+       
 
         .hero {
             height: 100vh;
@@ -275,10 +294,13 @@
 }
 
 /* For mobile view */
-@media (max-width: 768px) {
+ @media (max-width: 768px) {
+            nav {
+                padding: 1rem;
+                justify-content: space-between;
+            }
 
-
-    .nav-links {
+            .nav-links {
                 flex-direction: column;
                 position: absolute;
                 top: 80px;
@@ -287,6 +309,7 @@
                 background-color: rgba(255, 255, 255, 0.9);
                 max-height: 0; /* Hide by default */
                 overflow: hidden;
+                transition: max-height 0.3s ease;
             }
 
             .nav-links.show {
@@ -305,28 +328,13 @@
             }
 
             .logo {
-                flex-grow: 1;
-            }
-        }
-  
-    
-
-   
-
-    .nav-links.active {
-        display: flex; /* Show links when active */
-    }
-}
-
-            
-            
-            nav {
-                flex-direction: column;
+                flex: 1; /* Ensures logo stays on the left */
             }
 
+            .nav-links {
+                display: none;
+            }
           
-
-
             .hero h1 {
                 font-size: 2rem;
             }
@@ -359,10 +367,9 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
+    <nav>
             <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
+                <img src="images/logo.png" alt="Company Logo">
             </div>
             <div class="hamburger" onclick="toggleMenu()">
                 <div></div>
@@ -383,7 +390,11 @@
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('show');
+            if (navLinks.style.display === 'none' || navLinks.style.display === '') {
+                navLinks.style.display = 'block';
+            } else {
+                navLinks.style.display = 'none';
+            }
         }
     </script>
 
