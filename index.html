@@ -285,9 +285,9 @@
             }
 
             .feature {
-                width: 100%;
-                margin: 1rem 0;
-            }
+        width: 48%; /* Slightly smaller for two in a row */
+        margin: 1% auto; /* Center align them */
+    }
 
             .testimonials h2 {
                 font-size: 1.5rem;
@@ -300,6 +300,12 @@
             .question h3 {
                 font-size: 1rem;
             }
+
+             @media (max-width: 576px) {
+        .feature {
+            width: 100%; /* Full width on mobile */
+        }
+    }
         }
     </style>
 </head>
