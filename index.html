@@ -57,17 +57,7 @@
             box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
         }
 
-        .hero {
-            height: 100vh;
-            background: url('images/Artboard.jpg') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-        }
-
+     
         .hero-content {
             animation: fadeIn 2s ease-out;
         }
@@ -234,7 +224,20 @@
 
         /* Additional CSS for mobile responsiveness */
         /* Update mobile width and navigation styles */
+.hero {
+    background-image: url('your-image-path.jpg'); /* Use your hero image path */
+    background-size: cover; /* Ensure the image covers the area */
+    background-position: center; /* Center the image */
+    height: 400px; /* Adjust as necessary for laptops */
+}
+
+/* Mobile adjustments */
 @media screen and (max-width: 768px) {
+    .hero {
+        height: 250px; /* Smaller height for mobile */
+        background-size: contain; /* Ensure the image fits fully */
+    }
+
     nav {
         width: 100%;
         background-color: #f8f8f8; /* Change this to match your design */
@@ -270,7 +273,6 @@
         display: none;
     }
 }
-
     </style>
 </head>
 <body>
