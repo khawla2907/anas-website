@@ -233,20 +233,44 @@
         }
 
         /* Additional CSS for mobile responsiveness */
-        @media (max-width: 768px) {
-            .feature, .testimonial, .question {
-                width: 100%; /* Make features, testimonials, and questions full width on mobile */
-                margin: 0.5rem 0; /* Adjust margin for better spacing */
-            }
+        /* Update mobile width and navigation styles */
+@media screen and (max-width: 768px) {
+    nav {
+        width: 100%;
+        background-color: #f8f8f8; /* Change this to match your design */
+        position: absolute;
+        top: 50px; /* Adjust as needed */
+        left: 0;
+        display: none; /* Initially hide the nav */
+        flex-direction: column;
+        z-index: 1;
+    }
 
-            .hero h1 {
-                font-size: 2.5rem; /* Adjust font size for smaller screens */
-            }
+    nav.active {
+        display: flex; /* Show the nav when active */
+    }
 
-            .hero p {
-                font-size: 1rem; /* Adjust font size for smaller screens */
-            }
-        }
+    .hamburger {
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
+    }
+
+    .nav-links {
+        width: 100%; /* Full width for nav links */
+    }
+
+    .nav-links li {
+        margin: 10px 0; /* Spacing between nav items */
+    }
+}
+
+/* Hide the hamburger icon on larger screens */
+@media screen and (min-width: 769px) {
+    .hamburger {
+        display: none;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -255,6 +279,7 @@
             <div class="logo">
                 <img src="images/logo (2).png" alt="Logo">
             </div>
+             <div class="hamburger" onclick="toggleNav()">☰</div> <!-- Hamburger Icon -->
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
