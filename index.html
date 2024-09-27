@@ -11,51 +11,47 @@
             padding: 0;
             background-color: #f5f5f5;
             transition: background-color 0.3s ease;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
 
         header {
-            background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
-            color: black; /* Change text color to black for visibility */
+            background-color: rgba(255, 255, 255, 0.10);
+            color: black;
             width: 100%;
             position: fixed;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+            backdrop-filter: blur(50px);
         }
 
         nav {
-            display: flex; /* Use flexbox for navigation */
-            justify-content: space-between; /* Space out items */
-            align-items: center; /* Center items vertically */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px; /* Add padding for better spacing */
         }
 
         .logo img {
-            height: 60px; /* Adjusted logo size for better visibility */
+            height: 60px;
         }
 
         .nav-links {
-            display: flex; /* Always show links in a row */
+            display: flex;
             gap: 1rem;
         }
 
-        .nav-links li {
-            display: inline;
-        }
-
         .nav-links a {
-            color: black; /* Change link color to black */
+            color: black;
             text-decoration: none;
-            padding: 1rem 1rem;
+            padding: 10px 15px; /* Add padding to links */
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .nav-links a:hover {
-            background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+            background-color: rgba(0, 123, 255, 0.6);
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
         }
 
         .hero {
@@ -75,12 +71,10 @@
 
         .hero h1 {
             font-size: 3rem;
-            color: #fff;
         }
 
         .hero p {
             font-size: 1.25rem;
-            color: #ddd;
         }
 
         .hero button {
@@ -110,9 +104,9 @@
         }
 
         .feature {
-            width: 30%; /* Keep feature boxes the same size */
+            width: 30%; /* Ensure features align in a row */
             margin: 1rem;
-            display: inline-block; /* Ensure features align in a row */
+            display: inline-block;
         }
 
         .feature img {
@@ -142,7 +136,7 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
-            display: inline-block; /* Ensure testimonials align in a row */
+            display: inline-block;
         }
 
         .testimonial:hover {
@@ -179,7 +173,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             transition: transform 0.3s ease;
-            display: inline-block; /* Ensure questions align in a row */
+            display: inline-block;
         }
 
         .question:hover {
@@ -232,6 +226,22 @@
             }
             to {
                 opacity: 1;
+            }
+        }
+
+        /* Additional CSS for mobile responsiveness */
+        @media (max-width: 768px) {
+            .feature, .testimonial, .question {
+                width: 100%; /* Make features, testimonials, and questions full width on mobile */
+                margin: 0.5rem 0; /* Adjust margin for better spacing */
+            }
+
+            .hero h1 {
+                font-size: 2.5rem; /* Adjust font size for smaller screens */
+            }
+
+            .hero p {
+                font-size: 1rem; /* Adjust font size for smaller screens */
             }
         }
     </style>
@@ -330,5 +340,3 @@
     </div>
 </body>
 </html>
-
-
