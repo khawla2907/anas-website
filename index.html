@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Writing Service</title>
     <style>
-        body {
+     body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
@@ -15,30 +15,31 @@
         }
 
         header {
-    background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
-    color: black; /* Change text color to black for visibility */
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
-}
+            background-color: rgba(255, 255, 255, 0.10);
+            color: black;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px);
+        }
 
 
-        nav {
+         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1rem;
+            padding: 1rem;
             max-width: 1500px;
             margin: auto;
         }
 
         .logo img {
-            height: 60px; /* Adjusted logo size for better visibility */
+            height: 60px;
         }
 
+       
         .nav-links {
             list-style: none;
             display: flex;
@@ -275,26 +276,42 @@
 
 /* For mobile view */
 @media (max-width: 768px) {
+
+
     .nav-links {
-        display: none; /* Hide the nav links */
-        flex-direction: column;
-        width: 100%;
-        background-color: rgba(255, 255, 255, 0.9); /* Background for mobile menu */
-        position: absolute;
-        top: 60px; /* Adjust depending on header height */
-        left: 0;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+                flex-direction: column;
+                position: absolute;
+                top: 80px;
+                right: 0;
+                width: 100%;
+                background-color: rgba(255, 255, 255, 0.9);
+                max-height: 0; /* Hide by default */
+                overflow: hidden;
+            }
 
-    .nav-links a {
-        padding: 1rem;
-        text-align: center;
-        width: 100%;
-    }
+            .nav-links.show {
+                max-height: 300px; /* Adjust to fit the number of menu items */
+            }
 
-    .hamburger {
-        display: block; /* Show hamburger icon in mobile view */
-    }
+            .nav-links a {
+                padding: 1rem;
+                text-align: center;
+                width: 100%;
+                display: block;
+            }
+
+            .hamburger {
+                display: flex; /* Show hamburger icon */
+            }
+
+            .logo {
+                flex-grow: 1;
+            }
+        }
+  
+    
+
+   
 
     .nav-links.active {
         display: flex; /* Show links when active */
@@ -344,20 +361,31 @@
 <body>
     <header>
         <nav>
-    <div class="logo">
-        <img src="images/logo (2).png" alt="Company Logo">
-    </div>
-    <div class="hamburger" onclick="toggleNav()">&#9776;</div> <!-- Hamburger Icon -->
-    <ul class="nav-links">
-        <li><a href="home.html">Home</a></li>
-        <li><a href="About us.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="Sample.html">Samples</a></li>
-        <li><a href="pricing.html">Pricing</a></li>
-        <li><a href="order.html">Order</a></li>
-    </ul>
-</nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
     </header>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
 
     <main>
         <section class="hero" id="home">
