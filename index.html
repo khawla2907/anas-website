@@ -315,6 +315,7 @@
             <div class="logo">
                 <img src="images/logo (2).png" alt="Company Logo">
             </div>
+            <button class="menu-toggle">&#9776;</button>
             <ul class="nav-links">
                 <li><a href="home.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
@@ -428,6 +429,9 @@
         document.getElementById('newsletter-form').addEventListener('submit', function (e) {
             e.preventDefault();
             alert('Thank you for subscribing!');
+            document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('show');
+});
         });
     </script>
 </body>
