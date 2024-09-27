@@ -14,16 +14,15 @@
         }
 
         header {
-    background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
-    color: black; /* Change text color to black for visibility */
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
-}
-
+            background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
+            color: black; /* Change text color to black for visibility */
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+        }
 
         nav {
             display: flex;
@@ -32,6 +31,7 @@
             padding: 1rem 1rem;
             max-width: 1500px;
             margin: auto;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
         }
 
         .logo img {
@@ -44,6 +44,7 @@
             gap: 1rem;
             align-items: center;
             margin: 0;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
         }
 
         .nav-links li {
@@ -51,19 +52,18 @@
         }
 
         .nav-links a {
-    color: black; /* Change link color to black */
-    text-decoration: none;
-    padding: 1rem 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
-}
+            color: black; /* Change link color to black */
+            text-decoration: none;
+            padding: 1rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+        }
 
-
-.nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
-}
+        .nav-links a:hover {
+            background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+        }
 
         .hero {
             height: 100vh;
@@ -121,7 +121,7 @@
             width: 30%;
             margin: 1rem;
             text-align: center;
-            background-color:whitesmoke;
+            background-color: whitesmoke;
         }
 
         .feature img {
@@ -218,21 +218,6 @@
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
             transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -247,6 +232,7 @@
             width: 100px;
             height: 100px;
         }
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -259,6 +245,7 @@
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
+                align-items: flex-start; /* Align items to the start on smaller screens */
             }
 
             .nav-links {
@@ -334,95 +321,62 @@
             <div class="feature">
                 <img src="images/TQ.png" alt="Top Quality">
                 <h3>Top Quality</h3>
+                <p>We provide high-quality content tailored to your requirements.</p>
             </div>
             <div class="feature">
-                <img src="images/plag-removebg-preview.png" alt="Plagiarism Free">
-                <h3>Plagiarism Free</h3>
+                <img src="images/TQ.png" alt="On-Time Delivery">
+                <h3>On-Time Delivery</h3>
+                <p>We respect deadlines and ensure timely delivery of your work.</p>
             </div>
             <div class="feature">
-                <img src="images/s.jpeg" alt="Quality Work">
-                <h3>Quality Work</h3>
-            </div>
-            <div class="feature">
-                <img src="images/TD-removebg-preview.png" alt="Timely Delivery">
-                <h3>Timely Delivery</h3>
-            </div>
-            <div class="feature">
-                <img src="images/24.png" alt="24 Hour Support">
-                <h3>24 Hour Support</h3>
-            </div>
-            <div class="feature">
-                <img src="images/EXP-removebg-preview.png" alt="Expert Writers">
-                <h3>Expert Writers</h3>
+                <img src="images/TQ.png" alt="24/7 Support">
+                <h3>24/7 Support</h3>
+                <p>Our customer support is available around the clock to assist you.</p>
             </div>
         </section>
 
-        <section class="testimonials">
+        <section class="testimonials" id="testimonials">
             <h2>What Our Clients Say</h2>
             <div class="testimonial">
-                <p>"The service was exceptional! My essay was well-written and delivered on time. Highly recommend!"</p>
-                <span>- Jane Doe</span>
+                <p>"Excellent service! The writing was top-notch and delivered ahead of schedule."</p>
+                <span>- Client A</span>
             </div>
             <div class="testimonial">
-                <p>"Professional and reliable. I received a high-quality paper with zero plagiarism."</p>
-                <span>- John Smith</span>
+                <p>"The team was very responsive and helpful throughout the process."</p>
+                <span>- Client B</span>
             </div>
             <div class="testimonial">
-                <p>"Excellent customer service and top-notch writing skills. I will definitely use this service again."</p>
-                <span>- Emily Johnson</span>
+                <p>"I highly recommend their services for anyone in need of quality writing."</p>
+                <span>- Client C</span>
             </div>
         </section>
 
-        <section class="faq">
+        <section class="faq" id="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="question">
-                <h3>What services do you offer?</h3>
-                <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
+                <h3>How does the ordering process work?</h3>
+                <p>You can place an order through our website by filling out the order form.</p>
             </div>
             <div class="question">
-                <h3>How can I place an order?</h3>
-                <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
+                <h3>What payment methods do you accept?</h3>
+                <p>We accept various payment methods including credit cards and PayPal.</p>
             </div>
             <div class="question">
-                <h3>Is your service confidential?</h3>
-                <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
+                <h3>Can I request revisions?</h3>
+                <p>Yes, we offer free revisions within a specified timeframe.</p>
             </div>
         </section>
+
+        <a href="https://api.whatsapp.com/send?phone=YOUR_PHONE_NUMBER" target="_blank" class="whatsapp-float">
+            <img src="images/whatsapp-icon.png" alt="WhatsApp" class="whatsapp-icon">
+        </a>
     </main>
 
-    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
-    </a>
-
     <script>
-        function openPopup(type) {
-            document.getElementById(`${type}-popup`).style.display = 'flex';
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active'); // Toggle the 'active' class
         }
-
-        function closePopup(type) {
-            document.getElementById(`${type}-popup`).style.display = 'none';
-        }
-
-        // Optional: Close popup when clicking outside of it
-        window.onclick = function(event) {
-            const loginPopup = document.getElementById('login-popup');
-            const signupPopup = document.getElementById('signup-popup');
-            if (event.target === loginPopup) {
-                closePopup('login');
-            }
-            if (event.target === signupPopup) {
-                closePopup('signup');
-            }
-        }
-        document.querySelector('.learn-more-button').addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
-        });
-
-        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
-            e.preventDefault();
-            alert('Thank you for subscribing!');
-        });
     </script>
 </body>
 </html>
