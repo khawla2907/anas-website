@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing Service</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+    background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
+    color: black; /* Change text color to black for visibility */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+}
+
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .logo img {
+            height: 60px; /* Adjusted logo size for better visibility */
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+    color: black; /* Change link color to black */
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+}
+
+
+.nav-links a:hover {
+    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+}
+
+        .hero {
+            height: 100vh;
+            background: url('images/Artboard.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content {
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #ddd;
+        }
+
+        .hero button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .features {
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 1rem;
+            text-align: center;
+            background-color:whitesmoke;
+        }
+
+        .feature img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .feature h3 {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+        .testimonials {
+            padding: 3rem 1rem;
+            background-color: #e0e0e0;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial {
+            padding: 1.5rem;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        .faq {
+            padding: 3rem 1rem;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .question:hover {
+            transform: translateY(-5px);
+        }
+
+        .question h3 {
+            font-size: 1.25rem;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .question p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .features h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature {
+                width: 100%;
+                margin: 1rem 0;
+            }
+
+            .testimonials h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq h2 {
+                font-size: 1.5rem;
+            }
+
+            .question h3 {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Welcome to Our Writing Service</h1>
+                <p>Your one-stop solution for all your writing needs</p>
+                <button class="learn-more-button">Learn More</button>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <h2>Why Choose Us?</h2>
+            <div class="feature">
+                <img src="images/TQ.png" alt="Top Quality">
+                <h3>Top Quality</h3>
+            </div>
+            <div class="feature">
+                <img src="images/plag-removebg-preview.png" alt="Plagiarism Free">
+                <h3>Plagiarism Free</h3>
+            </div>
+            <div class="feature">
+                <img src="images/s.jpeg" alt="Quality Work">
+                <h3>Quality Work</h3>
+            </div>
+            <div class="feature">
+                <img src="images/TD-removebg-preview.png" alt="Timely Delivery">
+                <h3>Timely Delivery</h3>
+            </div>
+            <div class="feature">
+                <img src="images/24.png" alt="24 Hour Support">
+                <h3>24 Hour Support</h3>
+            </div>
+            <div class="feature">
+                <img src="images/EXP-removebg-preview.png" alt="Expert Writers">
+                <h3>Expert Writers</h3>
+            </div>
+        </section>
+
+        <section class="testimonials">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial">
+                <p>"The service was exceptional! My essay was well-written and delivered on time. Highly recommend!"</p>
+                <span>- Jane Doe</span>
+            </div>
+            <div class="testimonial">
+                <p>"Professional and reliable. I received a high-quality paper with zero plagiarism."</p>
+                <span>- John Smith</span>
+            </div>
+            <div class="testimonial">
+                <p>"Excellent customer service and top-notch writing skills. I will definitely use this service again."</p>
+                <span>- Emily Johnson</span>
+            </div>
+        </section>
+
+        <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="question">
+                <h3>What services do you offer?</h3>
+                <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
+            </div>
+            <div class="question">
+                <h3>How can I place an order?</h3>
+                <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
+            </div>
+            <div class="question">
+                <h3>Is your service confidential?</h3>
+                <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
+
+    <script>
+        function openPopup(type) {
+            document.getElementById(`${type}-popup`).style.display = 'flex';
+        }
+
+        function closePopup(type) {
+            document.getElementById(`${type}-popup`).style.display = 'none';
+        }
+
+        // Optional: Close popup when clicking outside of it
+        window.onclick = function(event) {
+            const loginPopup = document.getElementById('login-popup');
+            const signupPopup = document.getElementById('signup-popup');
+            if (event.target === loginPopup) {
+                closePopup('login');
+            }
+            if (event.target === signupPopup) {
+                closePopup('signup');
+            }
+        }
+        document.querySelector('.learn-more-button').addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+        });
+    </script>
+</body>
+</html>

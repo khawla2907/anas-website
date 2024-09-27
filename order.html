@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placement - The Inscribe Co.</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+    
+        header {
+            background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
+            color: black; /* Change text color to black for visibility */
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .nav-links a {
+            color: black; /* Change link color to black */
+            text-decoration: none;
+            padding: 1rem 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .hero {
+            height: 60vh;
+            background: url('images/bg.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 0;
+        }
+
+        .hero-content {
+            animation: fadeIn 2s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #ddd;
+        }
+
+        .form-section {
+            padding: 4rem 1rem;
+            background-color: black; /* Change background to black */
+            text-align: center;
+            width: 100%;
+            color: white; /* Text color for contrast */
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: auto;
+            background: white; /* White background for the forms */
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #333; /* Dark text color for visibility */
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left; /* Align labels to the left */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .order-button {
+            background-color: #380707; /* Button color */
+            color: white;
+            border: none;
+            padding: 1rem 2rem; /* Increased padding for larger buttons */
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none; /* Prevent underline */
+            font-weight: bold;
+            font-size: 1rem; /* Increased font size for buttons */
+            margin-top: 1rem;
+        }
+
+        .order-button:hover {
+            background-color: #555;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="samples.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Place Your Order</h1>
+                <p>Fill out the forms below to place your order with us.</p>
+            </div>
+        </section>
+
+        <!-- Client Details Form -->
+        <section class="form-section" id="client-details-section">
+            <h2>Client Details</h2>
+            <div class="form-container">
+                <form id="client-details-form">
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Phone Number:</label>
+                        <input type="tel" id="number" name="number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <button type="button" class="order-button" onclick="showOrderDetails()">Next</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Order Details Form -->
+        <section class="form-section" id="order-details-section" style="display:none;">
+            <h2>Order Details</h2>
+            <div class="form-container">
+               
+                <form id="order-details-form">
+                    <div class="form-group">
+                        <label for="service">Select Service:</label>
+                        <select id="service" name="service" required>
+                            <option value="Assignments">Assignments</option>
+                            <option value="PowerPoint">PowerPoint</option>
+                            <option value="Projects">Projects</option>
+                            <option value="Dissertation">Dissertation</option>
+                            <option value="Essays">Essays Writing Services</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="academic-level">Select Academic Level:</label>
+                        <input type="text" id="academic-level" name="academic-level" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject-area">Select Subject Area:</label>
+                        <input type="text" id="subject-area" name="subject-area" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject-title">Subject Title:</label>
+                        <input type="text" id="subject-title" name="subject-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="referencing">Referencing:</label>
+                        <input type="text" id="referencing" name="referencing" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="deadline">Select Deadline:</label>
+                        <input type="date" id="deadline" name="deadline" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="words">Enter Number of Words:</label>
+                        <input type="number" id="words" name="words" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="file1">Upload Additional File 1:</label>
+                        <input type="file" id="file1" name="file1">
+                    </div>
+                    <div class="form-group">
+                        <label for="file2">Upload Additional File 2:</label>
+                        <input type="file" id="file2" name="file2">
+                    </div>
+                    <button type="button" class="order-button" onclick="showClientDetails()">Back</button>
+                    <button type="submit" class="order-button">Submit Order</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+
+    <script>
+        function showOrderDetails() {
+            // Hide the client details section completely
+            document.getElementById('client-details-section').style.display = 'none';
+            // Show the order details section
+            document.getElementById('order-details-section').style.display = 'block';
+        }
+
+        function showClientDetails() {
+            // Show the client details section
+            document.getElementById('client-details-section').style.display = 'block';
+            // Hide the order details section
+            document.getElementById('order-details-section').style.display = 'none';
+        }
+    </script>
+</body>
+</html>

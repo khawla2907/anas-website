@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samples - Academic Writing Service</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            transition: background-color 0.3s ease;
+            line-height: 1.6;
+        }
+
+        header {
+    background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
+    color: black; /* Change text color to black for visibility */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+}
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1rem;
+            max-width: 1500px;
+            margin: auto;
+        }
+
+        .nav-links a {
+    color: black; /* Change link color to black */
+    text-decoration: none;
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+}
+
+.nav-links a:hover {
+    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+}
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            margin: 0;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        
+
+        .samples-hero {
+            height: 60vh;
+            background: url('images/bg.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 0;
+        }
+
+        .samples-hero-content {
+            animation: fadeIn 2s ease-out;
+        }
+
+        .samples-hero h1 {
+            font-size: 3rem;
+            color: #fff;
+        }
+
+        .samples-hero p {
+            font-size: 1.25rem;
+            color: #ddd;
+        }
+
+        .samples-container {
+            padding: 4rem 1rem;
+            background-color: black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .sample {
+            background-color: #f9f9f9;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .sample h3 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .sample p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .sample button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sample button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .sample-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            z-index: 1000;
+        }
+
+        .sample-overlay-content {
+            background-color: #333;
+            padding: 2rem;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .sample-overlay-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .sample-overlay-content p {
+            font-size: 1rem;
+            color: #ccc;
+            text-align: left;
+            margin-bottom: 1.5rem;
+        }
+
+        .sample-overlay button {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            color: white;
+            background-color: #555;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .sample-overlay button:hover {
+            background-color: #777;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .nav-links a {
+                padding: 1rem 0;
+                width: 100%;
+                text-align: center;
+            }
+
+            .samples-hero h1 {
+                font-size: 2rem;
+            }
+
+            .samples-hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="samples-hero">
+            <div class="samples-hero-content">
+                <h1>Sample Papers</h1>
+                <p>Explore our range of academic writing samples and see the quality of our work.</p>
+            </div>
+        </section>
+
+        <section class="samples-container" id="samples">
+            <div class="sample">
+                <h3>The Role of Technology in Modern Education</h3>
+                <p>This research paper examines the transformative role of technology in modern education. By integrating digital tools and resources, educators can enhance learning experiences and outcomes for students. The study analyzes various technological advancements such as online learning platforms, interactive software, and virtual classrooms....</p>
+                <button onclick="showOverlay('Sample Paper 1', 'This is the full text of Sample Paper 1. It includes detailed information on the topic, methodology, findings, and conclusions.')">Read More</button>
+            </div>
+            <div class="sample">
+                <h3>Urban Green Spaces and Public Health</h3>
+                <p>This paper investigates the relationship between urban green spaces and public health. Through a comprehensive review of existing literature and case studies from multiple cities, the study explores how access to parks, gardens, and natural areas can influence physical and mental well-being. The research highlights the various health benefits,....</p>
+                <button onclick="showOverlay('Sample Paper 2', 'This is the full text of Sample Paper 2. It includes detailed information on the topic, methodology, findings, and conclusions.')">Read More</button>
+            </div>
+            <div class="sample">
+                <h3>Advances in Renewable Energy Technologies</h3>
+                <p>This paper explores recent advances in renewable energy technologies and their potential to address global energy challenges. It focuses on key innovations in solar, wind, and bioenergy, analyzing their efficiency, scalability, and environmental impact. The study reviews technological breakthroughs, such as high-efficiency solar panels, offshore wind farms,.....</p>
+                <button onclick="showOverlay('Sample Paper 3', 'This is the full text of Sample Paper 3. It includes detailed information on the topic, methodology, findings, and conclusions.')">Read More</button>
+            </div>
+            <div class="sample">
+                <h3>The Impact of Social Media on Consumer Behavior</h3>
+                <p>This research paper delves into the impact of social media on consumer behavior. By analyzing data from surveys and social media analytics, the study examines how platforms like Facebook, Instagram, and Twitter influence purchasing decisions and brand loyalty. It identifies key factors such as social proof, influencer marketing...</p>
+                <button onclick="showOverlay('Sample Paper 3', 'This is the full text of Sample Paper 3. It includes detailed information on the topic, methodology, findings, and conclusions.')">Read More</button>
+            </div>
+        </section>
+
+        <div class="sample-overlay" id="sampleOverlay">
+            <div class="sample-overlay-content">
+                <h2 id="sampleTitle"></h2>
+                <p id="sampleText"></p>
+                <button onclick="closeOverlay()">Close</button>
+            </div>
+        </div>
+    </main>
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+
+    <script>
+        // Function to show the overlay with full paper text
+        function showOverlay(title, text) {
+            document.getElementById('sampleTitle').innerText = title;
+            document.getElementById('sampleText').innerText = text;
+            document.getElementById('sampleOverlay').style.display = 'flex';
+        }
+
+        // Function to close the overlay
+        function closeOverlay() {
+            document.getElementById('sampleOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
