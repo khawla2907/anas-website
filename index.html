@@ -463,15 +463,19 @@ nav {
             e.preventDefault();
             alert('Thank you for subscribing!');
             document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('show');
+    document.querySelector('.nav-links').classList.toggle('show');  });
            
-    document.getElementById('hamburger').addEventListener('click', function() {
-        var navLinks = document.getElementById('nav-links');
-        navLinks.classList.toggle('active');
-
-
+document.getElementById('hamburger').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show'); // Toggle the dropdown menu
 });
-        });
+
+function scrollToFeatures() {
+    document.querySelector('#features').scrollIntoView({ behavior: 'smooth' });
+}
+
+
+       
     </script>
 </body>
 </html>
