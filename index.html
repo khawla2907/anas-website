@@ -57,7 +57,12 @@
             box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
         }
 
-     
+     .hero {
+    background-image: url('your-image-path.jpg'); /* Use your hero image path */
+    background-size: cover; /* Ensure the image covers the area */
+    background-position: center; /* Center the image */
+    height: 400px; /* Adjust as necessary for laptops */
+}
         .hero-content {
             animation: fadeIn 2s ease-out;
         }
@@ -224,12 +229,6 @@
 
         /* Additional CSS for mobile responsiveness */
         /* Update mobile width and navigation styles */
-.hero {
-    background-image: url('your-image-path.jpg'); /* Use your hero image path */
-    background-size: cover; /* Ensure the image covers the area */
-    background-position: center; /* Center the image */
-    height: 400px; /* Adjust as necessary for laptops */
-}
 
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
@@ -283,7 +282,7 @@
             </div>
              <div class="hamburger" onclick="toggleNav()">☰</div> <!-- Hamburger Icon -->
             <ul class="nav-links">
-                <li><a href="home.html">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="Sample.html">Samples</a></li>
