@@ -198,6 +198,22 @@
             width: 100px;
             height: 100px;
         }
+
+
+        .hamburger-menu {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger-menu span {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    border-radius: 5px;
+}
+
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -212,10 +228,26 @@
                 flex-direction: column;
             }
 
-            .nav-links {
-                flex-direction: column;
-                gap: 0;
-            }
+             .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        right: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+    }
+}
+
 
             .nav-links a {
                 padding: 1rem 0;
@@ -282,6 +314,9 @@
             <div class="logo">
                 <img src="images/logo (2).png" alt="Company Logo">
             </div>
+             <div class="hamburger" id="hamburger">
+            &#9776; <!-- Hamburger icon -->
+        </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
@@ -335,5 +370,13 @@
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
+    <script>
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburgerMenu.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+</script>
 </body>
 </html>
