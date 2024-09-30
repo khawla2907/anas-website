@@ -6,47 +6,51 @@
     <title>Order Placement - The Inscribe Co.</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <style>
+        * {
+            box-sizing: border-box; /* Include padding and border in width/height */
+        }
+
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
             line-height: 1.6;
-            overflow-x: hidden;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
         }
-    
+
         header {
-            background-color: rgba(255, 255, 255, 0.10); /* Translucent white */
-            color: black; /* Change text color to black for visibility */
+            background-color: rgba(255, 255, 255, 0.10);
+            color: black;
             width: 100%;
             position: fixed;
             top: 0;
             z-index: 1000;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(50px); /* Optional: adds a blur effect to the background */
+            backdrop-filter: blur(50px);
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1rem;
+            padding: 1rem;
             max-width: 1500px;
             margin: auto;
         }
 
         .nav-links a {
-            color: black; /* Change link color to black */
+            color: black;
             text-decoration: none;
-            padding: 1rem 1rem;
+            padding: 1rem;
             border-radius: 5px;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .nav-links a:hover {
-            background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+            background-color: rgba(0, 123, 255, 0.6);
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
         }
 
         .logo img {
@@ -90,25 +94,25 @@
 
         .form-section {
             padding: 4rem 1rem;
-            background-color: black; /* Change background to black */
+            background-color: black;
             text-align: center;
             width: 100%;
-            color: white; /* Text color for contrast */
+            color: white;
         }
 
         .form-container {
             max-width: 600px;
             margin: auto;
-            background: white; /* White background for the forms */
+            background: white;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-            color: #333; /* Dark text color for visibility */
+            color: #333;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
-            text-align: left; /* Align labels to the left */
+            text-align: left;
         }
 
         .form-group label {
@@ -120,46 +124,33 @@
         .form-group input,
         .form-group select,
         .form-group textarea {
-            width: 100%;
+            width: 100%; /* Ensure input fields are responsive */
             padding: 0.75rem;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 1rem;
+            max-width: 100%; /* Prevent input fields from exceeding container */
         }
 
         .order-button {
-            background-color: #380707; /* Button color */
+            background-color: #380707;
             color: white;
             border: none;
-            padding: 1rem 2rem; /* Increased padding for larger buttons */
+            padding: 1rem 2rem;
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            text-decoration: none; /* Prevent underline */
+            text-decoration: none;
             font-weight: bold;
-            font-size: 1rem; /* Increased font size for buttons */
+            font-size: 1rem;
             margin-top: 1rem;
+            width: 100%; /* Full width buttons */
         }
 
         .order-button:hover {
             background-color: #555;
         }
 
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -198,7 +189,8 @@
             }
         }
 
-         @media (max-width: 768px) {
+        /* Responsive Styles */
+        @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2rem;
             }
@@ -212,10 +204,6 @@
                 padding: 1.5rem; /* Less padding */
             }
 
-            .order-button {
-                width: 100%; /* Full width buttons */
-            }
-
             .nav-links {
                 flex-direction: column; /* Stack nav links */
                 padding: 1rem;
@@ -224,6 +212,7 @@
                 background: rgba(255, 255, 255, 0.9); /* Background for the menu */
                 display: none; /* Initially hidden */
                 z-index: 999; /* Ensure it appears above other content */
+                width: 100%; /* Full width for mobile menu */
             }
 
             .nav-links.show {
@@ -265,6 +254,7 @@
             <div class="logo">
                 <img src="images/logo (2).png" alt="Company Logo">
             </div>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
@@ -294,16 +284,20 @@
                         <input type="text" id="country" name="country" required>
                     </div>
                     <div class="form-group">
-                        <label for="name">Name:</label>
+                        <label for="name">Full Name:</label>
                         <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="number">Phone Number:</label>
-                        <input type="tel" id="number" name="number" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email:</label>
                         <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
                     <button type="button" class="order-button" onclick="showOrderDetails()">Next</button>
                 </form>
@@ -314,7 +308,6 @@
         <section class="form-section" id="order-details-section" style="display:none;">
             <h2>Order Details</h2>
             <div class="form-container">
-               
                 <form id="order-details-form">
                     <div class="form-group">
                         <label for="service">Select Service:</label>
@@ -366,30 +359,24 @@
     </main>
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
 
     <script>
         function showOrderDetails() {
-            // Hide the client details section completely
             document.getElementById('client-details-section').style.display = 'none';
-            // Show the order details section
             document.getElementById('order-details-section').style.display = 'block';
         }
 
         function showClientDetails() {
-            // Show the client details section
             document.getElementById('client-details-section').style.display = 'block';
-            // Hide the order details section
             document.getElementById('order-details-section').style.display = 'none';
-
-            <script>
-    
+        }
 
         function toggleMenu() {
             const navLinks = document.querySelector('.nav-links');
             navLinks.classList.toggle('show');
         }
     </script>
-        }
-    </script>
 </body>
 </html>
+
