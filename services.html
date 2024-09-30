@@ -308,6 +308,16 @@
         width: calc(50% - 2rem); /* Two in a row on tablets */
     }
 
+             .nav-links {
+        padding: 0; /* Remove any padding that may cause overflow */
+        margin: 0; /* Remove any margin that may cause overflow */
+    }
+
+                .service {
+        width: 100%; /* Full width on mobile */
+        min-width: 0; /* Prevent minimum width issues */
+    }
+}
     .nav-links {
         display: none; /* Hide nav links by default on mobile */
         flex-direction: column; /* Stack links vertically */
@@ -431,6 +441,7 @@ nav {
        
 
     <main>
+        <br><br>
         <section class="services-hero">
             <div class="services-hero-content">
                 <h1>Our Services</h1>
