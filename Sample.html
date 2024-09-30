@@ -44,46 +44,92 @@
   
         
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1rem;
-            max-width: 1500px;
-            margin: auto;
+        .top-bar {
+        background-color: lightgrey;
+        color: black;
+        padding: 10px 0;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
+    }
+
+    .phone-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+
+    .top-bar a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .top-bar a:hover {
+        text-decoration: underline;
+    }
+
+    header {
+        margin-top: 40px; /* Adjusts the header position below the top bar */
+    }
+
+     .hamburger {
+            display: none; /* Show by default */
         }
 
-        .nav-links a {
-    color: black; /* Change link color to black */
+ nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        max-width: 1400px;
+        margin: auto;
+    }
+
+    .logo img {
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid rgba(0, 123, 255, 0.6);
+        padding: 5px;
+        background-color: rgba(245, 245, 245, 0.863);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }   
+
+
+.nav-links {
+    display: flex; /* Display nav links in desktop view */
+}
+        
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: black; 
     text-decoration: none;
-    padding: 1rem 1rem;
+    padding: 1rem;
     border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add box-shadow transition */
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.6); /* Slightly translucent blue */
+    background-color: rgba(0, 123, 255, 0.6);
     transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.8); /* Glowing effect */
 }
 
-        .logo img {
-            height: 40px;
-        }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            margin: 0;
-        }
 
-        .nav-links li {
-            display: inline;
-        }
 
-        
+
+
+
+
 
         .samples-hero {
             height: 60vh;
@@ -291,21 +337,30 @@
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
-            </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Sample.html">Samples</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="order.html">Order</a></li>
-            </ul>
-        </nav>
-    </header>
+    
+<div class="top-bar">
+        <img src="images/call.png" alt="Phone Icon" class="phone-icon"> <!-- Replace with an actual icon -->
+        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    </div>
+     <header>
+    <nav>
+        <div class="logo">
+            <img src="images/logo (2).png" alt="Company Logo">
+        </div>
+        <div class="hamburger" id="hamburger">
+            &#9776; <!-- Hamburger icon -->
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="About us.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="Sample.html">Samples</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="order.html">Order</a></li>
+        </ul>
+    </nav>
+</header>
+       
 
     <main>
         <section class="samples-hero">
