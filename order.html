@@ -488,9 +488,20 @@ nav {
             document.getElementById('order-details-section').style.display = 'none';
         }
 
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            navLinks.classList.toggle('show');
+      
+
+              // Toggle the hamburger menu
+    document.getElementById('hamburger').addEventListener('click', function () {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show'); // Toggle the dropdown menu
+    });
+
+    // Smooth scrolling for the Learn More button
+    document.getElementById('learnMoreButton').addEventListener('click', function () {
+        const featuresSection = document.getElementById('features');
+        featuresSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
         }
     </script>
 </body>
