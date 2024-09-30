@@ -429,7 +429,49 @@
             to {
                 opacity: 1;
             }
+
+            
         }
+
+        /* Sliding effect for the pricing cards */
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Hide pricing cards by default before the animation starts */
+.pricing-card {
+    opacity: 0;
+    transform: translateX(100%); /* Default state (out of view to the right) */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Animation trigger class for left and right cards */
+.pricing-card.slide-in-left {
+    animation: slideInLeft 0.5s forwards;
+}
+
+.pricing-card.slide-in-right {
+    animation: slideInRight 0.5s forwards;
+}
+
 
         @media (max-width: 768px) {
 
@@ -595,7 +637,7 @@
     </div>
 </section>
 
-    <section class="pricing" id="pricing">
+  <section class="pricing" id="pricing">
     <h2>Pricing</h2>
     <div class="pricing-container">
         <div class="pricing-card">
@@ -620,7 +662,6 @@
         </div>
     </div>
 </section>
-
 
 
      <section class="features" id="features">
@@ -700,6 +741,38 @@
         const featuresSection = document.getElementById('features');
         featuresSection.scrollIntoView({ behavior: 'smooth' });
     });
+
+    function isInViewport(element) {
+        const rect = element.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
+
+    function handleScroll() {
+        const pricingCards = document.querySelectorAll('.pricing-card');
+
+        pricingCards.forEach((card, index) => {
+            if (isInViewport(card)) {
+                if (index % 2 === 0) {
+                    card.classList.add('slide-in-left'); // Left animation for even-indexed cards
+                } else {
+                    card.classList.add('slide-in-right'); // Right animation for odd-indexed cards
+                }
+            }
+        });
+    }
+
+    // Trigger the animation when scrolling
+    window.addEventListener('scroll', handleScroll);
+
+    // Trigger the animation on page load in case the section is already in view
+    window.addEventListener('load', handleScroll);
+
+    
 </script>
 </body>
 </html>
