@@ -290,6 +290,21 @@
     font-size: 1rem;
     color: #666; /* Dark grey for text */
 }
+        .download-link {
+    display: inline-block; /* Allows padding and margin */
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #007BFF; /* Button color */
+    color: white; /* Text color */
+    border-radius: 5px;
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-link:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
 
         .whatsapp-float {
             position: fixed;
@@ -494,16 +509,19 @@
          
             <h3>Sample Title 1</h3>
             <p>Brief description of Sample 1.</p>
+             <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
         </div>
         <div class="sample">
             
             <h3>Sample Title 2</h3>
             <p>Brief description of Sample 2.</p>
+             <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
         </div>
         <div class="sample">
            
             <h3>Sample Title 3</h3>
             <p>Brief description of Sample 3.</p>
+             <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
         </div>
         <!-- Add more samples as needed -->
     </div>
