@@ -305,6 +305,66 @@
     background-color: #0056b3; /* Darker shade on hover */
     transform: scale(1.05); /* Slightly enlarge on hover */
 }
+        .pricing {
+    padding: 3rem 1rem;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.pricing h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #333;
+}
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.pricing-card {
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 250px;
+}
+
+.pricing-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #007BFF;
+}
+
+.pricing-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.pricing-card ul li {
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    color: #333;
+}
+
+.order-now {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.order-now:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
 
         .whatsapp-float {
             position: fixed;
@@ -524,6 +584,42 @@
              <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
         </div>
         <!-- Add more samples as needed -->
+    </div>
+</section>
+
+    <section class="pricing" id="pricing">
+    <h2>Pricing</h2>
+    <div class="pricing-container">
+        <div class="pricing-card">
+            <h3>Normal Delivery</h3>
+            <ul>
+                <li>Essay Writing (USD): $20 per page</li>
+                <li>Essay Writing (GBP): £15 per page</li>
+                <li>Essay Writing (EUR): €18 per page</li>
+                <li>Proofreading (USD): $10 per page</li>
+                <li>Proofreading (GBP): £8 per page</li>
+                <li>Proofreading (EUR): €9 per page</li>
+                <li>PowerPoint (USD): $15 per slide</li>
+                <li>PowerPoint (GBP): £12 per slide</li>
+                <li>PowerPoint (EUR): €14 per slide</li>
+            </ul>
+            <a href="order.html" class="order-now">Order Now</a>
+        </div>
+        <div class="pricing-card">
+            <h3>Urgent Delivery</h3>
+            <ul>
+                <li>Essay Writing (USD): $40 per page</li>
+                <li>Essay Writing (GBP): £30 per page</li>
+                <li>Essay Writing (EUR): €36 per page</li>
+                <li>Proofreading (USD): $20 per page</li>
+                <li>Proofreading (GBP): £16 per page</li>
+                <li>Proofreading (EUR): €18 per page</li>
+                <li>PowerPoint (USD): $25 per slide</li>
+                <li>PowerPoint (GBP): £20 per slide</li>
+                <li>PowerPoint (EUR): €23 per slide</li>
+            </ul>
+            <a href="order.html" class="order-now">Order Now</a>
+        </div>
     </div>
 </section>
 
