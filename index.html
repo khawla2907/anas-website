@@ -458,11 +458,10 @@
         @media (max-width: 768px) {
 
     
-             .sample {
+            .sample {
         width: calc(50% - 2rem); /* Two in a row on tablets */
     }
 
-        
     .nav-links {
         display: none; /* Hide nav links by default on mobile */
         flex-direction: column; /* Stack links vertically */
@@ -481,7 +480,8 @@
     }
 
     .nav-links a {
-        padding: 50px 50px; /* Increased padding for better spacing */
+        padding: 1rem 2rem; /* Increased padding for bigger buttons */
+        font-size: 1.2rem; /* Larger font size for better readability */
         text-align: center;
         color: #ffffff; /* Light text color for contrast */
         text-decoration: none; /* Remove underline */
@@ -497,74 +497,54 @@
     .nav-links a:last-child {
         border-bottom: none; /* Remove border for the last item */
     }
+
+
+.hamburger {
+    display: block; /* Show hamburger on mobile */
 }
-   
 
+.nav-links.active {
+    display: flex;
+}
 
-    .hamburger {
-        display: block; /* Show hamburger on mobile */
-    }
-    .nav-links.active {
-        display: flex;
-    }
+nav {
+    justify-content: space-between;
+}
 
-   
-   
-
-    nav {
-        justify-content: space-between;
-    }
-
-
-            
-        
-
-            
 .hero h1 {
-        font-size: 2rem; /* Adjusted font size */
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .hero button {
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
-    }
-
-            .features h2 {
-                font-size: 1.5rem;
-            }
-
-            .feature {
-        width: 48%; /* Slightly smaller for two in a row */
-        margin: 1% auto; /* Center align them */
-    }
-
-            .testimonials h2 {
-                font-size: 1.5rem;
-            }
-
-            .faq h2 {
-                font-size: 1.5rem;
-            }
-
-            .question h3 {
-                font-size: 1rem;
-            }}
-
-             @media (max-width: 576px) {
-        .feature {
-            width: 100%; /* Full width on mobile */
-        }
-    }
-        }
-    @media (min-width: 769px) {
-     .hamburger {
-        display: block; /* Show hamburger on mobile */
-    }
+    font-size: 2rem; /* Adjusted font size */
 }
+
+.hero p {
+    font-size: 1rem;
+}
+
+.hero button {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+}
+
+.features h2 {
+    font-size: 1.5rem;
+}
+
+.feature {
+    width: 48%; /* Slightly smaller for two in a row */
+    margin: 1% auto; /* Center align them */
+}
+
+.testimonials h2 {
+    font-size: 1.5rem;
+}
+
+.faq h2 {
+    font-size: 1.5rem;
+}
+
+.question h3 {
+    font-size: 1rem;
+}}
+
     </style>
 </head>
 <body>
