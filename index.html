@@ -459,6 +459,32 @@
 
     @media (max-width: 768px) {
 
+        .navbar-collapse {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 50px; /* Adjust as per your navbar height */
+    right: 0;
+    left: 0;
+    background-color: #fff; /* Background for dropdown */
+    z-index: 1000;
+  }
+
+  .navbar-nav {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar-nav .nav-item {
+    margin: 10px 0;
+    padding: 10px 20px; /* Space for each menu item */
+    text-align: center;
+    border-bottom: 1px solid #ddd; /* Optional: Separator */
+  }
+
+
     .sample {
         width: calc(50% - 2rem); /* Two in a row on tablets */
     }
