@@ -455,7 +455,7 @@
 
 
 
-   @media (max-width: 768px) {
+  @media (max-width: 768px) {
 
     .sample {
         width: calc(50% - 2rem); /* Two in a row on tablets */
@@ -467,11 +467,12 @@
         position: absolute; /* Positioning for dropdown */
         top: 60px; /* Adjust to position under the nav */
         right: 0;
-        background-color: transparent; /* Set transparent background for nav links container */
+        background-color: #34495e; /* Background color for the dropdown */
         width: 100%; /* Full width */
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
         border-radius: 10px; /* More rounded corners */
         z-index: 1000; /* Ensure it appears above other elements */
+        padding: 1rem; /* Padding around the dropdown for better spacing */
     }
 
     .nav-links.show {
@@ -479,9 +480,9 @@
     }
 
     .nav-links a {
-        padding: 5rem; /* Padding for spacing inside each box */
-        margin: 5rem 2; /* Margin to separate each link box */
-        background-color: #34495e; /* Background color for each link box */
+        padding: 1rem 1.5rem; /* Padding for spacing inside each box */
+        margin: 0.5rem 0; /* Margin to separate each link box */
+        background-color: #2980b9; /* Background color for each link box */
         border-radius: 8px; /* Rounded corners for each link box */
         font-size: 1.2rem; /* Larger font size for better readability */
         text-align: center;
@@ -491,14 +492,13 @@
     }
 
     .nav-links a:hover {
-        background-color: #2980b9; /* Attractive hover background */
+        background-color: #3498db; /* Attractive hover background */
         color: #ffffff; /* Maintain text color on hover */
     }
 
     .nav-links a:last-child {
         border-bottom: none; /* Remove border for the last item */
     }
-
 
 .hamburger {
     display: block; /* Show hamburger on mobile */
@@ -544,9 +544,10 @@ nav {
 
 .question h3 {
     font-size: 1rem;
-}}
+}
+  }
 
-    
+
 
 
 
