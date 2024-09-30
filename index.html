@@ -249,6 +249,47 @@
             font-size: 1rem;
             color: #333;
         }
+        .samples {
+    padding: 3rem 1rem;
+    text-align: center;
+    background-color: #f9f9f9; /* Light background color */
+}
+
+.samples h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.sample-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap in smaller screens */
+    justify-content: center; /* Center the samples */
+}
+
+.sample {
+    background-color: white; /* White background for samples */
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    width: calc(33% - 2rem); /* Three in a row with margins */
+}
+
+.sample img {
+    width: 100%; /* Make the image responsive */
+    border-radius: 10px; /* Round the corners of the image */
+}
+
+.sample h3 {
+    font-size: 1.25rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.sample p {
+    font-size: 1rem;
+    color: #666; /* Dark grey for text */
+}
 
         .whatsapp-float {
             position: fixed;
@@ -304,7 +345,11 @@
 
         @media (max-width: 768px) {
 
-             
+             .sample {
+        width: calc(50% - 2rem); /* Two in a row on tablets */
+    }
+
+        
     .nav-links {
         display: none; /* Hide nav links by default on mobile */
         flex-direction: column; /* Stack links vertically */
@@ -428,6 +473,8 @@
     </nav>
 </header>
 
+    
+
 <main>
     <section class="hero" id="home">
         <div class="hero-content">
@@ -435,6 +482,28 @@
             <button id="learnMoreButton" class="learn-more-button">Learn More</button>
         </div>
     </section>
+    <section class="samples" id="samples">
+    <h2>Our Samples</h2>
+    <div class="sample-container">
+        <div class="sample">
+            <img src="images/sample1.jpg" alt="Sample 1">
+            <h3>Sample Title 1</h3>
+            <p>Brief description of Sample 1.</p>
+        </div>
+        <div class="sample">
+            <img src="images/sample2.jpg" alt="Sample 2">
+            <h3>Sample Title 2</h3>
+            <p>Brief description of Sample 2.</p>
+        </div>
+        <div class="sample">
+            <img src="images/sample3.jpg" alt="Sample 3">
+            <h3>Sample Title 3</h3>
+            <p>Brief description of Sample 3.</p>
+        </div>
+        <!-- Add more samples as needed -->
+    </div>
+</section>
+
 
      <section class="features" id="features">
         <h2>Why Choose Us?</h2>
