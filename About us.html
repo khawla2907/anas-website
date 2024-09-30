@@ -458,6 +458,12 @@ nav {
             <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
         </div>
     </footer>
+    <script>
+               document.getElementById('hamburger').addEventListener('click', function () {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show'); // Toggle the dropdown menu
+    });
+    </script>
 </body>
 </html>
 
