@@ -14,30 +14,72 @@
     background-color: #f5f5f5;
 }
 
-header {
-    background-color: rgba(255, 255, 255, 0.5);
-    color: black; 
-    width: 100%;
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(50px);
-}
+   header {
+        background-color: rgba(255, 255, 255, 0.3);
+        color: black; 
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(50px);
+    }
+          .top-bar {
+        background-color: lightgrey;
+        color: black;
+        padding: 10px 0;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
+    }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    max-width: 1500px;
-    margin: auto;
-}
+    .phone-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
 
-.logo img {
-    height: 60px;
-}
-    
+    .top-bar a {
+        color: black;
+        text-decoration: none;
+    }
+
+    .top-bar a:hover {
+        text-decoration: underline;
+    }
+
+    header {
+        margin-top: 40px; /* Adjusts the header position below the top bar */
+    }
+
+    .hamburger {
+    display: none; /* Hidden by default */
+}  
+
+ nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+        max-width: 1400px;
+        margin: auto;
+    }
+
+    .logo img {
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid rgba(0, 123, 255, 0.6);
+        padding: 5px;
+        background-color: white;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }   
 
 
 .nav-links {
@@ -360,6 +402,10 @@ nav {
     </style>
 </head>
 <body>
+    <div class="top-bar">
+        <img src="images/call.png" alt="Phone Icon" class="phone-icon"> <!-- Replace with an actual icon -->
+        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    </div>
      <header>
     <nav>
         <div class="logo">
