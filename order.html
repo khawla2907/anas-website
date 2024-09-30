@@ -197,6 +197,66 @@
                 opacity: 1;
             }
         }
+
+         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .form-container {
+                width: 90%; /* Full width on smaller screens */
+                padding: 1.5rem; /* Less padding */
+            }
+
+            .order-button {
+                width: 100%; /* Full width buttons */
+            }
+
+            .nav-links {
+                flex-direction: column; /* Stack nav links */
+                padding: 1rem;
+                position: absolute;
+                top: 60px; /* Below the header */
+                background: rgba(255, 255, 255, 0.9); /* Background for the menu */
+                display: none; /* Initially hidden */
+                z-index: 999; /* Ensure it appears above other content */
+            }
+
+            .nav-links.show {
+                display: flex; /* Show on toggle */
+            }
+
+            .hamburger {
+                display: block; /* Show hamburger icon */
+                cursor: pointer;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem; /* Smaller heading on very small screens */
+            }
+
+            .hero p {
+                font-size: 0.875rem; /* Smaller paragraph on very small screens */
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .whatsapp-icon {
+                width: 50px;
+                height: 50px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -320,6 +380,15 @@
             document.getElementById('client-details-section').style.display = 'block';
             // Hide the order details section
             document.getElementById('order-details-section').style.display = 'none';
+
+            <script>
+    
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('show');
+        }
+    </script>
         }
     </script>
 </body>
