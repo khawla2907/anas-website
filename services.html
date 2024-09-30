@@ -550,11 +550,19 @@ nav {
             });
         });
 
+        
+
         // Scroll to section function
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
                 behavior: 'smooth'
             });
+
+                document.getElementById('hamburger').addEventListener('click', function () {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show'); // Toggle the dropdown menu
+    });
+
         }
     </script>
 </body>
