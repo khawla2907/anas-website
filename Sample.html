@@ -464,6 +464,11 @@ nav {
         // Function to close the overlay
         function closeOverlay() {
             document.getElementById('sampleOverlay').style.display = 'none';
+
+                   document.getElementById('hamburger').addEventListener('click', function () {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.classList.toggle('show'); // Toggle the dropdown menu
+    });
         }
     </script>
 </body>
