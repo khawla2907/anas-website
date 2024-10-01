@@ -479,28 +479,24 @@ nav {
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
 
-    <script>
-        function showOrderDetails() {
-            document.getElementById('client-details-section').style.display = 'none';
-            document.getElementById('order-details-section').style.display = 'block';
-        }
+   <script>
+    function showOrderDetails() {
+        document.getElementById('client-details-section').style.display = 'none';
+        document.getElementById('order-details-section').style.display = 'block';
+    }
 
-        function showClientDetails() {
-            document.getElementById('client-details-section').style.display = 'block';
-            document.getElementById('order-details-section').style.display = 'none';
-        }
+    function showClientDetails() {
+        document.getElementById('client-details-section').style.display = 'block';
+        document.getElementById('order-details-section').style.display = 'none';
+    }
 
-      
-
-
-               document.getElementById('hamburger').addEventListener('click', function () {
+    // Event listener for the hamburger menu
+    document.getElementById('hamburger').addEventListener('click', function () {
         const navLinks = document.getElementById('nav-links');
         navLinks.classList.toggle('show'); // Toggle the dropdown menu
     });
+</script>
 
-
-        }
-    </script>
 </body>
 </html>
 
