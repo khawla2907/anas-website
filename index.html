@@ -474,27 +474,28 @@
  
 
     
-      .nav-links {
+      
+.nav-links {
     display: none; /* Initially hidden */
     flex-direction: column; /* Stack links vertically */
     position: absolute; /* Dropdown positioning */
-    top: 100px; /* Adjust to sit below the nav bar with extra space */
+    top: 100px; /* Space below the nav bar */
     right: 0;
     background-color: #34495e; /* Darker background for contrast */
     width: 100%; /* Full width on mobile */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
-    border-radius: 20px; /* Softer rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
+    border-radius: 10px; /* Less rounded corners */
     z-index: 100; /* Appear above other elements */
-    padding: 2rem; /* Increased padding around the dropdown */
+    padding: 1.5rem; /* Adjusted padding for a more compact look */
     transition: all 0.3s ease; /* Smooth open/close */
 }
 
 .nav-links a {
-    padding: 1rem 2rem; /* Increased padding for larger link areas */
-    margin: 1rem 0; /* Increased margin for more space between links */
+    padding: 1rem 1.5rem; /* Adequate padding for link areas */
+    margin: 0.5rem 0; /* Adjusted margin for spacing */
     background-color: #2980b9; /* Background color for links */
-    border-radius: 8px; /* Rounded corners for links */
-    font-size: 2rem; /* Larger font for readability */
+    border-radius: 5px; /* Subtle rounding for links */
+    font-size: 1.5rem; /* Reasonable font size for readability */
     text-align: center;
     color: #ffffff; /* White text */
     text-decoration: none; /* Remove underline */
