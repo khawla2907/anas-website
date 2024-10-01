@@ -504,91 +504,83 @@
                 /* Two in a row on tablets */
             }
 
-            .nav-links {
-                display: none;
-                /* Initially hidden */
-                flex-direction: column;
-                /* Stack links vertically */
-                position: absolute;
-                /* Dropdown positioning */
-                top: 80px;
-                /* Space below the nav bar */
-                right: 0;
-                left: 0;
-                /* Full width */
-                background-color: #2c3e50;
-                /* Dark background for contrast */
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-                /* Softer shadow for depth */
-                border-radius: 8px;
-                /* Less rounded corners */
-                z-index: 100;
-                /* Appear above other elements */
-                padding: 0.5rem;
-                /* Padding around the dropdown */
-                transition: all 0.3s ease;
-                /* Smooth open/close */
+          
+                .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    right: 0;
+    left: 0;
+    background-color: #34495e; /* Softer dark color */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+    border-radius: 12px; /* More rounded corners */
+    z-index: 100;
+    padding: 1rem 1.5rem; /* More padding for breathing space */
+    transition: all 0.4s ease-in-out; /* Smoother, slightly slower animation */
+}
 
-                /* ####### New Code ########## */
-                /* for make list in a container */
-                contain: content;
-                /* ########################### */
-            }
+.nav-links a {
+    padding: 1.25rem 2rem; /* Larger clickable area */
+    margin: 0.75rem 0; /* Spacing between links */
+    background-color: #3498db; /* Brighter color for contrast */
+    border-radius: 8px; /* More rounded buttons */
+    font-size: 1.4rem; /* Slightly larger text */
+    text-align: center;
+    color: #ecf0f1;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
 
-            /* ####### New Code ########## */
-            /* for proper visibilty of list items */
-            .nav-links li {
-                display: flex;
-                contain: content;
-            }
+.nav-links a:hover {
+    background-color: #2980b9; /* Softer hover effect */
+    transform: scale(1.1); /* Larger scale increase */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); /* Stronger hover shadow */
+}
 
-            /* ########################### */
+.nav-links.show {
+    display: flex;
+}
+.hamburger {
+    display: block;
+    position: relative;
+    width: 30px;
+    height: 3px;
+    background-color: #ecf0f1; /* Light icon for dark background */
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #ecf0f1;
+    transition: transform 0.3s ease;
+}
+.hamburger::before {
+    transform: translateY(-8px); /* Top line */
+}
+.hamburger::after {
+    transform: translateY(8px); /* Bottom line */
+}
+.nav-links.show {
+    display: flex;
+    opacity: 0;
+    transform: translateY(-10px); /* Start slightly above */
+    animation: dropdownAnimation 0.4s forwards;
+}
 
-            .nav-links a {
-                padding: 1.5rem;
-                /* Increased padding for larger clickable area */
-                margin: 0.5rem 0;
-                /* Slight margin to separate buttons */
-                background-color: #2980b9;
-                /* Background color for links */
-                border-radius: 5px;
-                /* Subtle rounding for links */
-                font-size: 1.25rem;
-                /* Reasonable font size for readability */
-                text-align: center;
-                color: #ffffff;
-                /* White text */
-                text-decoration: none;
-                /* Remove underline */
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                /* Smooth transitions */
-                width: calc(100% - 1rem);
-                /* Make buttons full width minus margin */
-                box-sizing: border-box;
-                /* Include padding and border in element's total width */
-            }
+@keyframes dropdownAnimation {
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Slide down */
+    }
+}
 
-            /* Hover effects */
-            .nav-links a:hover {
-                background-color: #1f6396;
-                /* Darker hover color */
-                color: #ecf0f1;
-                /* Lighter text on hover */
-                transform: scale(1.05);
-                /* Slightly increase size on hover */
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-                /* Shadow on hover for depth */
-            }
+             
+        
 
-            .nav-links.show {
-                display: flex;
-                /* Show nav links when hamburger is clicked */
-            }
-
-            .hamburger {
-                display: block;
-                /* Show hamburger on mobile */
-            }
 
             .nav-links.active {
                 display: flex;
@@ -793,7 +785,7 @@
     <footer>
         <div class="footer-content">
             <p>Contact Us: <a href="mailto:info@example.com">inscribe@gmail.com</a></p>
-            <p>Since 2011</p>
+          
         </div>
         <div class="footer-bottom">
             <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
