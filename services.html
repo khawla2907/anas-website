@@ -310,42 +310,46 @@
         @media (max-width: 768px) {
 
 
-
-
-.overlay {
-    display: none; /* Hide by default */
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(52, 73, 94, 0.9); /* Darker overlay */
-    z-index: 999; /* Ensure it's above everything */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    flex-direction: column; /* Stack items vertically */
-    transition: opacity 0.3s ease; /* Smooth transition */
-    opacity: 0; /* Initially hidden */
+.nav-links {
+    display: none; /* Hide nav links by default on mobile */
+    flex-direction: column; /* Stack links vertically */
+    position: absolute; /* Positioning for dropdown */
+    top: 60px; /* Position under the nav */
+    right: 0;
+    background-color: #34495e; /* Darker background for contrast */
+    width: 100%; /* Full width */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
+    border-radius: 10px; /* Rounded corners */
+    z-index: 1000; /* Ensure it appears above other elements */
+    padding: 1rem; /* Padding around the dropdown for better spacing */
+    margin-top: 0.5rem; /* Space above the dropdown */
+    opacity: 0; /* Start hidden */
+    visibility: hidden; /* Prevent interaction when hidden */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Smooth transition */
 }
 
-/* Show overlay when active */
-.overlay.active {
-    display: flex; /* Show overlay */
+.nav-links.show {
+    display: flex; /* Show nav links when hamburger is clicked */
     opacity: 1; /* Fade in */
+    visibility: visible; /* Allow interaction */
 }
 
-/* Styles for nav links in the overlay */
-.overlay a {
-    color: #ffffff; /* Light text color */
-    text-decoration: none; /* No underline */
-    font-size: 2rem; /* Larger font size */
-    padding: 1rem; /* Padding around each link */
-    transition: color 0.3s ease; /* Smooth transition for color */
+/* Styles for nav links */
+.nav-links a {
+    padding: 1rem 1.5rem; /* Increased padding for better spacing */
+    margin: 0.5rem 0; /* Space between each link */
+    background-color: #2980b9; /* Background color for each link box */
+    border-radius: 8px; /* Rounded corners for each link box */
+    font-size: 1.2rem; /* Larger font size for better readability */
+    text-align: center;
+    color: #ffffff; /* Light text color for contrast */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
 }
 
-/* Hover effect for links */
-.overlay a:hover {
-    color: #3498db; /* Change color on hover */
+.nav-links a:hover {
+    background-color: #3498db; /* Attractive hover background */
+    color: #ffffff; /* Maintain text color on hover */
 }
 
 /* Hamburger icon styles */
@@ -354,7 +358,6 @@
     cursor: pointer; /* Pointer cursor for better UX */
     font-size: 1.5rem; /* Increase size for better visibility */
 }
-
   
 
 
@@ -555,21 +558,11 @@
             });
         }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const hamburger = document.getElementById('hamburger');
-    const overlay = document.getElementById('overlay');
+ 
 
-    // Event listener for the hamburger menu
-    hamburger.addEventListener('click', function () {
-        overlay.classList.toggle('active'); // Toggle the overlay menu
-    });
-
-    // Close the overlay when a link is clicked
-    overlay.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function() {
-            overlay.classList.remove('active'); // Close overlay
-        });
-    });
+document.getElementById('hamburger').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.toggle('show'); // Toggle the dropdown menu
 });
 
     });
