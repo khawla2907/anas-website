@@ -6,6 +6,11 @@
     <title>Pricing - The Inscribe Co.</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <style>
+
+        * {
+    box-sizing: border-box; /* Add this line */
+}
+        
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -167,12 +172,13 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 2rem;
+             padding: 0 1rem;
         }
 
         .pricing-card {
             background-color: #fff;
     padding: 2rem; /* Adjusted padding */
-    width: calc(100% - 2rem); /* Adjust to fit in mobile */
+    width: 100%;
     max-width: 350px; /* Limit max width for larger screens */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -269,10 +275,7 @@
 
         @media (max-width: 768px) {
 
-            .pricing-container {
-        flex-direction: column; /* Stack cards vertically on mobile */
-        align-items: center; /* Center the cards */
-    }
+       
 
     .nav-links {
         position: fixed; /* Keep the nav links fixed in place */
@@ -335,9 +338,10 @@ nav {
 }
 
             .pricing-container {
-                flex-direction: column;
-                align-items: center;
-            }
+        flex-direction: column; /* Stack cards vertically on mobile */
+        align-items: center; /* Center the cards */
+    }
+       
 
             .pricing-hero h1 {
                 font-size: 2rem;
