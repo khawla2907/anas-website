@@ -472,16 +472,14 @@
         width: calc(50% - 2rem); /* Two in a row on tablets */
     }
  
-
-    .nav-links {
+.nav-links {
     display: none; /* Initially hidden */
     flex-direction: column; /* Stack links vertically */
     position: absolute; /* Dropdown positioning */
-    top: 50px; /* Space below the nav bar */
+    top: 60px; /* Space below the nav bar */
     right: 0;
-    left: 0; /* Ensure full width */
+    left: 0; /* Full width */
     background-color: #2c3e50; /* Dark background for contrast */
-    width: 100%; /* Full width on mobile */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Softer shadow for depth */
     border-radius: 8px; /* Less rounded corners */
     z-index: 100; /* Appear above other elements */
@@ -491,7 +489,7 @@
 
 .nav-links a {
     padding: 1.5rem; /* Increased padding for larger clickable area */
-    margin: 0.5rem 0; /* Adjusted margin for spacing */
+    margin: 0.5rem 0; /* Slight margin to separate buttons */
     background-color: #2980b9; /* Background color for links */
     border-radius: 5px; /* Subtle rounding for links */
     font-size: 1.5rem; /* Reasonable font size for readability */
@@ -499,6 +497,8 @@
     color: #ffffff; /* White text */
     text-decoration: none; /* Remove underline */
     transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+    width: calc(100% - 1rem); /* Make buttons full width minus margin */
+    box-sizing: border-box; /* Include padding and border in element's total width */
 }
 
 /* Hover effects */
@@ -508,7 +508,6 @@
     transform: scale(1.05); /* Slightly increase size on hover */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow on hover for depth */
 }
-
     
 
 
@@ -517,9 +516,7 @@
     }
 
 
-    .nav-links a:last-child {
-        border-bottom: none; /* Remove border for the last item */
-    }
+    
 
 .hamburger {
     display: block; /* Show hamburger on mobile */
