@@ -474,38 +474,31 @@
  
 
     
-      
-
-    .nav-links {
+      .nav-links {
     display: none; /* Initially hidden */
     flex-direction: column; /* Stack links vertically */
     position: absolute; /* Dropdown positioning */
-    top: 50px; /* Adjust to sit below the nav bar */
+    top: 70px; /* Adjust to sit below the nav bar with extra space */
     right: 0;
     background-color: #34495e; /* Darker background for contrast */
     width: 100%; /* Full width on mobile */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* More pronounced shadow */
     border-radius: 20px; /* Softer rounded corners */
     z-index: 100; /* Appear above other elements */
-    padding: 1rem; /* Spacing around the dropdown */
+    padding: 2rem; /* Increased padding around the dropdown */
     transition: all 0.3s ease; /* Smooth open/close */
 }
 
-
-    .nav-links.show {
-        display: flex; /* Show nav links when hamburger is clicked */
-    }
-
-    nav-links a {
-    padding: 1rem 1.5rem; /* Increased padding */
-    margin: 0.5rem 0; /* Adjust spacing between links */
+.nav-links a {
+    padding: 1rem 2rem; /* Increased padding for larger link areas */
+    margin: 1rem 0; /* Increased margin for more space between links */
     background-color: #2980b9; /* Background color for links */
     border-radius: 8px; /* Rounded corners for links */
     font-size: 1.2rem; /* Larger font for readability */
     text-align: center;
     color: #ffffff; /* White text */
     text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transitions */
 }
 
 /* Hover effects */
@@ -513,6 +506,14 @@
     background-color: #1f6396; /* Darker hover color */
     color: #ecf0f1; /* Lighter text on hover */
 }
+
+    
+
+
+    .nav-links.show {
+        display: flex; /* Show nav links when hamburger is clicked */
+    }
+
 
     .nav-links a:last-child {
         border-bottom: none; /* Remove border for the last item */
