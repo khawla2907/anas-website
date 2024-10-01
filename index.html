@@ -24,6 +24,26 @@
             backdrop-filter: blur(50px);
         }
 
+        .sentence {
+            font-size: 2rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+        }
+
+        .changing-words::after {
+            content: '|';
+            animation: blink 0.7s step-end infinite;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
         .top-bar {
             background-color: lightgrey;
             color: black;
@@ -676,6 +696,10 @@
         <section class="hero" id="home">
             <div class="hero-content">
                 <h1>Welcome to The Inscribe.co</h1>
+                 <div class="sentence">
+        Your one stop for  
+          <span class="changing-words"></span>
+              </div>
                 <button id="learnMoreButton" class="learn-more-button">Learn More</button>
             </div>
         </section>
@@ -829,7 +853,45 @@
             const featuresSection = document.getElementById('samples');
             featuresSection.scrollIntoView({ behavior: 'smooth' });
         });
+const words = ["Dissertation", "Essay", "Proofreading", "Powerpoint","Assignment"];
+        let wordIndex = 0;
+        let charIndex = 0;
+        const changingWordsElement = document.querySelector('.changing-words');
+        let currentWord = '';
+        let isDeleting = false;
 
+        function typeWord() {
+            const fullWord = words[wordIndex];
+            
+            // Check if deleting
+            if (isDeleting) {
+                currentWord = fullWord.substring(0, charIndex--); // Remove characters
+            } else {
+                currentWord = fullWord.substring(0, charIndex++); // Add characters
+            }
+
+            // Update the content
+            changingWordsElement.textContent = currentWord;
+
+            // Decide the typing speed
+            let typingSpeed = isDeleting ? 100 : 200; // Faster when deleting, slower when typing
+
+            // If the word is complete, start deleting after a delay
+            if (!isDeleting && charIndex === fullWord.length) {
+                typingSpeed = 1000; // Pause before starting deletion
+                isDeleting = true; // Start deleting next
+            } else if (isDeleting && charIndex === 0) {
+                // Move to the next word once deletion is done
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length; // Loop through words
+                typingSpeed = 500; // Pause before typing the new word
+            }
+
+            setTimeout(typeWord, typingSpeed); // Repeat typing process
+        }
+
+        // Start typing the first word
+        typeWord();
 
 
     </script>
