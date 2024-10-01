@@ -395,6 +395,11 @@
     background-color: #218838;
 }
 
+.navbar-collapse .nav-item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 
         .whatsapp-float {
             position: fixed;
@@ -465,17 +470,19 @@
         width: calc(50% - 2rem); /* Two in a row on tablets */
     }
 
-         .navbar-collapse {
-    width: 100%;
+       .navbar-collapse {
     display: flex;
     flex-direction: column;
-    background-color: #002744;
+    align-items: flex-start;
   }
 
-  .navbar-nav .nav-item {
-    padding: 15px 20px;
+  .navbar-collapse .nav-item {
     margin-bottom: 10px;
-    border-bottom: 1px solid #fff;
+  }
+
+  .navbar-collapse .nav-link {
+    font-size: 18px; /* Larger font size for mobile */
+    padding: 10px 15px;
     text-align: left;
   }
 }
@@ -514,9 +521,7 @@
         color: #ffffff; /* Maintain text color on hover */
     }
 
-    .nav-links a:last-child {
-        border-bottom: none; /* Remove border for the last item */
-    }
+
 
 .hamburger {
     display: block; /* Show hamburger on mobile */
