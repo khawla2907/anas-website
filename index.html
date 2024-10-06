@@ -400,7 +400,7 @@
             font-size: 2.5rem;
             margin-bottom: 2rem;
             color: #007BFF;
-            text-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
+     
             font-weight: 300;
         }
 
@@ -943,15 +943,35 @@
         };
 
 
-          // Smooth scrolling for anchor links (optional)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+          // Function to check if an element is in view
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to animate samples
+        function animateSamples() {
+            const samples = document.querySelectorAll('.sample');
+            samples.forEach((sample, index) => {
+                if (isElementInViewport(sample)) {
+                    sample.classList.add('show');
+                    sample.style.transitionDelay = `${index * 0.1}s`; // Stagger the animation
+                } else {
+                    sample.classList.remove('show'); // Reset if not in view
+                }
             });
-        });
+        }
+
+        // Trigger the animation on scroll and on load
+        window.addEventListener('scroll', animateSamples);
+        window.addEventListener('load', animateSamples);
+        window.addEventListener('resize', animateSamples); // Optional: Check on resize
+        
     </script>
 </body>
 
