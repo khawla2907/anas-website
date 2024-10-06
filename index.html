@@ -904,19 +904,49 @@
     </a>
 
     <script>
-         // Toggle the hamburger menu with animation
-        document.getElementById('hamburger').addEventListener('click', function () {
-    const navLinks = document.getElementById('nav-links');
-    this.classList.toggle('open');
-    navLinks.classList.toggle('show');
-});
+    
+    // Select elements needed for the hamburger menu functionality
+const hamburger = document.getElementById('hamburger');
+const closeMenuButton = document.getElementById('close-menu');
+const navLinks = document.getElementById('nav-links');
 
-document.getElementById('close-menu').addEventListener('click', function () {
-    const navLinks = document.getElementById('nav-links');
+// Function to toggle the menu open/close
+function toggleMenu(event) {
+    event.preventDefault(); // Prevent default behavior (useful for touch events)
+    event.stopPropagation(); // Stop the click from bubbling up
+
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('show');
+    console.log('Menu toggled'); // Debug statement
+}
+
+// Function to close the menu
+function closeMenu(event) {
+    event.preventDefault(); // Prevent default behavior
+    event.stopPropagation(); // Stop the click from bubbling up
+
+    hamburger.classList.remove('open');
     navLinks.classList.remove('show');
-    document.getElementById('hamburger').classList.remove('open');
+    console.log('Menu closed'); // Debug statement
+}
+
+// Add event listeners for both click and touch events for better compatibility
+hamburger.addEventListener('click', toggleMenu);
+hamburger.addEventListener('touchstart', toggleMenu);
+
+closeMenuButton.addEventListener('click', closeMenu);
+closeMenuButton.addEventListener('touchstart', closeMenu);
+
+// Close menu if clicking outside the menu area
+document.addEventListener('click', function (event) {
+    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+        if (navLinks.classList.contains('show')) {
+            closeMenu(event);
+        }
+    }
 });
-         // Smooth scrolling for the Learn More button
+        
+        // Smooth scrolling for the Learn More button
         document.getElementById('learnMoreButton').addEventListener('click', function () {
             const featuresSection = document.getElementById('samples');
             featuresSection.scrollIntoView({ behavior: 'smooth' });
