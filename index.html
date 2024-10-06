@@ -132,75 +132,78 @@
             color: #007bff;
             transform: scale(1.1);
         }
-
         .hero {
-            height: 100vh;
-            background: url('images/bg.png') no-repeat center center/cover;
-            color: darkblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-            position: relative;
-        }
+    height: 100vh;
+    background: url('images/bg.png') no-repeat center center/cover;
+    color: darkblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    position: relative;
+}
 
-        .hero-content {
-            animation: fadeInBox 2s ease-out forwards;
-            background: rgba(0, 0, 0, 0.6);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            opacity: 0;
-        }
+.hero-content {
+    animation: fadeInBox 2s ease-out forwards;
+    padding: 2rem;
+    border-radius: 10px;
+    opacity: 0;
+}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 400;
-            margin-bottom: 1rem;
-        }
+.hero h1 {
+    font-size: 2rem; /* Reduced from 2.5rem */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
 
-        .sentence {
-            font-size: 1.75rem;
-            color: #ffffff;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
+.sentence {
+    font-size: 1.5rem; /* Reduced from 1.75rem */
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    margin-top: 1rem;
+}
 
-        .hero button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 1.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-        }
+.hero button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem; /* Reduced padding */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.875rem; /* Reduced button font size */
+}
 
-        .hero button:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-        }
+.hero button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes fadeInBox {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
 
 
- 
+        
 
+        
+        
+       
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInBox {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
+       
         .marquee {
             background: #007BFF;
             color: white;
