@@ -11,17 +11,32 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-            overflow-x: hidden;
+             overflow-x: hidden;
         }
 
-        .top-bar {
+        header {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px);
+        }
+
+        
+
+    
+
+     .top-bar {
             background-color: lightgrey;
             color: black;
             padding: 10px 0;
             text-align: center;
             font-family: 'Arial', sans-serif;
-            width: 100%;
             position: fixed;
+            width: 100%;
             top: 0;
             z-index: 1100;
             display: flex;
@@ -36,15 +51,17 @@
             margin-right: 10px;
         }
 
-        header {
-            background-color: rgba(255, 255, 255, 0.3);
+        .top-bar a {
             color: black;
-            width: 100%;
-            position: fixed;
-            top: 40px; /* Place header below top-bar */
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(50px);
+            text-decoration: none;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-top: 40px;
         }
 
         .hamburger {
@@ -117,8 +134,7 @@
         }
 
         .hero {
-            height: calc(100vh - 80px); /* Adjust for header and top-bar */
-            margin-top: 80px; /* Offset to prevent overlap with fixed header */
+            height: 100vh;
             background: url('images/Artboard.jpg') no-repeat center center/cover;
             color: darkblue;
             display: flex;
@@ -126,6 +142,7 @@
             align-items: center;
             text-align: center;
             padding: 0 2rem;
+            position: relative;
         }
 
         .hero-content {
@@ -171,25 +188,37 @@
             transform: scale(1.1);
         }
 
+
+ 
+
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes fadeInBox {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
         .marquee {
             background: #007BFF;
             color: white;
             padding: 1rem 2rem;
-            font-size: 1rem;
+            font-size: 10px;
             font-weight: 400;
             font-family: 'Roboto', sans-serif;
-            overflow: hidden;
+      
             white-space: nowrap;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
             width: 100%;
-            z-index: 1000;
-            text-align: center;
-            margin: 0;
+            z-index: 2000;
         }
 
         .marquee span {
             display: inline-block;
             animation: marquee 30s linear infinite;
+            animation-delay: 0s;
         }
 
         @keyframes marquee {
@@ -200,6 +229,288 @@
             to {
                 transform: translateX(-100%);
             }
+        }
+
+        
+
+    
+       
+        footer {
+            background-color: #333;
+            /* Dark background */
+            color: #fff;
+            /* White text */
+            padding: 20px;
+            /* Padding */
+            text-align: center;
+            /* Center text */
+        }
+
+        .footer-content p {
+            margin: 5px 0;
+            /* Space between paragraphs */
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #444;
+            /* Top border */
+            margin-top: 10px;
+            /* Margin above */
+            padding-top: 10px;
+            /* Padding above */
+        }
+
+        .features {
+
+            padding: 3rem 1rem;
+            text-align: center;
+
+
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 30%;
+            margin: 1rem;
+            text-align: center;
+            background-color: whitesmoke;
+        }
+
+        .feature img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .feature h3 {
+            margin-top: 1rem;
+            font-size: 1.25rem;
+        }
+
+
+
+        .testimonials {
+            padding: 3rem 1rem;
+            background-color: white;
+            text-align: center;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial {
+            padding: 1.5rem;
+            margin: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-10px);
+        }
+
+        .testimonial p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .testimonial span {
+            display: block;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: #555;
+        }
+
+        .faq {
+            padding: 3rem 1rem;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .faq h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .question {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .question:hover {
+            transform: translateY(-5px);
+        }
+
+        .question h3 {
+            font-size: 1.25rem;
+            color: #007BFF;
+            margin-bottom: 0.5rem;
+        }
+
+        .question p {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        .samples {
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: #f9f9f9;
+            /* Light background color */
+        }
+
+        .samples h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .sample-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Allow items to wrap in smaller screens */
+            justify-content: center;
+            /* Center the samples */
+        }
+
+        .sample {
+            background-color: white;
+            /* White background for samples */
+            margin: 1rem;
+            padding: 5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: calc(33% - 2rem);
+            /* Three in a row with margins */
+        }
+
+        .sample img {
+            width: 100%;
+            /* Make the image responsive */
+            border-radius: 10px;
+            /* Round the corners of the image */
+        }
+
+        .sample h3 {
+            font-size: 1.25rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .sample p {
+            font-size: 1rem;
+            color: #666;
+            /* Dark grey for text */
+        }
+
+        .download-link {
+            display: inline-block;
+            /* Allows padding and margin */
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background-color: #007BFF;
+            /* Button color */
+            color: white;
+            /* Text color */
+            border-radius: 5px;
+            text-decoration: none;
+            /* Remove underline */
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .download-link:hover {
+            background-color: #0056b3;
+            /* Darker shade on hover */
+            transform: scale(1.05);
+            /* Slightly enlarge on hover */
+        }
+
+        .pricing {
+            padding: 3rem 1rem;
+            background-color: #e0e0e0;
+            text-align: center;
+        }
+
+        .pricing h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .pricing-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .pricing-card {
+            background-color: white;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 250px;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #007BFF;
+        }
+
+        .pricing-card ul {
+            list-style-type: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-card ul li {
+            font-size: 1.1rem;
+            margin: 0.5rem 0;
+            color: #333;
+        }
+
+        .order-now,
+        .more-details {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 0.5rem;
+        }
+
+        .order-now:hover,
+        .more-details:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+
+        .more-details {
+            background-color: #28a745;
+            /* Green background for more details button */
+        }
+
+        .more-details:hover {
+            background-color: #218838;
+        }
+
+        .navbar-collapse .nav-item {
+            margin: 0;
+            padding: 0;
+            list-style: none;
         }
 
         .whatsapp-float {
@@ -215,10 +526,26 @@
             font-size: 30px;
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .whatsapp-float:hover {
@@ -226,22 +553,86 @@
             transform: scale(1.1);
         }
 
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+        .close-menu {
+    display: none; /* Hide by default */
+}
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+
+        }
+
+
+
+
+
+
+
+
+
         @media (max-width: 768px) {
+            .sample {
+                width: calc(50% - 2rem);
+                /* Two in a row on tablets */
+            }
+
+          
+         
+    .sample {
+                width: calc(50% - 2rem);
+                /* Two in a row on tablets */
+            }
+
             .nav-links {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 0;
-                right: 0;
-                left: 0;
-                bottom: 0;
-                background-color: rgba(44, 62, 80, 1.0);
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-                z-index: 100;
-                padding: 2rem;
-                transition: all 0.3s ease;
-                contain: content;
-                overflow-y: auto;
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-color: rgba(44, 62, 80, 1.0); /* Dark background with 90% opacity */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 100;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        contain: content;
+        overflow-y: auto;
+    }
+
+            .nav-links li {
+                display: block;
+                margin: 20px 0;
+                border-bottom: 1px solid #ffffff;
+                width: 100%;
+            }
+
+            .nav-links a {
+
+                font-size: 14.5px; /* Set font size to 13px */
+                padding: 1rem;
+        
+                text-align: center;
+                color: #ffffff;
+                transition: color 0.3s ease, transform 0.3s ease;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .nav-links a:hover {
+                color: #1f6396;
+                transform: scale(1.05);
             }
 
             .nav-links.show {
@@ -252,22 +643,62 @@
                 display: block;
             }
 
-            .nav-links li {
-                display: block;
-                margin: 20px 0;
-                border-bottom: 1px solid #ffffff;
+            .close-menu {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: fixed; /* Change to fixed to make sure it stays on top */
+        top: 45px; /* Adjust position to be below the top bar */
+        right: 15px;
+        z-index: 2000; /* Increase z-index to be on top of all elements */
+        display: block; /* Only show in mobile view */
+    }
+
+            
+  
+
+          
+            .hero h1 {
+                font-size: 2rem;
+                /* Adjusted font size */
             }
 
-            .nav-links a {
+            .hero p {
                 font-size: 1rem;
-                padding: 1rem;
-                text-align: center;
-                color: #ffffff;
-                transition: color 0.3s ease, transform 0.3s ease;
+            }
+
+            .hero button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .features h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature {
+                width: 48%;
+                /* Slightly smaller for two in a row */
+                margin: 1% auto;
+                /* Center align them */
+            }
+
+            .testimonials h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq h2 {
+                font-size: 1.5rem;
+            }
+
+            .question h3 {
+                font-size: 1rem;
             }
         }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
@@ -297,21 +728,22 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Welcome to The Inscribe.co</h1>
-                <div class="sentence">
-                    Your one stop for
-                    <span class="changing-words"></span>
-                </div>
-                <button id="learnMoreButton" class="learn-more-button">Learn More</button>
-            </div>
-        </section>
 
-        <div class="marquee">
-            <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+    <main>
+            <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Welcome to The Inscribe.co</h1>
+            <div class="sentence">
+                Your one stop for
+                <span class="changing-words"></span>
+            </div>
+            <button id="learnMoreButton" class="learn-more-button">Learn More</button>
         </div>
+    </section>
+
+         <div class="marquee">
+        <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+    </div>
         <section class="samples" id="samples">
             <h2>Our Samples</h2>
             <div class="sample-container">
