@@ -522,6 +522,9 @@
             width: 100px;
             height: 100px;
         }
+        .close-menu {
+    display: none; /* Hide by default */
+}
 
         @keyframes fadeIn {
             from {
@@ -605,15 +608,21 @@
                 display: block;
             }
 
-            
+            .close-menu {
+        background: transparent;
+        border: none;
+        color: #ffffff;
+        font-size: 1.5rem;
+        cursor: pointer;
+        position: absolute;
+        top: 10px;
+        right: 15px;
+        z-index: 200;
+        display: block; /* Only show in mobile view */
+    }
 
             
-
-
-          
-              
-            
-               
+  
 
           
             .hero h1 {
@@ -676,6 +685,7 @@
                 <li><a href="Sample.html">Samples</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
+                <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
     </header>
@@ -829,10 +839,16 @@
     <script>
          // Toggle the hamburger menu with animation
         document.getElementById('hamburger').addEventListener('click', function () {
-            const navLinks = document.getElementById('nav-links');
-            this.classList.toggle('open');
-            navLinks.classList.toggle('show');
-        });
+    const navLinks = document.getElementById('nav-links');
+    this.classList.toggle('open');
+    navLinks.classList.toggle('show');
+});
+
+document.getElementById('close-menu').addEventListener('click', function () {
+    const navLinks = document.getElementById('nav-links');
+    navLinks.classList.remove('show');
+    document.getElementById('hamburger').classList.remove('open');
+});
         // Smooth scrolling for the Learn More button
         document.getElementById('learnMoreButton').addEventListener('click', function () {
             const featuresSection = document.getElementById('samples');
