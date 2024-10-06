@@ -917,6 +917,7 @@ function toggleMenu(event) {
 
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('show');
+    navLinks.style.zIndex = "1001"; // Ensure the menu appears above other elements
     console.log('Menu toggled'); // Debug statement
 }
 
@@ -945,6 +946,8 @@ document.addEventListener('click', function (event) {
         }
     }
 });
+  
+
         
         // Smooth scrolling for the Learn More button
         document.getElementById('learnMoreButton').addEventListener('click', function () {
