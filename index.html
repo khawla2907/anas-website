@@ -106,13 +106,15 @@
             bottom: 0;
             left: 0;
             background-color: rgba(44, 62, 80, 0.9);
-            overflow-y: auto;
+            height: 100vh;
+            overflow: hidden;
         }
 
         .nav-links.show {
             display: flex;
             flex-direction: column;
             padding: 2rem;
+            height: 100vh;
         }
 
         .nav-links li {
@@ -226,8 +228,9 @@
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
             width: 100%;
-            z-index: 2000;
-            position: relative;
+            z-index: 1400;
+            position: fixed;
+            top: 40px;
             box-sizing: border-box;
         }
 
