@@ -98,6 +98,28 @@
         }
 
         .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        .nav-links-mobile {
             display: none;
             z-index: 3000;
             position: fixed;
@@ -108,16 +130,15 @@
             background-color: rgba(44, 62, 80, 0.9);
             height: 100vh;
             overflow: hidden;
-        }
-
-        .nav-links.show {
-            display: flex;
             flex-direction: column;
             padding: 2rem;
-            height: 100vh;
         }
 
-        .nav-links li {
+        .nav-links-mobile.show {
+            display: flex;
+        }
+
+        .nav-links-mobile li {
             display: block;
             margin: 30px 0;
             border-bottom: 1px solid #ffffff;
@@ -125,7 +146,7 @@
             width: 100%;
         }
 
-        .nav-links a {
+        .nav-links-mobile a {
             font-size: 14.5px;
             padding: 1rem;
             text-align: center;
@@ -138,7 +159,7 @@
             font-weight: bold;
         }
 
-        .nav-links a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -228,7 +249,7 @@
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
             width: 100%;
-            z-index: 1400;
+            z-index: 1700;
             position: fixed;
             top: 40px;
             box-sizing: border-box;
@@ -544,6 +565,10 @@
             }
 
             .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
                 padding: 1rem;
             }
 
@@ -610,7 +635,15 @@
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
-            <ul class="nav-links" id="nav-links">
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
