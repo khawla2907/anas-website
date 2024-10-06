@@ -907,7 +907,7 @@
     </a>
 
     <script>
-    // Select elements needed for the hamburger menu functionality
+// Select elements needed for the hamburger menu functionality
 const hamburger = document.getElementById('hamburger');
 const closeMenuButton = document.getElementById('close-menu');
 const navLinks = document.getElementById('nav-links');
@@ -925,6 +925,7 @@ function toggleMenu(event) {
     navLinks.style.bottom = '0';
     navLinks.style.left = '0';
     navLinks.style.zIndex = "2000"; // Ensure the menu appears above other elements
+    hamburger.style.zIndex = "2001"; // Ensure hamburger icon is visible above the menu
     console.log('Menu toggled'); // Debug statement
 }
 
@@ -953,10 +954,6 @@ document.addEventListener('click', function (event) {
         }
     }
 });
- 
-
-
-
 
 
 
