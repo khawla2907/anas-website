@@ -66,7 +66,7 @@
             font-size: 2rem;
             user-select: none;
             transition: transform 0.3s ease;
-            z-index: 1700;
+            z-index: 2001;
             position: relative;
         }
 
@@ -98,47 +98,8 @@
         }
 
         .nav-links {
-            display: flex;
-        }
-
-        .nav-links li {
-            display: inline;
-            margin: 0 10px;
-        }
-
-        .nav-links a {
-            color: black;
-            text-decoration: none;
-            position: relative;
-            padding: 1rem;
-            font-weight: bold;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-            left: 0;
-        }
-
-        .nav-links a:hover {
-            color: #007bff;
-            transform: scale(1.1);
-        }
-
-        .mobile-nav-links {
             display: none;
-            z-index: 2000;
+            z-index: 3000;
             position: fixed;
             top: 0;
             right: 0;
@@ -148,13 +109,13 @@
             overflow-y: auto;
         }
 
-        .mobile-nav-links.show {
+        .nav-links.show {
             display: flex;
             flex-direction: column;
             padding: 2rem;
         }
 
-        .mobile-nav-links li {
+        .nav-links li {
             display: block;
             margin: 30px 0;
             border-bottom: 1px solid #ffffff;
@@ -162,7 +123,7 @@
             width: 100%;
         }
 
-        .mobile-nav-links a {
+        .nav-links a {
             font-size: 14.5px;
             padding: 1rem;
             text-align: center;
@@ -175,7 +136,7 @@
             font-weight: bold;
         }
 
-        .mobile-nav-links a:hover {
+        .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -568,23 +529,19 @@
         }
 
         .close-menu {
-            z-index: 2001;
+            z-index: 3001;
             position: absolute;
             top: 20px;
             right: 20px;
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
             .hamburger {
                 display: block;
             }
 
-            .mobile-nav-links {
-                display: none;
+            .nav-links {
+                padding: 1rem;
             }
 
             .sample {
@@ -650,15 +607,7 @@
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="About us.html">About Us</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="Sample.html">Samples</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="order.html">Order</a></li>
-            </ul>
-            <ul class="mobile-nav-links" id="mobile-nav-links">
+            <ul class="nav-links" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -804,7 +753,7 @@
         // Select elements needed for the hamburger menu functionality
         const hamburger = document.getElementById('hamburger');
         const closeMenuButton = document.getElementById('close-menu');
-        const mobileNavLinks = document.getElementById('mobile-nav-links');
+        const navLinks = document.getElementById('nav-links');
 
         // Function to toggle the menu open/close
         function toggleMenu(event) {
@@ -812,7 +761,15 @@
             event.stopPropagation();
 
             hamburger.classList.toggle('open');
-            mobileNavLinks.classList.toggle('show');
+            navLinks.classList.toggle('show');
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '0';
+            navLinks.style.right = '0';
+            navLinks.style.bottom = '0';
+            navLinks.style.left = '0';
+            navLinks.style.zIndex = "3000";
+            hamburger.style.zIndex = "3001";
+            console.log('Menu toggled');
         }
 
         // Function to close the menu
@@ -821,7 +778,8 @@
             event.stopPropagation();
 
             hamburger.classList.remove('open');
-            mobileNavLinks.classList.remove('show');
+            navLinks.classList.remove('show');
+            console.log('Menu closed');
         }
 
         // Add event listeners for both click and touch events for better compatibility
@@ -833,8 +791,8 @@
 
         // Close menu if clicking outside the menu area
         document.addEventListener('click', function (event) {
-            if (!mobileNavLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                if (mobileNavLinks.classList.contains('show')) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                if (navLinks.classList.contains('show')) {
                     closeMenu(event);
                 }
             }
