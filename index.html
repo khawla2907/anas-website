@@ -125,7 +125,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            
+            background-color: #007bff;
             transition: width 0.3s ease, left 0.3s ease;
         }
 
@@ -203,43 +203,43 @@
     100% { opacity: 1; transform: translateY(0); }
 }
 
-
-        
-
-        
-        
-       
-
-       
         .marquee {
-            background: #00008B;
-            color: white;
-            padding: 1rem 2rem;
-            font-size: 12px;
-            font-weight: 400;
-            font-family: 'Roboto', sans-serif;
+    background: #00008B;
+    color: white;
+    padding: 0.5rem 1rem; /* Adjust padding to prevent overflow */
+    font-size: 12px;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden; /* Ensure the marquee doesn't cause overflow */
+    width: 100%;
+    z-index: 2000;
+    position: relative; /* Make sure it stays properly positioned */
+    box-sizing: border-box;
+}
+
+.marquee span {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    animation-delay: 0s;
+    white-space: nowrap; /* Keep text in a single line */
+    will-change: transform;
+}
+@keyframes marquee {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+
+        
+
+        
+        
       
-            white-space: nowrap;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            z-index: 2000;
-        }
-
-        .marquee span {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-            animation-delay: 0s;
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-
-            to {
-                transform: translateX(-100%);
-            }
-        }
 
         
 
