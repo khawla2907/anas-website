@@ -204,6 +204,34 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
+          .marquee {
+            background: #007BFF;
+            color: white;
+            padding: 1.5rem 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 2000; /* Ensure it's above other elements */
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 0; /* Start immediately */
+            animation: marquee 30s linear infinite;
+            animation-delay: 0s; /* Start animation immediately */
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+
 
 
 
@@ -676,6 +704,9 @@
             }
         }
     </style>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -715,6 +746,10 @@
             <button id="learnMoreButton" class="learn-more-button">Learn More</button>
         </div>
     </section>
+
+         <div class="marquee">
+        <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+    </div>
         <section class="samples" id="samples">
             <h2>Our Samples</h2>
             <div class="sample-container">
@@ -908,6 +943,11 @@ document.getElementById('close-menu').addEventListener('click', function () {
 
         // Start typing the first word
         typeWord();
+
+         window.onload = function() {
+            const marqueeText = document.getElementById('marqueeText');
+            marqueeText.style.animation = 'marquee 30s linear infinite'; // Start marquee animation immediately once page loads
+        };
        
 
     </script>
