@@ -606,25 +606,34 @@
         right: 10px; /* Adjust position for smaller screens */
     }
 
+            .nav-links {
+    display: none; /* Hidden by default */
+    z-index: 2000; /* Increased to ensure it stays above other elements */
+    position: fixed; /* Set fixed position to cover the entire screen */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(44, 62, 80, 0.9); /* Ensure it has a background */
+    overflow-y: auto; /* Allow scrolling if menu items exceed viewport */
+}
+
+.nav-links.show {
+    display: flex; /* Make it visible when the 'show' class is added */
+    flex-direction: column;
+    padding: 2rem; /* Adjusted padding for better spacing */
+}
+            header {
+    z-index: 1000; /* Lower than nav-links */
+}
+
+.top-bar {
+    z-index: 1100; /* Lower than nav-links but higher than the header */
+}
           
         
 
-            .nav-links {
-        display: none;
-        flex-direction: column;
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: rgba(44, 62, 80, 0.9); /* Dark background with 90% opacity */
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-        z-index: 100;
-        padding: 2rem;
-        transition: all 0.3s ease;
-        contain: content;
-        overflow-y: auto;
-    }
+          
 
             .nav-links li {
                 display: block;
@@ -651,26 +660,20 @@
                 transform: scale(1.05);
             }
 
-            .nav-links.show {
-                display: flex;
-            }
+           
 
             .hamburger {
-                display: block;
-            }
+    z-index: 2001; /* Ensure it stays above the navigation */
+}
 
-            .close-menu {
-        background: transparent;
-        border: none;
-        color: #ffffff;
-        font-size: 1.5rem;
-        cursor: pointer;
-        position: fixed; /* Change to fixed to make sure it stays on top */
-        top: 45px; /* Adjust position to be below the top bar */
-        right: 15px;
-        z-index: 2000; /* Increase z-index to be on top of all elements */
-        display: block; /* Only show in mobile view */
-    }
+.close-menu {
+    z-index: 2001; /* Same as hamburger to stay above the navigation */
+    position: absolute; /* Position it properly within the menu */
+    top: 20px;
+    right: 20px;
+}
+
+            
 
               .marquee {
         font-size: 12px; /* Make text smaller for mobile devices */
@@ -910,18 +913,19 @@ const hamburger = document.getElementById('hamburger');
 const closeMenuButton = document.getElementById('close-menu');
 const navLinks = document.getElementById('nav-links');
 
-// Function to toggle the menu open/close
+
+
+// Function to close the menu
 function toggleMenu(event) {
     event.preventDefault(); // Prevent default behavior (useful for touch events)
     event.stopPropagation(); // Stop the click from bubbling up
 
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('show');
-    navLinks.style.zIndex = "1001"; // Ensure the menu appears above other elements
+    navLinks.style.zIndex = "2000"; // Ensure the menu appears above other elements
     console.log('Menu toggled'); // Debug statement
 }
 
-// Function to close the menu
 function closeMenu(event) {
     event.preventDefault(); // Prevent default behavior
     event.stopPropagation(); // Stop the click from bubbling up
