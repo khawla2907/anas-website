@@ -145,31 +145,24 @@
         }
 
         .hero-content {
-            animation: fadeIn 2s ease-out;
-            background: rgba(0, 0, 0, 0.6); /* Translucent dark background */
+            animation: fadeInBox 2s ease-out forwards;
+            background: rgba(0, 0, 0, 0.6);
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             opacity: 0;
-            animation: fadeInBox 2s ease-out forwards;
         }
 
         .hero h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1rem;
-            color: #ddd;
+            font-weight: 400;
             margin-bottom: 1rem;
         }
 
         .sentence {
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             color: #ffffff;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
@@ -194,6 +187,10 @@
             transform: scale(1.1);
         }
 
+
+ 
+
+
         @keyframes fadeIn {
             0% { opacity: 0; }
             100% { opacity: 1; }
@@ -203,43 +200,39 @@
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
-
-          .marquee {
+        .marquee {
             background: #007BFF;
             color: white;
-            padding: 1.5rem 0;
+            padding: 1rem 2rem;
             font-size: 1.5rem;
-            font-weight: 700;
+            font-weight: 400;
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
             white-space: nowrap;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            position: fixed;
-            top: 0;
             width: 100%;
-            z-index: 2000; /* Ensure it's above other elements */
+            z-index: 2000;
         }
 
         .marquee span {
             display: inline-block;
-            padding-left: 0; /* Start immediately */
             animation: marquee 30s linear infinite;
-            animation-delay: 0s; /* Start animation immediately */
+            animation-delay: 0s;
         }
 
         @keyframes marquee {
-            from { transform: translateX(100%); }
-            to { transform: translateX(-100%); }
+            from {
+                transform: translateX(100%);
+            }
+
+            to {
+                transform: translateX(-100%);
+            }
         }
 
+        
 
-
-
-
-
-
-
-
+    
        
         footer {
             background-color: #333;
