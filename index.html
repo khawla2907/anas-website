@@ -907,25 +907,28 @@
     </a>
 
     <script>
-    
     // Select elements needed for the hamburger menu functionality
 const hamburger = document.getElementById('hamburger');
 const closeMenuButton = document.getElementById('close-menu');
 const navLinks = document.getElementById('nav-links');
 
-
-
-// Function to close the menu
+// Function to toggle the menu open/close
 function toggleMenu(event) {
     event.preventDefault(); // Prevent default behavior (useful for touch events)
     event.stopPropagation(); // Stop the click from bubbling up
 
     hamburger.classList.toggle('open');
     navLinks.classList.toggle('show');
+    navLinks.style.position = 'fixed'; // Ensure nav-links are positioned correctly
+    navLinks.style.top = '0';
+    navLinks.style.right = '0';
+    navLinks.style.bottom = '0';
+    navLinks.style.left = '0';
     navLinks.style.zIndex = "2000"; // Ensure the menu appears above other elements
     console.log('Menu toggled'); // Debug statement
 }
 
+// Function to close the menu
 function closeMenu(event) {
     event.preventDefault(); // Prevent default behavior
     event.stopPropagation(); // Stop the click from bubbling up
@@ -950,6 +953,14 @@ document.addEventListener('click', function (event) {
         }
     }
 });
+ 
+
+
+
+
+
+
+
   
 
         
