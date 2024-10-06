@@ -98,6 +98,28 @@
         }
 
         .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        .nav-links-mobile {
             display: none;
             z-index: 3000;
             position: fixed;
@@ -108,16 +130,15 @@
             background-color: rgba(44, 62, 80, 0.9);
             height: 100vh;
             overflow: hidden;
-        }
-
-        .nav-links.show {
-            display: flex;
             flex-direction: column;
             padding: 2rem;
-            height: 100vh;
         }
 
-        .nav-links li {
+        .nav-links-mobile.show {
+            display: flex;
+        }
+
+        .nav-links-mobile li {
             display: block;
             margin: 30px 0;
             border-bottom: 1px solid #ffffff;
@@ -125,7 +146,7 @@
             width: 100%;
         }
 
-        .nav-links a {
+        .nav-links-mobile a {
             font-size: 14.5px;
             padding: 1rem;
             text-align: center;
@@ -138,7 +159,7 @@
             font-weight: bold;
         }
 
-        .nav-links a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -228,8 +249,8 @@
             font-family: 'Roboto', sans-serif;
             overflow: hidden;
             width: 100%;
-            z-index: 1400;
-            position: fixed;
+            z-index: 1700;
+     
             top: 40px;
             box-sizing: border-box;
         }
@@ -285,27 +306,16 @@
             margin: 1rem;
             text-align: center;
             background-color: whitesmoke;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
         }
 
         .feature img {
             width: 100px;
             height: 100px;
-            border-radius: 50%;
         }
 
         .feature h3 {
             margin-top: 1rem;
             font-size: 1.25rem;
-            line-height: 1.5;
-            word-spacing: 2px;
         }
 
         .testimonials {
@@ -398,30 +408,26 @@
         .sample {
             background-color: white;
             margin: 1rem;
-            padding: 2rem;
+            padding: 5rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             width: calc(33% - 2rem);
-            max-width: 300px;
         }
 
         .sample img {
             width: 100%;
             border-radius: 10px;
-            margin-bottom: 1rem;
         }
 
         .sample h3 {
             font-size: 1.25rem;
-            margin-bottom: 0.5rem;
+            margin: 1rem 0 0.5rem;
         }
 
         .sample p {
             font-size: 1rem;
             color: #666;
-            line-height: 1.6;
-            word-spacing: 1px;
         }
 
         .download-link {
@@ -556,54 +562,23 @@
         @media (max-width: 768px) {
             .hamburger {
                 display: block;
-                z-index: 2001;
-                position: relative;
             }
 
             .nav-links {
                 display: none;
-                z-index: 3000;
-                position: fixed;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                background-color: rgba(44, 62, 80, 0.9);
-                height: 100vh;
-                overflow: hidden;
             }
 
-            .nav-links.show {
-                display: flex;
-                flex-direction: column;
-                padding: 2rem;
-                height: 100vh;
-            }
-
-            .nav-links li {
-                display: block;
-                margin: 30px 0;
-                border-bottom: 1px solid #ffffff;
-                padding-bottom: 10px;
-                width: 100%;
-            }
-
-            .nav-links a {
-                font-size: 14.5px;
+            .nav-links-mobile {
                 padding: 1rem;
-                text-align: center;
-                color: #ffffff;
-                text-decoration: none;
-                position: relative;
-                transition: color 0.3s ease, transform 0.3s ease;
-                width: 100%;
-                box-sizing: border-box;
-                font-weight: bold;
             }
 
-            .nav-links a:hover {
-                color: #1f6396;
-                transform: scale(1.05);
+            .sample {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            .whatsapp-float {
+                right: 10px;
             }
 
             .hero h1 {
@@ -639,35 +614,6 @@
             .question h3 {
                 font-size: 1rem;
             }
-
-            .sample {
-                background-color: white;
-                margin: 1rem;
-                padding: 2rem;
-                border-radius: 10px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                transition: transform 0.3s ease;
-                width: calc(33% - 2rem);
-                max-width: 300px;
-            }
-
-            .sample img {
-                width: 100%;
-                border-radius: 10px;
-                margin-bottom: 1rem;
-            }
-
-            .sample h3 {
-                font-size: 1.25rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .sample p {
-                font-size: 1rem;
-                color: #666;
-                line-height: 1.6;
-                word-spacing: 1px;
-            }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -679,7 +625,6 @@
 <body>
     <div class="top-bar">
         <img src="images/call.png" alt="Phone Icon" class="phone-icon">
-       
         <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
     </div>
     <header>
@@ -690,7 +635,15 @@
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
-            <ul class="nav-links" id="nav-links">
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="About us.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
@@ -717,21 +670,18 @@
         <div class="marquee">
             <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
         </div>
-        
         <section class="samples" id="samples">
             <h2>Our Samples</h2>
             <div class="sample-container">
                 <div class="sample">
-                    <img src="images/sample1.jpg" alt="Sample 1">
                     <h3>The Impact of Climate Change on Global Agriculture</h3>
                     <p>This research paper explores the multifaceted effects of climate change on agricultural practices worldwide. It examines how rising temperatures, changing precipitation patterns, and extreme weather events disrupt crop yields and food security.</p>
                     <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
                 </div>
                 <div class="sample">
-                    <img src="images/sample2.jpg" alt="Sample 2">
                     <h3>The Necessity of Renewable Energy Sources</h3>
                     <p>In this persuasive essay, the argument is made for the urgent transition to renewable energy sources to combat climate change and promote environmental sustainability. The essay outlines the environmental, economic, and social benefits of renewable energy, such as solar and wind power, compared to fossil fuels.</p>
-                    <a href="path/to/sample2.pdf" download class="download-link">Download Paper</a>
+                    <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
                 </div>
             </div>
         </section>
@@ -822,7 +772,6 @@
             </div>
         </section>
     </main>
-
     <footer>
         <div class="footer-content">
             <p>Contact Us: <a href="mailto:info@example.com">inscribe@gmail.com</a></p>
