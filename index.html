@@ -11,7 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f5f5f5;
-             overflow-x: hidden;
+            overflow-x: hidden;
         }
 
         header {
@@ -20,19 +20,12 @@
             width: 100%;
             position: fixed;
             top: 0;
-            z-index: 1000;
+            z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
         }
 
-
-
-
-        
-
-    
-
-     .top-bar {
+        .top-bar {
             background-color: lightgrey;
             color: black;
             padding: 10px 0;
@@ -41,7 +34,7 @@
             position: fixed;
             width: 100%;
             top: 0;
-            z-index: 1100;
+            z-index: 1600;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -68,11 +61,13 @@
         }
 
         .hamburger {
-            display: none;
+            display: block;
             cursor: pointer;
             font-size: 2rem;
             user-select: none;
             transition: transform 0.3s ease;
+            z-index: 1700; /* Higher z-index to ensure visibility */
+            position: relative;
         }
 
         .hamburger.open {
@@ -86,196 +81,194 @@
             padding: 1rem;
             max-width: 1400px;
             margin: auto;
-            background-color: transparent; /* Set background to transparent */
-    backdrop-filter: none; /* Remove any backdrop filter for transparency */
-    box-shadow: none; /* Remove box-shadow for cleaner transparency */
+            background-color: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1500;
         }
 
         .logo img {
             height: 50px;
             border-radius: 50%;
-            border: 3px solid #008080 ;
+            border: 3px solid #008080;
             padding: 5px;
             background-color: rgba(245, 245, 245, 0.863);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .nav-links {
+            display: none;
+            z-index: 2000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(44, 62, 80, 0.9);
+            overflow-y: auto;
+        }
+
+        .nav-links.show {
             display: flex;
+            flex-direction: column;
+            padding: 2rem;
         }
 
         .nav-links li {
-            display: inline;
-            margin: 0 10px;
+            display: block;
+            margin: 30px 0;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+            width: 100%;
         }
 
         .nav-links a {
-            color: black;
+            font-size: 14.5px;
+            padding: 1rem;
+            text-align: center;
+            color: #ffffff;
             text-decoration: none;
             position: relative;
-            padding: 1rem;
-            font-weight: bold;
             transition: color 0.3s ease, transform 0.3s ease;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            width: 0;
-            height: 2px;
-            background-color: #007bff;
-            transition: width 0.3s ease, left 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
             width: 100%;
-            left: 0;
+            box-sizing: border-box;
+            font-weight: bold;
         }
 
         .nav-links a:hover {
-            color: #007bff;
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        .hero {
+            height: 94vh;
+            background: url('images/bg.png') no-repeat center center/cover;
+            color: darkblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInBox 2s ease-out forwards;
+            padding: 2rem;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .sentence {
+            font-size: 1.50rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .hero button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
             transform: scale(1.1);
         }
-        .hero {
-    height: 94vh;
-    background: url('images/bg.png') no-repeat center center/cover;
-    color: darkblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 2rem;
-    position: relative;
-}
 
-.hero-content {
-    animation: fadeInBox 2s ease-out forwards;
-    padding: 2rem;
-    border-radius: 10px;
-    opacity: 0;
-}
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
 
-.hero h1 {
-     font-family: 'Great Vibes', cursive; /* or any decorative Google Font */
-    font-size: 4rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-}
+            100% {
+                opacity: 1;
+            }
+        }
 
-.sentence {
-    
-    font-size: 1.50rem; /* Reduced from 1.75rem */
-    color: #ffffff;
-    font-weight: 600;
-    margin-top: 1rem;
-}
+        @keyframes fadeInBox {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-.hero button {
-    background-color: #0056b3;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem; /* Reduced padding */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-top: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    font-size: 0.875rem; /* Reduced button font size */
-}
-
-.hero button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes fadeInBox {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         .marquee {
-    background: #0056b3;
-    color: white;
-    padding: 0.75rem 1rem; /* Increased padding to increase height */
-    font-size: 12px;
-    font-weight: 400;
-    font-family: 'Roboto', sans-serif;
-    overflow: hidden; /* Ensure the marquee doesn't cause overflow */
-    width: 100%;
-    z-index: 2000;
-    position: relative; /* Make sure it stays properly positioned */
-    box-sizing: border-box;
-}
+            background: #0056b3;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            width: 100%;
+            z-index: 2000;
+            position: relative;
+            box-sizing: border-box;
+        }
 
-.marquee span {
-    display: inline-block;
-    animation: marquee 30s linear infinite;
-    animation-delay: 0s;
-    white-space: nowrap; /* Keep text in a single line */
-    will-change: transform;
-}
-@keyframes marquee {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
+        .marquee span {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            animation-delay: 0s;
+            white-space: nowrap;
+            will-change: transform;
+        }
 
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
 
+            to {
+                transform: translateX(-100%);
+            }
+        }
 
-        
-
-        
-        
-      
-
-        
-
-    
-       
         footer {
             background-color: #333;
-            /* Dark background */
             color: #fff;
-            /* White text */
             padding: 20px;
-            /* Padding */
             text-align: center;
-            /* Center text */
         }
 
         .footer-content p {
             margin: 5px 0;
-            /* Space between paragraphs */
         }
 
         .footer-bottom {
             border-top: 1px solid #444;
-            /* Top border */
             margin-top: 10px;
-            /* Margin above */
             padding-top: 10px;
-            /* Padding above */
         }
 
         .features {
-
             padding: 3rem 1rem;
             text-align: center;
-
-
         }
 
         .features h2 {
@@ -300,8 +293,6 @@
             margin-top: 1rem;
             font-size: 1.25rem;
         }
-
-
 
         .testimonials {
             padding: 3rem 1rem;
@@ -377,7 +368,6 @@
             padding: 3rem 1rem;
             text-align: center;
             background-color: #f9f9f9;
-            /* Light background color */
         }
 
         .samples h2 {
@@ -388,28 +378,22 @@
         .sample-container {
             display: flex;
             flex-wrap: wrap;
-            /* Allow items to wrap in smaller screens */
             justify-content: center;
-            /* Center the samples */
         }
 
         .sample {
             background-color: white;
-            /* White background for samples */
             margin: 1rem;
             padding: 5rem;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
             width: calc(33% - 2rem);
-            /* Three in a row with margins */
         }
 
         .sample img {
             width: 100%;
-            /* Make the image responsive */
             border-radius: 10px;
-            /* Round the corners of the image */
         }
 
         .sample h3 {
@@ -420,29 +404,22 @@
         .sample p {
             font-size: 1rem;
             color: #666;
-            /* Dark grey for text */
         }
 
         .download-link {
             display: inline-block;
-            /* Allows padding and margin */
             margin-top: 1rem;
             padding: 0.5rem 1rem;
             background-color: #007BFF;
-            /* Button color */
             color: white;
-            /* Text color */
             border-radius: 5px;
             text-decoration: none;
-            /* Remove underline */
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .download-link:hover {
             background-color: #0056b3;
-            /* Darker shade on hover */
             transform: scale(1.05);
-            /* Slightly enlarge on hover */
         }
 
         .pricing {
@@ -510,7 +487,6 @@
 
         .more-details {
             background-color: #28a745;
-            /* Green background for more details button */
         }
 
         .more-details:hover {
@@ -521,22 +497,6 @@
             margin: 0;
             padding: 0;
             list-style: none;
-        }
-
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .whatsapp-float {
@@ -567,125 +527,30 @@
             width: 100px;
             height: 100px;
         }
+
         .close-menu {
-    display: none; /* Hide by default */
-}
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-
-
+            z-index: 2001;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
-
-
-
-
-
-
-
-
         @media (max-width: 768px) {
-
-             .nav-links {
-        padding: 1rem; /* Reduce padding to fit screen width */
-    }
-
-    .sample {
-        width: 90%; /* Reduce width to prevent overflow */
-        padding: 1rem; /* Reduce padding */
-    }
-
-    .whatsapp-float {
-        right: 10px; /* Adjust position for smaller screens */
-    }
-
             .nav-links {
-    display: none; /* Hidden by default */
-    z-index: 2000; /* Increased to ensure it stays above other elements */
-    position: fixed; /* Set fixed position to cover the entire screen */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: rgba(44, 62, 80, 0.9); /* Ensure it has a background */
-    overflow-y: auto; /* Allow scrolling if menu items exceed viewport */
-}
-
-.nav-links.show {
-    display: flex; /* Make it visible when the 'show' class is added */
-    flex-direction: column;
-    padding: 2rem; /* Adjusted padding for better spacing */
-}
-            header {
-    z-index: 1000; /* Lower than nav-links */
-}
-
-.top-bar {
-    z-index: 1100; /* Lower than nav-links but higher than the header */
-}
-          
-        
-
-          
-
-            .nav-links li {
-                display: block;
-                margin: 30px 0;
-                border-bottom: 1px solid #ffffff;
-                  padding-bottom: 10px;
-                width: 100%;
-            }
-
-            .nav-links a {
-
-                font-size: 14.5px; /* Set font size to 13px */
                 padding: 1rem;
-        
-                text-align: center;
-                color: #ffffff;
-                transition: color 0.3s ease, transform 0.3s ease;
-                width: 100%;
-                box-sizing: border-box;
             }
 
-            .nav-links a:hover {
-                color: #1f6396;
-                transform: scale(1.05);
+            .sample {
+                width: 90%;
+                padding: 1rem;
             }
 
-           
+            .whatsapp-float {
+                right: 10px;
+            }
 
-            .hamburger {
-    z-index: 2001; /* Ensure it stays above the navigation */
-}
-
-.close-menu {
-    z-index: 2001; /* Same as hamburger to stay above the navigation */
-    position: absolute; /* Position it properly within the menu */
-    top: 20px;
-    right: 20px;
-}
-
-            
-
-              .marquee {
-        font-size: 12px; /* Make text smaller for mobile devices */
-        padding: 0.5rem 1rem; /* Adjust padding to prevent overflow */
-    }
-            
-  
-
-          
             .hero h1 {
                 font-size: 2rem;
-                /* Adjusted font size */
             }
 
             .hero p {
@@ -703,9 +568,7 @@
 
             .feature {
                 width: 48%;
-                /* Slightly smaller for two in a row */
                 margin: 1% auto;
-                /* Center align them */
             }
 
             .testimonials h2 {
@@ -724,10 +587,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
-  
-     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 
@@ -756,44 +615,34 @@
         </nav>
     </header>
 
-
     <main>
-            <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Welcome to the Inscribe.co</h1>
-            <div class="sentence">
-                Your one stop for
-                <span class="changing-words"></span>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Welcome to the Inscribe.co</h1>
+                <div class="sentence">
+                    Your one stop for
+                    <span class="changing-words"></span>
+                </div>
+                <button id="learnMoreButton" class="learn-more-button">Learn More</button>
             </div>
-            <button id="learnMoreButton" class="learn-more-button">Learn More</button>
-        </div>
-    </section>
+        </section>
 
-         <div class="marquee">
-        <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
-    </div>
+        <div class="marquee">
+            <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+        </div>
         <section class="samples" id="samples">
             <h2>Our Samples</h2>
             <div class="sample-container">
                 <div class="sample">
-
                     <h3>The Impact of Climate Change on Global Agriculture</h3>
-                    <p>This research paper explores the multifaceted effects of climate change on agricultural practices
-                        worldwide. It examines how rising temperatures, changing precipitation patterns, and extreme
-                        weather events disrupt crop yields and food security. </p>
+                    <p>This research paper explores the multifaceted effects of climate change on agricultural practices worldwide. It examines how rising temperatures, changing precipitation patterns, and extreme weather events disrupt crop yields and food security.</p>
                     <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
                 </div>
                 <div class="sample">
-
                     <h3>The Necessity of Renewable Energy Sources</h3>
-                    <p>In this persuasive essay, the argument is made for the urgent transition to renewable energy
-                        sources to combat climate change and promote environmental sustainability. The essay outlines
-                        the environmental, economic, and social benefits of renewable energy, such as solar and wind
-                        power, compared to fossil fuels. </p>
+                    <p>In this persuasive essay, the argument is made for the urgent transition to renewable energy sources to combat climate change and promote environmental sustainability. The essay outlines the environmental, economic, and social benefits of renewable energy, such as solar and wind power, compared to fossil fuels.</p>
                     <a href="path/to/sample1.pdf" download class="download-link">Download Paper</a>
                 </div>
-
-                <!-- Add more samples as needed -->
             </div>
         </section>
 
@@ -803,7 +652,7 @@
                 <div class="pricing-card">
                     <h3>Normal Delivery</h3>
                     <ul>
-                        <li>USD: $10 per 1000 words </li>
+                        <li>USD: $10 per 1000 words</li>
                         <li>GBP: £15 per page</li>
                         <li>EUR: €18 per page</li>
                     </ul>
@@ -827,19 +676,17 @@
             <h2>What Our Clients Say</h2>
             <div class="testimonial">
                 <p>"The service was exceptional! My essay was well-written and delivered on time. Highly recommend!"</p>
-                <span>- Susan </span>
+                <span>- Susan</span>
             </div>
             <div class="testimonial">
                 <p>"Professional and reliable. I received a high-quality paper with zero plagiarism."</p>
-                <span>- John </span>
+                <span>- John</span>
             </div>
             <div class="testimonial">
-                <p>"Excellent customer service and top-notch writing skills. I will definitely use this service again."
-                </p>
-                <span>- Emily </span>
+                <p>"Excellent customer service and top-notch writing skills. I will definitely use this service again."</p>
+                <span>- Emily</span>
             </div>
         </section>
-
 
         <section class="features" id="features">
             <h2>Why Choose Us?</h2>
@@ -869,98 +716,84 @@
             </div>
         </section>
 
-
-
         <section class="faq">
             <h2>Frequently Asked Questions</h2>
             <div class="question">
                 <h3>What services do you offer?</h3>
-                <p>We offer a wide range of academic writing services including essays, research papers, dissertations,
-                    and more.</p>
+                <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
             </div>
             <div class="question">
                 <h3>How can I place an order?</h3>
-                <p>You can place an order by filling out our order form or contacting our customer support team for
-                    assistance.</p>
+                <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
             </div>
             <div class="question">
                 <h3>Is your service confidential?</h3>
-                <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.
-                </p>
+                <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
             </div>
         </section>
-
     </main>
     <footer>
         <div class="footer-content">
             <p>Contact Us: <a href="mailto:info@example.com">inscribe@gmail.com</a></p>
-          
         </div>
         <div class="footer-bottom">
             <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
         </div>
     </footer>
 
-    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0"
-        class="whatsapp-float">
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
 
     <script>
-// Select elements needed for the hamburger menu functionality
-const hamburger = document.getElementById('hamburger');
-const closeMenuButton = document.getElementById('close-menu');
-const navLinks = document.getElementById('nav-links');
+        // Select elements needed for the hamburger menu functionality
+        const hamburger = document.getElementById('hamburger');
+        const closeMenuButton = document.getElementById('close-menu');
+        const navLinks = document.getElementById('nav-links');
 
-// Function to toggle the menu open/close
-function toggleMenu(event) {
-    event.preventDefault(); // Prevent default behavior (useful for touch events)
-    event.stopPropagation(); // Stop the click from bubbling up
+        // Function to toggle the menu open/close
+        function toggleMenu(event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('show');
-    navLinks.style.position = 'fixed'; // Ensure nav-links are positioned correctly
-    navLinks.style.top = '0';
-    navLinks.style.right = '0';
-    navLinks.style.bottom = '0';
-    navLinks.style.left = '0';
-    navLinks.style.zIndex = "2000"; // Ensure the menu appears above other elements
-    hamburger.style.zIndex = "2001"; // Ensure hamburger icon is visible above the menu
-    console.log('Menu toggled'); // Debug statement
-}
-
-// Function to close the menu
-function closeMenu(event) {
-    event.preventDefault(); // Prevent default behavior
-    event.stopPropagation(); // Stop the click from bubbling up
-
-    hamburger.classList.remove('open');
-    navLinks.classList.remove('show');
-    console.log('Menu closed'); // Debug statement
-}
-
-// Add event listeners for both click and touch events for better compatibility
-hamburger.addEventListener('click', toggleMenu);
-hamburger.addEventListener('touchstart', toggleMenu);
-
-closeMenuButton.addEventListener('click', closeMenu);
-closeMenuButton.addEventListener('touchstart', closeMenu);
-
-// Close menu if clicking outside the menu area
-document.addEventListener('click', function (event) {
-    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-        if (navLinks.classList.contains('show')) {
-            closeMenu(event);
+            hamburger.classList.toggle('open');
+            navLinks.classList.toggle('show');
+            navLinks.style.position = 'fixed';
+            navLinks.style.top = '0';
+            navLinks.style.right = '0';
+            navLinks.style.bottom = '0';
+            navLinks.style.left = '0';
+            navLinks.style.zIndex = "2000";
+            hamburger.style.zIndex = "2001";
+            console.log('Menu toggled');
         }
-    }
-});
 
+        // Function to close the menu
+        function closeMenu(event) {
+            event.preventDefault();
+            event.stopPropagation();
 
+            hamburger.classList.remove('open');
+            navLinks.classList.remove('show');
+            console.log('Menu closed');
+        }
 
+        // Add event listeners for both click and touch events for better compatibility
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchstart', toggleMenu);
 
-  
+        closeMenuButton.addEventListener('click', closeMenu);
+        closeMenuButton.addEventListener('touchstart', closeMenu);
 
-        
+        // Close menu if clicking outside the menu area
+        document.addEventListener('click', function (event) {
+            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                if (navLinks.classList.contains('show')) {
+                    closeMenu(event);
+                }
+            }
+        });
+
         // Smooth scrolling for the Learn More button
         document.getElementById('learnMoreButton').addEventListener('click', function () {
             const featuresSection = document.getElementById('samples');
@@ -979,41 +812,38 @@ document.addEventListener('click', function (event) {
 
             // Check if deleting
             if (isDeleting) {
-                currentWord = fullWord.substring(0, charIndex--); // Remove characters
+                currentWord = fullWord.substring(0, charIndex--);
             } else {
-                currentWord = fullWord.substring(0, charIndex++); // Add characters
+                currentWord = fullWord.substring(0, charIndex++);
             }
 
             // Update the content
             changingWordsElement.textContent = currentWord;
 
             // Decide the typing speed
-            let typingSpeed = isDeleting ? 100 : 200; // Faster when deleting, slower when typing
+            let typingSpeed = isDeleting ? 100 : 200;
 
             // If the word is complete, start deleting after a delay
             if (!isDeleting && charIndex === fullWord.length) {
-                typingSpeed = 1000; // Pause before starting deletion
-                isDeleting = true; // Start deleting next
+                typingSpeed = 1000;
+                isDeleting = true;
             } else if (isDeleting && charIndex < 0) {
-                // Move to the next word once deletion is done
                 isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length; // Loop through words
+                wordIndex = (wordIndex + 1) % words.length;
                 charIndex = 0;
-                typingSpeed = 500; // Pause before typing the new word
+                typingSpeed = 500;
             }
 
-            setTimeout(typeWord, typingSpeed); // Repeat typing process
+            setTimeout(typeWord, typingSpeed);
         }
 
         // Start typing the first word
         typeWord();
 
-         window.onload = function() {
+        window.onload = function () {
             const marqueeText = document.getElementById('marqueeText');
-            marqueeText.style.animation = 'marquee 30s linear infinite'; // Start marquee animation immediately once page loads
+            marqueeText.style.animation = 'marquee 30s linear infinite';
         };
-       
-
     </script>
 </body>
 
