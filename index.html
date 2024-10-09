@@ -766,47 +766,53 @@
         @media (max-width: 768px) {
 
             /* Adjust the overall container */
-    .pricing-content {
-        flex-direction: column; /* Stack vertically */
-        padding: 2rem 1rem; /* Adjust padding */
+             .pricing-content {
+        flex-direction: column; /* Stack elements vertically on mobile */
+        padding: 20px; /* Reduce padding */
+        background-size: cover; /* Ensure background covers the entire section */
     }
 
-    /* Adjust the left side of the pricing section */
     .pricing-left {
-        text-align: center; /* Center-align the text */
-        padding: 1rem; /* Add padding around the text */
+        width: 100%; /* Full width */
+        text-align: center; /* Center text for readability */
+        margin-bottom: 20px; /* Add space between text and boxes */
     }
 
-    .pricing-left h2, .pricing-left p {
-        color: black; /* Change text color for better visibility */
+    .pricing-left h2 {
+        color: #333; /* Ensure text is visible */
+        font-size: 24px; /* Adjust font size */
     }
 
-    /* Adjust the boxes within the pricing section */
+    .pricing-left p {
+        color: #666; /* Lighten text for better readability */
+        font-size: 16px; /* Adjust font size */
+    }
+
     .pricing-boxes {
-        width: 100%; /* Full width to use available space */
+        width: 100%; /* Full width for boxes */
         flex-direction: column; /* Stack boxes vertically */
     }
 
     .pricing-box {
-        margin: 10px 0; /* Space out the boxes */
-        padding: 1.5rem; /* Increase padding for touch targets */
-        align-items: center; /* Center align items */
-        text-align: center; /* Center text inside the boxes */
+        width: 100%; /* Full width for each box */
+        padding: 15px; /* Adjust padding */
+        margin-bottom: 10px; /* Add space between boxes */
     }
 
     .pricing-box h3 {
-        flex: none; /* Override any flex settings to adjust width */
-        width: 100%; /* Full width */
-        margin-bottom: 10px; /* Space below headings */
+        font-size: 20px; /* Adjust heading size */
     }
 
     .pricing-box ul {
-        padding: 0; /* Remove padding */
+        padding-left: 0; /* Align text properly */
     }
 
     .pricing-box ul li {
-        text-align: center; /* Center-align list items */
+        font-size: 14px; /* Adjust list font size */
     }
+  
+
+  
 
              .testimonial-card {
         width: 90%; /* Make cards wider to use available space */
