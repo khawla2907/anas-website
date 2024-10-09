@@ -694,6 +694,74 @@
             right: 20px;
         }
 
+
+
+        /* Footer Section */
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-right: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-info, .footer-links, .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            text-align: left;
+        }
+
+        .footer-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul, .footer-services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li, .footer-services li {
+            margin: 5px 0;
+        }
+
+        .footer-links a, .footer-services a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover, .footer-services a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+
+
         /* Responsive Media Queries */
         @media (max-width: 768px) {
 
@@ -799,20 +867,21 @@
             .question h3 {
                 font-size: 1rem;
             }
+
              .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .footer-quick-links, .footer-contact-info {
-        text-align: center; /* Center-align footer content */
-        margin-bottom: 20px; /* Add space between sections */
-    }
-
-    .footer-logo {
-        order: -1; /* Move logo to top */
-        margin-bottom: 20px;
-    }
+            .footer-info,
+            .footer-links,
+            .footer-services,
+            .footer-contact {
+                text-align: center;
+                margin: 20px 0;
+            }
+           
+ 
 
             
         }
