@@ -696,6 +696,29 @@
 
         /* Responsive Media Queries */
         @media (max-width: 768px) {
+
+             .pricing-boxes {
+        flex-direction: column;
+    }
+
+    .pricing-box {
+        width: 100%; /* Make each box take full width */
+        margin: 10px 0; /* Add some margin for separation */
+    }
+
+    .pricing-left {
+        text-align: center; /* Center-align the text */
+    }
+
+    .pricing-left h2, .pricing-left p {
+        color: black; /* Ensure text is readable on light backgrounds */
+    }
+
+             .testimonial-card {
+        width: 90%; /* Make cards wider to use available space */
+        margin: 10px auto; /* Center cards with automatic margin */
+        height: auto; /* Make height automatic to fit content */
+    }
             .hamburger {
                 display: block;
             }
@@ -750,16 +773,22 @@
             .question h3 {
                 font-size: 1rem;
             }
+             .footer-content {
+        flex-direction: column;
+        align-items: center;
+    }
 
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
+    .footer-quick-links, .footer-contact-info {
+        text-align: center; /* Center-align footer content */
+        margin-bottom: 20px; /* Add space between sections */
+    }
 
-            .footer-section {
-                text-align: center;
-                margin-bottom: 2rem;
-            }
+    .footer-logo {
+        order: -1; /* Move logo to top */
+        margin-bottom: 20px;
+    }
+
+            
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
