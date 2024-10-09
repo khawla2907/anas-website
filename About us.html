@@ -354,6 +354,16 @@
             transform: translateY(-10px);
         }
 
+         /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3003;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+
+
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -412,107 +422,26 @@
     }
 
             
-
-   
-
-   You said:
-    .sample {
-                width: calc(50% - 2rem);
-                /* Two in a row on tablets */
+            .hamburger {
+                display: block;
             }
 
             .nav-links {
                 display: none;
-                /* Initially hidden */
-                flex-direction: column;
-                /* Stack links vertically */
-                position: absolute;
-                /* Dropdown positioning */
-                top: 80px;
-                /* Space below the nav bar */
-                right: 0;
-                left: 0;
-                /* Full width */
-                background-color: #2c3e50;
-                /* Dark background for contrast */
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-                /* Softer shadow for depth */
-                border-radius: 8px;
-                /* Less rounded corners */
-                z-index: 100;
-                /* Appear above other elements */
-                padding: 0.5rem;
-                /* Padding around the dropdown */
-                transition: all 0.3s ease;
-                /* Smooth open/close */
-
-                /* ####### New Code ########## */
-                /* for make list in a container */
-                contain: content;
-                /* ########################### */
             }
 
-            /* ####### New Code ########## */
-            /* for proper visibilty of list items */
-            .nav-links li {
-                display: flex;
-                contain: content;
+            .nav-links-mobile {
+                padding: 1rem;
             }
 
-            /* ########################### */
 
-            .nav-links a {
-                padding: 1.5rem;
-                /* Increased padding for larger clickable area */
-                margin: 0.5rem 0;
-                /* Slight margin to separate buttons */
-                background-color: #2980b9;
-                /* Background color for links */
-                border-radius: 5px;
-                /* Subtle rounding for links */
-                font-size: 1.25rem;
-                /* Reasonable font size for readability */
-                text-align: center;
-                color: #ffffff;
-                /* White text */
-                text-decoration: none;
-                /* Remove underline */
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                /* Smooth transitions */
-                width: calc(100% - 1rem);
-                /* Make buttons full width minus margin */
-                box-sizing: border-box;
-                /* Include padding and border in element's total width */
-            }
+            
 
-            /* Hover effects */
-            .nav-links a:hover {
-                background-color: #1f6396;
-                /* Darker hover color */
-                color: #ecf0f1;
-                /* Lighter text on hover */
-                transform: scale(1.05);
-                /* Slightly increase size on hover */
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-                /* Shadow on hover for depth */
-            }
+   
 
-            .nav-links.show {
-                display: flex;
-                /* Show nav links when hamburger is clicked */
-            }
 
-            .hamburger {
-                display: block;
-                /* Show hamburger on mobile */
-            }
-.nav-links.active {
-    display: flex;
-}
 
-nav {
-    justify-content: space-between;
-}
+
 
             .about-hero h1 {
                 font-size: 2rem;
