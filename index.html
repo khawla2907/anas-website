@@ -697,21 +697,47 @@
         /* Responsive Media Queries */
         @media (max-width: 768px) {
 
-             .pricing-boxes {
-        flex-direction: column;
+            /* Adjust the overall container */
+    .pricing-content {
+        flex-direction: column; /* Stack vertically */
+        padding: 2rem 1rem; /* Adjust padding */
     }
 
-    .pricing-box {
-        width: 100%; /* Make each box take full width */
-        margin: 10px 0; /* Add some margin for separation */
-    }
-
+    /* Adjust the left side of the pricing section */
     .pricing-left {
         text-align: center; /* Center-align the text */
+        padding: 1rem; /* Add padding around the text */
     }
 
     .pricing-left h2, .pricing-left p {
-        color: black; /* Ensure text is readable on light backgrounds */
+        color: black; /* Change text color for better visibility */
+    }
+
+    /* Adjust the boxes within the pricing section */
+    .pricing-boxes {
+        width: 100%; /* Full width to use available space */
+        flex-direction: column; /* Stack boxes vertically */
+    }
+
+    .pricing-box {
+        margin: 10px 0; /* Space out the boxes */
+        padding: 1.5rem; /* Increase padding for touch targets */
+        align-items: center; /* Center align items */
+        text-align: center; /* Center text inside the boxes */
+    }
+
+    .pricing-box h3 {
+        flex: none; /* Override any flex settings to adjust width */
+        width: 100%; /* Full width */
+        margin-bottom: 10px; /* Space below headings */
+    }
+
+    .pricing-box ul {
+        padding: 0; /* Remove padding */
+    }
+
+    .pricing-box ul li {
+        text-align: center; /* Center-align list items */
     }
 
              .testimonial-card {
