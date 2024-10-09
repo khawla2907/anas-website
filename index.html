@@ -1,3 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The InscribeCo</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f5f5f5;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.3);
+            color: black;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1500;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px);
+        }
+
+        .top-bar {
+            background-color: lightgrey;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .phone-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .top-bar a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-top: 40px;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
+
+        .hamburger.open {
+            transform: rotate(90deg);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: auto;
+            background-color: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1500;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #008080;
+            padding: 5px;
+            background-color: rgba(245, 245, 245, 0.863);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation Links Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .nav-links a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        .nav-links-mobile {
+            display: none;
+            z-index: 3000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(44, 62, 80, 0.9);
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .nav-links-mobile.show {
+            display: flex;
+        }
+
+        .nav-links-mobile li {
+            display: block;
+            margin: 30px 0;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        .nav-links-mobile a {
+            font-size: 14.5px;
+            padding: 1rem;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .nav-links-mobile a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section Styles */
+        .hero {
+            height: 94vh;
+            background: url('images/bg.png') no-repeat center center/cover;
+            color: darkblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            position: relative;
+        }
+
+        .hero-content {
+            animation: fadeInBox 2s ease-out forwards;
+            padding: 2rem;
+            border-radius: 10px;
+            opacity: 0;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .sentence {
+            font-size: 1.50rem;
+            color: #ffffff;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .hero button {
+            background-color: #0056b3;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 1.5rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .hero button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        /* Keyframes for Animations */
+        @keyframes fadeInBox {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Marquee Styles */
+        .marquee {
+            background: #0056b3;
+            color: white;
+            padding: 0.75rem 1rem;
+            font-size: 12px;
+            font-weight: 400;
+            font-family: 'Roboto', sans-serif;
+            overflow: hidden;
+            width: 100%;
+            z-index: 1700;
+            top: 40px;
+            box-sizing: border-box;
+        }
+
+        .marquee span {
+            display: inline-block;
+            animation: marquee 30s linear infinite;
+            white-space: nowrap;
+            will-change: transform;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+          /* Footer Styles */
+          
+
+      
+        
+    
+
+
+
+        /* Samples Section Styles */
+.samples {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.samples h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.sample-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.sample {
+    background-color: #ffffff;
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: calc(30% - 2rem);
+    position: relative;
+    text-align: left;
+}
+
+.sample:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.sample h3 {
+    font-size: 1.5rem;
+    margin: 1rem 0 0.5rem;
+  color: #0056b3;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.sample p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0.5rem 0 1.5rem;
+    line-height: 1.6;
+}
+
+.download-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: #0056b3;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.download-link:hover {
+    background-color: #0056b3;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+}
+.sample {
+    transform: translateX(100%); /* Start off-screen to the right */
+    opacity: 0; /* Start faded out */
+    transition: transform 1s ease-out, opacity 1s ease-out; /* Smooth transition for move and fade-in */
+    will-change: transform, opacity; /* Optimizes the properties for animations */
+}
+
+.sample.active {
+    transform: translateX(0); /* End position on-screen */
+    opacity: 1; /* Fully visible */
+}
+
+
+        /* Features Section Styles */
+        .features {
+            padding: 4rem 2rem;
+            text-align: center;
+            background: linear-gradient(to right, #f0f0f0, #ffffff);
+        }
+
+        .feature {
+            display: inline-block;
+            width: 28%;
+            margin: 1rem;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 50%;
+            padding: 2rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #0056b3;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .feature {
+    opacity: 0;
+    transform: translateX(50px); /* Initially moved to the right */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.feature.left {
+    transform: translateX(-50px); /* Initially moved to the left */
+}
+
+.feature.active {
+    opacity: 1;
+    transform: translateX(0); /* Move to original position */
+}
+
+
+        /* Testimonials Section Styles */
+        .testimonials {
+            padding: 3rem 1rem;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+
+        .testimonials h2 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+
+        .testimonials p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #777;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .testimonial-card {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33% - 2rem);
+            max-width: 300px;
+            height: 330px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .testimonial-card .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: linear-gradient(135deg, #36d1dc, #5b86e5);
+            clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        .testimonial-author {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-author-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            color: #777;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .testimonial-card {
+    opacity: 0;
+    transform: translateY(20px); /* Slight move from bottom to top */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.testimonial-card.active {
+    opacity: 1;
+    transform: translateY(0); /* Return to normal position */
+}
+
+
+        /* FAQ Section Styles */
+        .faq {
+            padding: 4rem 2rem;
+            text-align: center;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .faq h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #333;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .question {
+            background-color: #ffffff;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .question:hover {
+            background-color: #e6f7ff;
+            transform: translateY(-5px);
+        }
+
+        .answer {
+            padding: 1.5rem;
+            margin-top: -1rem;
+            display: none;
+            background-color: #ffffff;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            line-height: 1.6;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .active .answer {
+            display: block;
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            margin-right: 0.5rem;
+            color: #0056b3;
+        }
+
+        /* Pricing Section Styles */
+        .pricing-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+            background: url('images/2.jpeg') no-repeat center center/cover;
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .pricing-left {
+            flex: 1;
+            padding: 0;
+            text-align: center;
+        }
+
+        .pricing-left h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: whitesmoke;
+            text-align: left;
+        }
+
+        .pricing-left p {
+            font-size: 1rem;
+            color: white;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .pricing-boxes {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: left;
+        }
+
+        .pricing-box {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 1rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .pricing-box h3 {
+            font-size: 1.25rem;
+            color: #333;
+            margin-bottom: 0;
+            flex: 0 0 150px;
+            text-align: left;
+        }
+
+        .pricing-box ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            font-size: 0.95rem;
+            color: #333;
+        }
+
+        .pricing-box ul li {
+            margin: 0.25rem 0;
+            line-height: 1.5;
+        }
+
+        .pricing-box {
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+}
+
+.pricing-box.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+        
+
+        /* WhatsApp Icon Styles */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3001;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Responsive Media Queries */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+            .sample {
+                width: 90%;
+                padding: 1rem;
+            }
+
+            .whatsapp-float {
+                right: 10px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero button {
+                font-size: 1rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .features h2 {
+                font-size: 1.5rem;
+            }
+
+            .feature {
+                width: 48%;
+                margin: 1% auto;
+            }
+
+            .testimonials h2 {
+                font-size: 1.5rem;
+            }
+
+            .faq h2 {
+                font-size: 1.5rem;
+            }
+
+            .question h3 {
+                font-size: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Top Bar Section -->
+    <div class="top-bar">
+        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <div class="hamburger" id="hamburger">
+                &#9776;
+            </div>
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+                <button class="close-menu" id="close-menu">X</button>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Welcome to the Inscribe.co</h1>
+                <div class="sentence">
+                    Your one stop for
+                    <span class="changing-words"></span>
+                </div>
+                <button id="learnMoreButton" class="learn-more-button">Learn More</button>
+            </div>
+        </section>
+
+        <!-- Marquee Section -->
+        <div class="marquee">
+            <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+        </div>
+
+        <!-- Samples Section -->
+        <section class="samples" id="samples">
+            <h2 class="slide-in-left">Our Samples</h2>
+            <div class="sample-container">
+                <div class="sample slide-in-left">
+                    <h3>Accounting Principles for Sustainability and Decision Making</h3>
+                    <p>This report explores the evolving role of accounting in decision-making and sustainability within organizations, particularly in the context of De Byrne Consulting's UK SME unit. It addresses compliance, financial statement preparation, financial analysis, and budgeting solutions.</p>
+                    <a href="Sample/Medical sample 1.docx" download class="download-link">Download Paper</a>
+                </div>
+                <div class="sample slide-in-left">
+                    <h3>Public Health Principles and Practice for Nursing Associates</h3>
+                    <p>This discussion focuses on sexually transmitted infections (STIs) in Luton, emphasizing government initiatives and the role of healthcare professionals, particularly nurses, in advocating for and managing STI health services.</p>
+                    <a href="Sample/Accounting Principles for Sustainability and Decision Making.docx" download class="download-link">Download Paper</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="pricing-content">
+                <div class="pricing-left">
+                    <h2>Pricing</h2>
+                    <p>Choose the plan that fits your needs. We offer competitive prices for writing, proofreading, and PowerPoint services, ensuring the best quality for your requirements.</p>
+                </div>
+                <div class="pricing-boxes">
+                    <div class="pricing-box">
+                        <h3>Writing</h3>
+                        <ul>
+                            <li><strong>Normal Prices (5+ Days):</strong> 1000 words - USD $65, AED 240, GBP 49</li>
+                            <li><strong>Urgent (2-4 Days):</strong> 1000 words - USD $90, AED 330, GBP 68</li>
+                            <li><strong>Super Urgent (Less than 48 Hours):</strong> 1000 words - USD $103, AED 380, GBP 78</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-box">
+                        <h3>Proofreading</h3>
+                        <ul>
+                            <li><strong>Normal:</strong> £20 per 1000 words, AED 94 per 1000 words, $25 per 1000 words</li>
+                            <li><strong>Urgent:</strong> £30 per 1000 words, AED 117 per 1000 words, $32 per 1000 words</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-box">
+                        <h3>PowerPoint</h3>
+                        <ul>
+                            <li><strong>Normal:</strong> £6 per slide, AED 35 per slide, $9 per slide</li>
+                            <li><strong>Urgent:</strong> £10 per slide, AED 55 per slide, $15 per slide</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <h2>Customer Reviews</h2>
+            <p>What our customers are saying...</p>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <img src="images/P(1).jpeg" alt="Lance Jarvis">
+                        <span class="testimonial-author-name">Lance Jarvis</span>
+                    </div>
+                    <p class="testimonial-content">"Inscribe.co exceeded my expectations! The quality of the work was outstanding, and the team was very supportive throughout the entire process. I will definitely use their services again!"</p>
+                    <div class="wave"></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <img src="images/P(2).jpeg" alt="Ericka Lynda">
+                        <span class="testimonial-author-name">Ericka Lynda</span>
+                    </div>
+                    <p class="testimonial-content">"I was on a tight deadline, but Inscribe.co delivered an excellent paper well before the due date. The attention to detail and commitment to quality was superb."</p>
+                    <div class="wave" style="background: linear-gradient(135deg, #8e44ad, #c0392b);"></div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-author">
+                        <img src="images/P(3).jpeg" alt="Neil Wilford">
+                        <span class="testimonial-author-name">Neil Wilford</span>
+                    </div>
+                    <p class="testimonial-content">"Fantastic service! The writers are experts in their fields, and the customer support was always available to help me. I would recommend Inscribe.co to anyone in need of academic assistance."</p>
+                    <div class="wave" style="background: linear-gradient(135deg, #3498db, #2ecc71);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <div class="features">
+            <h2>Why Choose Us?</h2>
+            <div class="feature">
+                <img src="images/TQ.png" alt="Top Quality">
+                <h3>Top Quality</h3>
+            </div>
+            <div class="feature">
+                <img src="images/plag-removebg-preview.png" alt="Plagiarism Free">
+                <h3>Plagiarism Free</h3>
+            </div>
+            <div class="feature">
+                <img src="images/preview.png" alt="Quality Work">
+                <h3>Quality Work</h3>
+            </div>
+            <div class="feature">
+                <img src="images/TD-removebg-preview.png" alt="Timely Delivery">
+                <h3>Timely Delivery</h3>
+            </div>
+            <div class="feature">
+                <img src="images/24.png" alt="24 Hour Support">
+                <h3>24 Hour Support</h3>
+            </div>
+            <div class="feature">
+                <img src="images/EXP-removebg-preview.png" alt="Expert Writers">
+                <h3>Expert Writers</h3>
+            </div>
+        </div>
+
+
+        <!-- FAQ Section -->
+
+         <!-- FAQ Section -->
+         <section class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> What services do you offer?</h3>
+                    <div class="answer">
+                        <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> How can I place an order?</h3>
+                    <div class="answer">
+                        <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> Is your service confidential?</h3>
+                    <div class="answer">
+                        <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> What payment methods do you accept?</h3>
+                    <div class="answer">
+                        <p>We accept various payment methods including credit/debit cards, PayPal, and bank transfers.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> Can I request revisions?</h3>
+                    <div class="answer">
+                        <p>Yes, we offer free revisions to ensure your complete satisfaction with the delivered work.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="faq-icon">&#x1F4AC;</span> How long does it take to complete an order?</h3>
+                    <div class="answer">
+                        <p>The time to complete an order depends on the complexity and length of the project, but we always strive to meet your deadlines. We offer normal, urgent, and super urgent delivery options.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Footer Section -->
+<footer style="background-color: #0056b3; color: #ffffff; padding: 2rem;">
+    <div style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto;">
+        <!-- Quick Links Section -->
+        <div class="footer-quick-links">
+            <h3>Quick Links</h3>
+            <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                <li><a href="index.html" style="color: #ffffff; text-decoration: none;">Home</a></li>
+                <li><a href="About us.html" style="color: #ffffff; text-decoration: none;">About Us</a></li>
+                <li><a href="services.html" style="color: #ffffff; text-decoration: none;">Services</a></li>
+                <li><a href="Sample.html" style="color: #ffffff; text-decoration: none;">Samples</a></li>
+                <li><a href="pricing.html" style="color: #ffffff; text-decoration: none;">Pricing</a></li>
+                <li><a href="order.html" style="color: #ffffff; text-decoration: none;">Order</a></li>
+            </ul>
+        </div>
+
+        <!-- Logo Section -->
+        <div class="footer-logo">
+            <img src="images/logo (2).png" alt="Company Logo" style="height: 200px; width: auto;">
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="footer-contact-info">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="mailto:inscribe@gmail.com" style="color: #ffffff; text-decoration: none;">inscribe@gmail.com</a></p>
+            <p>Phone: <a href="tel:+442032893891" style="color: #ffffff; text-decoration: none;">+44 203 289 3891</a></p>
+            <p>Facebook: <a href="https://www.facebook.com" target="_blank" style="color: #ffffff; text-decoration: none;">facebook.com/inscribeco</a></p>
+            <p>Instagram: <a href="https://www.instagram.com" target="_blank" style="color: #ffffff; text-decoration: none;">instagram.com/inscribeco</a></p>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div style="text-align: center; margin-top: 2rem; border-top: 1px solid #ffffff; padding-top: 1rem;">
+        <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
+    </div>
+</footer>
+
+
+
+
+      
+    </main>
+
+  
+
+    <!-- WhatsApp Floating Icon -->
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
+
+    <script>
+        // FAQ Toggle Functionality
+        document.querySelectorAll('.question').forEach(question => {
+            question.addEventListener('click', () => {
+                question.classList.toggle('active');
+            });
+        });
+
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
+
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
+
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
+            });
+
+            // Smooth Scrolling for Learn More Button
+            document.getElementById('learnMoreButton').addEventListener('click', function () {
+                const featuresSection = document.getElementById('pricing');
+                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+             // Word Typing Animation in Hero Section
+             const words = ["Dissertation", "Essay", "Proofreading", "Powerpoint", "Assignment"];
+            let wordIndex = 0;
+            let charIndex = 0;
+            const changingWordsElement = document.querySelector('.changing-words');
+            let currentWord = '';
+            let isDeleting = false;
+
+            function typeWord() {
+                const fullWord = words[wordIndex];
+
+                if (isDeleting) {
+                    currentWord = fullWord.substring(0, charIndex--);
+                } else {
+                    currentWord = fullWord.substring(0, charIndex++);
+                }
+
+                changingWordsElement.textContent = currentWord;
+
+                let typingSpeed = isDeleting ? 100 : 200;
+
+                if (!isDeleting && charIndex === fullWord.length) {
+                    typingSpeed = 360;
+                    isDeleting = true;
+                } else if (isDeleting && charIndex < 0) {
+                    isDeleting = false;
+                    wordIndex = (wordIndex + 1) % words.length;
+                    charIndex = 0;
+                    typingSpeed = 200;
+                }
+
+                setTimeout(typeWord, typingSpeed);
+            }
+
+            typeWord();
+        }); 
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Options for the IntersectionObserver
+    const options = {
+        rootMargin: '0px',
+        threshold: 0.1 // Triggers when at least 10% of the target is visible
+    };
+
+    // Callback function for the IntersectionObserver
+    const observerCallback = (entries, observer) => {
+        entries.forEach(entry => {
+            // Toggle the 'active' class based on whether the element is intersecting
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    };
+
+    // Creating the IntersectionObserver
+    const observer = new IntersectionObserver(observerCallback, options);
+
+    // Selecting elements to observe
+    const samples = document.querySelectorAll('.sample');
+    samples.forEach(sample => {
+        observer.observe(sample);
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Select all the pricing boxes
+    const pricingBoxes = document.querySelectorAll('.pricing-box');
+
+    // Function to add 'active' class with a delay
+    pricingBoxes.forEach((box, index) => {
+        setTimeout(() => {
+            box.classList.add('active');
+        }, index * 300); // Each box will appear 300ms after the previous one
+    });
+});
+
+
+// TESTIMONIAL SECTION
+document.addEventListener('DOMContentLoaded', function() {
+    const observerOptions = {
+        root: null, // Observe relative to the viewport
+        threshold: 0.1 // Trigger when 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            } else {
+                entry.target.classList.remove('active');
+            }
+        });
+    }, observerOptions);
+
+    // Apply the observer to each testimonial card
+    const testimonials = document.querySelectorAll('.testimonial-card');
+    testimonials.forEach(testimonial => {
+        observer.observe(testimonial);
+    });
+});
+
+
+// FEATURES
 document.addEventListener('DOMContentLoaded', function() {
     const observerOptions = {
         root: null,  // Default to viewport
@@ -20,3 +1214,15 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(feature);
     });
 });
+
+
+
+
+
+
+        
+          
+    </script>
+</body>
+
+</html>
