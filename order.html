@@ -6,133 +6,263 @@
     <title>Order Placement - The Inscribe Co.</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <style>
-        * {
-            box-sizing: border-box; /* Include padding and border in width/height */
-        }
 
-        body {
-            font-family: 'Roboto', sans-serif;
+
+         /* General Styles */
+          body {
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.8;
             background-color: #f5f5f5;
-            line-height: 1.6;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
 
+        /* Header Styles */
         header {
-            background-color: rgba(255, 255, 255, 0.10);
+            background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
             position: fixed;
             top: 0;
-            z-index: 1000;
+            z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(50px);
+            transition: all 0.3s ease;
         }
-      footer {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    padding: 20px; /* Padding */
-    text-align: center; /* Center text */
-}
 
-.footer-content p {
-    margin: 5px 0; /* Space between paragraphs */
-}
+        .top-bar {
+            background-color: lightgrey;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
 
-.footer-bottom {
-    border-top: 1px solid #444; /* Top border */
-    margin-top: 10px; /* Margin above */
-    padding-top: 10px; /* Padding above */
-}
-       
+        .phone-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
 
-     .top-bar {
-        background-color: lightgrey;
-        color: black;
-        padding: 10px 0;
-        text-align: center;
-        font-family: 'Arial', sans-serif;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
-    }
+        .top-bar a {
+            color: black;
+            text-decoration: none;
+        }
 
-    .phone-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-    }
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
 
-    .top-bar a {
-        color: black;
-        text-decoration: none;
-    }
+        header {
+            margin-top: 40px;
+        }
 
-    .top-bar a:hover {
-        text-decoration: underline;
-    }
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
 
-    header {
-        margin-top: 40px; /* Adjusts the header position below the top bar */
-    }
+        .hamburger.open {
+            transform: rotate(90deg);
+        }
 
-    .hamburger {
-    display: block; /* Show hamburger on mobile */
-}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: auto;
+            background-color: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1500;
+            transition: all 0.3s ease;
+        }
 
- nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        max-width: 1400px;
-        margin: auto;
-    }
+        .logo img {
+            height: 50px;
+            border-radius: 50%;
+            border: 3px solid #008080;
+            padding: 5px;
+            background-color: rgba(245, 245, 245, 0.863);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-    .logo img {
-        height: 70px;
-        border-radius: 50%;
-        border: 3px solid rgba(0, 123, 255, 0.6);
-        padding: 5px;
-        background-color: rgba(245, 245, 245, 0.863);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }   
+        .logo img:hover {
+            transform: scale(1.1);
+        }
 
+        /* Navigation Links Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-.nav-links {
-    display: flex; /* Display nav links in desktop view */
-}
-        
-.nav-links li {
-    display: inline;
-}
+        .nav-links a {
+            font-size: 18px;
+            padding: 1rem;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            font-weight: bold;
+            border-radius: 8px;
+        }
 
-.nav-links a {
-    color: black; 
-    text-decoration: none;
-    padding: 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
+        .nav-links a:hover {
+            color: #1f6396;
+            transform: scale(1.1);
+        }
 
-.nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.6);
-    transform: scale(1.1);
-}
+        .nav-links-mobile {
+            display: none;
+            z-index: 3000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(44, 62, 80, 0.9);
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 2rem;
+        }
 
+        .nav-links-mobile.show {
+            display: flex;
+        }
 
+        .nav-links-mobile li {
+            display:block;
+            margin: 30px 0;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+            width: 100%;
+        }
 
+        .nav-links-mobile a {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            position:relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight:bold;
+        }
 
+        .nav-links-mobile a:hover {
+            color: #1f6396;
+            transform: scale(1.1);
+        }
 
-        .hero {
-            height: 60vh;
-            background: url('images/bg.jpg') no-repeat center center/cover;
+        /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3005;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        /* Footer Section */
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            border-top: 5px solid #008080;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-right: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-info,
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            text-align: left;
+        }
+
+        .footer-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #00bfff;
+        }
+
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li,
+        .footer-services li {
+            margin: 5px 0;
+        }
+
+        .footer-links a,
+        .footer-services a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        .about-hero {
+            border-radius: 20px;
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg.jpg') center center/cover;
             color: white;
             display: flex;
             justify-content: center;
@@ -140,22 +270,30 @@
             text-align: center;
             padding: 0 2rem;
             margin-top: 0;
-            width: 100%;
+            transition: all 0.3s ease;
+            background-repeat: no-repeat;
         }
 
-        .hero-content {
+        .about-hero-content {
             animation: fadeIn 2s ease-out;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
         }
 
-        .hero h1 {
+        .about-hero h1 {
             font-size: 3rem;
-            color: #fff;
+            color: #00bfff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: #ddd;
+        .about-hero p {
+            font-size: 1.5rem;
+            color: #e0e0e0;
         }
+
+      
+        
 
         .form-section {
             padding: 4rem 1rem;
@@ -269,111 +407,41 @@
                 width: 90%; /* Full width on smaller screens */
                 padding: 1.5rem; /* Less padding */
             }
-
-           
-You said:
-    .sample {
-                width: calc(50% - 2rem);
-                /* Two in a row on tablets */
+              .hamburger {
+                display: block;
             }
 
             .nav-links {
                 display: none;
-                /* Initially hidden */
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
                 flex-direction: column;
-                /* Stack links vertically */
-                position: absolute;
-                /* Dropdown positioning */
-                top: 80px;
-                /* Space below the nav bar */
-                right: 0;
-                left: 0;
-                /* Full width */
-                background-color: #2c3e50;
-                /* Dark background for contrast */
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-                /* Softer shadow for depth */
-                border-radius: 8px;
-                /* Less rounded corners */
-                z-index: 100;
-                /* Appear above other elements */
-                padding: 0.5rem;
-                /* Padding around the dropdown */
-                transition: all 0.3s ease;
-                /* Smooth open/close */
-
-                /* ####### New Code ########## */
-                /* for make list in a container */
-                contain: content;
-                /* ########################### */
+                align-items: center;
             }
 
-            /* ####### New Code ########## */
-            /* for proper visibilty of list items */
-            .nav-links li {
-                display: flex;
-                contain: content;
-            }
-
-            /* ########################### */
-
-            .nav-links a {
-                padding: 1.5rem;
-                /* Increased padding for larger clickable area */
-                margin: 0.5rem 0;
-                /* Slight margin to separate buttons */
-                background-color: #2980b9;
-                /* Background color for links */
-                border-radius: 5px;
-                /* Subtle rounding for links */
-                font-size: 1.25rem;
-                /* Reasonable font size for readability */
+            .footer-info,
+            .footer-links,
+            .footer-services,
+            .footer-contact {
                 text-align: center;
-                color: #ffffff;
-                /* White text */
-                text-decoration: none;
-                /* Remove underline */
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                /* Smooth transitions */
-                width: calc(100% - 1rem);
-                /* Make buttons full width minus margin */
-                box-sizing: border-box;
-                /* Include padding and border in element's total width */
+                margin: 20px 0;
             }
-
-            /* Hover effects */
-            .nav-links a:hover {
-                background-color: #1f6396;
-                /* Darker hover color */
-                color: #ecf0f1;
-                /* Lighter text on hover */
-                transform: scale(1.05);
-                /* Slightly increase size on hover */
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-                /* Shadow on hover for depth */
-            }
-
-            .nav-links.show {
-                display: flex;
-                /* Show nav links when hamburger is clicked */
-            }
-
-            .hamburger {
-                display: block;
-                /* Show hamburger on mobile */
-            }
-
-.nav-links.active {
-    display: flex;
-}
-
-nav {
-    justify-content: space-between;
-}
-
 
             
-        }
+ }
 
         @media (max-width: 480px) {
             .hero h1 {
@@ -399,28 +467,41 @@ nav {
     </style>
 </head>
 <body>
-      <div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon"> <!-- Replace with an actual icon -->
+      <!-- Top Bar Section -->
+    <div class="top-bar">
+        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
         <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
     </div>
-     <header>
-    <nav>
-        <div class="logo">
-            <img src="images/logo (2).png" alt="Company Logo">
-        </div>
-        <div class="hamburger" id="hamburger">
-            &#9776; <!-- Hamburger icon -->
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="About us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="Sample.html">Samples</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="order.html">Order</a></li>
-        </ul>
-    </nav>
-</header>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <div class="hamburger" id="hamburger">
+                &#9776;
+            </div>
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+                <br>
+                <button class="close-menu" id="close-menu">X</button>
+            </ul>
+        </nav>
+    </header>
     
 
     <main>
@@ -515,15 +596,41 @@ nav {
             </div>
         </section>
     </main>
-     <footer>
+        <footer class="footer">
         <div class="footer-content">
-            <p>Contact Us: <a href="mailto:info@example.com">inscribe@gmail.com</a></p>
-           
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
+            <div class="footer-logo">
+                <img src="images/logo (2).png" alt=" Logo" />
+            </div>
+            <div class="footer-info">
+                <h2>Inscribe.co</h2>
+                <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <br>
+                    <li><a href="About-us.html">About Us</a></li>
+                    <br>
+                    <li><a href="order.html">Order</a></li>
+                    <br>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <br>
+                    <li><a href="sample.html">Sample</a></li>
+                    <br>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>INCRIBE@gmail.com</p>
+                <p>+44 2032893891</p>
+                <p>facebook.com</p>
+                <p>insta.com</p>
+            </div>
         </div>
     </footer>
+    
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
@@ -539,11 +646,46 @@ nav {
         document.getElementById('order-details-section').style.display = 'none';
     }
 
-    // Event listener for the hamburger menu
-    document.getElementById('hamburger').addEventListener('click', function () {
-        const navLinks = document.getElementById('nav-links');
-        navLinks.classList.toggle('show'); // Toggle the dropdown menu
-    });
+     // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
+
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
+
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
+            });
+        });
 </script>
 
 </body>
