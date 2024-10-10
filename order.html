@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Placement - The Inscribe Co.</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <title>The InscribeCo - Order</title>
     <style>
-
-
-         /* General Styles */
-          body {
-            font-family: 'Poppins', sans-serif;
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -27,6 +25,7 @@
             top: 0;
             z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(50px);
             transition: all 0.3s ease;
         }
 
@@ -35,7 +34,7 @@
             color: black;
             padding: 10px 0;
             text-align: center;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial', sans-serif;
             position: fixed;
             width: 100%;
             top: 0;
@@ -59,10 +58,6 @@
 
         .top-bar a:hover {
             text-decoration: underline;
-        }
-
-        header {
-            margin-top: 40px;
         }
 
         /* Hamburger Menu Styles */
@@ -116,7 +111,7 @@
         }
 
         .nav-links a {
-            font-size: 18px;
+            font-size: 16px;
             padding: 1rem;
             text-align: center;
             color: black;
@@ -130,7 +125,7 @@
 
         .nav-links a:hover {
             color: #1f6396;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .nav-links-mobile {
@@ -161,21 +156,21 @@
         }
 
         .nav-links-mobile a {
-            font-size: 16px;
+            font-size: 14.5px;
             padding: 1rem;
             text-align: center;
             color: #ffffff;
             text-decoration: none;
-            position:relative;
+            position: relative;
             transition: color 0.3s ease, transform 0.3s ease;
             width: 100%;
             box-sizing: border-box;
-            font-weight:bold;
+            font-weight: bold;
         }
 
         .nav-links-mobile a:hover {
             color: #1f6396;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* Close Menu Button Styles */
@@ -236,20 +231,62 @@
             padding: 0;
         }
 
-        .footer-links li,
-        .footer-services li {
+         /* Footer Section */
+       /* Footer Section */
+       .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-right: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-info, .footer-links, .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            text-align: left;
+        }
+
+        .footer-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .footer-links ul, .footer-services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li, .footer-services li {
             margin: 5px 0;
         }
 
-        .footer-links a,
-        .footer-services a {
+        .footer-links a, .footer-services a {
             color: #00bfff;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .footer-links a:hover,
-        .footer-services a:hover {
+        .footer-links a:hover, .footer-services a:hover {
             color: #ffffff;
         }
 
@@ -259,10 +296,16 @@
             font-size: 0.8em;
         }
 
+
+
+
+     
+
+
         .about-hero {
             border-radius: 20px;
             height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg.jpg') center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/back1.jpeg') no-repeat center center/cover;
             color: white;
             display: flex;
             justify-content: center;
@@ -271,7 +314,6 @@
             padding: 0 2rem;
             margin-top: 0;
             transition: all 0.3s ease;
-            background-repeat: no-repeat;
         }
 
         .about-hero-content {
@@ -292,15 +334,54 @@
             color: #e0e0e0;
         }
 
-      
-        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100%;
+            height: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Form Section Styles */
         .form-section {
             padding: 4rem 1rem;
             background-color: white;
             text-align: center;
             width: 100%;
-            color: white;
+            color: black;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .form-container {
@@ -309,7 +390,7 @@
             background: white;
             padding: 2rem;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             color: #333;
         }
 
@@ -336,7 +417,7 @@
         }
 
         .order-button {
-            background-color: #380707;
+            background-color: #0044cc;
             color: white;
             border: none;
             padding: 1rem 2rem;
@@ -354,60 +435,8 @@
             background-color: #555;
         }
 
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-        }
-
-        .whatsapp-icon {
-            width: 100px;
-            height: 100px;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Responsive Styles */
         @media (max-width: 768px) {
-            
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .form-container {
-                width: 90%; /* Full width on smaller screens */
-                padding: 1.5rem; /* Less padding */
-            }
-              .hamburger {
+            .hamburger {
                 display: block;
             }
 
@@ -417,6 +446,11 @@
 
             .nav-links-mobile {
                 padding: 1rem;
+            }
+
+            .form-container {
+                width: 90%; /* Full width on smaller screens */
+                padding: 1.5rem; /* Less padding */
             }
 
             .about-hero h1 {
@@ -439,35 +473,12 @@
                 text-align: center;
                 margin: 20px 0;
             }
-
-            
- }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 1.5rem; /* Smaller heading on very small screens */
-            }
-
-            .hero p {
-                font-size: 0.875rem; /* Smaller paragraph on very small screens */
-            }
-
-            .whatsapp-float {
-                width: 50px;
-                height: 50px;
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .whatsapp-icon {
-                width: 50px;
-                height: 50px;
-            }
         }
     </style>
 </head>
+
 <body>
-      <!-- Top Bar Section -->
+    <!-- Top Bar Section -->
     <div class="top-bar">
         <img src="images/call.png" alt="Phone Icon" class="phone-icon">
         <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
@@ -502,14 +513,12 @@
             </ul>
         </nav>
     </header>
-    
-
     <main>
         <br><br>
-        <section class="hero">
-            <div class="hero-content">
+        <section class="about-hero">
+            <div class="about-hero-content">
                 <h1>Place Your Order</h1>
-                <p>Fill out the forms below to place your order with us.</p>
+                <p>Complete your order details and get a custom quote.</p>
             </div>
         </section>
 
@@ -538,7 +547,7 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
-                    <button type="button" class="order-button" onclick="showOrderDetails()">Next</button>
+                    <button type="button" class="order-button" onclick="showOrderDetails()" disabled>Next</button>
                 </form>
             </div>
         </section>
@@ -574,7 +583,7 @@
                         <label for="referencing">Referencing:</label>
                         <input type="text" id="referencing" name="referencing" required>
                     </div>
-                    <div class="form-group">
+                    <div the="form-group">
                         <label for="deadline">Select Deadline:</label>
                         <input type="date" id="deadline" name="deadline" required>
                     </div>
@@ -591,103 +600,125 @@
                         <input type="file" id="file2" name="file2">
                     </div>
                     <button type="button" class="order-button" onclick="showClientDetails()">Back</button>
-                    <button type="submit" class="order-button">Submit Order</button>
+                    <button type="submit" class="order-button" disabled>Submit Order</button>
                 </form>
             </div>
         </section>
-    </main>
+
+        <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+            <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+        </a>
+
+        <!-- Footer -->
         <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/logo (2).png" alt=" Logo" />
+            <div class="footer-content">
+                <div the="footer-logo">
+                    <img src="images/logo (2).png" alt="Logo" />
+                </div>
+                <div class="footer-info">
+                    <h2>Inscribe.co</h2>
+                    <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <br>
+                        <li><a href="About-us.html">About Us</a></li>
+                        <br>
+                        <li><a href="order.html">Order</a></li>
+                        <br>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <br>
+                        <li><a href="sample.html">Sample</a></li>
+                        <br>
+                        <li><a href="services.html">Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Quick Info</h3>
+                    <p>INCRIBE@gmail.com</p>
+                    <p>+44 2032893891</p>
+                    <p>facebook.com</p>
+                    <p>insta.com</p>
+                </div>
             </div>
-            <div class="footer-info">
-                <h2>Inscribe.co</h2>
-                <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <br>
-                    <li><a href="About-us.html">About Us</a></li>
-                    <br>
-                    <li><a href="order.html">Order</a></li>
-                    <br>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <br>
-                    <li><a href="sample.html">Sample</a></li>
-                    <br>
-                    <li><a href="services.html">Services</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Quick Info</h3>
-                <p>INCRIBE@gmail.com</p>
-                <p>+44 2032893891</p>
-                <p>facebook.com</p>
-                <p>insta.com</p>
-            </div>
-        </div>
-    </footer>
-    
-    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
-    </a>
+        </footer>
 
-   <script>
-    function showOrderDetails() {
-        document.getElementById('client-details-section').style.display = 'none';
-        document.getElementById('order-details-section').style.display = 'block';
-    }
+        <script>
+            // Hamburger Menu Functionality
+            document.addEventListener('DOMContentLoaded', function () {
+                const hamburger = document.getElementById('hamburger');
+                const closeMenuButton = document.getElementById('close-menu');
+                const navLinks = document.getElementById('nav-links');
 
-    function showClientDetails() {
-        document.getElementById('client-details-section').style.display = 'block';
-        document.getElementById('order-details-section').style.display = 'none';
-    }
-
-     // Hamburger Menu Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const closeMenuButton = document.getElementById('close-menu');
-            const navLinks = document.getElementById('nav-links');
-
-            function toggleMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.toggle('open');
-                navLinks.classList.toggle('show');
-                navLinks.style.position = 'fixed';
-                navLinks.style.top = '0';
-                navLinks.style.right = '0';
-                navLinks.style.bottom = '0';
-                navLinks.style.left = '0';
-                navLinks.style.zIndex = "3000";
-                hamburger.style.zIndex = "3001";
-            }
-
-            function closeMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('show');
-            }
-
-            hamburger.addEventListener('click', toggleMenu);
-            hamburger.addEventListener('touchstart', toggleMenu);
-            closeMenuButton.addEventListener('click', closeMenu);
-            closeMenuButton.addEventListener('touchstart', closeMenu);
-
-            document.addEventListener('click', function (event) {
-                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        closeMenu(event);
-                    }
+                function toggleMenu(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    hamburger.classList.toggle('open');
+                    navLinks.classList.toggle('show');
+                    navLinks.style.position = 'fixed';
+                    navLinks.style.top = '0';
+                    navLinks.style.right = '0';
+                    navLinks.style.bottom = '0';
+                    navLinks.style.left = '0';
+                    navLinks.style.zIndex = "3000";
+                    hamburger.style.zIndex = "3001";
                 }
+
+                function closeMenu(event) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('show');
+                }
+
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', toggleMenu);
+                closeMenuButton.addEventListener('click', closeMenu);
+                closeMenuButton.addEventListener('touchstart', closeMenu);
+
+                document.addEventListener('click', function (event) {
+                    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                        if (navLinks.classList.contains('show')) {
+                            closeMenu(event);
+                        }
+                    }
+                });
             });
-        });
-</script>
 
-</body>
+            function showOrderDetails() {
+                document.getElementById('client-details-section').style.display = 'none';
+                document.getElementById('order-details-section').style.display = 'block';
+            }
+
+            function showClientDetails() {
+                document.getElementById('client-details-section').style.display = 'block';
+                document.getElementById('order-details-section').style.display = 'none';
+            }
+
+            // Form validation logic
+            const clientForm = document.getElementById('client-details-form');
+            const orderForm = document.getElementById('order-details-form');
+            const nextButton = document.querySelector('#client-details-section .order-button');
+            const submitButton = document.querySelector('#order-details-section .order-button');
+
+            clientForm.addEventListener('change', () => {
+                let isValid = true;
+                [...clientForm.elements].forEach(input => {
+                    if (!input.value.trim()) isValid = false;
+                });
+                nextButton.disabled = !isValid;
+            });
+
+            orderForm.addEventListener('change', () => {
+                let isValid = true;
+                [...orderForm.elements].forEach(input => {
+                    if (input.required && !input.value.trim()) isValid = false;
+                });
+                submitButton.disabled = !isValid;
+            });
+        </script>
+    </body>
+
 </html>
-
