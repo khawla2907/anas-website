@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The InscribeCo - Order</title>
+    <title>The InscribeCo - Home</title>
     <style>
         /* General Styles */
         body {
@@ -58,6 +58,10 @@
 
         .top-bar a:hover {
             text-decoration: underline;
+        }
+
+        header {
+            margin-top: 40px;
         }
 
         /* Hamburger Menu Styles */
@@ -123,7 +127,7 @@
             border-radius: 8px;
         }
 
-        .nav-links a:hover {
+         .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -148,7 +152,7 @@
         }
 
         .nav-links-mobile li {
-            display:block;
+            display: block;
             margin: 30px 0;
             border-bottom: 1px solid #ffffff;
             padding-bottom: 10px;
@@ -168,11 +172,14 @@
             font-weight: bold;
         }
 
-        .nav-links-mobile a:hover {
+
+          .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
+
+        /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
             z-index: 3005;
@@ -180,6 +187,7 @@
             top: 20px;
             right: 20px;
         }
+
 
         /* Footer Section */
         .footer {
@@ -231,62 +239,20 @@
             padding: 0;
         }
 
-         /* Footer Section */
-       /* Footer Section */
-       .footer {
-            background-color: #003366;
-            color: white;
-            padding: 40px 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            margin-right: 20px;
-        }
-
-        .footer-logo img {
-            height: 50px;
-            width: auto;
-        }
-
-        .footer-info, .footer-links, .footer-contact {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
-            text-align: left;
-        }
-
-        .footer-info h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul, .footer-services ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li, .footer-services li {
+        .footer-links li,
+        .footer-services li {
             margin: 5px 0;
         }
 
-        .footer-links a, .footer-services a {
+        .footer-links a,
+        .footer-services a {
             color: #00bfff;
             text-decoration: none;
             transition: color 0.3s;
         }
 
-        .footer-links a:hover, .footer-services a:hover {
+        .footer-links a:hover,
+        .footer-services a:hover {
             color: #ffffff;
         }
 
@@ -296,16 +262,10 @@
             font-size: 0.8em;
         }
 
-
-
-
-     
-
-
         .about-hero {
             border-radius: 20px;
             height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/back1.jpeg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg.jpg') no-repeat center center/cover;
             color: white;
             display: flex;
             justify-content: center;
@@ -334,8 +294,8 @@
             color: #e0e0e0;
         }
 
-        /* WhatsApp Button */
-        .whatsapp-float {
+         /* WhatsApp Button */
+         .whatsapp-float {
             position: fixed;
             width: 60px;
             height: 60px;
@@ -374,8 +334,8 @@
             }
         }
 
-        /* Form Section Styles */
-        .form-section {
+           /* Form Section Styles */
+           .form-section {
             padding: 4rem 1rem;
             background-color: white;
             text-align: center;
@@ -435,8 +395,9 @@
             background-color: #555;
         }
 
+
         @media (max-width: 768px) {
-            .hamburger {
+               .hamburger {
                 display: block;
             }
 
@@ -448,10 +409,10 @@
                 padding: 1rem;
             }
 
-            .form-container {
-                width: 90%; /* Full width on smaller screens */
-                padding: 1.5rem; /* Less padding */
-            }
+    
+
+         
+    
 
             .about-hero h1 {
                 font-size: 2rem;
@@ -473,8 +434,8 @@
                 text-align: center;
                 margin: 20px 0;
             }
-        }
-    </style>
+
+        </style>
 </head>
 
 <body>
@@ -517,10 +478,11 @@
         <br><br>
         <section class="about-hero">
             <div class="about-hero-content">
-                <h1>Place Your Order</h1>
-                <p>Complete your order details and get a custom quote.</p>
+                <h1>Place an Order</h1>
+                <p>Complete your order details</p>
             </div>
         </section>
+
 
         <!-- Client Details Form -->
         <section class="form-section" id="client-details-section">
@@ -547,7 +509,7 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
-                    <button type="button" class="order-button" onclick="showOrderDetails()" disabled>Next</button>
+                    <button type="button" class="order-button" onclick="showOrderDetails()" >Next</button>
                 </form>
             </div>
         </section>
@@ -600,7 +562,7 @@
                         <input type="file" id="file2" name="file2">
                     </div>
                     <button type="button" class="order-button" onclick="showClientDetails()">Back</button>
-                    <button type="submit" class="order-button" disabled>Submit Order</button>
+                    <button type="submit" class="order-button" >Submit Order</button>
                 </form>
             </div>
         </section>
@@ -609,116 +571,85 @@
             <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
         </a>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="footer-content">
-                <div the="footer-logo">
-                    <img src="images/logo (2).png" alt="Logo" />
-                </div>
-                <div class="footer-info">
-                    <h2>Inscribe.co</h2>
-                    <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <br>
-                        <li><a href="About-us.html">About Us</a></li>
-                        <br>
-                        <li><a href="order.html">Order</a></li>
-                        <br>
-                        <li><a href="pricing.html">Pricing</a></li>
-                        <br>
-                        <li><a href="sample.html">Sample</a></li>
-                        <br>
-                        <li><a href="services.html">Services</a></li>
-                    </ul>
-                </div>
-                <div class="footer-contact">
-                    <h3>Quick Info</h3>
-                    <p>INCRIBE@gmail.com</p>
-                    <p>+44 2032893891</p>
-                    <p>facebook.com</p>
-                    <p>insta.com</p>
-                </div>
+  
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo (2).png" alt=" Logo" />
             </div>
-        </footer>
+            <div class="footer-info">
+                <h2>Inscribe.co</h2>
+                <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <br>
+                    <li><a href="About-us.html">About Us</a></li>
+                    <br>
+                    <li><a href="order.html">Order</a></li>
+                    <br>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <br>
+                    <li><a href="sample.html">Sample</a></li>
+                    <br>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>INCRIBE@gmail.com</p>
+                <p>+44 2032893891</p>
+                <p>facebook.com</p>
+                <p>insta.com</p>
+            </div>
+        </div>
+    </footer>
 
-        <script>
-            // Hamburger Menu Functionality
-            document.addEventListener('DOMContentLoaded', function () {
-                const hamburger = document.getElementById('hamburger');
-                const closeMenuButton = document.getElementById('close-menu');
-                const navLinks = document.getElementById('nav-links');
+    <script>
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-                function toggleMenu(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    hamburger.classList.toggle('open');
-                    navLinks.classList.toggle('show');
-                    navLinks.style.position = 'fixed';
-                    navLinks.style.top = '0';
-                    navLinks.style.right = '0';
-                    navLinks.style.bottom = '0';
-                    navLinks.style.left = '0';
-                    navLinks.style.zIndex = "3000";
-                    hamburger.style.zIndex = "3001";
-                }
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
 
-                function closeMenu(event) {
-                    event.preventDefault();
-                    event.stopPropagation();
-                    hamburger.classList.remove('open');
-                    navLinks.classList.remove('show');
-                }
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
 
-                hamburger.addEventListener('click', toggleMenu);
-                hamburger.addEventListener('touchstart', toggleMenu);
-                closeMenuButton.addEventListener('click', closeMenu);
-                closeMenuButton.addEventListener('touchstart', closeMenu);
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
 
-                document.addEventListener('click', function (event) {
-                    if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                        if (navLinks.classList.contains('show')) {
-                            closeMenu(event);
-                        }
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
                     }
-                });
+                }
             });
+        });
 
-            function showOrderDetails() {
-                document.getElementById('client-details-section').style.display = 'none';
-                document.getElementById('order-details-section').style.display = 'block';
-            }
-
-            function showClientDetails() {
-                document.getElementById('client-details-section').style.display = 'block';
-                document.getElementById('order-details-section').style.display = 'none';
-            }
-
-            // Form validation logic
-            const clientForm = document.getElementById('client-details-form');
-            const orderForm = document.getElementById('order-details-form');
-            const nextButton = document.querySelector('#client-details-section .order-button');
-            const submitButton = document.querySelector('#order-details-section .order-button');
-
-            clientForm.addEventListener('change', () => {
-                let isValid = true;
-                [...clientForm.elements].forEach(input => {
-                    if (!input.value.trim()) isValid = false;
-                });
-                nextButton.disabled = !isValid;
-            });
-
-            orderForm.addEventListener('change', () => {
-                let isValid = true;
-                [...orderForm.elements].forEach(input => {
-                    if (input.required && !input.value.trim()) isValid = false;
-                });
-                submitButton.disabled = !isValid;
-            });
-        </script>
-    </body>
+    </script>
+</body>
 
 </html>
