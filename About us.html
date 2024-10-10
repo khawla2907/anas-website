@@ -631,6 +631,9 @@
                 if (sectionTop < triggerHeight) {
                     section.style.opacity = '1';
                     section.style.transform = 'translateX(0)';
+                } else {
+                    section.style.opacity = '0';
+                    section.style.transform = section.classList.contains('section:nth-child(even)') ? 'translateX(-100%)' : 'translateX(100%)';
                 }
             });
         });
