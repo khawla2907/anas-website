@@ -294,6 +294,185 @@
             color: #e0e0e0;
         }
 
+         
+
+        /* WhatsApp Icon Styles */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3001;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+
+         .nav-buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .nav-button {
+            background-color: #0053a6;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+        }
+        .nav-button:hover {
+            background-color: #003d7f;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.8);
+            transform: scale(1.05);
+        }
+        .container {
+            display: none;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-in-out;
+        }
+        .container.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card {
+            background-color: #f0f9ff;
+            width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            padding: 25px;
+            text-align: left;
+            color: #333;
+            border: 1px solid #d0e7ff;
+            outline: 3px solid #d0e7ff;
+            font-size: 15px;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transform: translateY(-5px);
+        }
+        .card h1 {
+            font-size: 22px;
+            color: #0073e6;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        .card .price {
+            font-size: 22px;
+            color: #333;
+            margin: 15px 0 10px 0;
+            font-weight: bold;
+        }
+        .card .price span {
+            font-size: 14px;
+            color: #666;
+            font-weight: normal;
+        }
+        .card p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+            font-family: 'Roboto', sans-serif;
+        }
+        .card ul li {
+            color: #0073e6;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+        .card ul li::before {
+            content: "•";
+            color: #0073e6;
+            margin-right: 8px;
+        }
+        .button {
+            background-color: #4d8ef7;
+            color: white;
+            padding: 12px 0;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+        .button:hover {
+            background-color: #3b75d4;
+            transform: scale(1.05);
+        }
+
+        /* Media Queries for Mobile View */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+            .nav-button {
+                padding: 10px 15px;
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .card {
+                width: 90%;
+                max-width: 400px;
+                margin-bottom: 20px;
+            }}
+
+
          @media (max-width: 768px) {
                .hamburger {
                 display: block;
@@ -384,6 +563,133 @@
             </div>
         </section>
 
+         <!-- Navigation Buttons -->
+    <div class="nav-buttons">
+        <button class="nav-button" onclick="showContainer('normal')">Normal</button>
+        <button class="nav-button" onclick="showContainer('urgent')">Urgent</button>
+        <button class="nav-button" onclick="showContainer('superUrgent')">Super Urgent</button>
+    </div>
+
+    <!-- Normal Prices Container -->
+    <div id="normal" class="container active">
+        <div class="card">
+            <h1>PowerPoint Package</h1>
+            <p class="price">$9 per slide</p>
+            <p>Available in: USD, AED 35, GBP 6, EUR 8</p>
+            <p>Our professional PowerPoint services provide illustrative, timely, and impactful presentations that captivate your audience and clearly convey your message.</p>
+            <ul>
+                <li>Illustrative and engaging slides</li>
+                <li>Timely delivery (5+ days)</li>
+                <li>Custom designs for all subjects</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Writing Package</h1>
+            <p class="price">$65 per 1000 words</p>
+            <p>Available in: USD, AED 240, GBP 49, EUR 59</p>
+            <p>Expert academic writing services including essays, case studies, and research papers delivered with precision and creativity to meet your requirements.</p>
+            <ul>
+                <li>High-quality, original content</li>
+                <li>1000 words per package</li>
+                <li>Timely delivery (5+ days)</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Proofreading Package</h1>
+            <p class="price">$25 per 1000 words</p>
+            <p>Available in: USD, AED 94, GBP 20, EUR 23</p>
+            <p>Thorough proofreading services to refine and perfect your documents, ensuring they are clear, concise, and free from errors.</p>
+            <ul>
+                <li>Grammar and spelling check</li>
+                <li>Enhanced readability</li>
+                <li>Professional quality assurance</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+    </div>
+
+    <!-- Urgent Prices Container -->
+    <div id="urgent" class="container">
+        <div class="card">
+            <h1>PowerPoint Package</h1>
+            <p class="price">$15 per slide</p>
+            <p>Available in: USD, AED 55, GBP 10, EUR 13</p>
+            <p>Urgent PowerPoint services designed for faster delivery, ensuring timely presentations that maintain quality and impact.</p>
+            <ul>
+                <li>Illustrative and engaging slides</li>
+                <li>Delivery in 2-4 days</li>
+                <li>Custom designs for all subjects</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Writing Package</h1>
+            <p class="price">$90 per 1000 words</p>
+            <p>Available in: USD, AED 330, GBP 68, EUR 82</p>
+            <p>Quick turnaround writing services for academic projects requiring high quality within a short time frame.</p>
+            <ul>
+                <li>High-quality, original content</li>
+                <li>1000 words per package</li>
+                <li>Delivery in 2-4 days</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Proofreading Package</h1>
+            <p class="price">$32 per 1000 words</p>
+            <p>Available in: USD, AED 117, GBP 30, EUR 35</p>
+            <p>Urgent proofreading services to ensure your documents are polished and error-free, delivered swiftly.</p>
+            <ul>
+                <li>Grammar and spelling check</li>
+                <li>Enhanced readability</li>
+                <li>Professional quality assurance</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+    </div>
+
+    <!-- Super Urgent Prices Container -->
+    <div id="superUrgent" class="container">
+        <div class="card">
+            <h1>PowerPoint Package</h1>
+            <p class="price">$19 per slide</p>
+            <p>Available in: USD, AED 71, GBP 15, EUR 17</p>
+            <p>Super urgent PowerPoint services for last-minute needs without compromising on quality or impact.</p>
+            <ul>
+                <li>Illustrative and engaging slides</li>
+                <li>Delivery in less than 48 hours</li>
+                <li>Custom designs for all subjects</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Writing Package</h1>
+            <p class="price">$103 per 1000 words</p>
+            <p>Available in: USD, AED 380, GBP 78, EUR 94</p>
+            <p>Last-minute academic writing services for high-quality papers delivered under tight deadlines.</p>
+            <ul>
+                <li>High-quality, original content</li>
+                <li>1000 words per package</li>
+                <li>Delivery in less than 48 hours</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+        <div class="card">
+            <h1>Proofreading Package</h1>
+            <p class="price">$52 per 1000 words</p>
+            <p>Available in: USD, AED 191, GBP 40, EUR 47</p>
+            <p>Super urgent proofreading services for documents that require immediate attention and correction.</p>
+            <ul>
+                <li>Grammar and spelling check</li>
+                <li>Enhanced readability</li>
+                <li>Professional quality assurance</li>
+            </ul>
+            <a href="#" class="button">Order Now</a>
+        </div>
+    </div>
+
     
     </main>
 
@@ -468,6 +774,16 @@
                 }
             });
         });
+
+
+         function showContainer(containerId) {
+            // Hide all containers
+            document.querySelectorAll('.container').forEach(container => {
+                container.classList.remove('active');
+            });
+            // Show the selected container
+            document.getElementById(containerId).classList.add('active');
+        }
 
        
     </script>
