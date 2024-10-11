@@ -294,3 +294,184 @@
             color: #e0e0e0;
         }
 
+         @media (max-width: 768px) {
+               .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+    
+
+         
+    
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-info,
+            .footer-links,
+            .footer-services,
+            .footer-contact {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+           
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Top Bar Section -->
+    <div class="top-bar">
+        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
+            <div class="hamburger" id="hamburger">
+                &#9776;
+            </div>
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+                <br>
+                <button class="close-menu" id="close-menu">X</button>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <br><br>
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About Us</h1>
+                <p>We are dedicated to providing top-notch <br> academic writing services to help you succeed.</p>
+            </div>
+        </section>
+
+    
+    </main>
+
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="images/logo (2).png" alt=" Logo" />
+            </div>
+            <div class="footer-info">
+                <h2>Inscribe.co</h2>
+                <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <br>
+                    <li><a href="About-us.html">About Us</a></li>
+                    <br>
+                    <li><a href="order.html">Order</a></li>
+                    <br>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <br>
+                    <li><a href="sample.html">Sample</a></li>
+                    <br>
+                    <li><a href="services.html">Services</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>INCRIBE@gmail.com</p>
+                <p>+44 2032893891</p>
+                <p>facebook.com</p>
+                <p>insta.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
+
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
+
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
+
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
+            });
+        });
+
+       
+    </script>
+</body>
+
+</html>
+
