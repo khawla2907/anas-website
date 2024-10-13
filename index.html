@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>The InscribeCo - home </title>
     <style>
         /* General Styles */
@@ -26,6 +27,7 @@
             overflow-x: hidden;
         }
 
+
         /* Header Styles */
         header {
             background-color: rgba(255, 255, 255, 0.3);
@@ -36,23 +38,27 @@
             z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
+            transition: all 0.3s ease;
         }
 
         .top-bar {
-            background-color: lightgrey;
-            color: black;
-            padding: 10px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
+}
+
+
 
         .phone-icon {
             width: 20px;
@@ -100,17 +106,21 @@
             box-shadow: none;
             position: relative;
             z-index: 1500;
+            transition: all 0.3s ease;
         }
 
-    
-           .logo img {
-            height: 50px;
+        .logo img {
+            height: 70px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
             background-color: rgba(245, 245, 245, 0.863);
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
         }
 
         /* Navigation Links Styles */
@@ -129,9 +139,10 @@
             transition: color 0.3s ease, transform 0.3s ease;
             box-sizing: border-box;
             font-weight: bold;
+            border-radius: 8px;
         }
 
-        .nav-links a:hover {
+         .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -176,30 +187,31 @@
             font-weight: bold;
         }
 
-        .nav-links-mobile a:hover {
+
+          .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
-        /* Hero Section Styles */
-        .hero {
-            height: 94vh;
-            background: url('images/bg.png') no-repeat center center/cover;
-            color: darkblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-            position: relative;
+        
+        /* Close Menu Button Styles */
+        /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3005;
+            position: absolute;
+            top: 20px;
+            right: 20px;
         }
 
-        .hero-content {
-            animation: fadeInBox 2s ease-out forwards;
-            padding: 2rem;
-            border-radius: 10px;
-            opacity: 0;
-        }
+
+
+        
+        
+     
+
+
+        /* Hero Section Styles */
+        
 
         .hero h1 {
             font-family: 'Great Vibes', cursive;
@@ -209,75 +221,152 @@
             letter-spacing: 1px;
             margin-bottom: 1rem;
         }
+/* Hero Section Styles (including translucent box) */
+/* General Hero Section Styles */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .sentence {
-            font-size: 1.50rem;
-            color: #ffffff;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
+.hero-container {
+    display: flex;
+    transition: transform 0.8s ease-in-out; /* Smooth transition */
+    width: 500%; /* 100% per slide, for 5 slides total */
+}
 
-        .hero button {
-            background-color: #0056b3;
-            color: white;
-            border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-top: 1.5rem;
-            font-family: 'Poppins', sans-serif;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
+/* Individual Hero Slides */
+.hero-slide {
+    flex: 1 0 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
 
-        .hero button:hover {
-            background-color: #0056b3;
-            transform: scale(1.1);
-        }
+/* Background images for each slide */
+.hero-slide:nth-child(1) {
+    background-image: url('images/bg.png'); /* Update with your image paths */
+}
 
-        /* Keyframes for Animations */
-        @keyframes fadeInBox {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.hero-slide:nth-child(2) {
+    background-image: url('images/hero2.png');
+}
 
-        /* Marquee Styles */
-        .marquee {
-            background: #0056b3;
-            color: white;
-            padding: 0.75rem 1rem;
-            font-size: 12px;
-            font-weight: 400;
-            font-family: 'Roboto', sans-serif;
-            overflow: hidden;
-            width: 100%;
-            z-index: 1700;
-            top: 40px;
-            box-sizing: border-box;
-        }
+.hero-slide:nth-child(3) {
+    background-image: url('images/hero3.png');
+}
 
-        .marquee span {
-            display: inline-block;
-            animation: marquee 30s linear infinite;
-            white-space: nowrap;
-            will-change: transform;
-        }
+.hero-slide:nth-child(4) {
+    background-image: url('images/hero4.png');
+}
 
-        @keyframes marquee {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
+.hero-slide:nth-child(5) {
+    background-image: url('images/hero5.png');
+}
+
+/* Translucent Text Box */
+.hero-box {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 60%; /* Adjust for your design */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    margin: 0 auto;
+}
+
+.hero-box h1 {
+    font-size: 3.5rem;
+    color: white;
+}
+
+.hero-box p {
+    font-size: 1.2rem;
+    color: #f5f5f5;
+    margin-top: 1rem;
+}
+
+/* Navigation Controls */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+/* Keyframe for smooth infinite scroll */
+@keyframes scrollHero {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(-100%); }
+    40% { transform: translateX(-200%); }
+    60% { transform: translateX(-300%); }
+    80% { transform: translateX(-400%); }
+    100% { transform: translateX(-500%); }
+}
+
+
+
+     
+        .carousel-container {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    background: #f1f1f1; /* Just to highlight the slider area */
+}
+
+.static-text {
+    font-size: 17px;
+    padding-right: 10px;
+    flex-shrink: 0;
+    white-space: normal;
+    font-style:oblique;
+}
+
+.logo-slider {
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.slide-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    align-items: center;
+}
+
+.logo {
+    height: auto; /* Keep height auto to maintain aspect ratio */
+    width: 10%; /* Adjust this to manage how many logos you want shown at once */
+    padding: 5px; /* Adjust padding to manage space between logos */
+}
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
 
           /* Footer Styles */
           
@@ -289,6 +378,50 @@
 
 
         /* Samples Section Styles */
+        
+
+
+/* Samples Section Styles */
+/* General Box-Sizing */
+* {
+    box-sizing: border-box; /* Ensures padding and border are included in the width */
+}
+
+/* Samples Section Styles */
+
+
+.samples h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #333;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+/* Ensure the box-sizing includes padding and border */
+* {
+    box-sizing: border-box;
+}
+
+/* Samples Section */
+.samples {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Sample Container */
+.sample-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%; /* Full width for container */
+}
+
+/* Sample Box */
 .samples {
     padding: 4rem 2rem;
     text-align: center;
@@ -396,8 +529,8 @@
         }
 
         .feature img {
-            width: 70px;
-            height: 70px;
+            width: 90px;
+            height: 90px;
             margin-bottom: 1rem;
         }
 
@@ -636,7 +769,7 @@
         .pricing-box h3 {
             font-size: 1.25rem;
             color: #333;
-             margin-top: 10px
+             margin-top: 10px;
             margin-bottom: 0;
             flex: 0 0 150px;
             text-align: left;
@@ -670,34 +803,36 @@
         
 
         /* WhatsApp Icon Styles */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+        /* WhatsApp Icon Styles */
+.whatsapp-float {
+    position: fixed;
+    width: 60px; /* Size of the floating button */
+    height: 60px; /* Size of the floating button */
+    bottom: 40px;
+    right: 30px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centers the icon horizontally and vertically */
+}
 
-        .whatsapp-float:hover {
-            background-color: #128C7E;
-            transform: scale(1.1);
-        }
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
 
-        .whatsapp-icon {
-            width: 100px;
-            height: 100px;
-        }
+.whatsapp-icon {
+    width: 200%; /* Adjust size relative to the container */
+    height: 200%; /* Ensures the icon scales properly within the container */
+}
+
+      
 
         /* Close Menu Button Styles */
         .close-menu {
@@ -711,80 +846,138 @@
 
         /* Footer Section */
         .footer {
-            background-color: #003366;
-            color: white;
-            padding: 40px 20px;
-            width: 100%;
-            box-sizing: border-box;
-        }
+        background-color: teal;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 100;
+    }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        width: 100%;
+    }
 
+
+    .footer-paragraph {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+    .footer-logo {
+        background-color: white;
+        border: 3px solid teal;
+        border-radius: 50%; /* Makes it a circle/oval */
+        padding: 15px 25px; /* Adjust padding for oval shape */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+
+    /* Adjust the shape to be oval */
+    .footer-logo {
+        display: block;
+        
+        width: 200px; /* Adjust the width as per your logo */
+        height: auto;
+    }
+
+    /* Add hover effect (Optional) */
+    .footer-logo:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    .footer-links,
+    .footer-contact {
+        flex: 1;
+        margin: 10px 20px;
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links ul li {
+        margin: 10px 0;
+    }
+
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+
+    .footer-contact {
+        font-size: 16px;
+    }
+
+    .footer-contact a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-contact a:hover {
+        color: #ffffff;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .social-icons img {
+        width: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+    }
   
-
-.footer-logo img {
-    height: 50px;
-    width: auto;
-    margin-bottom: 10px; /* Space between logo and paragraph */
-}
-
-.footer-paragraph {
-    font-size: 0.9rem;
-    color: #ffffff;
-    line-height: 1.6;
-    max-width: 300px; /* Optional: Limit paragraph width */
-    margin: 0 auto;
-    padding: 10px 0;
-}
-
-        .footer-info, .footer-links, .footer-contact {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
-            text-align: left;
-        }
-
-        .footer-info h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul, .footer-services ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-links li, .footer-services li {
-            margin: 5px 0;
-        }
-
-        .footer-links a, .footer-services a {
-            color: #00bfff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover, .footer-services a:hover {
-            color: #ffffff;
-        }
-
-        .footer-bottom {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 0.8em;
-        }
 
 
 
         /* Responsive Media Queries */
         @media (max-width: 768px) {
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
 
               body {
             font-family: 'Arial', sans-serif;
@@ -849,22 +1042,11 @@
         margin: 10px auto; /* Center cards with automatic margin */
         height: auto; /* Make height automatic to fit content */
     }
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links-mobile {
-                padding: 1rem;
-            }
-
-            .sample {
-                width: 90%;
-                padding: 1rem;
-            }
+         
+           
+    .sample {
+        width: calc(50% - 2rem);  /* Adjusts the width to fit two items per row on smaller screens */
+    }
 
             .whatsapp-float {
                 right: 10px;
@@ -904,18 +1086,20 @@
                 font-size: 1rem;
             }
 
-             .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
+            .footer-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-            .footer-info,
-            .footer-links,
-            .footer-services,
-            .footer-contact {
-                text-align: center;
-                margin: 20px 0;
-            }
+        .footer-links,
+        .footer-contact {
+            margin: 20px 0;
+        }
+
+        .footer-paragraph {
+            margin: 20px 0;
+        }
 
              .top-bar,
     .nav-links-mobile,
@@ -942,11 +1126,18 @@
 </head>
 
 <body>
-    <!-- Top Bar Section -->
-    <div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
-        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+   
+<!-- Top Bar Section -->
+<!-- Top Bar Section -->
+<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon">+44 203 289 3891</span>
+        <span><img src="images/mail-removebg-preview.png" alt="Email Icon" class="phone-icon"><a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></span>
     </div>
+</div>
+
+
+
 
     <!-- Header Section -->
     <header>
@@ -982,22 +1173,129 @@
 
     <!-- Main Content Section -->
     <main>
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>Welcome to the Inscribe.co</h1>
-                <div class="sentence">
-                    Your one stop for
-                    <span class="changing-words"></span>
-                </div>
-                <button id="learnMoreButton" class="learn-more-button">Learn More</button>
-            </div>
-        </section>
 
+
+        <section class="hero" id="home">
+            <div class="hero-container" id="heroContainer">
+                <!-- Slide 1 (Welcome Slide) -->
+                <div class="hero-slide">
+                    <div class="hero-box">
+                        <h1>Welcome to the Inscribe.co</h1>
+                        <p>Your one-stop for all your Assignment needs</p>
+                    </div>
+                </div>
+        
+                <!-- Slide 2 (Professional Writing Services) -->
+                <div class="hero-slide">
+                    <div class="hero-box">
+                        <h1>Professional Writing Services</h1>
+                        <p>We offer top-quality academic and business writing services.</p>
+                    </div>
+                </div>
+        
+                <!-- Slide 3 (Proofreading and Editing) -->
+                <div class="hero-slide">
+                    <div class="hero-box">
+                        <h1>Proofreading and Editing</h1>
+                        <p>Ensure your documents are polished and effective with our services.</p>
+                    </div>
+                </div>
+        
+                <!-- Slide 4 (Payment in Installments) -->
+                <div class="hero-slide">
+                    <div class="hero-box">
+                        <h1>Payment in Installments</h1>
+                        <p>Can't pay upfront? <br> We offer easy payment plans to help you manage your budget while still receiving top-quality services.</p>
+                    </div>
+                </div>
+        
+                <!-- Slide 5 (Our Guarantee) -->
+                <div class="hero-slide">
+                    <div class="hero-box">
+                        <h1>Our Guarantee</h1>
+                        <p>Your satisfaction is our priority.<br> We provide unlimited revisions and a 100% money-back guarantee if you're not satisfied.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Navigation Controls -->
+            <button class="prev" id="prevBtn">&#10094;</button>
+            <button class="next" id="nextBtn">&#10095;</button>
+        </section>
+        
+    
         <!-- Marquee Section -->
-        <div class="marquee">
-            <span id="marqueeText">Welcome to Inscribe.co - Your trusted partner for Dissertation, Essay, Proofreading, PowerPoint, and Assignment writing services. Achieve academic success with Inscribe.co's professional writing expertise. Contact us today for high-quality, reliable services!</span>
+
+        <div class="carousel-container">
+            <div class="static-text">
+                    Trusted By<br> 1,000,000+ Students Of:
+            </div>
+            <div class="logo-slider" id="logoSlider">
+                <div class="slide-track" id="slideTrack">
+                <!-- Add more logos as needed -->
+                <img src="images/leeds.png" alt="University of Leeds" class="logo">
+                <img src="images/lec.png" alt="University of Leicester" class="logo">
+                <img src="images/staf.png" alt="Staffordshire University" class="logo">
+                <img src="images/arden.pmg.png" alt="arden university" class="logo">
+                <img src="images/lsbu.png" alt="LSBU" class="logo">
+                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
+                <img src="images/uc.png" alt="uc" class="logo">
+        
+                <img src="images/uom.pmg.png" alt="uom" class="logo">
+
+
+
+                <img src="images/leeds.png" alt="University of Leeds" class="logo">
+                <img src="images/lec.png" alt="University of Leicester" class="logo">
+                <img src="images/staf.png" alt="Staffordshire University" class="logo">
+                <img src="images/arden.pmg.png" alt="arden university" class="logo">
+                <img src="images/lsbu.png" alt="LSBU" class="logo">
+                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
+                <img src="images/uc.png" alt="uc" class="logo">
+        
+                <img src="images/uom.pmg.png" alt="uom" class="logo">
+
+
+                <img src="images/leeds.png" alt="University of Leeds" class="logo">
+                <img src="images/lec.png" alt="University of Leicester" class="logo">
+                <img src="images/staf.png" alt="Staffordshire University" class="logo">
+                <img src="images/arden.pmg.png" alt="arden university" class="logo">
+                <img src="images/lsbu.png" alt="LSBU" class="logo">
+                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
+                <img src="images/uc.png" alt="uc" class="logo">
+        
+                <img src="images/uom.pmg.png" alt="uom" class="logo">
+
+
+                <img src="images/leeds.png" alt="University of Leeds" class="logo">
+                <img src="images/lec.png" alt="University of Leicester" class="logo">
+                <img src="images/staf.png" alt="Staffordshire University" class="logo">
+                <img src="images/arden.pmg.png" alt="arden university" class="logo">
+                <img src="images/lsbu.png" alt="LSBU" class="logo">
+                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
+                <img src="images/uc.png" alt="uc" class="logo">
+        
+                <img src="images/uom.pmg.png" alt="uom" class="logo">
+
+
+            </div>
         </div>
+    </div>
+
+
+
+
+                
+
+
+           
+
+
+
+                <!-- Repeat logos for continuous effect -->
+            </div>
+        </div>
+        </div>
+        
 
         <!-- Samples Section -->
         <section class="samples" id="samples">
@@ -1014,6 +1312,12 @@
                     <a href="Sample/Accounting Principles for Sustainability and Decision Making.docx" download class="download-link">Download Paper</a>
                 </div>
             </div>
+         
+    </div>
+
+         
+
+  
         </section>
 
         <!-- Pricing Section -->
@@ -1027,17 +1331,17 @@
                     <div class="pricing-box">
                         <h3>Writing</h3>
                         <ul>
-                            <li><strong>Normal Prices (5+ Days):</strong> 1000 words - USD $65, AED 240, GBP 49</li>
+                            <li><strong>Regular(5+ Days):</strong>  £49 per 1000 words, AED 240 per 1000 words, $65 per 1000 word</li>
                             <br>
-                            <li><strong>Urgent (2-4 Days):</strong> 1000 words - USD $90, AED 330, GBP 68</li>
+                            <li><strong>Urgent (2-4 Days):</strong> £68 per 1000 words, AED 330 per 1000 words, $90 per 1000 words</li>
                             <br>
-                            <li><strong>Super Urgent (Less than 48 Hours):</strong> 1000 words - USD $103, AED 380, GBP 78</li>
+                            <li><strong>Super Urgent (Less than 48 Hours):</strong>  £78 per 1000 words, AED 380 per 1000 words, $103 per 1000 words</li>
                         </ul>
                     </div>
                     <div class="pricing-box">
                         <h3>Proofreading</h3>
                         <ul>
-                            <li><strong>Normal:</strong> £20 per 1000 words, AED 94 per 1000 words, $25 per 1000 words</li>
+                            <li><strong>Regular(5+ Days):</strong> £20 per 1000 words, AED 94 per 1000 words, $25 per 1000 words</li>
                             <br>
                             <li><strong>Urgent:</strong> £30 per 1000 words, AED 117 per 1000 words, $32 per 1000 words</li>
                             <br>
@@ -1047,7 +1351,7 @@
                     <div class="pricing-box">
                         <h3>PowerPoint</h3>
                         <ul>
-                            <li><strong>Normal:</strong> £6 per slide, AED 35 per slide, $9 per slide</li>
+                            <li><strong>Regular(5+ Days):</strong> £6 per slide, AED 35 per slide, $9 per slide</li>
                             <br>
                             <li><strong>Urgent:</strong> £10 per slide, AED 55 per slide, $15 per slide</li>
                             <br>
@@ -1123,88 +1427,139 @@
 
         <!-- FAQ Section -->
 
-         <!-- FAQ Section -->
-         <section class="faq">
-            <h2>Frequently Asked Questions</h2>
-            <div class="faq-container">
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> What services do you offer?</h3>
-                    <div class="answer">
-                        <p>We offer a wide range of academic writing services including essays, research papers, dissertations, and more.</p>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> How can I place an order?</h3>
-                    <div class="answer">
-                        <p>You can place an order by filling out our order form or contacting our customer support team for assistance.</p>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> Is your service confidential?</h3>
-                    <div class="answer">
-                        <p>Yes, we ensure complete confidentiality of all our clients' personal information and order details.</p>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> What payment methods do you accept?</h3>
-                    <div class="answer">
-                        <p>We accept various payment methods including credit/debit cards, PayPal, and bank transfers.</p>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> Can I request revisions?</h3>
-                    <div class="answer">
-                        <p>Yes, we offer free revisions to ensure your complete satisfaction with the delivered work.</p>
-                    </div>
-                </div>
-                <div class="question">
-                    <h3><span class="faq-icon">&#x1F4AC;</span> How long does it take to complete an order?</h3>
-                    <div class="answer">
-                        <p>The time to complete an order depends on the complexity and length of the project, but we always strive to meet your deadlines. We offer normal, urgent, and super urgent delivery options.</p>
-                    </div>
-                </div>
+      <!-- FAQ Section -->
+<section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> What services do you offer?</h3>
+            <div class="answer">
+                <p>We offer a comprehensive range of academic writing services tailored to your needs. Our services include:</p>
+                <ul>
+                    <li><strong>Essay Writing:</strong> We can help you craft well-researched, structured, and original essays for various academic levels and subjects.</li>
+                    <li><strong>Research Papers:</strong> We assist with thorough research and presentation of in-depth reports on a variety of academic topics.</li>
+                    <li><strong>Dissertations and Theses:</strong> Whether you need help with one chapter or the entire project, we offer guidance in research, writing, editing, and formatting.</li>
+                    <li><strong>Business Writing:</strong> Our services also extend to writing professional documents like business reports, case studies, and proposals.</li>
+                    <li><strong>Proofreading and Editing:</strong> Our team ensures your documents are free from grammatical errors, and flow coherently, making them polished and ready for submission.</li>
+                </ul>
             </div>
-        </section>
+        </div>
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> How can I place an order?</h3>
+            <div class="answer">
+                <p>Placing an order is simple and straightforward. You can follow these steps:</p>
+                <ol>
+                    <li><strong>Visit Our Website:</strong> Navigate to our "Order" page and select the type of service you need (writing, proofreading, editing, etc.).</li>
+                    <li><strong>Fill Out the Order Form:</strong> Provide detailed instructions for your paper, including the topic, word count, format style, academic level, and any specific guidelines or materials.</li>
+                    <li><strong>Choose a Deadline:</strong> Select when you need your document to be completed, ensuring it fits within our service options for normal, urgent, or super urgent delivery.</li>
+                    <li><strong>Submit Your Order:</strong> Once you’ve completed the form, submit your order and make a payment using your preferred method. You will receive a confirmation email with all the details.</li>
+                    <li><strong>Track Your Order:</strong> You can track your order’s progress through your account on our website, and our team will update you regularly.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> Is your service confidential?</h3>
+            <div class="answer">
+                <p>Yes, we prioritize the privacy and confidentiality of our clients. Here’s how we ensure that:</p>
+                <ul>
+                    <li>All personal information, including your name, email, and payment details, are securely encrypted and stored. We comply with GDPR regulations to ensure your data remains safe.</li>
+                    <li>We never share any of your personal or order information with third parties. Our internal team only has access to your project details for the purpose of completing your order.</li>
+                    <li>All the work we provide is custom-written, and we do not resell papers or disclose any of your submissions to other clients or external parties.</li>
+                    <li>Our communication channels, such as email and live chat, are also encrypted, so you can rest assured that your inquiries remain private.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> What payment methods do you accept?</h3>
+            <div class="answer">
+                <p>We offer a variety of secure payment options to make the process as convenient as possible:</p>
+                <ul>
+                    <li><strong>Credit/Debit Cards:</strong> We accept all major credit and debit cards including Visa, MasterCard, and American Express through our secure payment gateway.</li>
+                    <li><strong>PayPal:</strong> You can pay using your PayPal account for added security and ease of transactions.</li>
+                    <li><strong>Bank Transfers:</strong> For larger transactions or corporate clients, we also accept direct bank transfers. Contact our support team for more details on how to initiate a bank transfer.</li>
+                </ul>
+                <p>We ensure that all payment methods are safe and secure, using advanced encryption technology to protect your financial information.</p>
+            </div>
+        </div>
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> Can I request revisions?</h3>
+            <div class="answer">
+                <p>Yes, we offer unlimited free revisions to ensure your complete satisfaction. Here’s how our revision policy works:</p>
+                <ul>
+                    <li>You can request revisions within 14 days after receiving your order if there are areas where you feel the writer didn’t follow the initial instructions.</li>
+                    <li>For more extensive projects like dissertations, the revision window extends to 30 days.</li>
+                    <li>Simply log in to your account, go to the order page, and specify the changes you need. Our team will prioritize your revisions, making the necessary updates as soon as possible.</li>
+                </ul>
+                <p>Please note that revisions are free as long as they are within the scope of the original order instructions. New instructions or additional requirements may incur a small fee.</p>
+            </div>
+        </div>
+        <div class="question">
+            <h3><span class="faq-icon">&#x1F4AC;</span> How long does it take to complete an order?</h3>
+            <div class="answer">
+                <p>The time to complete your order depends on several factors, such as the complexity of the project and the chosen deadline. Here’s a general guide to our delivery timelines:</p>
+                <ul>
+                    <li><strong>Normal Delivery (5+ days):</strong> Ideal for longer projects, including dissertations or in-depth research papers, where we can ensure thorough research and meticulous writing.</li>
+                    <li><strong>Urgent Delivery (2-4 days):</strong> For tighter deadlines, we offer quick turnaround times while maintaining high-quality standards for essays, research papers, and shorter projects.</li>
+                    <li><strong>Super Urgent Delivery (Less than 48 hours):</strong> For last-minute requirements, we offer express services where you can receive your document within 48 hours, depending on the length and complexity.</li>
+                </ul>
+                <p>We recommend placing your order as early as possible to allow ample time for revisions and ensure the highest quality. However, our team is fully equipped to meet even the most urgent deadlines without compromising quality.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 
         <!-- Footer Section -->
 
-<!-- Footer -->
-    <!-- Footer Section -->
+<<!-- Footer Section -->
 <footer class="footer">
     <div class="footer-content">
-        <div class="footer-logo">
+        <!-- Footer Logo and Description -->
+        <div class="footer-info">
             <a href="index.html">
-            <img src="images/logo (2).png" alt="Logo" />
-            <p class="footer-paragraph">Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
+                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+            </a>
+            <p class="footer-paragraph">
+                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+            </p>
+            <p class="footer-paragraph">
+                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+            </p>
         </div>
-        
+
+        <!-- Quick Links -->
         <div class="footer-links">
             <h3>Quick Links</h3>
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <br>
-                <li><a href="About-us.html">About Us</a></li>
-                <br>
+                <li><a href="about-us.html">About Us</a></li>
                 <li><a href="order.html">Order</a></li>
-                <br>
                 <li><a href="pricing.html">Pricing</a></li>
-                <br>
                 <li><a href="sample.html">Sample</a></li>
-                <br>
                 <li><a href="services.html">Services</a></li>
             </ul>
         </div>
+
+        <!-- Contact Information -->
         <div class="footer-contact">
             <h3>Quick Info</h3>
-            <p>INCRIBE@gmail.com</p>
-            <p>+44 2032893891</p>
-            <p>facebook.com</p>
-            <p>insta.com</p>
+            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
+                <a href="https://www.instagram.com/theinscribe.co/"><img src="images/insta-removebg-preview.png" alt="Instagram"></a>
+             
+            </div>
         </div>
     </div>
-</footer>
 
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+    </div>
+</footer>
                  
           
 
@@ -1223,12 +1578,112 @@
     </a>
 
     <script>
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const heroContainer = document.getElementById('heroContainer');
+    const slides = document.querySelectorAll('.hero-slide');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    let currentIndex = 0;
+    const slideInterval = 5000; // 5 seconds
+    let autoSlideInterval;
+
+    function showSlide(index) {
+        if (index >= slides.length) {
+            currentIndex = 0; // Loop back to first slide
+        } else if (index < 0) {
+            currentIndex = slides.length - 1; // Loop to the last slide
+        } else {
+            currentIndex = index;
+        }
+        const offset = -currentIndex * 100;
+        heroContainer.style.transform = `translateX(${offset}%)`;
+    }
+
+    function nextSlide() {
+        showSlide(currentIndex + 1);
+    }
+
+    function prevSlide() {
+        showSlide(currentIndex - 1);
+    }
+
+    // Auto-slide function
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, slideInterval);
+    }
+
+    // Stop auto-slide when manually clicking
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    // Add event listeners for buttons
+    nextBtn.addEventListener('click', function() {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide(); // Restart auto-slide
+    });
+
+    prevBtn.addEventListener('click', function() {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide(); // Restart auto-slide
+    });
+
+    // Start auto-slide when the page loads
+    startAutoSlide();
+});
+
+   
+
+
+
+//logo
+
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('slideTrack');
+    const sliderWidth = document.getElementById('logoSlider').clientWidth;
+    let offset = 0;
+
+    function slideLogos() {
+        offset -= sliderWidth; // Move the track to the left by the width of the slider
+        if (Math.abs(offset) >= track.clientWidth - sliderWidth) {
+            offset = 0; // Reset if the end is reached
+        }
+        track.style.transform = `translateX(${offset}px)`;
+    }
+
+    setInterval(slideLogos, 3000); // Change logos every 3 seconds
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.getElementById('slideTrack');
+    const logos = track.querySelectorAll('.logo');
+    let totalWidth = 0;
+
+    logos.forEach(logo => {
+        totalWidth += logo.offsetWidth + (20 * 2); // Add width + margin
+    });
+
+    track.style.animation = `scroll ${totalWidth / 100}px linear infinite`; // Adjust 100 to control speed
+});
+
+
         // FAQ Toggle Functionality
         document.querySelectorAll('.question').forEach(question => {
             question.addEventListener('click', () => {
                 question.classList.toggle('active');
             });
         });
+
+
+        
+
 
         // Hamburger Menu Functionality
         document.addEventListener('DOMContentLoaded', function () {
