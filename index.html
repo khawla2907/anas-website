@@ -1184,6 +1184,47 @@
                 bottom: 20px;
                 right: 20px;
             }}
+
+
+        @media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column; /* Stack items vertically */
+        padding: 10px 0; /* Adjust padding */
+        height: auto; /* Auto height to fit content */
+    }
+    .top-bar span {
+        margin-bottom: 10px; /* Space between items */
+        margin-right: 0; /* Align items properly */
+        width: 100%; /* Full width */
+        text-align: center; /* Center content */
+    }
+}
+
+
+        @media (max-width: 768px) {
+    .hero-box {
+        max-width: 90%; /* Reduce max width */
+        padding: 1rem; /* Reduce padding */
+    }
+    .hero-box h1 {
+        font-size: 2rem; /* Reduce font size */
+    }
+    .hero-box p {
+        font-size: 1rem; /* Reduce font size */
+    }
+}
+
+
+        @media (max-width: 768px) {
+    .logo-slider {
+        margin: 20px 0; /* Add some vertical margin */
+    }
+    .logo {
+        width: 25%; /* Increase size for visibility */
+        padding: 25px; /* Add padding around logos */
+    }
+}
+
             
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1692,7 +1733,28 @@
 
 
     <script>
-       
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const topBar = document.querySelector('.top-bar');
+    function adjustTopBar() {
+        if (window.innerWidth <= 768) {
+            let height = 0;
+            topBar.childNodes.forEach(child => {
+                if (child.offsetHeight) height += child.offsetHeight;
+            });
+            topBar.style.height = `${height + 20}px`; // Extra space
+        } else {
+            topBar.style.height = '60px'; // Default height
+        }
+    }
+    window.addEventListener('resize', adjustTopBar);
+    adjustTopBar();
+});
+
+
+
+        
 
 
 document.addEventListener('DOMContentLoaded', function() {
