@@ -66,6 +66,8 @@
             width: 20px;
             height: 20px;
             margin-right: 10px;
+          
+           
         }
 
         .top-bar a {
@@ -220,8 +222,8 @@
         
 
         .hero h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-size: 1rem;
             color: white;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
@@ -440,7 +442,7 @@
         .sample h3 {
             font-size: 1.5rem;
             margin: 1rem 0 0.5rem;
-            color: #0056b3;
+            color: teal;
             font-weight: 500;
             letter-spacing: 0.5px;
         }
@@ -455,7 +457,7 @@
         .download-link {
             display: inline-block;
             padding: 0.75rem 1.5rem;
-            background-color: #0056b3;
+            background-color: teal;
             color: white;
             border-radius: 5px;
             text-decoration: none;
@@ -800,7 +802,7 @@
         
 
         /* WhatsApp Icon Styles */
-        /* WhatsApp Icon Styles */
+/* WhatsApp Floating Button Styles */
 .whatsapp-float {
     position: fixed;
     width: 60px; /* Size of the floating button */
@@ -811,7 +813,7 @@
     color: #fff;
     border-radius: 50%;
     text-align: center;
-    box-shadow: 2px 2px 3px #999;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
     z-index: 100;
     transition: background-color 0.3s ease, transform 0.3s ease;
     display: flex;
@@ -825,11 +827,27 @@
 }
 
 .whatsapp-icon {
-    width: 200%; /* Adjust size relative to the container */
-    height: 200%; /* Ensures the icon scales properly within the container */
+    width: 250%; /* Adjusted to fit within the container */
+    height: 250%; /* Maintains aspect ratio */
+    object-fit: contain; /* Ensures the icon scales properly */
+    justify-content: center;
 }
 
-      
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .whatsapp-icon {
+        width: 60%;
+        height: 60%;
+    }
+}
+
 
         /* Close Menu Button Styles */
         .close-menu {
@@ -1045,9 +1063,7 @@
         width: calc(50% - 2rem);  /* Adjusts the width to fit two items per row on smaller screens */
     }
 
-            .whatsapp-float {
-                right: 10px;
-            }
+          
 
             .hero h1 {
                 font-size: 2rem;
@@ -1098,16 +1114,7 @@
             margin: 20px 0;
         }
 
-             .top-bar,
-    .nav-links-mobile,
-    .pricing-content,
-    .footer-content {
-        padding-left: 10px;
-        padding-right: 10px;
-        margin: 0 auto;
-        width: 100%;
-    }
-
+           
     .hero-content,
    
     .pricing-boxes,
@@ -1182,10 +1189,59 @@
                 font-size: 0.9rem;
             }
 
-            .whatsapp-float {
-                bottom: 20px;
-                right: 20px;
-            }}
+         
+    .top-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .top-bar-content {
+        flex-direction: column;
+    }
+
+    .contact-item {
+        margin: 10px 0;
+    }
+
+    .phone-icon, .email-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .contact-link {
+        font-size: 14px;
+    }
+
+    .static-text {
+        font-size: 15px;
+        padding-right: 5px;
+    }
+
+    .logo {
+        width: 15%; /* More logos fit on smaller screens */
+        padding: 3px;
+    }
+
+    .slide-track {
+        animation: scroll 30s linear infinite; /* Faster scroll on mobile */
+    } .static-text {
+        font-size: 15px;
+        padding-right: 5px;
+    }
+
+    .logo {
+        width: 15%; /* More logos fit on smaller screens */
+        padding: 3px;
+    }
+
+    .slide-track {
+        animation: scroll 30s linear infinite; /* Faster scroll on mobile */
+    }
+
+
+
+        }
 
 
     
@@ -1226,10 +1282,19 @@
    
 
 <!-- Top Bar Section -->
-<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
-    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-        <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon"><a href="+44 203 289 3891">+44 203 289 3891</span>
-        <span><img src="images/mail-removebg-preview.png" alt="Email Icon" class="phone-icon"><a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></span>
+<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
+    <div style="display: flex; align-items: center;">
+        <!-- Phone Contact -->
+        <span style="display: flex; align-items: center; margin-right: 40px;">
+            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 16px;">+44 203 289 3891</a>
+        </span>
+        
+        <!-- Email Contact -->
+        <span style="display: flex; align-items: center;">
+            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 16px;">theinscribeco@gmail.com</a>
+        </span>
     </div>
 </div>
 
