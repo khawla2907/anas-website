@@ -16,6 +16,7 @@
             overflow-x: hidden;
         }
 
+       
         /* Header Styles */
         header {
             background-color: rgba(255, 255, 255, 0.3);
@@ -30,25 +31,30 @@
         }
 
         .top-bar {
-            background-color: lightgrey;
-            color: black;
-            padding: 10px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
+}
+
+
 
         .phone-icon {
             width: 20px;
             height: 20px;
             margin-right: 10px;
+          
+           
         }
 
         .top-bar a {
@@ -92,10 +98,14 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
+            height: 87px;
+            
+
+
         }
 
         .logo img {
-            height: 50px;
+            height: 70px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -178,7 +188,7 @@
             transform: scale(1.05);
         }
 
-
+        
         /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
@@ -189,7 +199,7 @@
         }
 
 
-       
+
          /* Footer Section */
         .footer {
         background-color: teal;
@@ -427,8 +437,8 @@
             padding: 25px;
             text-align: left;
             color: #333;
-            border: 1px solid #d0e7ff;
-            outline: 3px solid #d0e7ff;
+            border: 1px solid teal;
+            outline: 3px solid teal;
             font-size: 15px;
             line-height: 1.6;
             transition: all 0.3s ease;
@@ -477,7 +487,7 @@
             margin-right: 8px;
         }
         .button {
-            background-color: #4d8ef7;
+            background-color: teal;
             color: white;
             padding: 12px 0;
             border: none;
@@ -492,7 +502,7 @@
             transition: background-color 0.3s ease, transform 0.2s;
         }
         .button:hover {
-            background-color: #3b75d4;
+            background-color: teal;
             transform: scale(1.05);
         }
 
@@ -565,10 +575,23 @@
 
 <body>
     <!-- Top Bar Section -->
-    <div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
-        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    <!-- Top Bar Section -->
+<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
+    <div style="display: flex; align-items: center;">
+        <!-- Phone Contact -->
+        <span style="display: flex; align-items: center; margin-right: 40px;">
+            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
+        </span>
+        
+        <!-- Email Contact -->
+        <span style="display: flex; align-items: center;">
+            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
+        </span>
     </div>
+</div>
+
 
     <!-- Header Section -->
     <header>
