@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services - The InscribeCo</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <title>The InscribeCo - Home</title>
     <style>
         /* General Styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
+            line-height: 1.8;
             background-color: #f5f5f5;
-            transition: background-color 0.3s ease;
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
         /* Header Styles */
-         /* Header Styles */
-         header {
+        header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
@@ -69,6 +67,8 @@
             margin-top: 40px;
         }
 
+      
+
         /* Hamburger Menu Styles */
         .hamburger {
             display: none;
@@ -97,14 +97,10 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
-            height: 49px;
-            
-
-
         }
 
         .logo img {
-            height: 60px;
+            height: 50px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -187,7 +183,7 @@
             transform: scale(1.05);
         }
 
-        
+
         /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
@@ -198,8 +194,80 @@
         }
 
 
+        /* Footer Section */
+        .footer {
+            background-color: #003366;
+            color: white;
+            padding: 40px 20px;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            border-top: 5px solid #008080;
+        }
 
-        .services-hero {
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            margin-right: 20px;
+        }
+
+        .footer-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        .footer-info,
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            text-align: left;
+        }
+
+        .footer-info h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #00bfff;
+        }
+
+        .footer-links ul,
+        .footer-services ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li,
+        .footer-services li {
+            margin: 5px 0;
+        }
+
+        .footer-links a,
+        .footer-services a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover,
+        .footer-services a:hover {
+            color: #ffffff;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.8em;
+        }
+
+        .about-hero {
             border-radius: 20px;
             height: 70vh;
             background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
@@ -213,174 +281,83 @@
             transition: all 0.3s ease;
         }
 
-        .services-hero-content {
+        .about-hero-content {
             animation: fadeIn 2s ease-out;
             background: rgba(0, 0, 0, 0.5);
             padding: 20px;
             border-radius: 10px;
         }
 
-        .services-hero h1 {
+        .about-hero h1 {
             font-size: 3rem;
             color: #00bfff;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        .services-hero p {
+        .about-hero p {
             font-size: 1.5rem;
             color: #e0e0e0;
         }
 
+        /* Section Styles */
+        .section {
+            display: flex;
+            padding: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(100%);
+        }
 
-        
-        /* Services Section */
-.services-details {
-    padding: 4rem 1rem;
-    background-color: teal;
-    text-align: center;
-    width: 100%;
-    border-radius: 20px; /* Rounded corners for the section */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow to the section */
-}
-.services-details h2 {
-    font-size: 2.5rem;
-    color: #fff;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s ease; /* Smooth color transition */
-}
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(-100%);
+        }
 
-.services-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    max-width: 95%;
-    box-sizing: border-box;
-    padding: 0 1rem;
-}
+        .text,
+        .image {
+            flex: 1;
+            padding: 40px;
+        }
 
-/* Individual Service Box */
+        .text h2 {
+            font-size: 2rem;
+            color: #008080;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-/* Individual Service Box with Glow */
-.service {
-    background-color: #fff;
-    padding: 2rem;
-    width: 30%;
-    min-width: 280px;
-    border-radius: 20px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-    opacity: 0; /* Initially invisible */
-    transform: translateX(-100%); /* Start off-screen (left) */
-}
-.service.glow-effect {
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Glowing effect */
-}
-.service:hover {
-    transform: scale(1.07);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-.service:nth-child(odd) {
-    transform: translateX(100%); /* Opposite direction for odd boxes (right) */
-}
-.service:hover::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 128, 128, 0.1); /* Slight glow effect */
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Glowing border effect */
-    border-radius: 20px; /* Keep the glow rounded as well */
-}
-.service-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 1rem;
-    transition: transform 0.3s ease; /* Smooth transition for icon */
-}
-.service:hover .service-icon {
-    transform: rotate(15deg) scale(1.2); /* Rotate and scale icon on hover */
-}
+        .text p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+        }
 
-.service h3 {
-    font-size: 1.6rem;
-    color: #000;
-    margin-bottom: 0.8rem;
-}
-.service p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 1rem;
-}
-.learn-more {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 10px 20px;
-    background-color: #008080;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 12px; /* More rounded button */
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-.learn-more:hover {
-    background-color: #006666;
-    transform: scale(1.1); /* Slightly bigger scale effect */
-}
+        .image-left {
+            display: flex;
+            justify-content: flex-end;
+        }
 
-/* Service Details Section */
-.service-details {
-    padding: 4rem 1rem;
-    background-color: #f5f5f5;
-    text-align: center;
-}
-.service-details h2 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-}
-.service-details p {
-    font-size: 1rem;
-    color: #666;
-    max-width: 1200px;
-    margin: auto;
-    text-align: left;
-    margin-bottom: 1.5rem;
-    padding: 2rem;
-    background-color: #fff;
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the text box */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-.service-details p:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
-    transform: translateY(-10px); /* Slight lift on hover */
-}
+        .image-left img,
+        .image-right img {
+            max-width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-      
+        .image-right img:hover,
+        .image-left img:hover {
+            transform: scale(1.05);
+        }
 
-
-
-
-
-        
-        
-     
-
-       
-
-        
-
-
-        /* WhatsApp Floating Button */
+        /* WhatsApp Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -394,176 +371,248 @@
             font-size: 30px;
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: background-color 0.3s ease, transform 0.3s ease;
         }
+
         .whatsapp-float:hover {
             background-color: #128C7E;
             transform: scale(1.1);
         }
+
         .whatsapp-icon {
-            width: 100px;
-            height: 100px;
-        }
-
-        /* Footer Section */
-        .footer {
-            background-color: teal;
-            color: white;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            position: relative;
-            z-index: 100;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
             width: 100%;
-        }
-        .footer-logo {
-            background-color: white;
-            border: 3px solid teal;
-            border-radius: 50%;
-            padding: 15px 25px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-            width: 200px;
-        }
-        .footer-logo:hover {
-            transform: scale(1.05);
-        }
-        .footer-links,
-        .footer-contact {
-            flex: 1;
-            margin: 10px 20px;
-        }
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-links ul li {
-            margin: 10px 0;
-        }
-        .footer-links a {
-            color: #00bfff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-        .footer-contact a {
-            color: #00bfff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-contact a:hover {
-            color: #ffffff;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            display: inline-block;
-        }
-        .social-icons img {
-            width: 30px;
-            transition: transform 0.3s;
-        }
-        .social-icons a:hover img {
-            transform: scale(1.2);
-        }
-        .footer-bottom {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #bbb;
+            height: auto;
         }
 
-        /* Keyframes */
         @keyframes fadeIn {
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
         }
 
-        /* Responsive Styles */
-        /* Responsive Styles */
-@media (max-width: 1200px) {
-    .service {
-        width: 45%;
-    }
-}
 
-@media (max-width: 768px) {
-    .hamburger {
+           /* Footer Section */
+           .footer {
+        background-color: teal;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 100;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        width: 100%;
+    }
+
+
+    .footer-paragraph {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+    .footer-logo {
+        background-color: white;
+        border: 3px solid teal;
+        border-radius: 50%; /* Makes it a circle/oval */
+        padding: 15px 25px; /* Adjust padding for oval shape */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+
+    /* Adjust the shape to be oval */
+    .footer-logo {
         display: block;
+        
+        width: 200px; /* Adjust the width as per your logo */
+        height: auto;
     }
 
-    .nav-links {
-        display: none;
+    /* Add hover effect (Optional) */
+    .footer-logo:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
     }
 
-    .services-hero h1 {
-        font-size: 2rem;
+    .footer-links,
+    .footer-contact {
+        flex: 1;
+        margin: 10px 20px;
     }
 
-    .services-hero p {
-        font-size: 1rem;
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
     }
 
-    .service {
-        width: 80%;
-        margin-bottom: 2rem;
+    .footer-links ul li {
+        margin: 10px 0;
+    }
+
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+
+    .footer-contact {
+        font-size: 16px;
+    }
+
+    .footer-contact a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-contact a:hover {
+        color: #ffffff;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .social-icons img {
+        width: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+    }
+
+    /* Responsive Styles for Sections */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        opacity: 1;
+        transform: translateX(0); /* Reset transform for mobile */
+    }
+
+    .text {
+        padding: 10px;
+    }
+
+    .image-left,
+    .image-right {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .image-left img,
+    .image-right img {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin: 0 auto;
     }
 }
 
 @media (max-width: 480px) {
-    .top-bar {
-        flex-direction: column;
-        font-size: 0.8rem;
-    }
-
-    .services-hero h1 {
+    .text h2 {
         font-size: 1.5rem;
     }
 
-    .services-hero p {
+    .text p {
         font-size: 1rem;
     }
 
-    .service {
-        width: 90%;
-    }
-
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-
-    .footer-info,
-    .footer-links,
-    .footer-contact {
-        margin: 20px 0;
+    .image-left img,
+    .image-right img {
+        width: 100%;
+        height: auto;
     }
 }
+  
 
-        
+        @media (max-width: 768px) {
+               .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+              /* Updated Section Styles */
+   
+
+
+         
+    
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-info,
+            .footer-links,
+            .footer-services,
+            .footer-contact {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+
+
+
+           
+
+        }
     </style>
 </head>
+
 <body>
-    
-<!-- Top Bar Section -->
+    <!-- Top Bar Section -->
 <div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
     <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
         <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon">+44 203 289 3891</span>
@@ -571,14 +620,12 @@
     </div>
 </div>
 
-    <!-- Header with Navigation -->
+    <!-- Header Section -->
     <header>
         <nav>
             <div class="logo">
-    <a href="index.html">
-        <img src="images/logo (2).png" alt="Company Logo">
-    </a>
-</div>
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
@@ -602,110 +649,61 @@
             </ul>
         </nav>
     </header>
-
-    <!-- Main Content -->
     <main>
-        <!-- Hero Section -->
-        <section class="services-hero">
-            <div class="services-hero-content">
-                <h1>Our Services</h1>
-                <p>Explore our wide range of academic writing services designed to help you succeed.</p>
+        <br><br>
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About Us</h1>
+                <p>We are dedicated to providing top-notch <br> academic writing services to help you succeed.</p>
             </div>
         </section>
 
-        <!-- Services Offered -->
-        <section class="services-details" id="services">
-            <h2>What We Offer</h2>
-            <div class="services-container">
-                <div class="service" onclick="scrollToSection('essay-writing')">
-                    <img src="images/Diss__2_-removebg-preview.png" alt="Essay Writing" class="service-icon">
-                    <h3>Essay Writing</h3>
-                    <p>Click to learn more</p>
-                </div>
-                <div class="service" onclick="scrollToSection('research-papers')">
-                    <img src="images/RW-removebg-preview.png" alt="Research Papers" class="service-icon">
-                    <h3>Research Papers</h3>
-                    <p>Click to learn more</p>
-                </div>
-                <div class="service" onclick="scrollToSection('dissertations')">
-                    <img src="images/Diss__1_-removebg-preview.png" alt="Dissertations" class="service-icon">
-                    <h3>Dissertations</h3>
-                    <p>Click to learn more</p>
-                </div>
-                <div class="service" onclick="scrollToSection('proofreading-editing')">
-                    <img src="images/PRR-removebg-preview.png" alt="Proofreading & Editing" class="service-icon">
-                    <h3>Proofreading & Editing</h3>
-                    <p>Click to learn more</p>
-                </div>
-                <div class="service" onclick="scrollToSection('ppt-creation')">
-                    <img src="images/ppt-removebg-preview.png" alt="PPT Design" class="service-icon">
-                    <h3>PPT Design</h3>
-                    <p>Click to learn more</p>
-                </div>
-                <div class="service" onclick="scrollToSection('assignment-help')">
-                    <img src="images/assig-removebg-preview.png" alt="Assignment Help" class="service-icon">
-                    <h3>Assignment Help</h3>
-                    <p>Click to learn more</p>
-                </div>
+        <!-- First Section -->
+        <section class="section" id="section1">
+            <div class="text">
+                <h2>Our Mission</h2>
+                <p>We strive to provide outstanding academic and professional writing services to assist our clients in achieving their educational and career goals. Our mission is rooted in a commitment to excellence, ensuring that every piece of work we produce is of the highest quality. We believe in fostering a strong partnership with our clients, working closely with them to understand their unique needs and requirements. By leveraging our expertise, we aim to provide personalized and impactful solutions that drive success, growth, and fulfillment in both academic and professional settings.</p>
+            </div>
+            <div class="image-right">
+                <img src="images/about1.jpg" alt="Our Mission">
             </div>
         </section>
 
-        <section class="service-details" id="essay-writing">
-            <h2>Essay Writing</h2>
-            <p>Our essay writing service is tailored to help students achieve academic excellence through high-quality, meticulously crafted essays. We understand that writing an essay can be a challenging and time-consuming task, especially when balancing other academic and personal responsibilities. That’s why our team of professional writers is here to assist you every step of the way. Whether you need a compelling argumentative essay, an insightful analysis, or a detailed narrative, we have the expertise to deliver top-notch content that meets your specific requirements.</p>
-            <p>Each essay we produce is thoroughly researched and carefully written to ensure that it is not only informative but also engaging and well-structured. Our writers are well-versed in a wide range of subjects and academic levels, allowing us to match you with a writer who has the knowledge and skills to address your topic effectively. We also pay close attention to proper formatting and citation styles, ensuring that your essay adheres to the academic standards required by your institution.</p>
-            <p>We pride ourselves on our commitment to originality and academic integrity. Every essay is crafted from scratch, with a focus on providing unique insights and perspectives. We use advanced plagiarism detection software to guarantee that your essay is 100% original and free from any form of plagiarism. Our goal is to help you submit an essay that not only meets but exceeds your expectations, earning you the grades you deserve.</p>
-            <p>In addition to writing, we offer a range of support services to enhance your essay. Our team can assist with brainstorming ideas, creating outlines, and providing feedback on drafts. We also offer editing and proofreading services to ensure that your essay is polished and free from grammatical and typographical errors. With our comprehensive essay writing service, you can be confident that you are submitting a high-quality, well-crafted essay that will impress your professors and contribute to your academic success.</p>
+        <!-- Second Section -->
+        <section class="section" id="section2">
+            <div class="text">
+                <h2>Our Vision</h2>
+                <p>We aim to be the leading provider of high-quality writing services, helping individuals and organizations excel in their respective fields. Our vision is to empower clients with the tools and resources they need to succeed, regardless of the challenges they face. By staying ahead of industry trends and continuously improving our services, we aspire to set new standards for excellence in the writing and content development industry. We envision a future where every student, professional, and business can access the support they need to realize their full potential.</p>
+            </div>
+            <div class="image-left">
+                <img src="images/about2.jpeg" alt="Our Vision">
+            </div>
         </section>
 
-        <section class="service-details" id="research-papers">
-            <h2>Research Papers</h2>
-            <p>Our research paper writing service is dedicated to helping students produce high-quality, meticulously researched academic papers. We understand that writing a research paper can be a complex and time-consuming task, requiring extensive research, critical analysis, and a high level of academic writing skill. Our team of professional writers is here to assist you at every stage of the process, from topic selection to the final draft.</p>
-            <p>We begin by helping you choose a compelling and manageable research topic. Our writers are well-versed in a wide range of subjects and academic disciplines, allowing us to guide you in selecting a topic that is both interesting and feasible. Once your topic is selected, we assist with developing a clear and focused research question, as well as a comprehensive research plan.</p>
-            <p>Our writers conduct thorough and rigorous research, using a variety of academic resources and databases to gather the most relevant and up-to-date information for your study. We are skilled at synthesizing complex information and presenting it in a clear and coherent manner. Our goal is to provide you with a research paper that not only meets but exceeds your academic requirements, earning you the grades you deserve.</p>
-            <p>As we move into the writing phase, our focus is on creating a structured and well-organized paper that clearly presents your research findings and arguments. Our writers are experienced in organizing complex information and presenting it in a logical and engaging manner. We pay close attention to academic formatting and citation requirements, ensuring that your research paper adheres to the guidelines specified by your institution.</p>
-            <p>Throughout the process, we maintain open communication with you, providing regular updates and seeking your input to ensure that the final product reflects your vision and meets your expectations. Our goal is to help you produce a research paper that not only demonstrates your knowledge and expertise in your field but also makes a meaningful contribution to academic research.</p>
-            <p>In addition to writing, we offer editing and proofreading services to ensure that your research paper is polished and free from errors. We also provide support with data analysis and interpretation, helping you to present your findings clearly and effectively. With our research paper writing service, you can be confident that you are receiving the highest level of academic support, allowing you to complete your research paper with confidence and success.</p>
+        <!-- Third Section -->
+        <section class="section" id="section3">
+            <div class="text">
+                <h2>Our Values</h2>
+                <p>Integrity, excellence, and dedication are the core values that guide our operations and service delivery. We are committed to maintaining the highest standards of honesty and professionalism in every interaction. Our team believes in the importance of delivering value through our work, ensuring that our clients receive the best possible service at every step. We are dedicated to continuous learning, growth, and development, both individually and collectively, to better serve our clients and make a meaningful difference in their academic and professional journeys.</p>
+            </div>
+            <div class="image-right">
+                <img src="images/typ.jpeg" alt="Our Values">
+            </div>
         </section>
 
-        <section class="service-details" id="dissertations">
-            <h2>Dissertations</h2>
-            <p>Crafting a dissertation is one of the most significant academic challenges a student can face. It requires extensive research, critical thinking, and a high level of academic writing skill. Our dissertation writing service is designed to provide comprehensive support at every stage of this demanding process. From the initial proposal to the final draft, our team of experienced writers is here to help you produce a dissertation that meets the highest academic standards.</p>
-            <p>Our service begins with helping you develop a clear and compelling research proposal. We understand the importance of a well-defined research question and a solid methodological framework, and we work closely with you to ensure that your proposal sets a strong foundation for your dissertation. Once your proposal is approved, our writers will assist you in conducting thorough and rigorous research. We have access to a wide range of academic resources and databases, allowing us to gather the most relevant and up-to-date information for your study.</p>
-            <p>As we move into the writing phase, our focus is on creating a structured and coherent dissertation that clearly presents your research findings and arguments. Our writers are skilled at organizing complex information and presenting it in a logical and engaging manner. We pay close attention to academic formatting and citation requirements, ensuring that your dissertation adheres to the guidelines specified by your institution.</p>
-            <p>Throughout the process, we maintain open communication with you, providing regular updates and seeking your input to ensure that the final product reflects your vision and meets your expectations. Our goal is to help you produce a dissertation that not only demonstrates your knowledge and expertise in your field but also makes a meaningful contribution to academic research.</p>
-            <p>In addition to writing, we offer editing and proofreading services to ensure that your dissertation is polished and free from errors. We also provide support with data analysis and interpretation, helping you to present your findings clearly and effectively. With our dissertation writing service, you can be confident that you are receiving the highest level of academic support, allowing you to complete your dissertation with confidence and success.</p>
+        <!-- Fourth Section -->
+        <section class="section" id="section4">
+            <div class="text">
+                <h2>Our Team</h2>
+                <p>Our team consists of experienced writers, editors, and support staff who are committed to delivering the best possible results. Each member of our team brings a unique set of skills and expertise to the table, allowing us to provide comprehensive and specialized support to our clients. We value collaboration, innovation, and a shared commitment to excellence, which drives us to continually enhance the quality of our services. Our team members are not just professionals; they are passionate individuals who genuinely care about the success and satisfaction of our clients.</p>
+            </div>
+            <div class="image-left">
+                <img src="images/s.jpeg" alt="Our Team">
+            </div>
         </section>
+    </main>
 
-        <section class="service-details" id="proofreading-editing">
-            <h2>Proofreading & Editing</h2>
-            <p>Our proofreading and editing service is designed to help you refine and polish your academic writing, ensuring that it is clear, concise, and free from errors. We understand that even the most well-researched and well-written papers can benefit from a fresh set of eyes, and our team of experienced editors is here to provide that critical review.</p>
-            <p>Our editing process begins with a thorough review of your document, focusing on clarity, coherence, and overall structure. We identify areas where your argument can be strengthened, where transitions can be improved, and where additional explanation or evidence may be needed. Our goal is to help you produce a clear and compelling paper that effectively communicates your ideas and research findings.</p>
-            <p>In addition to structural and content editing, we provide detailed proofreading to catch any grammatical, typographical, or formatting errors. Our editors are skilled at identifying and correcting even the most subtle mistakes, ensuring that your paper is polished and professional. We also pay close attention to academic formatting and citation requirements, ensuring that your paper adheres to the guidelines specified by your institution.</p>
-            <p>We understand the importance of maintaining your unique voice and writing style, and our editors work carefully to preserve your original tone and intent while making necessary improvements. We provide constructive feedback and suggestions, helping you to strengthen your writing skills and produce a higher quality paper.</p>
-            <p>Our proofreading and editing service is ideal for students at any stage of the writing process, whether you need a quick review of a final draft or more extensive editing and feedback on an early draft. We offer flexible turnaround times to meet your deadlines, and our team is committed to providing the highest level of service and support.</p>
-            <p>With our proofreading and editing service, you can be confident that your academic writing is clear, concise, and free from errors, allowing you to present your work with confidence and achieve academic success.</p>
-        </section>
-        <section class="service-details" id="ppt-creation">
-            <h2>PPT Creation</h2>
-            <p>Our PowerPoint (PPT) creation service is designed to help students and professionals present their ideas effectively through visually appealing and well-structured presentations. We understand that crafting a compelling PPT can be overwhelming, especially when you need to convey complex information in a concise manner. Our experienced team is here to assist you in transforming your concepts into captivating slides that engage your audience and enhance your message.</p>
-            <p>We work closely with you to understand your presentation goals, audience, and key messages. Whether you need a professional presentation for a class project, a business pitch, or a conference, we have the expertise to create custom slides that align with your vision. Our designers focus on aesthetics, ensuring that each slide is visually balanced, using appropriate graphics, color schemes, and fonts that match your branding or academic requirements.</p>
-            <p>In addition to slide design, we also provide assistance with content development. Our team can help you draft speaker notes, develop engaging narratives, and create compelling visuals such as charts, graphs, and infographics. We can also incorporate code snippets and simulation results to demonstrate complex concepts in subjects like programming, statistics, and psychology, ensuring that your presentation is informative and impactful.</p>
-            <p>With our PPT creation service, you can be confident that your presentation will not only look great but also effectively communicate your ideas. We pride ourselves on delivering high-quality work that meets your deadlines, allowing you to focus on delivering a memorable presentation that leaves a lasting impression on your audience.</p>
-        </section>
-        
-        <section class="service-details" id="assignment-help">
-            <h2>Assignment Help</h2>
-            <p>Our assignment help service is dedicated to providing students with the support they need to excel in their academic pursuits. Whether you’re facing challenges in understanding the subject matter or managing your time effectively, our team of qualified experts is here to assist you. We offer guidance in various disciplines, including programming, statistics, and psychology, ensuring that you receive tailored help based on your specific requirements.</p>
-            <p>We understand that assignments can vary in complexity and scope. Our experts are well-versed in creating high-quality written content, coding assignments, and statistical analyses. We can help you with everything from developing algorithms and debugging code to conducting data analysis and interpreting results. For psychology assignments, we provide insights and research-based approaches to help you understand key concepts and theories.</p>
-            <p>Our commitment to academic integrity means that all work is completed from scratch. We ensure that your assignments are original and adhere to the academic standards of your institution. Additionally, we offer editing and proofreading services to refine your submissions, ensuring clarity, coherence, and correctness in your writing.</p>
-            <p>With our assignment help service, you can navigate your academic challenges with confidence. We’re dedicated to helping you achieve your educational goals while enhancing your understanding of the subject matter, providing you with the tools you need for success in your studies.</p>
-        </section>
-
-    
-    
-     <!-- WhatsApp Floating Button -->
-     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
 
@@ -749,7 +747,7 @@
             <h3>Follow Us</h3>
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-               
+             
              
             </div>
         </div>
@@ -760,77 +758,67 @@
         <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
     </div>
 </footer>
-     
 
-    <!-- JavaScript for Smooth Scrolling and Mobile Menu -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Smooth scrolling for navigation links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-            // Scroll to section function
-            window.scrollToSection = function(sectionId) {
-                document.getElementById(sectionId).scrollIntoView({
-                    behavior: 'smooth'
-                });
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
             }
 
-            // Mobile menu toggle
-            document.getElementById('hamburger').addEventListener('click', function () {
-                const navLinks = document.getElementById('nav-links');
-                navLinks.classList.toggle('show'); // Toggle the dropdown menu
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
+
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
             });
         });
 
+        // Section Animation for Transition Effect
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
 
-        document.addEventListener("DOMContentLoaded", function() {
-    const services = document.querySelectorAll('.service');
-    const options = {
-        threshold: 0.5
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('glow-effect'); // Add glow effect
-                entry.target.style.transform = 'translateX(0)'; // Move the box to its original position
-                entry.target.style.opacity = 1; // Make the box visible
-                observer.unobserve(entry.target); // Stop observing after the animation
-            }
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerHeight) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateX(0)';
+                } else {
+                    section.style.opacity = '0';
+                    section.style.transform = section.classList.contains('section:nth-child(even)') ? 'translateX(-100%)' : 'translateX(100%)';
+                }
+            });
         });
-    }, options);
-    
-    services.forEach(service => {
-        observer.observe(service);
-    });
-});
-
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const closeMenuButton = document.getElementById('close-menu');
-
-    hamburger.addEventListener('click', function () {
-        navLinks.classList.toggle('show');
-    });
-
-    closeMenuButton.addEventListener('click', function () {
-        navLinks.classList.remove('show');
-    });
-});
-
-
     </script>
 </body>
+
 </html>
