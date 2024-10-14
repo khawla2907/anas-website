@@ -30,20 +30,23 @@
         }
 
         .top-bar {
-            background-color: lightgrey;
-            color: black;
-            padding: 10px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
+}
+
+
 
         .phone-icon {
             width: 20px;
@@ -63,6 +66,8 @@
         header {
             margin-top: 40px;
         }
+
+      
 
         /* Hamburger Menu Styles */
         .hamburger {
@@ -392,26 +397,132 @@
             }
         }
 
-        @media (max-width: 768px) {
-               .hamburger {
-                display: block;
-            }
 
-            .nav-links {
-                display: none;
-            }
+           /* Footer Section */
+           .footer {
+        background-color: teal;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 100;
+    }
 
-            .nav-links-mobile {
-                padding: 1rem;
-            }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        width: 100%;
+    }
 
-              /* Updated Section Styles */
+
+    .footer-paragraph {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+    .footer-logo {
+        background-color: white;
+        border: 3px solid teal;
+        border-radius: 50%; /* Makes it a circle/oval */
+        padding: 15px 25px; /* Adjust padding for oval shape */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
+
+    /* Adjust the shape to be oval */
+    .footer-logo {
+        display: block;
+        
+        width: 200px; /* Adjust the width as per your logo */
+        height: auto;
+    }
+
+    /* Add hover effect (Optional) */
+    .footer-logo:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+
+    .footer-links,
+    .footer-contact {
+        flex: 1;
+        margin: 10px 20px;
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-links ul li {
+        margin: 10px 0;
+    }
+
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+
+    .footer-contact {
+        font-size: 16px;
+    }
+
+    .footer-contact a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-contact a:hover {
+        color: #ffffff;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .social-icons img {
+        width: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+    }
+
+    /* Responsive Styles for Sections */
+@media (max-width: 768px) {
     .section {
         flex-direction: column;
         padding: 20px;
         text-align: center;
         opacity: 1;
-        transform: translateX(0);
+        transform: translateX(0); /* Reset transform for mobile */
     }
 
     .text {
@@ -431,6 +542,40 @@
         height: auto;
         margin: 0 auto;
     }
+}
+
+@media (max-width: 480px) {
+    .text h2 {
+        font-size: 1.5rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+
+    .image-left img,
+    .image-right img {
+        width: 100%;
+        height: auto;
+    }
+}
+  
+
+        @media (max-width: 768px) {
+               .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+              /* Updated Section Styles */
+   
 
 
          
@@ -457,6 +602,9 @@
                 margin: 20px 0;
             }
 
+
+
+
            
 
         }
@@ -465,10 +613,12 @@
 
 <body>
     <!-- Top Bar Section -->
-    <div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
-        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon">+44 203 289 3891</span>
+        <span><img src="images/mail-removebg-preview.png" alt="Email Icon" class="phone-icon"><a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></span>
     </div>
+</div>
 
     <!-- Header Section -->
     <header>
@@ -557,41 +707,57 @@
         <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
     </a>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="images/logo (2).png" alt=" Logo" />
-            </div>
-            <div class="footer-info">
-                <h2>Inscribe.co</h2>
-                <p>Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you. We also provide proofreading, editing, and formatting services to ensure your documents are polished and effective. Contact us today for a free consultation and discover how we can help you achieve your writing goals.</p>
-            </div>
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <br>
-                    <li><a href="About-us.html">About Us</a></li>
-                    <br>
-                    <li><a href="order.html">Order</a></li>
-                    <br>
-                    <li><a href="pricing.html">Pricing</a></li>
-                    <br>
-                    <li><a href="sample.html">Sample</a></li>
-                    <br>
-                    <li><a href="services.html">Services</a></li>
-                </ul>
-            </div>
-            <div class="footer-contact">
-                <h3>Quick Info</h3>
-                <p>INCRIBE@gmail.com</p>
-                <p>+44 2032893891</p>
-                <p>facebook.com</p>
-                <p>insta.com</p>
+    
+        <!-- Footer Section -->
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Footer Logo and Description -->
+        <div class="footer-info">
+            <a href="index.html">
+                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+            </a>
+            <p class="footer-paragraph">
+                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+            </p>
+            <p class="footer-paragraph">
+                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="sample.html">Sample</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact">
+            <h3>Quick Info</h3>
+            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
+             
+             
             </div>
         </div>
-    </footer>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+    </div>
+</footer>
 
     <script>
         // Hamburger Menu Functionality
