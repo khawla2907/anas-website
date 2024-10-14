@@ -189,79 +189,124 @@
         }
 
 
-        /* Footer Section */
+       
+         /* Footer Section */
         .footer {
-            background-color: #003366;
-            color: white;
-            padding: 40px 20px;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-            border-top: 5px solid #008080;
-        }
+        background-color: teal;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 100;
+    }
 
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        width: 100%;
+    }
 
-        .footer-logo {
-            margin-right: 20px;
-        }
 
-        .footer-logo img {
-            height: 50px;
-            width: auto;
-        }
+    .footer-paragraph {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
 
-        .footer-info,
-        .footer-links,
-        .footer-contact {
-            flex: 1;
-            min-width: 200px;
-            margin: 10px;
-            text-align: left;
-        }
+    .footer-logo {
+        background-color: white;
+        border: 3px solid teal;
+        border-radius: 50%; /* Makes it a circle/oval */
+        padding: 15px 25px; /* Adjust padding for oval shape */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+    }
 
-        .footer-info h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #00bfff;
-        }
+    /* Adjust the shape to be oval */
+    .footer-logo {
+        display: block;
+        
+        width: 200px; /* Adjust the width as per your logo */
+        height: auto;
+    }
 
-        .footer-links ul,
-        .footer-services ul {
-            list-style: none;
-            padding: 0;
-        }
+    /* Add hover effect (Optional) */
+    .footer-logo:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
 
-        .footer-links li,
-        .footer-services li {
-            margin: 5px 0;
-        }
+    .footer-links,
+    .footer-contact {
+        flex: 1;
+        margin: 10px 20px;
+    }
 
-        .footer-links a,
-        .footer-services a {
-            color: #00bfff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
 
-        .footer-links a:hover,
-        .footer-services a:hover {
-            color: #ffffff;
-        }
+    .footer-links ul li {
+        margin: 10px 0;
+    }
 
-        .footer-bottom {
-            margin-top: 20px;
-            text-align: center;
-            font-size: 0.8em;
-        }
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
 
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+
+    .footer-contact {
+        font-size: 16px;
+    }
+
+    .footer-contact a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+
+    .footer-contact a:hover {
+        color: #ffffff;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+
+    .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+
+    .social-icons img {
+        width: 30px;
+        transition: transform 0.3s;
+    }
+
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+
+    .footer-bottom {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+    }
+  
         .about-hero {
             border-radius: 20px;
             height: 70vh;
