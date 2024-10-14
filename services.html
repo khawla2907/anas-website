@@ -6,6 +6,7 @@
     <title>Services - The InscribeCo</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <style>
+        /* General Styles */
         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
@@ -14,124 +15,243 @@
             transition: background-color 0.3s ease;
             line-height: 1.6;
             overflow-x: hidden;
-           
         }
 
-        header {
-            background-color: rgba(255, 255, 255, 0.10);
+        /* Header Styles */
+         /* Header Styles */
+         header {
+            background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
             position: fixed;
             top: 0;
-            z-index: 1000;
+            z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
+            transition: all 0.3s ease;
         }
 
-           
-
-
- footer {
-    background-color: #333; /* Dark background */
-    color: #fff; /* White text */
-    padding: 20px; /* Padding */
-    text-align: center; /* Center text */
+        .top-bar {
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
 }
 
-.footer-content p {
-    margin: 5px 0; /* Space between paragraphs */
-}
 
-.footer-bottom {
-    border-top: 1px solid #444; /* Top border */
-    margin-top: 10px; /* Margin above */
-    padding-top: 10px; /* Padding above */
-}
-   
-  .top-bar {
-        background-color: lightgrey;
-        color: black;
-        padding: 10px 0;
-        text-align: center;
-        font-family: 'Arial', sans-serif;
-        position: fixed;
-        width: 100%;
-        top: 0;
-        z-index: 1100;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Adding shadow */
-    }
 
-    .phone-icon {
-        width: 20px;
-        height: 20px;
-        margin-right: 10px;
-    }
-
-    .top-bar a {
-        color: black;
-        text-decoration: none;
-    }
-
-    .top-bar a:hover {
-        text-decoration: underline;
-    }
-
- header {
-        margin-top: 40px; /* Adjusts the header position below the top bar */
-    }
-
-     .hamburger {
-            display: none; /* Show by default */
+        .phone-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
 
- nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem;
-        max-width: 1400px;
-        margin: auto;
-    }
+        .top-bar a {
+            color: black;
+            text-decoration: none;
+        }
 
-    .logo img {
-        height: 50px;
-        border-radius: 50%;
-        border: 3px solid rgba(0, 123, 255, 0.6);
-        padding: 5px;
-        background-color: rgba(245, 245, 245, 0.863);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }   
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            margin-top: 40px;
+        }
+
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
+
+        .hamburger.open {
+            transform: rotate(90deg);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            max-width: 1400px;
+            margin: auto;
+            background-color: transparent;
+            backdrop-filter: none;
+            box-shadow: none;
+            position: relative;
+            z-index: 1500;
+            transition: all 0.3s ease;
+            height: 49px;
+            
 
 
-.nav-links {
-    display: flex; /* Display nav links in desktop view */
-}
+        }
+
+        .logo img {
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid #008080;
+            padding: 5px;
+            background-color: rgba(245, 245, 245, 0.863);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Navigation Links Styles */
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            padding: 1rem;
+            text-align: center;
+            color: black;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+
+         .nav-links a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
+        .nav-links-mobile {
+            display: none;
+            z-index: 3000;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(44, 62, 80, 0.9);
+            height: 100vh;
+            overflow: hidden;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .nav-links-mobile.show {
+            display: flex;
+        }
+
+        .nav-links-mobile li {
+            display: block;
+            margin: 30px 0;
+            border-bottom: 1px solid #ffffff;
+            padding-bottom: 10px;
+            width: 100%;
+        }
+
+        .nav-links-mobile a {
+            font-size: 14.5px;
+            padding: 1rem;
+            text-align: center;
+            color: #ffffff;
+            text-decoration: none;
+            position: relative;
+            transition: color 0.3s ease, transform 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+
+          .nav-links-mobile a:hover {
+            color: #1f6396;
+            transform: scale(1.05);
+        }
+
         
-.nav-links li {
-    display: inline;
+        /* Close Menu Button Styles */
+        /* Close Menu Button Styles */
+        .close-menu {
+            z-index: 3005;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+
+
+        .services-hero {
+            border-radius: 20px;
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 0;
+            transition: all 0.3s ease;
+        }
+
+        .services-hero-content {
+            animation: fadeIn 2s ease-out;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .services-hero h1 {
+            font-size: 3rem;
+            color: #00bfff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .services-hero p {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+        }
+
+
+        
+        /* Services Section */
+.services-details {
+    padding: 4rem 1rem;
+    background-color: teal;
+    text-align: center;
+    width: 100%;
+    border-radius: 20px; /* Rounded corners for the section */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow to the section */
+}
+.services-details h2 {
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease; /* Smooth color transition */
 }
 
-.nav-links a {
-    color: black; 
-    text-decoration: none;
-    padding: 1rem;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.nav-links a:hover {
-    background-color: rgba(0, 123, 255, 0.6);
-    transform: scale(1.1);
-}
-
-
-
-    
-
-        .services-container {
+.services-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -141,119 +261,126 @@
     padding: 0 1rem;
 }
 
+/* Individual Service Box */
+
+/* Individual Service Box with Glow */
+.service {
+    background-color: #fff;
+    padding: 2rem;
+    width: 30%;
+    min-width: 280px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    opacity: 0; /* Initially invisible */
+    transform: translateX(-100%); /* Start off-screen (left) */
+}
+.service.glow-effect {
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7); /* Glowing effect */
+}
+.service:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+.service:nth-child(odd) {
+    transform: translateX(100%); /* Opposite direction for odd boxes (right) */
+}
+.service:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 128, 128, 0.1); /* Slight glow effect */
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Glowing border effect */
+    border-radius: 20px; /* Keep the glow rounded as well */
+}
+.service-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease; /* Smooth transition for icon */
+}
+.service:hover .service-icon {
+    transform: rotate(15deg) scale(1.2); /* Rotate and scale icon on hover */
+}
+
+.service h3 {
+    font-size: 1.6rem;
+    color: #000;
+    margin-bottom: 0.8rem;
+}
+.service p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 1rem;
+}
+.learn-more {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 10px 20px;
+    background-color: #008080;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 12px; /* More rounded button */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.learn-more:hover {
+    background-color: #006666;
+    transform: scale(1.1); /* Slightly bigger scale effect */
+}
+
+/* Service Details Section */
+.service-details {
+    padding: 4rem 1rem;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+.service-details h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+.service-details p {
+    font-size: 1rem;
+    color: #666;
+    max-width: 1200px;
+    margin: auto;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow around the text box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-details p:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+    transform: translateY(-10px); /* Slight lift on hover */
+}
+
+      
+
+
+
+
+
+        
+        
+     
+
        
 
+        
 
 
-
-        .services-hero {
-            height: 60vh;
-            background: url('images/bg.jpg') no-repeat center center/cover;
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 2rem;
-            margin-top: 0;
-            
-        }
-
-        .services-hero-content {
-            animation: fadeIn 2s ease-out;
-        }
-
-        .services-hero h1 {
-            font-size: 3rem;
-            color: #fff;
-        }
-
-        .services-hero p {
-            font-size: 1.25rem;
-            color: #ddd;
-        }
-
-        .services-details {
-            padding: 4rem 1rem;
-            background-color: #000;
-            text-align: center;
-            width: 100% ;
-        }
-
-        .services-details h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .services-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        .service {
-            background-color: #fff;
-            padding: 2rem;
-            width: 30%;
-            min-width: 280px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service h3 {
-            font-size: 1.5rem;
-            color: #000;
-            margin-bottom: 0.5rem;
-        }
-
-        .service p {
-            font-size: 1rem;
-            color: #333;
-            margin: 0;
-        }
-
-        .service:hover .service-overlay {
-            opacity: 1;
-        }
-
-        .service-icon {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 1rem;
-        }
-
-        .service-details {
-            padding: 4rem 1rem;
-            background-color: #f5f5f5;
-            text-align: center;
-           
-            
-        }
-
-        .service-details h2 {
-            font-size: 2rem;
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .service-details p {
-            font-size: 1rem;
-            color: #666;
-            max-width: 1200px;
-            text-align: justify;
-            margin: auto;
-            text-align: left;
-            margin-bottom: 1.5rem;
-        }
-
-       
-
+        /* WhatsApp Floating Button */
         .whatsapp-float {
             position: fixed;
             width: 60px;
@@ -267,37 +394,99 @@
             font-size: 30px;
             box-shadow: 2px 2px 3px #999;
             z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #fff;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
-
         .whatsapp-float:hover {
             background-color: #128C7E;
             transform: scale(1.1);
         }
-
         .whatsapp-icon {
             width: 100px;
             height: 100px;
         }
 
+        /* Footer Section */
+        .footer {
+            background-color: teal;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 100;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%;
+            padding: 15px 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            width: 200px;
+        }
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            margin: 10px 20px;
+        }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-links ul li {
+            margin: 10px 0;
+        }
+        .footer-links a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        .footer-contact a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+        .social-icons img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+        .footer-bottom {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
+        }
+
+        /* Keyframes */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -307,169 +496,116 @@
             }
         }
 
-        @media (max-width: 768px) {
-
-You said:
-    .sample {
-                width: calc(50% - 2rem);
-                /* Two in a row on tablets */
-            }
-
-            .nav-links {
-                display: none;
-                /* Initially hidden */
-                flex-direction: column;
-                /* Stack links vertically */
-                position: absolute;
-                /* Dropdown positioning */
-                top: 80px;
-                /* Space below the nav bar */
-                right: 0;
-                left: 0;
-                /* Full width */
-                background-color: #2c3e50;
-                /* Dark background for contrast */
-                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-                /* Softer shadow for depth */
-                border-radius: 8px;
-                /* Less rounded corners */
-                z-index: 100;
-                /* Appear above other elements */
-                padding: 0.5rem;
-                /* Padding around the dropdown */
-                transition: all 0.3s ease;
-                /* Smooth open/close */
-
-                /* ####### New Code ########## */
-                /* for make list in a container */
-                contain: content;
-                /* ########################### */
-            }
-
-            /* ####### New Code ########## */
-            /* for proper visibilty of list items */
-            .nav-links li {
-                display: flex;
-                contain: content;
-            }
-
-            /* ########################### */
-
-            .nav-links a {
-                padding: 1.5rem;
-                /* Increased padding for larger clickable area */
-                margin: 0.5rem 0;
-                /* Slight margin to separate buttons */
-                /* background-color: #2980b9;
-                /* Background color for links */
-               /* border-radius: 5px;
-                /* Subtle rounding for links */
-                font-size: 1.25rem;
-                /* Reasonable font size for readability */
-                text-align: center;
-                color: #ffffff;
-                /* White text */
-                text-decoration: none;
-                /* Remove underline */
-                transition: background-color 0.3s ease, transform 0.3s ease;
-                /* Smooth transitions */
-                width: calc(100% - 1rem);
-                /* Make buttons full width minus margin */
-               /* box-sizing: border-box;
-                /* Include padding and border in element's total width */
-            }
-
-            /* Hover effects */
-            .nav-links a:hover {
-                background-color: BLUE;
-                /* Darker hover color */
-                color: BLUE;
-                /* Lighter text on hover */
-                transform: scale(1.05);
-                /* Slightly increase size on hover */
-           
-            }
-
-            .nav-links.show {
-                display: flex;
-                /* Show nav links when hamburger is clicked */
-            }
-
-            .hamburger {
-                display: block;
-                /* Show hamburger on mobile */
-            }
-  
-
-
-.nav-links.active {
-    display: flex;
+        /* Responsive Styles */
+        /* Responsive Styles */
+@media (max-width: 1200px) {
+    .service {
+        width: 45%;
+    }
 }
 
-nav {
-    justify-content: space-between;
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+
+    .services-hero p {
+        font-size: 1rem;
+    }
+
+    .service {
+        width: 80%;
+        margin-bottom: 2rem;
+    }
 }
 
+@media (max-width: 480px) {
+    .top-bar {
+        flex-direction: column;
+        font-size: 0.8rem;
+    }
 
-            .services-hero h1 {
-                font-size: 2rem;
-            }
+    .services-hero h1 {
+        font-size: 1.5rem;
+    }
 
-            .services-hero p {
-                font-size: 1rem;
-            }
+    .services-hero p {
+        font-size: 1rem;
+    }
 
-            .services-details h2 {
-                font-size: 1.5rem;
-            }
+    .service {
+        width: 90%;
+    }
 
-            .service h3 {
-                font-size: 1.25rem;
-            }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 
-            .service p {
-                font-size: 0.875rem;
-            }
+    .footer-info,
+    .footer-links,
+    .footer-contact {
+        margin: 20px 0;
+    }
+}
 
-            .service-details h2 {
-                font-size: 1.5rem;
-            }
-
-            .service-details p {
-                font-size: 0.875rem;
-            }
-        }
+        
     </style>
 </head>
 <body>
     
-<div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon"> <!-- Replace with an actual icon -->
-        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+<!-- Top Bar Section -->
+<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
+    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+        <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon">+44 203 289 3891</span>
+        <span><img src="images/mail-removebg-preview.png" alt="Email Icon" class="phone-icon"><a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></span>
     </div>
-     <header>
-    <nav>
-        <div class="logo">
-            <img src="images/logo (2).png" alt="Company Logo">
-        </div>
-        <div class="hamburger" id="hamburger">
-            &#9776; <!-- Hamburger icon -->
-        </div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="About us.html">About Us</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="Sample.html">Samples</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
-            <li><a href="order.html">Order</a></li>
-        </ul>
-    </nav>
-</header>
+</div>
 
-   
+    <!-- Header with Navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+    <a href="index.html">
+        <img src="images/logo (2).png" alt="Company Logo">
+    </a>
+</div>
+            <div class="hamburger" id="hamburger">
+                &#9776;
+            </div>
+            <ul class="nav-links" id="nav-links-desktop">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+            </ul>
+            <ul class="nav-links-mobile" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="Sample.html">Samples</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="order.html">Order</a></li>
+                <br>
+                <button class="close-menu" id="close-menu">X</button>
+            </ul>
+        </nav>
+    </header>
 
+    <!-- Main Content -->
     <main>
-        <br><br>
+        <!-- Hero Section -->
         <section class="services-hero">
             <div class="services-hero-content">
                 <h1>Our Services</h1>
@@ -477,6 +613,7 @@ nav {
             </div>
         </section>
 
+        <!-- Services Offered -->
         <section class="services-details" id="services">
             <h2>What We Offer</h2>
             <div class="services-container">
@@ -567,49 +704,133 @@ nav {
 
     
     
-    </main>
-    <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon"></a>
- <footer>
-        <div class="footer-content">
-            <p>Contact Us: <a href="mailto:info@example.com">inscribe@gmail.com</a></p>
-         
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2011 The Inscribeco. All rights reserved.</p>
-        </div>
-    </footer>
-    
+     <!-- WhatsApp Floating Button -->
+     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+    </a>
 
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
+    
+        <!-- Footer Section -->
+
+<!-- Footer Section -->
+<footer class="footer">
+    <div class="footer-content">
+        <!-- Footer Logo and Description -->
+        <div class="footer-info">
+            <a href="index.html">
+                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+            </a>
+            <p class="footer-paragraph">
+                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+            </p>
+            <p class="footer-paragraph">
+                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+            </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about-us.html">About Us</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="sample.html">Sample</a></li>
+                <li><a href="services.html">Services</a></li>
+            </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="footer-contact">
+            <h3>Quick Info</h3>
+            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+            <h3>Follow Us</h3>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
+               
+             
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="footer-bottom">
+        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+    </div>
+</footer>
+     
+
+    <!-- JavaScript for Smooth Scrolling and Mobile Menu -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Scroll to section function
+            window.scrollToSection = function(sectionId) {
+                document.getElementById(sectionId).scrollIntoView({
                     behavior: 'smooth'
                 });
+            }
+
+            // Mobile menu toggle
+            document.getElementById('hamburger').addEventListener('click', function () {
+                const navLinks = document.getElementById('nav-links');
+                navLinks.classList.toggle('show'); // Toggle the dropdown menu
             });
         });
 
-        // Scroll to section function
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
 
- 
-
-document.getElementById('hamburger').addEventListener('click', function () {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('show'); // Toggle the dropdown menu
+        document.addEventListener("DOMContentLoaded", function() {
+    const services = document.querySelectorAll('.service');
+    const options = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('glow-effect'); // Add glow effect
+                entry.target.style.transform = 'translateX(0)'; // Move the box to its original position
+                entry.target.style.opacity = 1; // Make the box visible
+                observer.unobserve(entry.target); // Stop observing after the animation
+            }
+        });
+    }, options);
+    
+    services.forEach(service => {
+        observer.observe(service);
+    });
 });
 
-    });
-</script>
 
-  
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Mobile menu toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    const closeMenuButton = document.getElementById('close-menu');
+
+    hamburger.addEventListener('click', function () {
+        navLinks.classList.toggle('show');
+    });
+
+    closeMenuButton.addEventListener('click', function () {
+        navLinks.classList.remove('show');
+    });
+});
+
+
+    </script>
 </body>
 </html>
