@@ -844,81 +844,43 @@ img {
                 });
             }
 
-            // Mobile menu toggle
-            document.getElementById('hamburger').addEventListener('click', function () {
-                const navLinks = document.getElementById('nav-links');
-                navLinks.classList.toggle('show'); // Toggle the dropdown menu
-            });
-        });
-
-
-        document.addEventListener("DOMContentLoaded", function() {
-    const services = document.querySelectorAll('.service');
-    const options = {
-        threshold: 0.5
-    };
-    
  
 
+   // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Mobile menu toggle
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    const closeMenuButton = document.getElementById('close-menu');
-
-    hamburger.addEventListener('click', function () {
-        navLinks.classList.toggle('show');
-    });
-
-    closeMenuButton.addEventListener('click', function () {
-        navLinks.classList.remove('show');
-    });
-});
-
-            
-// Hamburger Menu Functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
-    const closeMenuButton = document.getElementById('close-menu');
-    const navLinks = document.getElementById('nav-links');
-
-    function toggleMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('show');
-        navLinks.style.position = 'fixed';
-        navLinks.style.top = '0';
-        navLinks.style.right = '0';
-        navLinks.style.bottom = '0';
-        navLinks.style.left = '0';
-        navLinks.style.zIndex = "3000";
-        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
-    }
-
-    function closeMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('show');
-        // Reset hamburger z-index if needed
-        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu);
-    closeMenuButton.addEventListener('click', closeMenu);
-    closeMenuButton.addEventListener('touchstart', closeMenu);
-
-    document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-            if (navLinks.classList.contains('show')) {
-                closeMenu(event);
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
             }
-        }
-    });
 
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
+
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
+
+            // Close the menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
+            });
+        });
+   
 
 
     </script>
