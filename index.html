@@ -4,31 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-
-    <title>The InscribeCo - home </title>
+    <title>The InscribeCo - Home</title>
     <style>
         /* General Styles */
-
-        html, body {
-    overflow-x: hidden;
-    max-width: 100%;
-}
-
-* {
-    box-sizing: border-box;
-}
-        
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
             background-color: #f5f5f5;
             overflow-x: hidden;
         }
 
+        /* Top Bar Styles */
+        .top-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            height: 50px;
+            background-color: lightgrey;
+            color: black;
+            font-family: 'Arial', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1500;
+            margin-bottom: 5px; /* Ensures separation from content below */
+        }
+
+        .phone-icon,
+        .email-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .top-bar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
 
         /* Header Styles */
         header {
@@ -36,66 +56,11 @@
             color: black;
             width: 100%;
             position: fixed;
-            top: 0;
-            z-index: 1500;
+            top: 55px; /* Top-bar (50px) + margin-bottom (5px) */
+            z-index: 1400; /* Lower than top-bar to prevent overlap */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
             transition: all 0.3s ease;
-        }
-
-        .top-bar {
-    background-color: lightgrey;
-    color: black;
-    padding: 10px 0;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
-    margin-bottom: 5px;  /* Ensures separation from content below */
-}
-
-
-
-        .phone-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          
-           
-        }
-
-        .top-bar a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            margin-top: 40px;
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 2rem;
-            user-select: none;
-            transition: transform 0.3s ease;
-            z-index: 2001;
-            position: relative;
-        }
-
-        .hamburger.open {
-            transform: rotate(90deg);
         }
 
         nav {
@@ -112,11 +77,9 @@
             z-index: 1500;
             transition: all 0.3s ease;
             height: 87px;
-            
-
-
         }
 
+        /* Logo Styles */
         .logo img {
             height: 70px;
             border-radius: 50%;
@@ -150,7 +113,7 @@
             border-radius: 8px;
         }
 
-         .nav-links a:hover {
+        .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -195,793 +158,275 @@
             font-weight: bold;
         }
 
-
-          .nav-links-mobile a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
-        
-        /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
             z-index: 3005;
             position: absolute;
             top: 20px;
             right: 20px;
-        }
-
-
-
-        
-        
-     
-
-
-        /* Hero Section Styles */
-        
-
-        .hero h1 {
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-            font-size: 1rem;
+            background: none;
+            border: none;
             color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-            margin-bottom: 1rem;
-        }
-/* Hero Section Styles (including translucent box) */
-/* General Hero Section Styles */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-container {
-    display: flex;
-    transition: transform 0.8s ease-in-out; /* Smooth transition */
-    width: 500%; /* 100% per slide, for 5 slides total */
-}
-
-/* Individual Hero Slides */
-.hero-slide {
-    flex: 1 0 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    background-size: cover;
-    background-position: center;
-}
-
-/* Background images for each slide */
-.hero-slide:nth-child(1) {
-    background-image: url('images/bg.png'); /* Update with your image paths */
-}
-
-.hero-slide:nth-child(2) {
-    background-image: url('images/hero2.png');
-}
-
-.hero-slide:nth-child(3) {
-    background-image: url('images/hero3.png');
-}
-
-.hero-slide:nth-child(4) {
-    background-image: url('images/hero4.png');
-}
-
-.hero-slide:nth-child(5) {
-    background-image: url('images/hero5.png');
-}
-
-/* Translucent Text Box */
-.hero-box {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    max-width: 60%; /* Adjust for your design */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Optional shadow */
-    margin: 0 auto;
-}
-
-.hero-box h1 {
-    font-size: 3.5rem;
-    color: white;
-}
-
-.hero-box p {
-    font-size: 1.2rem;
-    color: #f5f5f5;
-    margin-top: 1rem;
-}
-
-
-
-/* Keyframe for smooth infinite scroll */
-@keyframes scrollHero {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(-100%); }
-    40% { transform: translateX(-200%); }
-    60% { transform: translateX(-300%); }
-    80% { transform: translateX(-400%); }
-    100% { transform: translateX(-500%); }
-}
-
-        /* Navigation Controls */
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    padding: 1rem;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-
-
-     
-        .carousel-container {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    background: #f1f1f1; /* Just to highlight the slider area */
-}
-
-.static-text {
-    font-size: 17px;
-    padding-right: 10px;
-    flex-shrink: 0;
-    white-space: normal;
-    font-style:oblique;
-}
-
-.logo-slider {
-    overflow: hidden;
-    flex-grow: 1;
-}
-
-.slide-track {
-    display: flex;
-    animation: scroll 40s linear infinite;
-    align-items: center;
-}
-
-.logo {
-    height: auto; /* Keep height auto to maintain aspect ratio */
-    width: 10%; /* Adjust this to manage how many logos you want shown at once */
-    padding: 5px; /* Adjust padding to manage space between logos */
-}
-
-@keyframes scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-}
-
-          /* Footer Styles */
-          
-
-      
-        
-    
-
-
-
-        /* Samples Section Styles */
-        
-
-
-/* Samples Section Styles */
-/* General Box-Sizing */
-
-
-        /* Samples Section */
-  
-        
-
-        .samples {
-            padding: 2rem;
-            text-align: center;
-            max-width: 1200px;
-            margin: 0 auto;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
-        .samples h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #333;
-            font-weight: 600;
-            letter-spacing: 1px;
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
         }
 
-        .sample-container {
-            display: flex;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-            gap: 2rem;
-            justify-content: space-between;
-            padding: 1rem;
+        .hamburger.open {
+            transform: rotate(90deg);
         }
 
-        .sample {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            width: calc(33.33% - 20px);
-            flex: 0 0 auto;
-            text-align: left;
-        }
-
-        .sample:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .sample h3 {
-            font-size: 1.5rem;
-            margin: 1rem 0 0.5rem;
-            color: teal;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-        }
-
-        .sample p {
-            font-size: 1rem;
-            color: #555;
-            margin: 0.5rem 0 1.5rem;
-            line-height: 1.6;
-        }
-
-        .download-link {
-            display: inline-block;
-            padding: 0.75rem 1.5rem;
+        /* Footer Styles */
+        .footer {
             background-color: teal;
             color: white;
-            border-radius: 5px;
-            text-decoration: none;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .download-link:hover {
-            background-color: #004494;
-            box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
-        }
-
-        @media (max-width: 768px) {
-            .sample-container {
-                flex-wrap: wrap;
-            }
-
-            .sample {
-                width: calc(50% - 20px);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sample {
-                width: 100%;
-            }
-        }
-        
-
-
-
-
-
-
-.sample.active {
-    transform: translateX(0); /* End position on-screen */
-    opacity: 1; /* Fully visible */
-}
-
-
-        /* Features Section Styles */
-        .features {
-            padding: 4rem 2rem;
-            text-align: center;
-            background: linear-gradient(to right, #f0f0f0, #ffffff);
-        }
-
-        .feature {
-            display: inline-block;
-            width: 28%;
-            margin: 1rem;
-            text-align: center;
-            background-color: #ffffff;
-            border-radius: 50%;
-            padding: 2rem;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature img {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 1rem;
-        }
-
-        .feature h3 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #0056b3;
-            margin: 1rem 0 0.5rem;
-        }
-
-        .feature {
-    opacity: 0;
-    transform: translateX(50px); /* Initially moved to the right */
-    transition: opacity 1s ease-out, transform 1s ease-out;
-}
-
-.feature.left {
-    transform: translateX(-50px); /* Initially moved to the left */
-}
-
-.feature.active {
-    opacity: 1;
-    transform: translateX(0); /* Move to original position */
-}
-
-
-        /* Testimonials Section Styles */
-        
-        /* Testimonials Section Styles */
-        .testimonials {
-            padding: 3rem 1rem;
-            text-align: center;
-            background-color: #f5f5f5;
-        }
-
-        .testimonials h2 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: #444;
-        }
-
-        .testimonials p {
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-            color: #777;
-        }
-
-        .testimonial-container {
+            padding: 40px 20px;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 100;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
             flex-wrap: wrap;
-        }
-
-        .testimonial-card {
-            background-color: #ffffff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: calc(30% - 2rem);
-            max-width: 300px;
-            height: 470px;
-            position: relative;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .testimonial-card .wave {
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            max-width: 1200px;
             width: 100%;
-            height: 80px;
-            background: linear-gradient(135deg, #36d1dc, #5b86e5);
-            clip-path: polygon(0 50%, 100% 0%, 100% 100%, 0% 100%);
         }
 
-        .testimonial-author {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .testimonial-author-name {
-            font-weight: bold;
-            color: #333;
-            margin-top: 1rem;
-        }
-
-        .testimonial-content {
-            position: relative;
-            z-index: 1;
-            color: #777;
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
-
-        .stars {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
-
-        .stars i {
-            color: #ffb400;
-            font-size: 1.2rem;
-            margin: 0 2px;
-        }
-
-        .testimonial-card {
-            opacity: 0;
-            transform: translateY(20px); /* Slight move from bottom to top */
-            transition: opacity 1s ease-out, transform 1s ease-out;
-        }
-
-        .testimonial-card.active {
-            opacity: 1;
-            transform: translateY(0); /* Return to normal position */
-        }
-
-        /* FAQ Section Styles */
-        .faq {
-            padding: 4rem 2rem;
-            text-align: center;
-            background-color: #f0f0f0;
-            position: relative;
-        }
-
-        .faq h2 {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: #333;
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .question {
-            background-color: #ffffff;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .question:hover {
-            background-color: #e6f7ff;
-            transform: translateY(-5px);
-        }
-
-        .answer {
-            padding: 1.5rem;
-            margin-top: -1rem;
-            display: none;
-            background-color: #ffffff;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .footer-paragraph {
+            color: #ddd;
+            font-size: 14px;
             line-height: 1.6;
-            font-size: 1rem;
-            color: #555;
+            margin: 10px 0;
         }
 
-        .active .answer {
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%; /* Makes it a circle/oval */
+            padding: 15px 25px; /* Adjust padding for oval shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
             display: block;
+            width: 200px; /* Adjust the width as per your logo */
+            height: auto;
+            margin: 0 auto;
         }
 
-        .faq-icon {
-            font-size: 1.5rem;
-            margin-right: 0.5rem;
-            color: #0056b3;
+        .footer-logo:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
         }
 
-        /* Pricing Section Styles */
-        .pricing-content {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 3rem 1rem;
-            background: url('images/2.jpeg') no-repeat center center/cover;
-            text-align: center;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .pricing-left {
+        .footer-links,
+        .footer-contact {
             flex: 1;
+            margin: 10px 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
             padding: 0;
+            margin: 0;
+        }
+
+        .footer-links ul li {
+            margin: 10px 0;
+        }
+
+        .footer-links a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+
+        .footer-contact {
+            font-size: 16px;
+        }
+
+        .footer-contact a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
+
+        .social-icons img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
+
+        .footer-bottom {
+            margin-top: 30px;
             text-align: center;
+            font-size: 14px;
+            color: #bbb;
         }
 
-        .pricing-left h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: whitesmoke;
-            text-align: left;
-        }
-
-        .pricing-left p {
-            font-size: 1rem;
+        /* Hero Section */
+        .about-hero {
+            border-radius: 5px;
+            height: 70vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
             color: white;
-            margin-bottom: 2rem;
-            text-align: left;
-        }
-
-        .pricing-boxes {
-            flex: 1;
             display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-            text-align: left;
-        }
-
-        .pricing-box {
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 1rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-radius: 20px;
-            display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 1.5rem;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: 55px; /* Adjusted to account for top-bar and header height */
+            transition: all 0.3s ease;
+        }
+
+        .about-hero-content {
+            animation: fadeIn 2s ease-out;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            color: #00bfff;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .about-hero p {
+            font-size: 1.5rem;
+            color: #e0e0e0;
+        }
+
+        /* Section Styles */
+        .section {
+            display: flex;
+            padding: 50px;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            transition: all 0.3s ease;
+            /* Removed opacity and transform to ensure visibility */
+        }
+
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .image-container, .text-container {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
 
-        .pricing-box:hover {
-            transform: translateY(-5px);
+        .image-container img:hover {
+            transform: scale(1.05);
         }
 
-        .pricing-box h3 {
-            font-size: 1.25rem;
+        .text-container h2 {
+            font-size: 2rem;
+            color: #008080;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .text-container p {
+            font-size: 1.1rem;
             color: #333;
-             margin-top: 10px;
-            margin-bottom: 0;
-            flex: 0 0 150px;
-            text-align: left;
+            line-height: 1.8;
+            text-align: justify;
         }
 
-        .pricing-box ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            font-size: 0.95rem;
-            color: #333;
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        .pricing-box ul li {
-            margin: 0.25rem 0;
-            line-height: 1.5;
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
         }
 
-        .pricing-box {
-    opacity: 0;
-    transform: translateX(100%);
-    transition: transform 1s ease-out, opacity 1s ease-out;
-}
-
-.pricing-box.active {
-    opacity: 1;
-    transform: translateX(0);
-}
-
-
-        
-
-        /* WhatsApp Icon Styles */
-/* WhatsApp Floating Button Styles */
-.whatsapp-float {
-    position: fixed;
-    width: 60px; /* Size of the floating button */
-    height: 60px; /* Size of the floating button */
-    bottom: 40px;
-    right: 30px;
-    background-color: #25d366;
-    color: #fff;
-    border-radius: 50%;
-    text-align: center;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
-    z-index: 100;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centers the icon horizontally and vertically */
-}
-
-.whatsapp-float:hover {
-    background-color: #128C7E;
-    transform: scale(1.1);
-}
-
-.whatsapp-icon {
-    width: 250%; /* Adjusted to fit within the container */
-    height: 250%; /* Maintains aspect ratio */
-    object-fit: contain; /* Ensures the icon scales properly */
-    justify-content: center;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 600px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .whatsapp-icon {
-        width: 170%;
-        height: 170%;
-    }
-}
-
-
-        /* Close Menu Button Styles */
-        .close-menu {
-            z-index: 3001;
-            position: absolute;
-            top: 20px;
-            right: 20px;
+        .whatsapp-icon {
+            width: 100%;
+            height: auto;
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
 
+            to {
+                opacity: 1;
+            }
+        }
 
-        /* Footer Section */
-        .footer {
-        background-color: teal;
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        z-index: 100;
-    }
-
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        width: 100%;
-    }
-
-
-    .footer-paragraph {
-        color: #ddd;
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 10px 0;
-    }
-
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
-
-    /* Adjust the shape to be oval */
-    .footer-logo {
-        display: block;
-        
-        width: 200px; /* Adjust the width as per your logo */
-        height: auto;
-    }
-
-    /* Add hover effect (Optional) */
-    .footer-logo:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
-    }
-
-    .footer-links,
-    .footer-contact {
-        flex: 1;
-        margin: 10px 20px;
-    }
-
-    .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .footer-links ul li {
-        margin: 10px 0;
-    }
-
-    .footer-links a {
-        color: #00bfff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: color 0.3s;
-    }
-
-    .footer-links a:hover {
-        color: #ffffff;
-    }
-
-    .footer-contact {
-        font-size: 16px;
-    }
-
-    .footer-contact a {
-        color: #00bfff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
-
-    .footer-contact a:hover {
-        color: #ffffff;
-    }
-
-    .social-icons {
-        margin-top: 20px;
-    }
-
-    .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-    }
-
-    .social-icons img {
-        width: 30px;
-        transition: transform 0.3s;
-    }
-
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    .footer-bottom {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 14px;
-        color: #bbb;
-    }
-  
-
-
-
-        /* Responsive Media Queries */
+        /* Responsive Styles for Mobile */
         @media (max-width: 768px) {
-
+            /* Hamburger Menu Styles */
             .hamburger {
                 display: block;
             }
@@ -994,321 +439,134 @@
                 padding: 1rem;
             }
 
-              body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            background-color: #f5f5f5;
-            overflow-x: hidden;
-        }
-
-            /* Adjust the overall container */
-             .pricing-content {
-        flex-direction: column; /* Stack elements vertically on mobile */
-        padding: 20px; /* Reduce padding */
-        background-size: cover; /* Ensure background covers the entire section */
-    }
-
-    .pricing-left {
-        width: 100%; /* Full width */
-        text-align: center; /* Center text for readability */
-        margin-bottom: 20px; /* Add space between text and boxes */
-    }
-
-    .pricing-left h2 {
-        color: white; /* Ensure text is visible */
-        font-size: 24px; /* Adjust font size */
-    }
-
-    .pricing-left p {
-        color: white; /* Lighten text for better readability */
-        font-size: 16px; /* Adjust font size */
-    }
-
-    .pricing-boxes {
-        width: 95%; /* Full width for boxes */
-        flex-direction: column; /* Stack boxes vertically */
-    }
-
-    .pricing-box {
-        width: 95%; /* Full width for each box */
-        padding: 15px; /* Adjust padding */
-        margin-bottom: 10px; /* Add space between boxes */
-    }
-
-    .pricing-box h3 {
-        font-size: 20px; /* Adjust heading size */
-    }
-
-    .pricing-box ul {
-        padding-left: 0; /* Align text properly */
-    }
-
-    .pricing-box ul li {
-        font-size: 14px; /* Adjust list font size */
-    }
-
-              .footer-logo {
-        display: block;
-        margin: 0 auto;
-    }
-  
-
-  
-
-             .testimonial-card {
-        width: 90%; /* Make cards wider to use available space */
-        margin: 10px auto; /* Center cards with automatic margin */
-        height: auto; /* Make height automatic to fit content */
-    }
-         
-           
-    .sample {
-        width: calc(50% - 2rem);  /* Adjusts the width to fit two items per row on smaller screens */
-    }
-
-          
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero button {
-                font-size: 1rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .features h2 {
-                font-size: 1.5rem;
-            }
-
-            .feature {
-                width: 48%;
-                margin: 1% auto;
-            }
-
-            .testimonials h2 {
-                font-size: 1.5rem;
-            }
-
-            .faq h2 {
-                font-size: 1.5rem;
-            }
-
-            .question h3 {
-                font-size: 1rem;
-            }
-
-            .footer-content {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-        .footer-links,
-        .footer-contact {
-            margin: 20px 0;
-        }
-
-        .footer-paragraph {
-            margin: 20px 0;
-        }
-
-           
-    .hero-content,
-   
-    .pricing-boxes,
-    .testimonial-container {
-        width: 100%;
-        overflow: hidden;
-    }}
-
-
-    /* Responsive Media Queries */
-    @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-          
-            .nav-links-mobile,
-            .pricing-content,
-            .footer-content {
-                padding-left: 10px;
-                padding-right: 10px;
-                margin: 0 auto;
-                width: 100%;
-            }
-
-            .hero-box h1 {
-                font-size: 2rem;
-            }
-
-            .hero-box p {
-                font-size: 1rem;
-            }
-
-            .sample-container {
-                flex-wrap: wrap;
-            }
-
-            .sample {
-                width: calc(50% - 20px);
-            }
-
-            .footer-content {
+            /* Section Styles */
+            .section {
                 flex-direction: column;
-                align-items: center;
+                padding: 20px;
                 text-align: center;
             }
 
+            .image-container, .text-container {
+                padding: 10px;
+            }
+
+            .image-container img {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto 20px auto; /* Center image with margin below */
+                border-radius: 8px;
+            }
+
+            .text-container h2 {
+                font-size: 1.8rem; /* Slightly smaller heading */
+                margin-bottom: 10px;
+            }
+
+            .text-container p {
+                font-size: 1rem; /* Adjusted for readability */
+                line-height: 1.5;
+                text-align: left; /* Improve readability */
+            }
+
+            /* Add adequate spacing between text and image */
+            .section {
+                flex-direction: column;
+            }
+
+            /* Ensure images appear above text */
+            .section {
+                flex-direction: column;
+            }
+
+            /* Override alternating layout on mobile */
+            .section:nth-child(even) {
+                flex-direction: column;
+            }
+
+            /* Adjust Hero Section */
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+
+            /* Footer Styles */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-info,
             .footer-links,
             .footer-contact {
+                text-align: center;
                 margin: 20px 0;
             }
 
-            .footer-paragraph {
-                margin: 20px 0;
+            .footer-logo {
+                display: block;
+                margin: 0 auto;
             }
-         .footer-logo {
-        align-items: center;
-    }
+
+            /* Disable animations on mobile */
+            .section {
+                transition: none;
+            }
+
+            /* Ensure header accounts for top-bar */
+            header {
+                top: 55px; /* Top-bar (50px) + margin-bottom (5px) */
+            }
+
+            .about-hero {
+                margin-top: 55px; /* Consistent with header */
+            }
         }
 
-        @media (max-width: 480px) {
-            .sample {
-                width: 100%;
-            }
-
-            .hero-box h1 {
-                font-size: 1.5rem;
-            }
-
-            .hero-box p {
-                font-size: 0.9rem;
-            }
-
-         
-    
-
-
+        /* Animation Classes */
+        .section.animate-left {
+            opacity: 0;
+            transform: translateX(-100%);
         }
 
+        .section.animate-right {
+            opacity: 0;
+            transform: translateX(100%);
+        }
 
-    
-
-        @media (max-width: 768px) {
-    .hero-box {
-        max-width: 40%; /* Reduce max width */
-        padding: 1rem; /* Reduce padding */
-    }
-    .hero-box h1 {
-        font-size: 1.5rem; /* Reduce font size */
-    }
-    .hero-box p {
-        font-size: 0.9rem; /* Reduce font size */
-    }
-            .top-bar {
-        flex-direction: column;
-        height: auto;
-        padding: 10px 0;
-    }
-
-    .top-bar-content {
-        flex-direction: column;
-    }
-
-    .contact-item {
-        margin: 10px 0;
-    }
-
-    .phone-icon, .email-icon {
-        width: 20px;
-        height: 20px;
-    }
-
-    .contact-link {
-        font-size: 14px;
-    }
-
-    .static-text {
-        font-size: 15px;
-        padding-right: 5px;
-    }
-
-    .logo {
-        width: 15%; /* More logos fit on smaller screens */
-        padding: 3px;
-    }
-
-    .slide-track {
-        animation: scroll 30s linear infinite; /* Faster scroll on mobile */
-    } .static-text {
-        font-size: 15px;
-        padding-right: 5px;
-    }
-
-    .logo {
-        width: 15%; /* More logos fit on smaller screens */
-        padding: 3px;
-    }
-
-    .slide-track {
-        animation: scroll 30s linear infinite; /* Faster scroll on mobile */
-    }
-
-}
-
-
-
-            
+        .section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-   
+    <!-- Top Bar Section -->
+    <div class="top-bar">
+        <div style="display: flex; align-items: center;">
+            <!-- Phone Contact -->
+            <span style="display: flex; align-items: center; margin-right: 40px;">
+                <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+                <a href="tel:+442032893891">+44 203 289 3891</a>
+            </span>
 
-<!-- Top Bar Section -->
-<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
-    <div style="display: flex; align-items: center;">
-        <!-- Phone Contact -->
-        <span style="display: flex; align-items: center; margin-right: 40px;">
-            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
-        </span>
-        
-        <!-- Email Contact -->
-        <span style="display: flex; align-items: center;">
-            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
-        </span>
+            <!-- Email Contact -->
+            <span style="display: flex; align-items: center;">
+                <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon">
+                <a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a>
+            </span>
+        </div>
     </div>
-</div>
-
-
-
 
     <!-- Header Section -->
     <header>
         <nav>
             <div class="logo">
-    <a href="index.html">
-        <img src="images/logo (2).png" alt="Company Logo">
-    </a>
-</div>
+                <img src="images/logo (2).png" alt="Company Logo">
+            </div>
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
@@ -1319,8 +577,7 @@
                 <li><a href="Sample.html">Samples</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
-                  <li><a href="contactus.html">Contact us</a></li>
-                
+                <li><a href="contactus.html">Contact us</a></li>
             </ul>
             <ul class="nav-links-mobile" id="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -1330,807 +587,213 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
-                <br>
                 <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
     </header>
 
-    <!-- Main Content Section -->
     <main>
-
-
-        <section class="hero" id="home">
-            <div class="hero-container" id="heroContainer">
-                <!-- Slide 1 (Welcome Slide) -->
-                <div class="hero-slide">
-                    <div class="hero-box">
-                        <h1>Welcome to the Inscribe.co</h1>
-                        <p>Your one-stop for all your Assignment needs</p>
-                    </div>
-                </div>
-        
-                <!-- Slide 2 (Professional Writing Services) -->
-                <div class="hero-slide">
-                    <div class="hero-box">
-                        <h1>Professional Writing Services</h1>
-                        <p>We offer top-quality academic and business writing services.</p>
-                    </div>
-                </div>
-        
-                <!-- Slide 3 (Proofreading and Editing) -->
-                <div class="hero-slide">
-                    <div class="hero-box">
-                        <h1>Proofreading and Editing</h1>
-                        <p>Ensure your documents are polished and effective with our services.</p>
-                    </div>
-                </div>
-        
-                <!-- Slide 4 (Payment in Installments) -->
-                <div class="hero-slide">
-                    <div class="hero-box">
-                        <h1>Payment in Installments</h1>
-                        <p>Can't pay upfront? <br> We offer easy payment plans to help you manage your budget while still receiving top-quality services.</p>
-                    </div>
-                </div>
-        
-                <!-- Slide 5 (Our Guarantee) -->
-                <div class="hero-slide">
-                    <div class="hero-box">
-                        <h1>Our Guarantee</h1>
-                        <p>Your satisfaction is our priority.<br> We provide unlimited revisions and a 100% money-back guarantee if you're not satisfied.</p>
-                    </div>
-                </div>
-            </div>
-              <button class="prev" id="prevBtn">&#10094;</button>
-            <button class="next" id="nextBtn">&#10095;</button>
-            
-        </section>
-        
-    
-        <!-- Marquee Section -->
-
-        <div class="carousel-container">
-            <div class="static-text">
-                    Trusted By<br> 1,000,000+ Students Of:
-            </div>
-            <div class="logo-slider" id="logoSlider">
-                <div class="slide-track" id="slideTrack">
-                <!-- Add more logos as needed -->
-                <img src="images/leeds.png" alt="University of Leeds" class="logo">
-                <img src="images/lec.png" alt="University of Leicester" class="logo">
-                <img src="images/staf.png" alt="Staffordshire University" class="logo">
-                <img src="images/arden.pmg.png" alt="arden university" class="logo">
-                <img src="images/lsbu.png" alt="LSBU" class="logo">
-                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
-                <img src="images/uc.png" alt="uc" class="logo">
-        
-                <img src="images/uom.pmg.png" alt="uom" class="logo">
-
-
-
-                <img src="images/leeds.png" alt="University of Leeds" class="logo">
-                <img src="images/lec.png" alt="University of Leicester" class="logo">
-                <img src="images/staf.png" alt="Staffordshire University" class="logo">
-                <img src="images/arden.pmg.png" alt="arden university" class="logo">
-                <img src="images/lsbu.png" alt="LSBU" class="logo">
-                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
-                <img src="images/uc.png" alt="uc" class="logo">
-        
-                <img src="images/uom.pmg.png" alt="uom" class="logo">
-
-
-                <img src="images/leeds.png" alt="University of Leeds" class="logo">
-                <img src="images/lec.png" alt="University of Leicester" class="logo">
-                <img src="images/staf.png" alt="Staffordshire University" class="logo">
-                <img src="images/arden.pmg.png" alt="arden university" class="logo">
-                <img src="images/lsbu.png" alt="LSBU" class="logo">
-                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
-                <img src="images/uc.png" alt="uc" class="logo">
-        
-                <img src="images/uom.pmg.png" alt="uom" class="logo">
-
-
-                <img src="images/leeds.png" alt="University of Leeds" class="logo">
-                <img src="images/lec.png" alt="University of Leicester" class="logo">
-                <img src="images/staf.png" alt="Staffordshire University" class="logo">
-                <img src="images/arden.pmg.png" alt="arden university" class="logo">
-                <img src="images/lsbu.png" alt="LSBU" class="logo">
-                <img src="images/IMP-removebg-preview.png" alt="Imperial" class="logo">
-                <img src="images/uc.png" alt="uc" class="logo">
-        
-                <img src="images/uom.pmg.png" alt="uom" class="logo">
-
-
-            </div>
-        </div>
-    </div>
-
-
-
-
-                
-
-
-           
-
-
-
-                <!-- Repeat logos for continuous effect -->
-            </div>
-        </div>
-        </div>
-        
-
-        <!-- Samples Section -->
-        <!-- Samples Section -->
-    <section class="samples" id="samples">
-        <h2>Our Samples</h2>
-        <div class="sample-container">
-            <div class="sample">
-                <h3>Accounting Principles for Sustainability and Decision Making</h3>
-                <p>This report explores the evolving role of accounting in decision-making and sustainability within
-                    organizations, particularly in the context of De Byrne Consulting's UK SME unit. It addresses compliance,
-                    financial statement preparation, financial analysis, and budgeting solutions.</p>
-                <a href="#" class="download-link">Download Paper</a>
-            </div>
-            <div class="sample">
-                <h3>Public Health Principles and Practice for Nursing Associates</h3>
-                <p>This discussion focuses on sexually transmitted infections (STIs) in Luton, emphasizing government
-                    initiatives and the role of healthcare professionals, particularly nurses, in advocating for and managing
-                    STI health services.</p>
-                <a href="#" class="download-link">Download Paper</a>
-            </div>
-            <div class="sample">
-                <h3>Marketing Strategies for Small Businesses</h3>
-                <p>This paper explores the key marketing strategies that small businesses can use to increase visibility and
-                    customer engagement, focusing on digital marketing tools and traditional methods for local outreach.</p>
-                <a href="#" class="download-link">Download Paper</a>
-            </div>
-        </div>
-    </section>
-
-
-
-         
-
-
-
-        <!-- Pricing Section -->
-        <section class="pricing" id="pricing">
-            <div class="pricing-content">
-                <div class="pricing-left">
-                    <h2>Pricing</h2>
-                    <p>Choose the plan that fits your needs. We offer competitive prices for writing, proofreading, and PowerPoint services, ensuring the best quality for your requirements.</p>
-                </div>
-                <div class="pricing-boxes">
-                    <div class="pricing-box">
-                        <h3>Writing</h3>
-                        <ul>
-                            <li><strong>Regular(5+ Days):</strong>  £49 per 1000 words, AED 240 per 1000 words, $65 per 1000 word</li>
-                            <br>
-                            <li><strong>Urgent (2-4 Days):</strong> £68 per 1000 words, AED 330 per 1000 words, $90 per 1000 words</li>
-                            <br>
-                            <li><strong>Super Urgent (Less than 48 Hours):</strong>  £78 per 1000 words, AED 380 per 1000 words, $103 per 1000 words</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-box">
-                        <h3>Proofreading</h3>
-                        <ul>
-                            <li><strong>Regular(5+ Days):</strong> £20 per 1000 words, AED 94 per 1000 words, $25 per 1000 words</li>
-                            <br>
-                            <li><strong>Urgent:</strong> £30 per 1000 words, AED 117 per 1000 words, $32 per 1000 words</li>
-                            <br>
-                             <li><strong>Super Urgent:</strong> £40 per 1000 words, AED 191 per 1000 words, $52 per 1000 words</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-box">
-                        <h3>PowerPoint</h3>
-                        <ul>
-                            <li><strong>Regular(5+ Days):</strong> £6 per slide, AED 35 per slide, $9 per slide</li>
-                            <br>
-                            <li><strong>Urgent:</strong> £10 per slide, AED 55 per slide, $15 per slide</li>
-                            <br>
-                             <li><strong>Super Urgent:</strong> £15 per slide, AED 71 per slide, $19 per slide</li>
-                            
-                        </ul>
-                    </div>
-                </div>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+                <h1>About Us</h1>
+                <p>We are dedicated to providing top-notch <br> academic writing services to help you succeed.</p>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
-        <!-- Testimonials Section -->
-    <section class="testimonials">
-        <h2>Customer Reviews</h2>
-        <p>What our customers are saying...</p>
-        <div class="testimonial-container">
-            <div class="testimonial-card">
-                <div class="testimonial-author">
-                    <span class="testimonial-author-name">Lance Jarvis</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <p class="testimonial-content">"Inscribe.co exceeded my expectations! The quality of the work was outstanding, and the team was very supportive throughout the entire process. I will definitely use their services again!"</p>
-                <div class="wave"></div>
+        <!-- First Section: Our Mission -->
+        <section class="section" id="section1">
+            <div class="image-container">
+                <img src="images/about1.jpg" alt="Our Mission">
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-author">
-                    <span class="testimonial-author-name">Ericka Lynda</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <p class="testimonial-content">"I was on a tight deadline, but Inscribe.co delivered an excellent paper well before the due date. The attention to detail and commitment to quality was superb."</p>
-                <div class="wave" style="background: linear-gradient(135deg, #8e44ad, #c0392b);"></div>
+            <div class="text-container">
+                <h2>Our Mission</h2>
+                <p>We strive to provide outstanding academic and professional writing services to assist our clients in achieving their educational and career goals. Our mission is rooted in a commitment to excellence, ensuring that every piece of work we produce is of the highest quality. We believe in fostering a strong partnership with our clients, working closely with them to understand their unique needs and requirements. By leveraging our expertise, we aim to provide personalized and impactful solutions that drive success, growth, and fulfillment in both academic and professional settings.</p>
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-author">
-                    <span class="testimonial-author-name">Neil Wilford</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                </div>
-                <p class="testimonial-content">"Fantastic service! The writers are experts in their fields, and the customer support was always available to help me. I would recommend Inscribe.co to anyone in need of academic assistance."</p>
-                <div class="wave" style="background: linear-gradient(135deg, #3498db, #2ecc71);"></div>
+        </section>
+
+        <!-- Second Section: Our Vision -->
+        <section class="section" id="section2">
+            <div class="image-container">
+                <img src="images/about2.jpeg" alt="Our Vision">
             </div>
-            <div class="testimonial-card">
-                <div class="testimonial-author">
-                    <span class="testimonial-author-name">Sarah Johnson</span>
-                    <div class="stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star-half-alt"></i>
-                    </div>
-                </div>
-                <p class="testimonial-content">"The services provided were professional and timely. I had a great experience and would recommend them for anyone needing assistance with their academic writing."</p>
-                <div class="wave" style="background: linear-gradient(135deg, #e67e22, #f1c40f);"></div>
+            <div class="text-container">
+                <h2>Our Vision</h2>
+                <p>We aim to be the leading provider of high-quality writing services, helping individuals and organizations excel in their respective fields. Our vision is to empower clients with the tools and resources they need to succeed, regardless of the challenges they face. By staying ahead of industry trends and continuously improving our services, we aspire to set new standards for excellence in the writing and content development industry. We envision a future where every student, professional, and business can access the support they need to realize their full potential.</p>
             </div>
-           
+        </section>
 
-    </section>
-
-        <!-- Features Section -->
-        <div class="features">
-            <h2>Why Choose Us?</h2>
-            <div class="feature">
-                <img src="images/TQ.png" alt="Top Quality">
-                <h3>Top Quality</h3>
+        <!-- Third Section: Our Values -->
+        <section class="section" id="section3">
+            <div class="image-container">
+                <img src="images/typ.jpeg" alt="Our Values">
             </div>
-            <div class="feature">
-                <img src="images/plag-removebg-preview.png" alt="Plagiarism Free">
-                <h3>Plagiarism Free</h3>
+            <div class="text-container">
+                <h2>Our Values</h2>
+                <p>Integrity, excellence, and dedication are the core values that guide our operations and service delivery. We are committed to maintaining the highest standards of honesty and professionalism in every interaction. Our team believes in the importance of delivering value through our work, ensuring that our clients receive the best possible service at every step. We are dedicated to continuous learning, growth, and development, both individually and collectively, to better serve our clients and make a meaningful difference in their academic and professional journeys.</p>
             </div>
-            <div class="feature">
-                <img src="images/preview.png" alt="Quality Work">
-                <h3>Quality Work</h3>
+        </section>
+
+        <!-- Fourth Section: Our Team -->
+        <section class="section" id="section4">
+            <div class="image-container">
+                <img src="images/s.jpeg" alt="Our Team">
             </div>
-            <div class="feature">
-                <img src="images/TD-removebg-preview.png" alt="Timely Delivery">
-                <h3>Timely Delivery</h3>
+            <div class="text-container">
+                <h2>Our Team</h2>
+                <p>Our team consists of experienced writers, editors, and support staff who are committed to delivering the best possible results. Each member of our team brings a unique set of skills and expertise to the table, allowing us to provide comprehensive and specialized support to our clients. We value collaboration, innovation, and a shared commitment to excellence, which drives us to continually enhance the quality of our services. Our team members are not just professionals; they are passionate individuals who genuinely care about the success and satisfaction of our clients.</p>
             </div>
-            <div class="feature">
-                <img src="images/24.png" alt="24 Hour Support">
-                <h3>24 Hour Support</h3>
-            </div>
-            <div class="feature">
-                <img src="images/EXP-removebg-preview.png" alt="Expert Writers">
-                <h3>Expert Writers</h3>
-            </div>
-        </div>
-
-
-        <!-- FAQ Section -->
-
-      <!-- FAQ Section -->
-<section class="faq">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-container">
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> What services do you offer?</h3>
-            <div class="answer">
-                <p>We offer a comprehensive range of academic writing services tailored to your needs. Our services include:</p>
-                <ul>
-                    <li><strong>Essay Writing:</strong> We can help you craft well-researched, structured, and original essays for various academic levels and subjects.</li>
-                    <li><strong>Research Papers:</strong> We assist with thorough research and presentation of in-depth reports on a variety of academic topics.</li>
-                    <li><strong>Dissertations and Theses:</strong> Whether you need help with one chapter or the entire project, we offer guidance in research, writing, editing, and formatting.</li>
-                    <li><strong>Business Writing:</strong> Our services also extend to writing professional documents like business reports, case studies, and proposals.</li>
-                    <li><strong>Proofreading and Editing:</strong> Our team ensures your documents are free from grammatical errors, and flow coherently, making them polished and ready for submission.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> How can I place an order?</h3>
-            <div class="answer">
-                <p>Placing an order is simple and straightforward. You can follow these steps:</p>
-                <ol>
-                    <li><strong>Visit Our Website:</strong> Navigate to our "Order" page and select the type of service you need (writing, proofreading, editing, etc.).</li>
-                    <li><strong>Fill Out the Order Form:</strong> Provide detailed instructions for your paper, including the topic, word count, format style, academic level, and any specific guidelines or materials.</li>
-                    <li><strong>Choose a Deadline:</strong> Select when you need your document to be completed, ensuring it fits within our service options for normal, urgent, or super urgent delivery.</li>
-                    <li><strong>Submit Your Order:</strong> Once you’ve completed the form, submit your order and make a payment using your preferred method. You will receive a confirmation email with all the details.</li>
-                    <li><strong>Track Your Order:</strong> You can track your order’s progress through your account on our website, and our team will update you regularly.</li>
-                </ol>
-            </div>
-        </div>
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> Is your service confidential?</h3>
-            <div class="answer">
-                <p>Yes, we prioritize the privacy and confidentiality of our clients. Here’s how we ensure that:</p>
-                <ul>
-                    <li>All personal information, including your name, email, and payment details, are securely encrypted and stored. We comply with GDPR regulations to ensure your data remains safe.</li>
-                    <li>We never share any of your personal or order information with third parties. Our internal team only has access to your project details for the purpose of completing your order.</li>
-                    <li>All the work we provide is custom-written, and we do not resell papers or disclose any of your submissions to other clients or external parties.</li>
-                    <li>Our communication channels, such as email and live chat, are also encrypted, so you can rest assured that your inquiries remain private.</li>
-                </ul>
-            </div>
-        </div>
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> What payment methods do you accept?</h3>
-            <div class="answer">
-                <p>We offer a variety of secure payment options to make the process as convenient as possible:</p>
-                <ul>
-                    <li><strong>Credit/Debit Cards:</strong> We accept all major credit and debit cards including Visa, MasterCard, and American Express through our secure payment gateway.</li>
-                    <li><strong>PayPal:</strong> You can pay using your PayPal account for added security and ease of transactions.</li>
-                    <li><strong>Bank Transfers:</strong> For larger transactions or corporate clients, we also accept direct bank transfers. Contact our support team for more details on how to initiate a bank transfer.</li>
-                </ul>
-                <p>We ensure that all payment methods are safe and secure, using advanced encryption technology to protect your financial information.</p>
-            </div>
-        </div>
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> Can I request revisions?</h3>
-            <div class="answer">
-                <p>Yes, we offer unlimited free revisions to ensure your complete satisfaction. Here’s how our revision policy works:</p>
-                <ul>
-                    <li>You can request revisions within 14 days after receiving your order if there are areas where you feel the writer didn’t follow the initial instructions.</li>
-                    <li>For more extensive projects like dissertations, the revision window extends to 30 days.</li>
-                    <li>Simply log in to your account, go to the order page, and specify the changes you need. Our team will prioritize your revisions, making the necessary updates as soon as possible.</li>
-                </ul>
-                <p>Please note that revisions are free as long as they are within the scope of the original order instructions. New instructions or additional requirements may incur a small fee.</p>
-            </div>
-        </div>
-        <div class="question">
-            <h3><span class="faq-icon">&#x1F4AC;</span> How long does it take to complete an order?</h3>
-            <div class="answer">
-                <p>The time to complete your order depends on several factors, such as the complexity of the project and the chosen deadline. Here’s a general guide to our delivery timelines:</p>
-                <ul>
-                    <li><strong>Normal Delivery (5+ days):</strong> Ideal for longer projects, including dissertations or in-depth research papers, where we can ensure thorough research and meticulous writing.</li>
-                    <li><strong>Urgent Delivery (2-4 days):</strong> For tighter deadlines, we offer quick turnaround times while maintaining high-quality standards for essays, research papers, and shorter projects.</li>
-                    <li><strong>Super Urgent Delivery (Less than 48 hours):</strong> For last-minute requirements, we offer express services where you can receive your document within 48 hours, depending on the length and complexity.</li>
-                </ul>
-                <p>We recommend placing your order as early as possible to allow ample time for revisions and ensure the highest quality. However, our team is fully equipped to meet even the most urgent deadlines without compromising quality.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-
-        <!-- Footer Section -->
-
-<<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Footer Logo and Description -->
-        <div class="footer-info">
-            <a href="index.html">
-                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
-            </a>
-            <p class="footer-paragraph">
-                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
-            </p>
-            <p class="footer-paragraph">
-                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
-            </p>
-        </div>
-
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="sample.html">Sample</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contactus.html">Contact us</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Quick Info</h3>
-            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
-            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-            
-             
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer Bottom Section -->
-    <div class="footer-bottom">
-        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
-    </div>
-</footer>
-                 
-          
-
-
-
-
-
-      
+        </section>
     </main>
 
-  
-
-    <!-- WhatsApp Floating Icon -->
+    <!-- WhatsApp Floating Button -->
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon" alt="WhatsApp">
     </a>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Footer Logo and Description -->
+            <div class="footer-info">
+                <a href="index.html">
+                    <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+                </a>
+                <p class="footer-paragraph">
+                    Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+                </p>
+                <p class="footer-paragraph">
+                    Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+                </p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="sample.html">Sample</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+                <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61561225727357">
+                        <img src="images/fb-removebg-preview.png" alt="Facebook">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script>
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-    const topBar = document.querySelector('.top-bar');
-    function adjustTopBar() {
-        if (window.innerWidth <= 768) {
-            let height = 0;
-            topBar.childNodes.forEach(child => {
-                if (child.offsetHeight) height += child.offsetHeight;
-            });
-            topBar.style.height = `${height + 20}px`; // Extra space
-        } else {
-            topBar.style.height = '60px'; // Default height
-        }
-    }
-    window.addEventListener('resize', adjustTopBar);
-    adjustTopBar();
-});
-
-
-
-        
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const heroContainer = document.getElementById('heroContainer');
-    const slides = document.querySelectorAll('.hero-slide');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    let currentIndex = 0;
-    const slideInterval = 5000; // 5 seconds
-    let autoSlideInterval;
-
-    function showSlide(index) {
-        if (index >= slides.length) {
-            currentIndex = 0; // Loop back to first slide
-        } else if (index < 0) {
-            currentIndex = slides.length - 1; // Loop to the last slide
-        } else {
-            currentIndex = index;
-        }
-        const offset = -currentIndex * 100;
-        heroContainer.style.transform = `translateX(${offset}%)`;
-    }
-
-    function nextSlide() {
-        showSlide(currentIndex + 1);
-    }
-
-    function prevSlide() {
-        showSlide(currentIndex - 1);
-    }
-
-    // Auto-slide function
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, slideInterval);
-    }
-
-    // Stop auto-slide when manually clicking
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
-    // Add event listeners for buttons
-    nextBtn.addEventListener('click', function() {
-        stopAutoSlide();
-        nextSlide();
-        startAutoSlide(); // Restart auto-slide
-    });
-
-    prevBtn.addEventListener('click', function() {
-        stopAutoSlide();
-        prevSlide();
-        startAutoSlide(); // Restart auto-slide
-    });
-
-    // Start auto-slide when the page loads
-    startAutoSlide();
-});
-
-   
-
-
-document.addEventListener('DOMContentLoaded', adjustSamples);
-window.addEventListener('resize', adjustSamples);
-
-function adjustSamples() {
-    const container = document.querySelector('.sample-container');
-    const samples = document.querySelectorAll('.sample');
-    const containerWidth = container.clientWidth;
-
-    if (containerWidth > 768) { // Desktop view or larger screens
-        samples.forEach(sample => {
-            sample.style.flex = "0 1 calc(33.33% - 20px)";
-            sample.style.maxWidth = "calc(33.33% - 20px)";
-        });
-    } else { // Smaller screens or mobile view
-        samples.forEach(sample => {
-            sample.style.flex = "0 1 calc(100% - 20px)";
-            sample.style.maxWidth = "calc(100% - 20px)";
-        });
-    }
-}
-
-
-
-//logo
-
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('slideTrack');
-    const sliderWidth = document.getElementById('logoSlider').clientWidth;
-    let offset = 0;
-
-    function slideLogos() {
-        offset -= sliderWidth; // Move the track to the left by the width of the slider
-        if (Math.abs(offset) >= track.clientWidth - sliderWidth) {
-            offset = 0; // Reset if the end is reached
-        }
-        track.style.transform = `translateX(${offset}px)`;
-    }
-
-    setInterval(slideLogos, 3000); // Change logos every 3 seconds
-});
-
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const track = document.getElementById('slideTrack');
-    const logos = track.querySelectorAll('.logo');
-    let totalWidth = 0;
-
-    logos.forEach(logo => {
-        totalWidth += logo.offsetWidth + (20 * 2); // Add width + margin
-    });
-
-    track.style.animation = `scroll ${totalWidth / 100}px linear infinite`; // Adjust 100 to control speed
-});
-
-
-        // FAQ Toggle Functionality
-        document.querySelectorAll('.question').forEach(question => {
-            question.addEventListener('click', () => {
-                question.classList.toggle('active');
-            });
-        });
-
-
-        
-
-
         // Hamburger Menu Functionality
-        // Hamburger Menu Functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
-    const closeMenuButton = document.getElementById('close-menu');
-    const navLinks = document.getElementById('nav-links');
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-    function toggleMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('show');
-        navLinks.style.position = 'fixed';
-        navLinks.style.top = '0';
-        navLinks.style.right = '0';
-        navLinks.style.bottom = '0';
-        navLinks.style.left = '0';
-        navLinks.style.zIndex = "3000";
-        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
-    }
-
-    function closeMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('show');
-        // Reset hamburger z-index if needed
-        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu);
-    closeMenuButton.addEventListener('click', closeMenu);
-    closeMenuButton.addEventListener('touchstart', closeMenu);
-
-    document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-            if (navLinks.classList.contains('show')) {
-                closeMenu(event);
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
             }
-        }
-    });
 
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+            }
 
-    
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
 
-            // Smooth Scrolling for Learn More Button
-            document.getElementById('learnMoreButton').addEventListener('click', function () {
-                const featuresSection = document.getElementById('pricing');
-                featuresSection.scrollIntoView({ behavior: 'smooth' });
+            // Close the menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
             });
+        });
 
-             // Word Typing Animation in Hero Section
-             const words = ["Dissertation", "Essay", "Proofreading", "Powerpoint", "Assignment"];
-            let wordIndex = 0;
-            let charIndex = 0;
-            const changingWordsElement = document.querySelector('.changing-words');
-            let currentWord = '';
-            let isDeleting = false;
+        // Section Animation for Transition Effect
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
 
-            function typeWord() {
-                const fullWord = words[wordIndex];
+            if (isMobile) return; // Disable animations on mobile
 
-                if (isDeleting) {
-                    currentWord = fullWord.substring(0, charIndex--);
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerHeight) {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
                 } else {
-                    currentWord = fullWord.substring(0, charIndex++);
+                    if ((index + 1) % 2 === 0) {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-left');
+                    } else {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-right');
+                    }
                 }
+            });
+        });
 
-                changingWordsElement.textContent = currentWord;
+        // Optional: Recalculate on window resize to handle orientation changes
+        window.addEventListener('resize', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
 
-                let typingSpeed = isDeleting ? 100 : 200;
+            if (isMobile) {
+                sections.forEach(section => {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
+                });
+                return;
+            }
 
-                if (!isDeleting && charIndex === fullWord.length) {
-                    typingSpeed = 360;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex < 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                    charIndex = 0;
-                    typingSpeed = 200;
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerHeight) {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
+                } else {
+                    if ((index + 1) % 2 === 0) {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-left');
+                    } else {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-right');
+                    }
                 }
-
-                setTimeout(typeWord, typingSpeed);
-            }
-
-            typeWord();
-        }); 
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-    // Options for the IntersectionObserver
-    const options = {
-        rootMargin: '0px',
-        threshold: 0.1 // Triggers when at least 10% of the target is visible
-    };
-
-    // Callback function for the IntersectionObserver
-    const observerCallback = (entries, observer) => {
-        entries.forEach(entry => {
-            // Toggle the 'active' class based on whether the element is intersecting
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
-            }
+            });
         });
-    };
-
-    // Creating the IntersectionObserver
-    const observer = new IntersectionObserver(observerCallback, options);
-
-    // Selecting elements to observe
-    const samples = document.querySelectorAll('.sample');
-    samples.forEach(sample => {
-        observer.observe(sample);
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Select all the pricing boxes
-    const pricingBoxes = document.querySelectorAll('.pricing-box');
-
-    // Function to add 'active' class with a delay
-    pricingBoxes.forEach((box, index) => {
-        setTimeout(() => {
-            box.classList.add('active');
-        }, index * 300); // Each box will appear 300ms after the previous one
-    });
-});
-
-
-// TESTIMONIAL SECTION
-document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-        root: null, // Observe relative to the viewport
-        threshold: 0.1 // Trigger when 10% of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
-            }
-        });
-    }, observerOptions);
-
-    // Apply the observer to each testimonial card
-    const testimonials = document.querySelectorAll('.testimonial-card');
-    testimonials.forEach(testimonial => {
-        observer.observe(testimonial);
-    });
-});
-
-
-// FEATURES
-document.addEventListener('DOMContentLoaded', function() {
-    const observerOptions = {
-        root: null,  // Default to viewport
-        threshold: 0.5  // Trigger when half of the element is visible
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-            } else {
-                entry.target.classList.remove('active');
-            }
-        });
-    }, observerOptions);
-
-    // Apply observer to each feature
-    const features = document.querySelectorAll('.feature');
-    features.forEach(feature => {
-        observer.observe(feature);
-    });
-});
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.overflowX = 'hidden';
-});
-
-
-        
-          
     </script>
 </body>
 
