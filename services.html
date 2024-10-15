@@ -447,25 +447,36 @@
             height: 100px;
         }
 
+
         /* Footer Section */
         .footer {
-            background-color: teal;
-            color: white;
-            padding: 40px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            position: relative;
-            z-index: 100;
-        }
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
-        }
+        background-color: teal;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+        z-index: 100;
+    }
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        width: 100%;
+    }
+    .footer-paragraph {
+        color: #ddd;
+        font-size: 14px;
+        line-height: 1.6;
+        margin: 10px 0;
+    }
+
+
+
+        
         .footer-logo {
             background-color: white;
             border: 3px solid teal;
@@ -478,56 +489,71 @@
             height: auto;
             margin: 0 auto;
         }
-        .footer-logo:hover {
-            transform: scale(1.05);
-        }
-        .footer-links,
-        .footer-contact {
-            flex: 1;
-            margin: 10px 20px;
-        }
-        .footer-links ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer-links ul li {
-            margin: 10px 0;
-        }
-        .footer-links a {
-            color: #00bfff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover {
-            color: #ffffff;
-        }
-        .footer-contact a {
-            color: #00bfff;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-contact a:hover {
-            color: #ffffff;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            display: inline-block;
-        }
-        .social-icons img {
-            width: 30px;
-            transition: transform 0.3s;
-        }
-        .social-icons a:hover img {
-            transform: scale(1.2);
-        }
-        .footer-bottom {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 14px;
-            color: #bbb;
-        }
 
+    /* Adjust the shape to be oval */
+    .footer-logo {
+        display: block;
+        
+        width: 200px; /* Adjust the width as per your logo */
+        height: auto;
+    }
+    /* Add hover effect (Optional) */
+    .footer-logo:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+    }
+    .footer-links,
+    .footer-contact {
+        flex: 1;
+        margin: 10px 20px;
+    }
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .footer-links ul li {
+        margin: 10px 0;
+    }
+    .footer-links a {
+        color: #00bfff;
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+    .footer-links a:hover {
+        color: #ffffff;
+    }
+    .footer-contact {
+        font-size: 16px;
+    }
+    .footer-contact a {
+        color: #00bfff;
+        text-decoration: none;
+        transition: color 0.3s;
+    }
+    .footer-contact a:hover {
+        color: #ffffff;
+    }
+    .social-icons {
+        margin-top: 20px;
+    }
+    .social-icons a {
+        margin: 0 10px;
+        display: inline-block;
+    }
+    .social-icons img {
+        width: 30px;
+        transition: transform 0.3s;
+    }
+    .social-icons a:hover img {
+        transform: scale(1.2);
+    }
+    .footer-bottom {
+        margin-top: 30px;
+        text-align: center;
+        font-size: 14px;
+        color: #bbb;
+    }
         /* Keyframes */
         @keyframes fadeIn {
             from {
