@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +7,18 @@
     <title>The InscribeCo - Home</title>
     <style>
         /* General Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 100px; /* Adjust based on header and top bar height */
             line-height: 1.8;
             background-color: #f5f5f5;
             overflow-x: hidden;
         }
-
-   
 
         /* Header Styles */
         header {
@@ -25,7 +26,7 @@
             color: black;
             width: 100%;
             position: fixed;
-            top: 0;
+            top: 50px; /* Adjusted to account for top-bar height */
             z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
@@ -33,43 +34,42 @@
         }
 
         .top-bar {
-    background-color: lightgrey;
-    color: black;
-    padding: 10px 0;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
-    margin-bottom: 5px;  /* Ensures separation from content below */
-}
+            background-color: lightgrey;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 5px; /* Separation from header */
+        }
 
+        .top-bar span {
+            display: flex;
+            align-items: center;
+        }
 
-
-        .phone-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          
-           
+        .top-bar .phone-icon,
+        .top-bar .email-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
         }
 
         .top-bar a {
-            color: black;
             text-decoration: none;
+            color: #333;
+            font-size: 13px;
+            margin-right: 40px; /* Spacing between contacts */
         }
 
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            margin-top: 40px;
+        .top-bar .email-icon + a {
+            margin-right: 0; /* Remove margin from last element */
         }
 
         /* Hamburger Menu Styles */
@@ -101,9 +101,6 @@
             z-index: 1500;
             transition: all 0.3s ease;
             height: 87px;
-            
-
-
         }
 
         .logo img {
@@ -139,7 +136,7 @@
             border-radius: 8px;
         }
 
-         .nav-links a:hover {
+        .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -184,15 +181,11 @@
             font-weight: bold;
         }
 
-
-          .nav-links-mobile a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
-        
-        /* Close Menu Button Styles */
-        /* Close Menu Button Styles */
         .close-menu {
             z-index: 3005;
             position: absolute;
@@ -200,131 +193,118 @@
             right: 20px;
         }
 
-
-
-
-        /* Footer Section */
-          /* Footer Section */
+        /* Footer Styles */
         .footer {
-        background-color: teal;
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        z-index: 100;
-    }
+            background-color: teal;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 100;
+        }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        width: 100%;
-    }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
 
+        .footer-paragraph {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
 
-    .footer-paragraph {
-        color: #ddd;
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 10px 0;
-    }
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%;
+            padding: 15px 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: block;
+            width: 200px;
+            height: auto;
+            margin: 0 auto;
+        }
 
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
+        .footer-logo:hover {
+            transform: scale(1.05);
+        }
 
-    /* Adjust the shape to be oval */
-    .footer-logo {
-        display: block;
-        
-        width: 200px; /* Adjust the width as per your logo */
-        height: auto;
-    }
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            margin: 10px 20px;
+        }
 
-    /* Add hover effect (Optional) */
-    .footer-logo:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
-    }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .footer-links,
-    .footer-contact {
-        flex: 1;
-        margin: 10px 20px;
-    }
+        .footer-links ul li {
+            margin: 10px 0;
+        }
 
-    .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+        .footer-links a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
 
-    .footer-links ul li {
-        margin: 10px 0;
-    }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
 
-    .footer-links a {
-        color: #00bfff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: color 0.3s;
-    }
+        .footer-contact {
+            font-size: 16px;
+        }
 
-    .footer-links a:hover {
-        color: #ffffff;
-    }
+        .footer-contact a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .footer-contact {
-        font-size: 16px;
-    }
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
 
-    .footer-contact a {
-        color: #00bfff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
+        .social-icons {
+            margin-top: 20px;
+        }
 
-    .footer-contact a:hover {
-        color: #ffffff;
-    }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
 
-    .social-icons {
-        margin-top: 20px;
-    }
+        .social-icons img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
 
-    .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-    }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
 
-    .social-icons img {
-        width: 30px;
-        transition: transform 0.3s;
-    }
+        .footer-bottom {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
+        }
 
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    .footer-bottom {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 14px;
-        color: #bbb;
-    }
-
-       
-
-        
-        
+        /* About Hero Section */
         .about-hero {
             border-radius: 5px;
             height: 70vh;
@@ -360,6 +340,7 @@
         /* Section Styles */
         .section {
             display: flex;
+            flex-direction: row;
             padding: 50px;
             align-items: center;
             max-width: 1200px;
@@ -375,9 +356,10 @@
         }
 
         .text,
-        .image {
+        .image-left,
+        .image-right {
             flex: 1;
-            padding: 40px;
+            padding: 20px;
         }
 
         .text h2 {
@@ -395,51 +377,129 @@
             text-align: justify;
         }
 
-        .image-left {
+        .image-left,
+        .image-right {
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: center;
         }
 
-        /* Updated Image Styles */
-.image-left img,
-.image-right img {
-    max-width: 100%;
-    height: auto; /* Changed from fixed height */
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
+        .image-left img,
+        .image-right img {
+            width: 100%;
+            height: auto;
+            max-width: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-/* Responsive Styles for Sections */
-@media (max-width: 768px) {
-    .section {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        opacity: 1;
-        transform: translateX(0); /* Reset transform for mobile */
-    }
+        .image-left img:hover,
+        .image-right img:hover {
+            transform: scale(1.05);
+        }
 
-    .text {
-        padding: 10px;
-    }
+        /* Responsive Styles for Sections */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 110px; /* Adjust based on header and top bar height */
+            }
 
-    .image-left,
-    .image-right {
-        padding: 10px;
-        text-align: center;
-    }
+            .section {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+                opacity: 1;
+                transform: translateX(0); /* Reset transform for mobile */
+            }
 
-    .image-left img,
-    .image-right img {
-        width: 90%;
-        max-width: 400px;
-        height: auto;
-        margin: 0 auto;
-    }
-}
-           
+            .text {
+                padding: 10px;
+            }
+
+            .image-left,
+            .image-right {
+                padding: 10px;
+                text-align: center;
+            }
+
+            .image-left img,
+            .image-right img {
+                width: 90%;
+                max-width: 400px;
+                height: auto;
+                margin: 0 auto;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-links-mobile {
+                padding: 1rem;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .about-hero p {
+                font-size: 1.2rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-info,
+            .footer-links,
+            .footer-services,
+            .footer-contact {
+                text-align: center;
+                margin: 20px 0;
+            }
+
+            .footer-logo {
+                display: block;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 120px; /* Further adjust padding if needed */
+            }
+
+            .text h2 {
+                font-size: 1.5rem;
+            }
+
+            .text p {
+                font-size: 1rem;
+            }
+
+            .image-left img,
+            .image-right img {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -470,102 +530,26 @@
             width: 100%;
             height: auto;
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
-        }
-
-
-          
-
-    /* Responsive Styles for Sections */
-
-
-
-        @media (max-width: 768px) {
-               .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .nav-links-mobile {
-                padding: 1rem;
-            }
-
-              /* Updated Section Styles */
-   
-
-
-         
-    
-
-            .about-hero h1 {
-                font-size: 2rem;
-            }
-
-            .about-hero p {
-                font-size: 1.2rem;
-            }
-
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-info,
-            .footer-links,
-            .footer-services,
-            .footer-contact {
-                text-align: center;
-                margin: 20px 0;
-            }
-            .footer-logo {
-        display: block;
-        margin: 0 auto;
-    }
-
-
-
-
-           
-
-        }
     </style>
 </head>
 
 <body>
     <!-- Top Bar Section -->
-    
+    <div class="top-bar">
+        <div>
+            <!-- Phone Contact -->
+            <span>
+                <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+                <a href="tel:+442032893891">+44 203 289 3891</a>
+            </span>
 
-<!-- Top Bar Section -->
-<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 50px; background-color: lightgrey;">
-    <div style="display: flex; align-items: center;">
-        <!-- Phone Contact -->
-        <span style="display: flex; align-items: center; margin-right: 40px;">
-            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
-        </span>
-        
-        <!-- Email Contact -->
-        <span style="display: flex; align-items: center;">
-            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
-        </span>
+            <!-- Email Contact -->
+            <span>
+                <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon">
+                <a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a>
+            </span>
+        </div>
     </div>
-</div>
-
-
-
-
 
     <!-- Header Section -->
     <header>
@@ -593,13 +577,13 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
-                <br>
                 <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
     </header>
+
     <main>
-        <br><br>
+        <!-- About Hero Section -->
         <section class="about-hero">
             <div class="about-hero-content">
                 <h1>About Us</h1>
@@ -652,147 +636,142 @@
         </section>
     </main>
 
+    <!-- WhatsApp Button -->
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon" alt="WhatsApp">
     </a>
 
-    
-        <!-- Footer Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Footer Logo and Description -->
+            <div class="footer-info">
+                <a href="index.html">
+                    <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+                </a>
+                <p class="footer-paragraph">
+                    Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+                </p>
+                <p class="footer-paragraph">
+                    Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+                </p>
+            </div>
 
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Footer Logo and Description -->
-        <div class="footer-info">
-            <a href="index.html">
-                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
-            </a>
-            <p class="footer-paragraph">
-                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
-            </p>
-            <p class="footer-paragraph">
-                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
-            </p>
-        </div>
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="sample.html">Sample</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                </ul>
+            </div>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="sample.html">Sample</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contactus.html">Contact us</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Quick Info</h3>
-            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
-            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-             
-             
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+                <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer Bottom Section -->
-    <div class="footer-bottom">
-        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
-    </div>
-</footer>
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script>
-    // Hamburger Menu Functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const hamburger = document.getElementById('hamburger');
-        const closeMenuButton = document.getElementById('close-menu');
-        const navLinks = document.getElementById('nav-links');
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-        function toggleMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('show');
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
 
-            if (navLinks.classList.contains('show')) {
-                hamburger.classList.add('hide-hamburger');
-            } else {
+                if (navLinks.classList.contains('show')) {
+                    hamburger.classList.add('hide-hamburger');
+                } else {
+                    hamburger.classList.remove('hide-hamburger');
+                }
+
+                // Ensure the nav menu covers the entire viewport
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
+
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
                 hamburger.classList.remove('hide-hamburger');
             }
 
-            // Ensure the nav menu covers the entire viewport
-            navLinks.style.position = 'fixed';
-            navLinks.style.top = '0';
-            navLinks.style.right = '0';
-            navLinks.style.bottom = '0';
-            navLinks.style.left = '0';
-            navLinks.style.zIndex = "3000";
-            hamburger.style.zIndex = "3001";
-        }
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
 
-        function closeMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.remove('open');
-            navLinks.classList.remove('show');
-            hamburger.classList.remove('hide-hamburger');
-        }
-
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('touchstart', toggleMenu);
-        closeMenuButton.addEventListener('click', closeMenu);
-        closeMenuButton.addEventListener('touchstart', closeMenu);
-
-        // Close the menu when clicking outside of it
-        document.addEventListener('click', function (event) {
-            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                if (navLinks.classList.contains('show')) {
-                    closeMenu(event);
+            // Close the menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
                 }
-            }
+            });
         });
-    });
 
-    // Section Animation for Transition Effect
-    window.addEventListener('scroll', function () {
-        const sections = document.querySelectorAll('.section');
-        const triggerHeight = window.innerHeight * 0.75;
-        const isMobile = window.innerWidth <= 768;
+        // Section Animation for Transition Effect
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
 
-        sections.forEach((section, index) => {
-            const sectionTop = section.getBoundingClientRect().top;
-
-            if (sectionTop < triggerHeight) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateX(0)';
-            } else if (!isMobile) { // Apply transform only on non-mobile
-                if ((index + 1) % 2 === 0) {
-                    section.style.transform = 'translateX(-100%)';
-                } else {
-                    section.style.transform = 'translateX(100%)';
-                }
-                section.style.opacity = '0';
+            if (isMobile) {
+                // On mobile, ensure sections are visible and remove any transforms
+                sections.forEach((section) => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateX(0)';
+                });
             } else {
-                // Reset transform on mobile
-                section.style.transform = 'translateX(0)';
-                section.style.opacity = '1';
+                sections.forEach((section, index) => {
+                    const sectionTop = section.getBoundingClientRect().top;
+
+                    if (sectionTop < triggerHeight) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateX(0)';
+                    } else {
+                        if ((index + 1) % 2 === 0) {
+                            section.style.transform = 'translateX(-100%)';
+                        } else {
+                            section.style.transform = 'translateX(100%)';
+                        }
+                        section.style.opacity = '0';
+                    }
+                });
             }
         });
-    });
-</script>
-
-
-  
-  
-        
+    </script>
 </body>
 
 </html>
