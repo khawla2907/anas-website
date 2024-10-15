@@ -400,20 +400,46 @@
             justify-content: flex-end;
         }
 
-        .image-left img,
-        .image-right img {
-            max-width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+        /* Updated Image Styles */
+.image-left img,
+.image-right img {
+    max-width: 100%;
+    height: auto; /* Changed from fixed height */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
 
-        .image-right img:hover,
-        .image-left img:hover {
-            transform: scale(1.05);
-        }
+/* Responsive Styles for Sections */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        padding: 20px;
+        text-align: center;
+        opacity: 1;
+        transform: translateX(0); /* Reset transform for mobile */
+    }
+
+    .text {
+        padding: 10px;
+    }
+
+    .image-left,
+    .image-right {
+        padding: 10px;
+        text-align: center;
+    }
+
+    .image-left img,
+    .image-right img {
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        margin: 0 auto;
+    }
+}
+           
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -459,50 +485,8 @@
           
 
     /* Responsive Styles for Sections */
-@media (max-width: 768px) {
-    .section {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        opacity: 1;
-        transform: translateX(0); /* Reset transform for mobile */
-    }
 
-    .text {
-        padding: 10px;
-    }
 
-    .image-left,
-    .image-right {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 90%;
-        max-width: 400px;
-        height: auto;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .text h2 {
-        font-size: 1.5rem;
-    }
-
-    .text p {
-        font-size: 1rem;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 100%;
-        height: auto;
-    }
-}
-  
 
         @media (max-width: 768px) {
                .hamburger {
