@@ -16,7 +16,39 @@
             overflow-x: hidden;
         }
 
-   
+        /* Top Bar Styles */
+        .top-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 10px;
+            height: 50px;
+            background-color: lightgrey;
+            color: black;
+            font-family: 'Arial', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1500;
+            /* Ensures separation from content below */
+        }
+
+        .phone-icon,
+        .email-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .top-bar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 13px;
+        }
+
+        .top-bar a:hover {
+            text-decoration: underline;
+        }
 
         /* Header Styles */
         header {
@@ -24,66 +56,11 @@
             color: black;
             width: 100%;
             position: fixed;
-            top: 0;
-            z-index: 1500;
+            top: 55px; /* Top-bar (50px) + margin-bottom (5px) */
+            z-index: 1400; /* Lower than top-bar to prevent overlap */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
             transition: all 0.3s ease;
-        }
-.top-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0 10px;
-    height: 50px;
-    background-color: lightgrey;
-    /* Existing styles */
-    color: black;
-    font-family: 'Arial', sans-serif;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1500;
-    margin-bottom: 5px; /* Ensures separation from content below */
-}
-
-
-
-
-        .phone-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          
-           
-        }
-
-        .top-bar a {
-            color: black;
-            text-decoration: none;
-        }
-
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            margin-top: 40px;
-        }
-
-        /* Hamburger Menu Styles */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 2rem;
-            user-select: none;
-            transition: transform 0.3s ease;
-            z-index: 2001;
-            position: relative;
-        }
-
-        .hamburger.open {
-            transform: rotate(90deg);
         }
 
         nav {
@@ -100,11 +77,9 @@
             z-index: 1500;
             transition: all 0.3s ease;
             height: 87px;
-            
-
-
         }
 
+        /* Logo Styles */
         .logo img {
             height: 70px;
             border-radius: 50%;
@@ -138,7 +113,7 @@
             border-radius: 8px;
         }
 
-         .nav-links a:hover {
+        .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -183,158 +158,163 @@
             font-weight: bold;
         }
 
-
-          .nav-links-mobile a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
-        
-        /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
             z-index: 3005;
             position: absolute;
             top: 20px;
             right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
         }
 
+        /* Hamburger Menu Styles */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
 
+        .hamburger.open {
+            transform: rotate(90deg);
+        }
 
-
-        /* Footer Section */
-          /* Footer Section */
+        /* Footer Styles */
         .footer {
-        background-color: teal;
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        z-index: 100;
-    }
+            background-color: teal;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 100;
+        }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        width: 100%;
-    }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
 
+        .footer-paragraph {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
 
-    .footer-paragraph {
-        color: #ddd;
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 10px 0;
-    }
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%; /* Makes it a circle/oval */
+            padding: 15px 25px; /* Adjust padding for oval shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+            display: block;
+            width: 200px; /* Adjust the width as per your logo */
+            height: auto;
+            margin: 0 auto;
+        }
 
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
+        .footer-logo:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
 
-    /* Adjust the shape to be oval */
-    .footer-logo {
-        display: block;
-        
-        width: 200px; /* Adjust the width as per your logo */
-        height: auto;
-    }
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            margin: 10px 20px;
+        }
 
-    /* Add hover effect (Optional) */
-    .footer-logo:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
-    }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .footer-links,
-    .footer-contact {
-        flex: 1;
-        margin: 10px 20px;
-    }
+        .footer-links ul li {
+            margin: 10px 0;
+        }
 
-    .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+        .footer-links a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
 
-    .footer-links ul li {
-        margin: 10px 0;
-    }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
 
-    .footer-links a {
-        color: #00bfff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: color 0.3s;
-    }
+        .footer-contact {
+            font-size: 16px;
+        }
 
-    .footer-links a:hover {
-        color: #ffffff;
-    }
+        .footer-contact a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .footer-contact {
-        font-size: 16px;
-    }
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
 
-    .footer-contact a {
-        color: #00bfff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
+        .social-icons {
+            margin-top: 20px;
+        }
 
-    .footer-contact a:hover {
-        color: #ffffff;
-    }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
 
-    .social-icons {
-        margin-top: 20px;
-    }
+        .social-icons img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
 
-    .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-    }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
 
-    .social-icons img {
-        width: 30px;
-        transition: transform 0.3s;
-    }
+        .footer-bottom {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
+        }
 
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    .footer-bottom {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 14px;
-        color: #bbb;
-    }
-
-       
-
-        
-        
+        /* Hero Section */
         .about-hero {
             border-radius: 5px;
             height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 2rem;
-            margin-top: 0;
+            margin-top: 55px; /* Adjusted to account for top-bar and header height */
             transition: all 0.3s ease;
         }
 
@@ -356,17 +336,6 @@
             color: #e0e0e0;
         }
 
-       
-
-
-
-        /* Initially hidden sections */
-
-
-/* Disable transitions on mobile for better performance */
-
-/* Section Styles */
-
         /* Section Styles */
         .section {
             display: flex;
@@ -382,13 +351,25 @@
             flex-direction: row-reverse;
         }
 
-        .text,
-        .image {
+        .image-container, .text-container {
             flex: 1;
-            padding: 40px;
+            padding: 20px;
         }
 
-        .text h2 {
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        .text-container h2 {
             font-size: 2rem;
             color: #008080;
             margin-bottom: 15px;
@@ -396,51 +377,11 @@
             letter-spacing: 1.5px;
         }
 
-        .text p {
+        .text-container p {
             font-size: 1.1rem;
             color: #333;
             line-height: 1.8;
             text-align: justify;
-        }
-
-        .image-left,
-        .image-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-        }
-
-        .image-left img,
-        .image-right img {
-            max-width: 100%;
-            height: auto; /* Ensures images scale properly */
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .image-right img:hover,
-        .image-left img:hover {
-            transform: scale(1.05);
-        }
-
-
-         /* Animation Classes */
-        .section.animate-left {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-
-        .section.animate-right {
-            opacity: 0;
-            transform: translateX(100%);
-        }
-
-        .section.visible {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         /* WhatsApp Button */
@@ -456,7 +397,7 @@
             text-align: center;
             font-size: 30px;
             box-shadow: 2px 2px 3px #999;
-            z-index: 150;
+            z-index: 100;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
@@ -483,174 +424,142 @@
             }
         }
 
-
-          
-
-    /* Responsive Styles for Sections */
-
-
-
-
-
-
-
+        /* Responsive Styles for Mobile */
         @media (max-width: 768px) {
-    /* Hamburger Menu Styles */
-    .hamburger {
-        display: block;
-    }
+            /* Hamburger Menu Styles */
+            .hamburger {
+                display: block;
+            }
 
-    .nav-links {
-        display: none;
-    }
+            .nav-links {
+                display: none;
+            }
 
-    .nav-links-mobile {
-        padding: 1rem;
-    }
+            .nav-links-mobile {
+                padding: 1rem;
+            }
 
-    /* Section Styles */
-    .section {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        /* Removed opacity and transform */
-    }
+            /* Section Styles */
+            .section {
+                flex-direction: column;
+                padding: 20px;
+                text-align: center;
+            }
 
-    .text {
-        padding: 10px;
-    }
+            .image-container, .text-container {
+                padding: 10px;
+            }
 
-    .image-left,
-    .image-right {
-        padding: 10px;
-        text-align: center;
-    }
+            .image-container img {
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto 20px auto; /* Center image with margin below */
+                border-radius: 8px;
+            }
 
-    .image-left img,
-    .image-right img {
-        width: 100%;
-        max-width: 400px;
-        height: auto;
-        margin: 0 auto;
-    }
-  /* Disable animations on mobile */
-    .section {
-        transition: none;
-    }
+            .text-container h2 {
+                font-size: 1.8rem; /* Slightly smaller heading */
+                margin-bottom: 10px;
+            }
 
+            .text-container p {
+                font-size: 1rem; /* Adjusted for readability */
+                line-height: 1.5;
+                text-align: left; /* Improve readability */
+            }
 
-            /* Section 1: Our Mission */
-#section1 .text {
-    padding: 15px;
-}
+            /* Add adequate spacing between text and image */
+            .section {
+                flex-direction: column;
+            }
 
-#section1 .text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
+            /* Ensure images appear above text */
+            .section {
+                flex-direction: column;
+            }
 
-#section1 .text p {
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left; /* Left-align for better readability */
-}
+            /* Override alternating layout on mobile */
+            .section:nth-child(even) {
+                flex-direction: column;
+            }
 
-#section1 .image-right {
-    margin-top: 20px;
-}
+            /* Adjust Hero Section */
+            .about-hero h1 {
+                font-size: 2rem;
+            }
 
-#section1 .image-right img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 8px;
-}
+            .about-hero p {
+                font-size: 1.2rem;
+            }
 
-/* Section 2: Our Vision */
-#section2 .text {
-    padding: 15px;
-}
+            /* Footer Styles */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
 
-#section2 .text h2 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
+            .footer-info,
+            .footer-links,
+            .footer-contact {
+                text-align: center;
+                margin: 20px 0;
+            }
 
-#section2 .text p {
-    font-size: 1rem;
-    line-height: 1.5;
-    text-align: left; /* Left-align for better readability */
-}
+            .footer-logo {
+                display: block;
+                margin: 0 auto;
+            }
 
-#section2 .image-left {
-    margin-top: 20px;
-}
+            /* Disable animations on mobile */
+            .section {
+                transition: none;
+            }
 
-#section2 .image-left img {
-    width: 100%;
-    max-width: 350px;
-    height: auto;
-    border-radius: 8px;
-}
+            /* Ensure header accounts for top-bar */
+            header {
+                top: 55px; /* Top-bar (50px) + margin-bottom (5px) */
+            }
 
-            
+            .about-hero {
+                margin-top: 55px; /* Consistent with header */
+            }
+        }
 
-    /* Adjust Hero Section */
-    .about-hero h1 {
-        font-size: 2rem;
-    }
+        /* Animation Classes */
+        .section.animate-left {
+            opacity: 0;
+            transform: translateX(-100%);
+        }
 
-    .about-hero p {
-        font-size: 1.2rem;
-    }
+        .section.animate-right {
+            opacity: 0;
+            transform: translateX(100%);
+        }
 
-    /* Footer Styles */
-    .footer-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .footer-info,
-    .footer-links,
-    .footer-services,
-    .footer-contact {
-        text-align: center;
-        margin: 20px 0;
-    }
-
-    .footer-logo {
-        display: block;
-        margin: 0 auto;
-    }
-}
-
+        .section.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
     </style>
 </head>
 
 <body>
     <!-- Top Bar Section -->
-    
+    <div class="top-bar">
+        <div style="display: flex; align-items: center;">
+            <!-- Phone Contact -->
+            <span style="display: flex; align-items: center; margin-right: 40px;">
+                <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+                <a href="tel:+442032893891">+44 203 289 3891</a>
+            </span>
 
-<!-- Top Bar Section -->
-<div class="top-bar">
-    <div style="display: flex; align-items: center;">
-        <!-- Phone Contact -->
-        <span style="display: flex; align-items: center; margin-right: 40px;">
-            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
-        </span>
-        
-        <!-- Email Contact -->
-        <span style="display: flex; align-items: center;">
-            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
-        </span>
+            <!-- Email Contact -->
+            <span style="display: flex; align-items: center;">
+                <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon">
+                <a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a>
+            </span>
+        </div>
     </div>
-</div>
-
-
-
-
 
     <!-- Header Section -->
     <header>
@@ -678,13 +587,13 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
-                <br>
                 <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
     </header>
+
     <main>
-        <br><br>
+        <!-- Hero Section -->
         <section class="about-hero">
             <div class="about-hero-content">
                 <h1>About Us</h1>
@@ -692,215 +601,200 @@
             </div>
         </section>
 
-
         <!-- First Section: Our Mission -->
-<section class="section" id="section1">
-    <div class="image-right">
-        <img src="images/about1.jpg" alt="Our Mission">
-    </div>
-    <div class="text">
-        <h2>Our Mission</h2>
-        <p>We strive to provide outstanding academic and professional writing services to assist our clients in achieving their educational and career goals. Our mission is rooted in a commitment to excellence, ensuring that every piece of work we produce is of the highest quality. We believe in fostering a strong partnership with our clients, working closely with them to understand their unique needs and requirements. By leveraging our expertise, we aim to provide personalized and impactful solutions that drive success, growth, and fulfillment in both academic and professional settings.</p>
-    </div>
-</section>
+        <section class="section" id="section1">
+            <div class="image-container">
+                <img src="images/about1.jpg" alt="Our Mission">
+            </div>
+            <div class="text-container">
+                <h2>Our Mission</h2>
+                <p>We strive to provide outstanding academic and professional writing services to assist our clients in achieving their educational and career goals. Our mission is rooted in a commitment to excellence, ensuring that every piece of work we produce is of the highest quality. We believe in fostering a strong partnership with our clients, working closely with them to understand their unique needs and requirements. By leveraging our expertise, we aim to provide personalized and impactful solutions that drive success, growth, and fulfillment in both academic and professional settings.</p>
+            </div>
+        </section>
 
-<!-- Second Section: Our Vision -->
-<section class="section" id="section2">
-    <div class="image-left">
-        <img src="images/about2.jpeg" alt="Our Vision">
-    </div>
-    <div class="text">
-        <h2>Our Vision</h2>
-        <p>We aim to be the leading provider of high-quality writing services, helping individuals and organizations excel in their respective fields. Our vision is to empower clients with the tools and resources they need to succeed, regardless of the challenges they face. By staying ahead of industry trends and continuously improving our services, we aspire to set new standards for excellence in the writing and content development industry. We envision a future where every student, professional, and business can access the support they need to realize their full potential.</p>
-    </div>
-</section>
+        <!-- Second Section: Our Vision -->
+        <section class="section" id="section2">
+            <div class="image-container">
+                <img src="images/about2.jpeg" alt="Our Vision">
+            </div>
+            <div class="text-container">
+                <h2>Our Vision</h2>
+                <p>We aim to be the leading provider of high-quality writing services, helping individuals and organizations excel in their respective fields. Our vision is to empower clients with the tools and resources they need to succeed, regardless of the challenges they face. By staying ahead of industry trends and continuously improving our services, we aspire to set new standards for excellence in the writing and content development industry. We envision a future where every student, professional, and business can access the support they need to realize their full potential.</p>
+            </div>
+        </section>
 
-
-<!-- Second Section: Our Vision -->
-<section class="section" id="section3">
-    <div class="image-right">
-           <img src="images/typ.jpeg" alt="Our Values">
-    </div>
-    <div class="text">
-      <h2>Our Values</h2>
+        <!-- Third Section: Our Values -->
+        <section class="section" id="section3">
+            <div class="image-container">
+                <img src="images/typ.jpeg" alt="Our Values">
+            </div>
+            <div class="text-container">
+                <h2>Our Values</h2>
                 <p>Integrity, excellence, and dedication are the core values that guide our operations and service delivery. We are committed to maintaining the highest standards of honesty and professionalism in every interaction. Our team believes in the importance of delivering value through our work, ensuring that our clients receive the best possible service at every step. We are dedicated to continuous learning, growth, and development, both individually and collectively, to better serve our clients and make a meaningful difference in their academic and professional journeys.</p>
-    </div>
-</section>
+            </div>
+        </section>
 
-                <!-- First Section: Our Mission -->
-<section class="section" id="section4">
-    <div class="image-left">
-      <img src="images/s.jpeg" alt="Our Team">
-    </div>
-    <div class="text">
-        <h2>Our Team</h2>
+        <!-- Fourth Section: Our Team -->
+        <section class="section" id="section4">
+            <div class="image-container">
+                <img src="images/s.jpeg" alt="Our Team">
+            </div>
+            <div class="text-container">
+                <h2>Our Team</h2>
                 <p>Our team consists of experienced writers, editors, and support staff who are committed to delivering the best possible results. Each member of our team brings a unique set of skills and expertise to the table, allowing us to provide comprehensive and specialized support to our clients. We value collaboration, innovation, and a shared commitment to excellence, which drives us to continually enhance the quality of our services. Our team members are not just professionals; they are passionate individuals who genuinely care about the success and satisfaction of our clients.</p>
-    </div>
-</section>
-
-
+            </div>
+        </section>
     </main>
 
+    <!-- WhatsApp Floating Button -->
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon" alt="WhatsApp">
     </a>
 
-    
-        <!-- Footer Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Footer Logo and Description -->
+            <div class="footer-info">
+                <a href="index.html">
+                    <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+                </a>
+                <p class="footer-paragraph">
+                    Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+                </p>
+                <p class="footer-paragraph">
+                    Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+                </p>
+            </div>
 
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Footer Logo and Description -->
-        <div class="footer-info">
-            <a href="index.html">
-                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
-            </a>
-            <p class="footer-paragraph">
-                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
-            </p>
-            <p class="footer-paragraph">
-                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
-            </p>
-        </div>
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="sample.html">Sample</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                </ul>
+            </div>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="sample.html">Sample</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contactus.html">Contact us</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Quick Info</h3>
-            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
-            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-             
-             
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
+                <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61561225727357">
+                        <img src="images/fb-removebg-preview.png" alt="Facebook">
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer Bottom Section -->
-    <div class="footer-bottom">
-        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
-    </div>
-</footer>
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script>
-    // Hamburger Menu Functionality
-document.addEventListener('DOMContentLoaded', function () {
-    const hamburger = document.getElementById('hamburger');
-    const closeMenuButton = document.getElementById('close-menu');
-    const navLinks = document.getElementById('nav-links');
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-    function toggleMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('show');
-    }
-
-    function closeMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('show');
-    }
-
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu);
-    closeMenuButton.addEventListener('click', closeMenu);
-    closeMenuButton.addEventListener('touchstart', closeMenu);
-
-    // Close the menu when clicking outside of it
-    document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-            if (navLinks.classList.contains('show')) {
-                closeMenu(event);
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
             }
-        }
-    });
-});
 
-// Section Animation for Transition Effect
-window.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('.section');
-    const triggerHeight = window.innerHeight * 0.75;
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) return; // Disable animations on mobile
-
-    sections.forEach((section, index) => {
-        const sectionTop = section.getBoundingClientRect().top;
-
-        if (sectionTop < triggerHeight) {
-            section.classList.add('visible');
-            section.classList.remove('animate-left', 'animate-right');
-        } else {
-            if ((index + 1) % 2 === 0) {
-                section.classList.remove('visible');
-                section.classList.add('animate-left');
-            } else {
-                section.classList.remove('visible');
-                section.classList.add('animate-right');
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
             }
-        }
-    });
-});
 
-// Optional: Recalculate on window resize to handle orientation changes
-window.addEventListener('resize', function () {
-    const sections = document.querySelectorAll('.section');
-    const triggerHeight = window.innerHeight * 0.75;
-    const isMobile = window.innerWidth <= 768;
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
 
-    if (isMobile) {
-        sections.forEach(section => {
-            section.classList.add('visible');
-            section.classList.remove('animate-left', 'animate-right');
+            // Close the menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
+                }
+            });
         });
-        return;
-    }
 
-    sections.forEach((section, index) => {
-        const sectionTop = section.getBoundingClientRect().top;
+        // Section Animation for Transition Effect
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
 
-        if (sectionTop < triggerHeight) {
-            section.classList.add('visible');
-            section.classList.remove('animate-left', 'animate-right');
-        } else {
-            if ((index + 1) % 2 === 0) {
-                section.classList.remove('visible');
-                section.classList.add('animate-left');
-            } else {
-                section.classList.remove('visible');
-                section.classList.add('animate-right');
+            if (isMobile) return; // Disable animations on mobile
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerHeight) {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
+                } else {
+                    if ((index + 1) % 2 === 0) {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-left');
+                    } else {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-right');
+                    }
+                }
+            });
+        });
+
+        // Optional: Recalculate on window resize to handle orientation changes
+        window.addEventListener('resize', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
+
+            if (isMobile) {
+                sections.forEach(section => {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
+                });
+                return;
             }
-        }
-    });
-});
 
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
 
-  
-</script>
-
-
-
-  
-  
-        
+                if (sectionTop < triggerHeight) {
+                    section.classList.add('visible');
+                    section.classList.remove('animate-left', 'animate-right');
+                } else {
+                    if ((index + 1) % 2 === 0) {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-left');
+                    } else {
+                        section.classList.remove('visible');
+                        section.classList.add('animate-right');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
