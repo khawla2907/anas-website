@@ -606,9 +606,9 @@
 
         <!-- Client Details Form -->
         <section class="form-section" id="client-details-section">
-            <h2>Client Details</h2>
-            <div class="form-container">
-                <form id="client-details-form">
+    <h2>Client Details</h2>
+    <div class="form-container">
+        <form id="client-details-form">
                     <div class="form-group">
                         <label for="country">Country:</label>
                         <input type="text" id="country" name="country" required>
@@ -629,16 +629,16 @@
                         <label for="message">Message:</label>
                         <textarea id="message" name="message" rows="4" required></textarea>
                     </div>
-                    <button type="button" class="order-button" onclick="showOrderDetails()" >Next</button>
-                </form>
-            </div>
-        </section>
+                  <button type="button" class="order-button" id="next-button">Next</button>
+        </form>
+    </div>
+</section>
 
         <!-- Order Details Form -->
         <section class="form-section" id="order-details-section" style="display:none;">
-            <h2>Order Details</h2>
-            <div class="form-container">
-                <form id="order-details-form">
+    <h2>Order Details</h2>
+    <div class="form-container">
+        <form id="order-details-form">
                     <div class="form-group">
                         <label for="service">Select Service:</label>
                         <select id="service" name="service" required>
@@ -665,7 +665,7 @@
                         <label for="referencing">Referencing:</label>
                         <input type="text" id="referencing" name="referencing" required>
                     </div>
-                    <div the="form-group">
+                    <div class="form-group">
                         <label for="deadline">Select Deadline:</label>
                         <input type="date" id="deadline" name="deadline" required>
                     </div>
@@ -681,11 +681,11 @@
                         <label for="file2">Upload Additional File 2:</label>
                         <input type="file" id="file2" name="file2">
                     </div>
-                    <button type="button" class="order-button" onclick="showClientDetails()">Back</button>
-                    <button type="submit" class="order-button" >Submit Order</button>
-                </form>
-            </div>
-        </section>
+                 <button type="button" class="order-button" id="back-button">Back</button>
+            <button type="submit" class="order-button">Submit Order</button>
+        </form>
+    </div>
+</section>
 
         <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
             <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
@@ -750,8 +750,8 @@
 
     <script>
       
-// Hamburger Menu Functionality
 document.addEventListener('DOMContentLoaded', function () {
+    // Hamburger Menu Functionality
     const hamburger = document.getElementById('hamburger');
     const closeMenuButton = document.getElementById('close-menu');
     const navLinks = document.getElementById('nav-links');
@@ -779,10 +779,15 @@ document.addEventListener('DOMContentLoaded', function () {
         hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
     }
 
-    hamburger.addEventListener('click', toggleMenu);
-    hamburger.addEventListener('touchstart', toggleMenu);
-    closeMenuButton.addEventListener('click', closeMenu);
-    closeMenuButton.addEventListener('touchstart', closeMenu);
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchstart', toggleMenu);
+    }
+
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMenu);
+        closeMenuButton.addEventListener('touchstart', closeMenu);
+    }
 
     document.addEventListener('click', function (event) {
         if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
@@ -792,9 +797,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    
     // Function to show Order Details section
-    window.showOrderDetails = function() {
+    function showOrderDetails() {
         const clientSection = document.getElementById('client-details-section');
         const orderSection = document.getElementById('order-details-section');
         if (clientSection && orderSection) {
@@ -802,10 +806,10 @@ document.addEventListener('DOMContentLoaded', function () {
             orderSection.style.display = 'block';
             window.scrollTo(0, 0); // Scroll to top for better user experience
         }
-    };
+    }
 
     // Function to show Client Details section
-    window.showClientDetails = function() {
+    function showClientDetails() {
         const clientSection = document.getElementById('client-details-section');
         const orderSection = document.getElementById('order-details-section');
         if (clientSection && orderSection) {
@@ -813,24 +817,41 @@ document.addEventListener('DOMContentLoaded', function () {
             clientSection.style.display = 'block';
             window.scrollTo(0, 0); // Scroll to top for better user experience
         }
-    };
+    }
+
+    // Attach event listeners to buttons
+    const nextButton = document.getElementById('next-button');
+    const backButton = document.getElementById('back-button');
+
+    if (nextButton) {
+        nextButton.addEventListener('click', showOrderDetails);
+    }
+
+    if (backButton) {
+        backButton.addEventListener('click', showClientDetails);
+    }
 
     // Handle Client Details Form Submission
     const clientForm = document.getElementById('client-details-form');
-    clientForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        showOrderDetails();      // Show Order Details section
-    });
+    if (clientForm) {
+        clientForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            showOrderDetails();      // Show Order Details section
+        });
+    }
 
     // Handle Order Details Form Submission
     const orderForm = document.getElementById('order-details-form');
-    orderForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-        // Here, you can add form validation or AJAX submission as needed
-        alert('Order submitted successfully!'); // Simple feedback
-        // Optionally, redirect to a thank you page
-        window.location.href = 'thankyou.html'; // Ensure this page exists
-    });
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+            // Here, you can add form validation or AJAX submission as needed
+            alert('Order submitted successfully!'); // Simple feedback
+            // Optionally, redirect to a thank you page
+       
+        });
+    }
+});
 
             
 
