@@ -17,9 +17,13 @@
             overflow-x: hidden;
         }
 
+        
+
         /* Header Styles */
-         /* Header Styles */
-         header {
+        
+
+        /* Header Styles */
+        header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
@@ -54,6 +58,8 @@
             width: 20px;
             height: 20px;
             margin-right: 10px;
+          
+           
         }
 
         .top-bar a {
@@ -97,14 +103,14 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
-            height: 49px;
+            height: 87px;
             
 
 
         }
 
         .logo img {
-            height: 60px;
+            height: 70px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -198,6 +204,7 @@
         }
 
 
+         
 
         .services-hero {
             border-radius: 20px;
@@ -562,12 +569,25 @@
 <body>
     
 <!-- Top Bar Section -->
-<div class="top-bar" style="display: flex; justify-content: space-between; align-items: center; padding: 0 10px; height: 60px;">
-    <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
-        <span style="margin-right: 40px;"><img src="images/call.png" alt="Phone Icon" class="phone-icon">+44 203 289 3891</span>
-        <span><img src="images/mail-removebg-preview.png" alt="Email Icon" class="phone-icon"><a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></span>
+
+
+<!-- Top Bar Section -->
+<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
+    <div style="display: flex; align-items: center;">
+        <!-- Phone Contact -->
+        <span style="display: flex; align-items: center; margin-right: 40px;">
+            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
+        </span>
+        
+        <!-- Email Contact -->
+        <span style="display: flex; align-items: center;">
+            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
+        </span>
     </div>
 </div>
+
 
     <!-- Header with Navigation -->
     <header>
@@ -814,6 +834,50 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.classList.remove('show');
     });
 });
+
+            
+// Hamburger Menu Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '0';
+        navLinks.style.right = '0';
+        navLinks.style.bottom = '0';
+        navLinks.style.left = '0';
+        navLinks.style.zIndex = "3000";
+        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
+    }
+
+    function closeMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('show');
+        // Reset hamburger z-index if needed
+        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', toggleMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    closeMenuButton.addEventListener('touchstart', closeMenu);
+
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            if (navLinks.classList.contains('show')) {
+                closeMenu(event);
+            }
+        }
+    });
+
 
 
     </script>
