@@ -230,14 +230,21 @@
         margin: 10px 0;
     }
 
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
+     .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%; /* Makes it a circle/oval */
+            padding: 15px 25px; /* Adjust padding for oval shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+            display: block;
+            width: 200px; /* Adjust the width as per your logo */
+            height: auto;
+            margin: 0 auto;
+        }
+
+
+
 
     /* Adjust the shape to be oval */
     .footer-logo {
@@ -456,11 +463,27 @@
             background-color: #555;
         }
 
+        
+
+
+        .order-button:hover {
+            background-color: #555;
+        }
+        *, *::before, *::after {
+    box-sizing: border-box;
+}
+
 
         @media (max-width: 768px) {
                .hamburger {
                 display: block;
             }
+
+            
+     .footer-logo {
+        display: block;
+        margin: 0 auto;
+    }
 
             .nav-links {
                 display: none;
@@ -469,6 +492,15 @@
             .nav-links-mobile {
                 padding: 1rem;
             }
+              .form-container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+            
+                .form-group {
+        max-width: 100%;
+        padding: 1rem;
+    }
            
     
 
@@ -662,7 +694,7 @@
   
           <!-- Footer Section -->
 
-<<!-- Footer Section -->
+<!-- Footer Section -->
 <footer class="footer">
     <div class="footer-content">
         <!-- Footer Logo and Description -->
