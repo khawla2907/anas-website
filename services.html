@@ -17,6 +17,42 @@
             overflow-x: hidden;
         }
 
+        /* Global Box-Sizing */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+/* Responsive Images */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+/* Adjust Services Container */
+.services-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    max-width: 100%; /* Changed from 95% to 100% */
+    box-sizing: border-box;
+    padding: 0 1rem;
+}
+
+/* Adjust Service Boxes on Larger Screens */
+@media (min-width: 1201px) {
+    .service {
+        width: 30%; /* Ensure this doesn't cause overflow */
+    }
+}
+
+/* Adjust Service Boxes on Medium Screens */
+@media (max-width: 1200px) {
+    .service {
+        width: 45%;
+    }
+}
+
+
         
 
         /* Header Styles */
@@ -76,16 +112,18 @@
         }
 
         /* Hamburger Menu Styles */
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 2rem;
-            user-select: none;
-            transition: transform 0.3s ease;
-            z-index: 2001;
-            position: relative;
-        }
+        /* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 2rem;
+    user-select: none;
+    transition: transform 0.3s ease;
+    z-index: 3001; /* Increased from 2001 to 3001 */
+    position: relative;
+}
 
+           
         .hamburger.open {
             transform: rotate(90deg);
         }
