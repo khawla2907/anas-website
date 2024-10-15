@@ -16,6 +16,7 @@
             overflow-x: hidden;
         }
 
+
         /* Header Styles */
         header {
             background-color: rgba(255, 255, 255, 0.3);
@@ -30,25 +31,30 @@
         }
 
         .top-bar {
-            background-color: lightgrey;
-            color: black;
-            padding: 10px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
+}
+
+
 
         .phone-icon {
             width: 20px;
             height: 20px;
             margin-right: 10px;
+          
+           
         }
 
         .top-bar a {
@@ -92,10 +98,14 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
+            height: 87px;
+            
+
+
         }
 
         .logo img {
-            height: 50px;
+            height: 70px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -178,7 +188,7 @@
             transform: scale(1.05);
         }
 
-
+        
         /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
@@ -187,6 +197,9 @@
             top: 20px;
             right: 20px;
         }
+
+
+      
 
          /* Footer Section */
         .footer {
@@ -425,7 +438,7 @@
         }
 
         .order-button {
-            background-color: #0044cc;
+            background-color: teal;
             color: white;
             border: none;
             padding: 1rem 2rem;
@@ -456,7 +469,7 @@
             .nav-links-mobile {
                 padding: 1rem;
             }
-
+           
     
 
          
@@ -482,16 +495,41 @@
                 text-align: center;
                 margin: 20px 0;
             }
+        }
+
+        @media (max-width: 768px) {
+    /* Existing styles... */
+
+    /* Adjust form-container width for mobile */
+    .form-container {
+        max-width: 90%; /* Reduces the width to 90% of the viewport */
+        padding: 1rem;  /* Reduces padding for better fit */
+    }
+        }
 
         </style>
 </head>
 
 <body>
     <!-- Top Bar Section -->
-    <div class="top-bar">
-        <img src="images/call.png" alt="Phone Icon" class="phone-icon">
-        <span>Call Us: <a href="tel:+442032893891">+44 203 289 3891</a></span>
+    
+<!-- Top Bar Section -->
+<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
+    <div style="display: flex; align-items: center;">
+        <!-- Phone Contact -->
+        <span style="display: flex; align-items: center; margin-right: 40px;">
+            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
+        </span>
+        
+        <!-- Email Contact -->
+        <span style="display: flex; align-items: center;">
+            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
+        </span>
     </div>
+</div>
+
 
     <!-- Header Section -->
     <header>
@@ -679,46 +717,90 @@
       
 
     <script>
-        // Hamburger Menu Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const closeMenuButton = document.getElementById('close-menu');
-            const navLinks = document.getElementById('nav-links');
+      
+// Hamburger Menu Functionality
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
 
-            function toggleMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.toggle('open');
-                navLinks.classList.toggle('show');
-                navLinks.style.position = 'fixed';
-                navLinks.style.top = '0';
-                navLinks.style.right = '0';
-                navLinks.style.bottom = '0';
-                navLinks.style.left = '0';
-                navLinks.style.zIndex = "3000";
-                hamburger.style.zIndex = "3001";
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '0';
+        navLinks.style.right = '0';
+        navLinks.style.bottom = '0';
+        navLinks.style.left = '0';
+        navLinks.style.zIndex = "3000";
+        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
+    }
+
+    function closeMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('show');
+        // Reset hamburger z-index if needed
+        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', toggleMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    closeMenuButton.addEventListener('touchstart', closeMenu);
+
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            if (navLinks.classList.contains('show')) {
+                closeMenu(event);
             }
+        }
+    });
 
-            function closeMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('show');
-            }
+    
+    // Function to show Order Details section
+    window.showOrderDetails = function() {
+        const clientSection = document.getElementById('client-details-section');
+        const orderSection = document.getElementById('order-details-section');
+        if (clientSection && orderSection) {
+            clientSection.style.display = 'none';
+            orderSection.style.display = 'block';
+            window.scrollTo(0, 0); // Scroll to top for better user experience
+        }
+    };
 
-            hamburger.addEventListener('click', toggleMenu);
-            hamburger.addEventListener('touchstart', toggleMenu);
-            closeMenuButton.addEventListener('click', closeMenu);
-            closeMenuButton.addEventListener('touchstart', closeMenu);
+    // Function to show Client Details section
+    window.showClientDetails = function() {
+        const clientSection = document.getElementById('client-details-section');
+        const orderSection = document.getElementById('order-details-section');
+        if (clientSection && orderSection) {
+            orderSection.style.display = 'none';
+            clientSection.style.display = 'block';
+            window.scrollTo(0, 0); // Scroll to top for better user experience
+        }
+    };
 
-            document.addEventListener('click', function (event) {
-                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        closeMenu(event);
-                    }
-                }
-            });
-        });
+    // Handle Client Details Form Submission
+    const clientForm = document.getElementById('client-details-form');
+    clientForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        showOrderDetails();      // Show Order Details section
+    });
+
+    // Handle Order Details Form Submission
+    const orderForm = document.getElementById('order-details-form');
+    orderForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent default form submission
+        // Here, you can add form validation or AJAX submission as needed
+        alert('Order submitted successfully!'); // Simple feedback
+        // Optionally, redirect to a thank you page
+        window.location.href = 'thankyou.html'; // Ensure this page exists
+    });
+
+            
 
     </script>
 </body>
