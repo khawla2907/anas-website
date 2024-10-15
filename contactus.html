@@ -217,15 +217,7 @@
         margin: 10px 0;
     }
 
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
-
+ 
     /* Adjust the shape to be oval */
     .footer-logo {
         display: block;
@@ -238,6 +230,20 @@
     .footer-logo:hover {
         transform: scale(1.05); /* Slight zoom effect on hover */
     }
+        
+        
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%; /* Makes it a circle/oval */
+            padding: 15px 25px; /* Adjust padding for oval shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+            display: block;
+            width: 200px; /* Adjust the width as per your logo */
+            height: auto;
+            margin: 0 auto;
+        }
 
     .footer-links,
     .footer-contact {
@@ -279,6 +285,7 @@
     .footer-contact a:hover {
         color: #ffffff;
     }
+        
 
     .social-icons {
         margin-top: 20px;
@@ -355,7 +362,7 @@
             text-align: center;
             font-size: 30px;
             box-shadow: 2px 2px 3px #999;
-            z-index: 100;
+            z-index: 150;
             transition: background-color 0.3s ease, transform 0.3s ease;
             display: flex;
             justify-content: center;
@@ -368,7 +375,7 @@
         }
 
         .whatsapp-icon {
-            width: 100%;
+            width: 200%;
             height: auto;
         }
 
