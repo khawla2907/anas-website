@@ -361,17 +361,77 @@
 
 
         /* Initially hidden sections */
+
+
+/* Disable transitions on mobile for better performance */
+
+/* Section Styles */
 .section {
-    opacity: 0;
-    transform: translateX(100%);
+    display: flex;
+    padding: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
     transition: all 0.3s ease;
+    /* Removed opacity and transform to ensure visibility by default */
 }
 
-.section.hidden-left {
+.section:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.text,
+.image {
+    flex: 1;
+    padding: 40px;
+}
+
+.text h2 {
+    font-size: 2rem;
+    color: #008080;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.text p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.image-left,
+.image-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.image-left img,
+.image-right img {
+    max-width: 100%;
+    height: auto; /* Ensures images scale properly */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-right img:hover,
+.image-left img:hover {
+    transform: scale(1.05);
+}
+
+/* Animation Classes (Optional) */
+.section.animate-left {
+    opacity: 0;
     transform: translateX(-100%);
 }
 
-.section.hidden-right {
+.section.animate-right {
+    opacity: 0;
     transform: translateX(100%);
 }
 
@@ -380,55 +440,7 @@
     transform: translateX(0);
 }
 
-/* Disable transitions on mobile for better performance */
-@media (max-width: 768px) {
-    .section {
-        opacity: 1 !important;
-        transform: translateX(0) !important;
-        transition: none;
-    }
-}
-
-        .text,
-        .image {
-            flex: 1;
-            padding: 40px;
-        }
-
-        .text h2 {
-            font-size: 2rem;
-            color: #008080;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .text p {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.8;
-            text-align: justify;
-        }
-
-        .image-left {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        .image-left img,
-        .image-right img {
-            max-width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .image-right img:hover,
-        .image-left img:hover {
-            transform: scale(1.05);
-        }
+       
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -500,26 +512,18 @@
         flex-direction: column;
         padding: 20px;
         text-align: center;
-        opacity: 1;
-        transform: translateX(0); /* Reset transform for mobile */
-        transition: none; /* Disable transition for better performance */
+        /* Removed opacity and transform */
     }
 
     .text {
         padding: 10px;
     }
 
-
- .image-left img,
-.image-right img {
-    max-width: 100%;
-    height: auto; /* Remove fixed height */
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
+    .image-left,
+    .image-right {
+        padding: 10px;
+        text-align: center;
+    }
 
     .image-left img,
     .image-right img {
@@ -527,6 +531,10 @@
         max-width: 400px;
         height: auto;
         margin: 0 auto;
+    }
+  /* Disable animations on mobile */
+    .section {
+        transition: none;
     }
 
     /* Adjust Hero Section */
@@ -730,58 +738,40 @@
 
     <script>
     // Hamburger Menu Functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const hamburger = document.getElementById('hamburger');
-        const closeMenuButton = document.getElementById('close-menu');
-        const navLinks = document.getElementById('nav-links');
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
 
-        function toggleMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('show');
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+    }
 
+    function closeMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('show');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', toggleMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    closeMenuButton.addEventListener('touchstart', closeMenu);
+
+    // Close the menu when clicking outside of it
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
             if (navLinks.classList.contains('show')) {
-                hamburger.classList.add('hide-hamburger');
-            } else {
-                hamburger.classList.remove('hide-hamburger');
+                closeMenu(event);
             }
-
-            // Ensure the nav menu covers the entire viewport
-            navLinks.style.position = 'fixed';
-            navLinks.style.top = '0';
-            navLinks.style.right = '0';
-            navLinks.style.bottom = '0';
-            navLinks.style.left = '0';
-            navLinks.style.zIndex = "3000";
-            hamburger.style.zIndex = "3001";
         }
-
-        function closeMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.remove('open');
-            navLinks.classList.remove('show');
-            hamburger.classList.remove('hide-hamburger');
-        }
-
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('touchstart', toggleMenu);
-        closeMenuButton.addEventListener('click', closeMenu);
-        closeMenuButton.addEventListener('touchstart', closeMenu);
-
-        // Close the menu when clicking outside of it
-        document.addEventListener('click', function (event) {
-            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                if (navLinks.classList.contains('show')) {
-                    closeMenu(event);
-                }
-            }
-        });
     });
+});
 
-
-        
 // Section Animation for Transition Effect
 window.addEventListener('scroll', function () {
     const sections = document.querySelectorAll('.section');
@@ -795,13 +785,14 @@ window.addEventListener('scroll', function () {
 
         if (sectionTop < triggerHeight) {
             section.classList.add('visible');
+            section.classList.remove('animate-left', 'animate-right');
         } else {
             if ((index + 1) % 2 === 0) {
                 section.classList.remove('visible');
-                section.classList.add('hidden-left');
+                section.classList.add('animate-left');
             } else {
                 section.classList.remove('visible');
-                section.classList.add('hidden-right');
+                section.classList.add('animate-right');
             }
         }
     });
@@ -816,7 +807,7 @@ window.addEventListener('resize', function () {
     if (isMobile) {
         sections.forEach(section => {
             section.classList.add('visible');
-            section.classList.remove('hidden-left', 'hidden-right');
+            section.classList.remove('animate-left', 'animate-right');
         });
         return;
     }
@@ -826,21 +817,19 @@ window.addEventListener('resize', function () {
 
         if (sectionTop < triggerHeight) {
             section.classList.add('visible');
-            section.classList.remove('hidden-left', 'hidden-right');
+            section.classList.remove('animate-left', 'animate-right');
         } else {
             if ((index + 1) % 2 === 0) {
                 section.classList.remove('visible');
-                section.classList.add('hidden-left');
+                section.classList.add('animate-left');
             } else {
                 section.classList.remove('visible');
-                section.classList.add('hidden-right');
+                section.classList.add('animate-right');
             }
         }
     });
 });
 
-    
-           
 
   
 </script>
