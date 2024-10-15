@@ -28,7 +28,6 @@
 
         /* Header Styles */
         
-
         /* Header Styles */
         header {
             background-color: rgba(255, 255, 255, 0.3);
@@ -58,9 +57,6 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
     margin-bottom: 5px;  /* Ensures separation from content below */
 }
-
-
-
         .phone-icon {
             width: 20px;
             height: 20px;
@@ -81,20 +77,16 @@
         header {
             margin-top: 40px;
         }
-
         /* Hamburger Menu Styles */
-        /* Hamburger Menu Styles */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 2rem;
-    user-select: none;
-    transition: transform 0.3s ease;
-    z-index: 3001; /* Increased from 2001 to 3001 */
-    position: relative;
-}
-
-           
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
         .hamburger.open {
             transform: rotate(90deg);
         }
@@ -114,8 +106,6 @@
             transition: all 0.3s ease;
             height: 87px;
             
-
-
         }
 
         .logo img {
@@ -196,7 +186,6 @@
             font-weight: bold;
         }
 
-
           .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
@@ -211,7 +200,9 @@
             top: 20px;
             right: 20px;
         }
-
+        
+        
+        
 
 
         /* Footer Styles */
@@ -450,7 +441,17 @@
         /* Responsive Styles for Mobile */
         @media (max-width: 768px) {
             /* Hamburger Menu Styles */
-            .hamburger {
+               .top-bar {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+    .top-bar-content {
+        flex-direction: column;
+    }
+
+            
+             .hamburger {
                 display: block;
             }
 
@@ -458,8 +459,14 @@
                 display: none;
             }
 
-            .nav-links-mobile {
-                padding: 1rem;
+          
+            .nav-links-mobile,
+            .pricing-content,
+            .footer-content {
+                padding-left: 10px;
+                padding-right: 10px;
+                margin: 0 auto;
+                width: 100%;
             }
 
             /* Section Styles */
@@ -567,6 +574,7 @@
 </head>
 
 <body>
+  
     <!-- Top Bar Section -->
 <div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 60px; background-color: lightgrey;">
     <div style="display: flex; align-items: center;">
@@ -588,8 +596,10 @@
     <header>
         <nav>
             <div class="logo">
-                <img src="images/logo (2).png" alt="Company Logo">
-            </div>
+    <a href="index.html">
+        <img src="images/logo (2).png" alt="Company Logo">
+    </a>
+</div>
             <div class="hamburger" id="hamburger">
                 &#9776;
             </div>
@@ -600,7 +610,8 @@
                 <li><a href="Sample.html">Samples</a></li>
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
-                <li><a href="contactus.html">Contact us</a></li>
+                  <li><a href="contactus.html">Contact us</a></li>
+                
             </ul>
             <ul class="nav-links-mobile" id="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -610,6 +621,7 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
+                <br>
                 <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
@@ -725,40 +737,46 @@
     </footer>
 
     <script>
+         // Hamburger Menu Functionality
         // Hamburger Menu Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const closeMenuButton = document.getElementById('close-menu');
-            const navLinks = document.getElementById('nav-links');
-
-            function toggleMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.toggle('open');
-                navLinks.classList.toggle('show');
+document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '0';
+        navLinks.style.right = '0';
+        navLinks.style.bottom = '0';
+        navLinks.style.left = '0';
+        navLinks.style.zIndex = "3000";
+        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
+    }
+    function closeMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('show');
+        // Reset hamburger z-index if needed
+        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
+    }
+    hamburger.addEventListener('click', toggleMenu);
+    hamburger.addEventListener('touchstart', toggleMenu);
+    closeMenuButton.addEventListener('click', closeMenu);
+    closeMenuButton.addEventListener('touchstart', closeMenu);
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            if (navLinks.classList.contains('show')) {
+                closeMenu(event);
             }
+        }
+    });
 
-            function closeMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('show');
-            }
 
-            hamburger.addEventListener('click', toggleMenu);
-            hamburger.addEventListener('touchstart', toggleMenu);
-            closeMenuButton.addEventListener('click', closeMenu);
-            closeMenuButton.addEventListener('touchstart', closeMenu);
-
-            // Close the menu when clicking outside of it
-            document.addEventListener('click', function (event) {
-                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        closeMenu(event);
-                    }
-                }
-            });
-        });
 
         // Section Animation for Transition Effect
         window.addEventListener('scroll', function () {
