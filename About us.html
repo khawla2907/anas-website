@@ -24,9 +24,8 @@
 
    
 
-        /* Header Styles */
-      
-      header {
+                /* Header Styles */
+                header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
@@ -54,6 +53,9 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
     margin-bottom: 5px;  /* Ensures separation from content below */
 }
+
+
+
         .phone-icon {
             width: 20px;
             height: 20px;
@@ -74,6 +76,7 @@
         header {
             margin-top: 40px;
         }
+
         /* Hamburger Menu Styles */
         .hamburger {
             display: none;
@@ -84,6 +87,7 @@
             z-index: 2001;
             position: relative;
         }
+
         .hamburger.open {
             transform: rotate(90deg);
         }
@@ -101,12 +105,14 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
-            height: 87px;
+            height: 55px;
             
+
+
         }
 
         .logo img {
-            height: 70px;
+            height: 50px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -183,6 +189,7 @@
             font-weight: bold;
         }
 
+
           .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
@@ -197,9 +204,6 @@
             top: 20px;
             right: 20px;
         }
-        
-        
-   
 
 
 
@@ -359,62 +363,129 @@
         }
 
         /* Section Styles */
-        .section {
-            display: flex;
-            padding: 50px;
-            align-items: center;
-            max-width: 1200px;
-            margin: auto;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateX(100%);
-        }
+        
+        
 
-        .section:nth-child(even) {
-            flex-direction: row-reverse;
-            transform: translateX(-100%);
-        }
+/* Enhanced Section Styles */
+.section {
+    display: flex;
+    padding: 50px 20px; /* Added horizontal padding */
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateX(100%);
+}
 
-        .text,
-        .image {
-            flex: 1;
-            padding: 40px;
-        }
+.section:nth-child(even) {
+    flex-direction: row-reverse;
+    transform: translateX(-100%);
+}
 
-        .text h2 {
-            font-size: 2rem;
-            color: #008080;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+.text,
+.image {
+    flex: 1;
+    padding: 40px;
+    box-sizing: border-box;
+}
 
-        .text p {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.8;
-            text-align: justify;
-        }
+.text h2 {
+    font-size: 2rem;
+    color: #008080;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
 
-        .image-left {
-            display: flex;
-            justify-content: flex-end;
-        }
+.text p {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.8;
+    text-align: justify;
+}
 
-        .image-left img,
-        .image-right img {
-            max-width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+.image-left,
+.image-right {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
 
-        .image-right img:hover,
-        .image-left img:hover {
-            transform: scale(1.05);
-        }
+.image-left img,
+.image-right img {
+    width: 100%;
+    height: auto;
+    max-width: 500px; /* Set a reasonable max-width */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.image-left img:hover,
+.image-right img:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Styles for Sections */
+@media (max-width: 768px) {
+    .section {
+        flex-direction: column;
+        padding: 30px 10px;
+        text-align: center;
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .text {
+        padding: 10px 0;
+    }
+
+    .image-left,
+    .image-right {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .image-left img,
+    .image-right img {
+        width: 90%;
+        max-width: 400px;
+        margin: 20px auto;
+    }
+
+    .text h2 {
+        font-size: 1.8rem;
+    }
+
+    .text p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+}
+
+@media (max-width: 480px) {
+    .section {
+        padding: 20px 5px;
+    }
+
+    .text h2 {
+        font-size: 1.5rem;
+    }
+
+    .text p {
+        font-size: 1rem;
+    }
+
+    .image-left img,
+    .image-right img {
+        width: 100%;
+        max-width: 100%;
+        margin: 15px auto;
+    }
+}
+   
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -459,50 +530,8 @@
 
           
 
-    /* Responsive Styles for Sections */
-@media (max-width: 768px) {
-    .section {
-        flex-direction: column;
-        padding: 20px;
-        text-align: center;
-        opacity: 1;
-        transform: translateX(0); /* Reset transform for mobile */
-    }
 
-    .text {
-        padding: 10px;
-    }
 
-    .image-left,
-    .image-right {
-        padding: 10px;
-        text-align: center;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 90%;
-        max-width: 400px;
-        height: auto;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 480px) {
-    .text h2 {
-        font-size: 1.5rem;
-    }
-
-    .text p {
-        font-size: 1rem;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 100%;
-        height: auto;
-    }
-}
   
 
         @media (max-width: 768px) {
@@ -521,7 +550,7 @@
               /* Updated Section Styles */
    
 
-
+        
          
     
 
