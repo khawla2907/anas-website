@@ -757,123 +757,229 @@
 </main>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    // Hamburger Menu Functionality
-    const hamburger = document.getElementById('hamburger');
-    const closeMenuButton = document.getElementById('close-menu');
-    const navLinks = document.getElementById('nav-links');
+     document.addEventListener('DOMContentLoaded', function () {
+            // Hamburger Menu Functionality
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-    function toggleMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.toggle('open');
-        navLinks.classList.toggle('show');
-        navLinks.style.position = 'fixed';
-        navLinks.style.top = '0';
-        navLinks.style.right = '0';
-        navLinks.style.bottom = '0';
-        navLinks.style.left = '0';
-        navLinks.style.zIndex = "3000";
-        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
-    }
-
-    function closeMenu(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        hamburger.classList.remove('open');
-        navLinks.classList.remove('show');
-        // Reset hamburger z-index if needed
-        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
-    }
-
-    if (hamburger) {
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('touchstart', toggleMenu);
-    }
-
-    if (closeMenuButton) {
-        closeMenuButton.addEventListener('click', closeMenu);
-        closeMenuButton.addEventListener('touchstart', closeMenu);
-    }
-
-    document.addEventListener('click', function (event) {
-        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-            if (navLinks.classList.contains('show')) {
-                closeMenu(event);
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
             }
-        }
-    });
 
-    // Function to show Order Details section
-    function showOrderDetails() {
-        const clientSection = document.getElementById('client-details-section');
-        const orderSection = document.getElementById('order-details-section');
-        if (clientSection && orderSection) {
-            clientSection.style.display = 'none';
-            orderSection.style.display = 'block';
-            window.scrollTo(0, 0); // Scroll to top for better user experience
-        }
-    }
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
+                // Reset hamburger z-index if needed
+                hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
+            }
 
-    // Function to show Client Details section
-    function showClientDetails() {
-        const clientSection = document.getElementById('client-details-section');
-        const orderSection = document.getElementById('order-details-section');
-        if (clientSection && orderSection) {
-            orderSection.style.display = 'none';
-            clientSection.style.display = 'block';
-            window.scrollTo(0, 0); // Scroll to top for better user experience
-        }
-    }
+            if (hamburger) {
+                hamburger.addEventListener('click', toggleMenu);
+                hamburger.addEventListener('touchstart', toggleMenu);
+            }
 
-    // Attach event listeners to buttons
-    const nextButton = document.getElementById('next-button');
-    const backButton = document.getElementById('back-button');
+            if (closeMenuButton) {
+                closeMenuButton.addEventListener('click', closeMenu);
+                closeMenuButton.addEventListener('touchstart', closeMenu);
+            }
 
-    if (nextButton) {
-        nextButton.addEventListener('click', showOrderDetails);
-    }
-
-    if (backButton) {
-        backButton.addEventListener('click', showClientDetails);
-    }
-
-    // Handle Order Form Submission via AJAX
-    const orderForm = document.getElementById('order-form');
-    if (orderForm) {
-        orderForm.addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent default form submission
-
-            // Create a FormData object from the form
-            const formData = new FormData(orderForm);
-
-            // Send the form data using fetch
-            fetch('send_order.php', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    return response.text();
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
                 }
-                throw new Error('Network response was not ok.');
-            })
-            .then(data => {
-                if (data.trim() === 'success') {
-                    alert('Your order has been submitted successfully!');
-                    orderForm.reset();
-                    showClientDetails(); // Reset to first step
-                } else {
-                    alert(data);
-                }
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-                alert('There was an error submitting your order. Please try again later.');
             });
+
+            // Function to show Order Details section
+            function showOrderDetails() {
+                const clientSection = document.getElementById('client-details-section');
+                const orderSection = document.getElementById('order-details-section');
+                if (clientSection && orderSection) {
+                    clientSection.style.display = 'none';
+                    orderSection.style.display = 'block';
+                    window.scrollTo(0, 0); // Scroll to top for better user experience
+                }
+            }
+
+            // Function to show Client Details section
+            function showClientDetails() {
+                const clientSection = document.getElementById('client-details-section');
+                const orderSection = document.getElementById('order-details-section');
+                if (clientSection && orderSection) {
+                    orderSection.style.display = 'none';
+                    clientSection.style.display = 'block';
+                    window.scrollTo(0, 0); // Scroll to top for better user experience
+                }
+            }
+
+            // Attach event listeners to buttons
+            const nextButton = document.getElementById('next-button');
+            const backButton = document.getElementById('back-button');
+
+            if (nextButton) {
+                nextButton.addEventListener('click', function () {
+                    if (validateClientDetails()) {
+                        showOrderDetails();
+                    }
+                });
+            }
+
+            if (backButton) {
+                backButton.addEventListener('click', showClientDetails);
+            }
+
+            // Function to validate Client Details Section
+            function validateClientDetails() {
+                let isValid = true;
+
+                // List of required fields in client details
+                const requiredFields = [
+                    { id: 'country', group: 'group-country', message: 'Please enter your country.' },
+                    { id: 'full-name', group: 'group-full-name', message: 'Please enter your full name.' },
+                    { id: 'email', group: 'group-email', message: 'Please enter a valid email address.' },
+                    { id: 'phone', group: 'group-phone', message: 'Please enter a valid phone number.' },
+                    { id: 'message', group: 'group-message', message: 'Please enter your message.' }
+                ];
+
+                requiredFields.forEach(field => {
+                    const input = document.getElementById(field.id);
+                    const group = document.getElementById(field.group);
+                    const error = group.querySelector('.error-message');
+
+                    // Reset previous errors
+                    group.classList.remove('invalid');
+                    error.textContent = field.message;
+
+                    // Check validity
+                    if (!input.value.trim()) {
+                        group.classList.add('invalid');
+                        isValid = false;
+                    } else if (input.type === 'email' && !validateEmail(input.value)) {
+                        group.classList.add('invalid');
+                        error.textContent = 'Please enter a valid email address.';
+                        isValid = false;
+                    } else if (input.type === 'tel' && !validatePhone(input.value)) {
+                        group.classList.add('invalid');
+                        error.textContent = 'Please enter a valid phone number.';
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            // Function to validate Order Details Section
+            function validateOrderDetails() {
+                let isValid = true;
+
+                // List of required fields in order details
+                const requiredFields = [
+                    { id: 'service', group: 'group-service', message: 'Please select a service.' },
+                    { id: 'academic-level', group: 'group-academic-level', message: 'Please enter the academic level.' },
+                    { id: 'subject-area', group: 'group-subject-area', message: 'Please enter the subject area.' },
+                    { id: 'subject-title', group: 'group-subject-title', message: 'Please enter the subject title.' },
+                    { id: 'referencing', group: 'group-referencing', message: 'Please specify the referencing style.' },
+                    { id: 'deadline', group: 'group-deadline', message: 'Please select a deadline.' },
+                    { id: 'words', group: 'group-words', message: 'Please enter the number of words.' }
+                ];
+
+                requiredFields.forEach(field => {
+                    const input = document.getElementById(field.id);
+                    const group = document.getElementById(field.group);
+                    const error = group.querySelector('.error-message');
+
+                    // Reset previous errors
+                    group.classList.remove('invalid');
+                    error.textContent = field.message;
+
+                    // Check validity
+                    if (!input.value.trim()) {
+                        group.classList.add('invalid');
+                        isValid = false;
+                    } else if (input.type === 'email' && !validateEmail(input.value)) {
+                        group.classList.add('invalid');
+                        error.textContent = 'Please enter a valid email address.';
+                        isValid = false;
+                    } else if (input.type === 'tel' && !validatePhone(input.value)) {
+                        group.classList.add('invalid');
+                        error.textContent = 'Please enter a valid phone number.';
+                        isValid = false;
+                    }
+                });
+
+                return isValid;
+            }
+
+            // Email validation function
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            // Phone number validation function
+            function validatePhone(phone) {
+                const re = /^\+?[0-9\s\-]{7,15}$/;
+                return re.test(String(phone));
+            }
+
+            // Handle Order Form Submission via AJAX
+            const orderForm = document.getElementById('order-form');
+            if (orderForm) {
+                orderForm.addEventListener('submit', function (event) {
+                    event.preventDefault(); // Prevent default form submission
+
+                    if (validateOrderDetails()) {
+                        // Create a FormData object from the form
+                        const formData = new FormData(orderForm);
+
+                        // Send the form data using fetch
+                        fetch('send_order.php', {
+                            method: 'POST',
+                            body: formData
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                return response.text();
+                            }
+                            throw new Error('Network response was not ok.');
+                        })
+                        .then(data => {
+                            if (data.trim() === 'success') {
+                                alert('Your order has been submitted successfully!');
+                                orderForm.reset();
+                                showClientDetails(); // Reset to first step
+                            } else {
+                                alert(data);
+                            }
+                        })
+                        .catch(error => {
+                            console.error('There was a problem with the fetch operation:', error);
+                            alert('There was an error submitting your order. Please try again later.');
+                        });
+                    } else {
+                        // Optionally, scroll to the first error
+                        const firstError = document.querySelector('.form-group.invalid');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                    }
+                });
+            }
         });
-    }
-});
 </script>
 </body>
 
