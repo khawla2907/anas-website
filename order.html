@@ -394,7 +394,7 @@
         }
 
         .whatsapp-icon {
-            width: 100%;
+            width: 200%;
             height: auto;
         }
 
@@ -419,6 +419,8 @@
         }
 
         .form-container {
+            border: 1px solid teal;
+            outline: 3px solid teal;
             max-width: 600px;
             margin: auto;
             background: white;
@@ -615,96 +617,92 @@
             </div>
         </section>
 
-
-        <!-- Client Details Form -->
-        <section class="form-section" id="client-details-section">
-    <h2>Client Details</h2>
+ <!-- Order Form Section -->
+ <section class="form-section" id="order-form-section">
+    <h2>Place an Order</h2>
     <div class="form-container">
-        <form id="client-details-form">
-                    <div class="form-group">
-                        <label for="country">Country:</label>
-                        <input type="text" id="country" name="country" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number:</label>
-                        <input type="tel" id="phone" name="phone" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message:</label>
-                        <textarea id="message" name="message" rows="4" required></textarea>
-                    </div>
-                  <button type="button" class="order-button" id="next-button">Next</button>
+        <form id="order-form" enctype="multipart/form-data">
+            <!-- Client Details -->
+            <div id="client-details-section">
+                <h3>Client Details</h3>
+                <div class="form-group">
+                    <label for="country">Country:</label>
+                    <input type="text" id="country" name="country" required>
+                </div>
+                <div class="form-group">
+                    <label for="full-name">Full Name:</label>
+                    <input type="text" id="full-name" name="full_name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone_number" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="button" class="order-button" id="next-button">Next</button>
+            </div>
+
+            <!-- Order Details -->
+            <div id="order-details-section" style="display:none;">
+                <h3>Order Details</h3>
+                <div class="form-group">
+                    <label for="service">Select Service:</label>
+                    <select id="service" name="service" required>
+                        <option value="Assignments">Assignments</option>
+                        <option value="PowerPoint">PowerPoint</option>
+                        <option value="Projects">Projects</option>
+                        <option value="Dissertation">Dissertation</option>
+                        <option value="Essays">Essays Writing Services</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="academic-level">Select Academic Level:</label>
+                    <input type="text" id="academic-level" name="academic_level" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject-area">Select Subject Area:</label>
+                    <input type="text" id="subject-area" name="subject_area" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject-title">Subject Title:</label>
+                    <input type="text" id="subject-title" name="subject_title" required>
+                </div>
+                <div class="form-group">
+                    <label for="referencing">Referencing:</label>
+                    <input type="text" id="referencing" name="referencing" required>
+                </div>
+                <div class="form-group">
+                    <label for="deadline">Select Deadline:</label>
+                    <input type="date" id="deadline" name="deadline" required>
+                </div>
+                <div class="form-group">
+                    <label for="words">Enter Number of Words:</label>
+                    <input type="number" id="words" name="words" required>
+                </div>
+                <div class="form-group">
+                    <label for="file1">Upload Additional File 1:</label>
+                    <input type="file" id="file1" name="file1">
+                </div>
+                <div class="form-group">
+                    <label for="file2">Upload Additional File 2:</label>
+                    <input type="file" id="file2" name="file2">
+                </div>
+                <button type="button" class="order-button" id="back-button">Back</button>
+                <button type="submit" class="order-button">Submit Order</button>
+            </div>
         </form>
     </div>
 </section>
 
-        <!-- Order Details Form -->
-        <section class="form-section" id="order-details-section" style="display:none;">
-    <h2>Order Details</h2>
-    <div class="form-container">
-        <form id="order-details-form">
-                    <div class="form-group">
-                        <label for="service">Select Service:</label>
-                        <select id="service" name="service" required>
-                            <option value="Assignments">Assignments</option>
-                            <option value="PowerPoint">PowerPoint</option>
-                            <option value="Projects">Projects</option>
-                            <option value="Dissertation">Dissertation</option>
-                            <option value="Essays">Essays Writing Services</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="academic-level">Select Academic Level:</label>
-                        <input type="text" id="academic-level" name="academic-level" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject-area">Select Subject Area:</label>
-                        <input type="text" id="subject-area" name="subject-area" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="subject-title">Subject Title:</label>
-                        <input type="text" id="subject-title" name="subject-title" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="referencing">Referencing:</label>
-                        <input type="text" id="referencing" name="referencing" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="deadline">Select Deadline:</label>
-                        <input type="date" id="deadline" name="deadline" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="words">Enter Number of Words:</label>
-                        <input type="number" id="words" name="words" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="file1">Upload Additional File 1:</label>
-                        <input type="file" id="file1" name="file1">
-                    </div>
-                    <div class="form-group">
-                        <label for="file2">Upload Additional File 2:</label>
-                        <input type="file" id="file2" name="file2">
-                    </div>
-                 <button type="button" class="order-button" id="back-button">Back</button>
-            <button type="submit" class="order-button">Submit Order</button>
-        </form>
-    </div>
-</section>
-
-        <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-            <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
-        </a>
-
-  
-          <!-- Footer Section -->
+<a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
+    <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+</a>
 
 <!-- Footer Section -->
 <footer class="footer">
@@ -744,8 +742,6 @@
             <h3>Follow Us</h3>
             <div class="social-icons">
                 <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-            
-             
             </div>
         </div>
     </div>
@@ -755,13 +751,9 @@
         <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
     </div>
 </footer>
-                 
-          
+</main>
 
-      
-
-    <script>
-      
+<script>
 document.addEventListener('DOMContentLoaded', function () {
     // Hamburger Menu Functionality
     const hamburger = document.getElementById('hamburger');
@@ -843,31 +835,43 @@ document.addEventListener('DOMContentLoaded', function () {
         backButton.addEventListener('click', showClientDetails);
     }
 
-    // Handle Client Details Form Submission
-    const clientForm = document.getElementById('client-details-form');
-    if (clientForm) {
-        clientForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-            showOrderDetails();      // Show Order Details section
-        });
-    }
-
-    // Handle Order Details Form Submission
-    const orderForm = document.getElementById('order-details-form');
+    // Handle Order Form Submission via AJAX
+    const orderForm = document.getElementById('order-form');
     if (orderForm) {
-        orderForm.addEventListener('submit', function(event) {
+        orderForm.addEventListener('submit', function (event) {
             event.preventDefault(); // Prevent default form submission
-            // Here, you can add form validation or AJAX submission as needed
-            alert('Order submitted successfully!'); // Simple feedback
-            // Optionally, redirect to a thank you page
-       
+
+            // Create a FormData object from the form
+            const formData = new FormData(orderForm);
+
+            // Send the form data using fetch
+            fetch('send_order.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    return response.text();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                if (data.trim() === 'success') {
+                    alert('Your order has been submitted successfully!');
+                    orderForm.reset();
+                    showClientDetails(); // Reset to first step
+                } else {
+                    alert(data);
+                }
+            })
+            .catch(error => {
+                console.error('There was a problem with the fetch operation:', error);
+                alert('There was an error submitting your order. Please try again later.');
+            });
         });
     }
 });
-
-            
-
-    </script>
+</script>
 </body>
 
 </html>
