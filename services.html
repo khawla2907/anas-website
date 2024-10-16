@@ -58,9 +58,8 @@
 
         /* Header Styles */
         
-
-        /* Header Styles */
-        header {
+ /* Header Styles */
+ header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
@@ -113,18 +112,16 @@
         }
 
         /* Hamburger Menu Styles */
-        /* Hamburger Menu Styles */
-.hamburger {
-    display: none;
-    cursor: pointer;
-    font-size: 2rem;
-    user-select: none;
-    transition: transform 0.3s ease;
-    z-index: 3001; /* Increased from 2001 to 3001 */
-    position: relative;
-}
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 2rem;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 2001;
+            position: relative;
+        }
 
-           
         .hamburger.open {
             transform: rotate(90deg);
         }
@@ -142,14 +139,14 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
-            height: 87px;
+            height: 84px;
             
 
 
         }
 
         .logo img {
-            height: 70px;
+            height: 67px;
             border-radius: 50%;
             border: 3px solid #008080;
             padding: 5px;
@@ -449,7 +446,7 @@
             transform: scale(1.1);
         }
         .whatsapp-icon {
-            width: 100px;
+            width: 200px;
             height: 100px;
         }
 
