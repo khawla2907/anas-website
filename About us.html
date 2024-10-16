@@ -1,15 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" type="image/png" sizes="100x100" href="images/favicon.png">
-      <!-- Open Graph -->
-<meta property="og:image" content="images/favicon.png">
-<!-- Twitter Card -->
-<meta name="twitter:image" content="images/favicon.png">
+    <link rel="icon" type="image/png" sizes="100x100" href="images/favicon.png">
+    <!-- Open Graph -->
+    <meta property="og:image" content="images/favicon.png">
+    <!-- Twitter Card -->
+    <meta name="twitter:image" content="images/favicon.png">
     <title>The InscribeCo - Home</title>
     <style>
         /* General Styles */
@@ -22,59 +21,41 @@
             overflow-x: hidden;
         }
 
-   
-
-                /* Header Styles */
-                header {
+        /* Header Styles */
+        header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
             position: fixed;
-            top: 0;
+            top: 50px; /* Adjusted to account for top-bar */
             z-index: 1500;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             backdrop-filter: blur(50px);
             transition: all 0.3s ease;
+            margin-top: 0;
         }
 
+        /* Top Bar Styles */
         .top-bar {
-    background-color: lightgrey;
-    color: black;
-    padding: 10px 0;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1500;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
-    margin-bottom: 5px;  /* Ensures separation from content below */
-}
-
-
-
-        .phone-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 10px;
-          
-           
-        }
-
-        .top-bar a {
+            background-color: lightgrey;
             color: black;
-            text-decoration: none;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Arial', sans-serif;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1500;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+            height: 50px;
         }
 
-        .top-bar a:hover {
-            text-decoration: underline;
-        }
-
-        header {
-            margin-top: 40px;
+        /* Adjust main padding to prevent overlapping */
+        main {
+            padding-top: 105px; /* 50px (.top-bar) + 55px (header) */
         }
 
         /* Hamburger Menu Styles */
@@ -106,9 +87,6 @@
             z-index: 1500;
             transition: all 0.3s ease;
             height: 55px;
-            
-
-
         }
 
         .logo img {
@@ -144,7 +122,7 @@
             border-radius: 8px;
         }
 
-         .nav-links a:hover {
+        .nav-links a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
@@ -189,14 +167,11 @@
             font-weight: bold;
         }
 
-
-          .nav-links-mobile a:hover {
+        .nav-links-mobile a:hover {
             color: #1f6396;
             transform: scale(1.05);
         }
 
-        
-        /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
             z-index: 3005;
@@ -205,142 +180,131 @@
             right: 20px;
         }
 
-
-
-
-        /* Footer Section */
-          /* Footer Section */
+        /* Footer Styles */
         .footer {
-        background-color: teal;
-        color: white;
-        padding: 40px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: relative;
-        z-index: 100;
-    }
+            background-color: teal;
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 100;
+        }
 
-    .footer-content {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        max-width: 1200px;
-        width: 100%;
-    }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
 
+        .footer-paragraph {
+            color: #ddd;
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 10px 0;
+        }
 
-    .footer-paragraph {
-        color: #ddd;
-        font-size: 14px;
-        line-height: 1.6;
-        margin: 10px 0;
-    }
+        .footer-logo {
+            background-color: white;
+            border: 3px solid teal;
+            border-radius: 50%; /* Makes it a circle/oval */
+            padding: 15px 25px; /* Adjust padding for oval shape */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
+            transition: transform 0.3s ease; /* Smooth hover effect */
+            display: block;
+            width: 200px; /* Adjust the width as per your logo */
+            height: auto;
+            margin: 0 auto; /* Center the logo */
+        }
 
-    .footer-logo {
-        background-color: white;
-        border: 3px solid teal;
-        border-radius: 50%; /* Makes it a circle/oval */
-        padding: 15px 25px; /* Adjust padding for oval shape */
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a slight shadow for depth */
-        transition: transform 0.3s ease; /* Smooth hover effect */
-    }
+        /* Add hover effect (Optional) */
+        .footer-logo:hover {
+            transform: scale(1.05); /* Slight zoom effect on hover */
+        }
 
-    /* Adjust the shape to be oval */
-    .footer-logo {
-        display: block;
-        
-        width: 200px; /* Adjust the width as per your logo */
-        height: auto;
-    }
+        .footer-links,
+        .footer-contact {
+            flex: 1;
+            margin: 10px 20px;
+        }
 
-    /* Add hover effect (Optional) */
-    .footer-logo:hover {
-        transform: scale(1.05); /* Slight zoom effect on hover */
-    }
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-    .footer-links,
-    .footer-contact {
-        flex: 1;
-        margin: 10px 20px;
-    }
+        .footer-links ul li {
+            margin: 10px 0;
+        }
 
-    .footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
+        .footer-links a {
+            color: #00bfff;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
 
-    .footer-links ul li {
-        margin: 10px 0;
-    }
+        .footer-links a:hover {
+            color: #ffffff;
+        }
 
-    .footer-links a {
-        color: #00bfff;
-        text-decoration: none;
-        font-size: 16px;
-        transition: color 0.3s;
-    }
+        .footer-contact {
+            font-size: 16px;
+        }
 
-    .footer-links a:hover {
-        color: #ffffff;
-    }
+        .footer-contact a {
+            color: #00bfff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-    .footer-contact {
-        font-size: 16px;
-    }
+        .footer-contact a:hover {
+            color: #ffffff;
+        }
 
-    .footer-contact a {
-        color: #00bfff;
-        text-decoration: none;
-        transition: color 0.3s;
-    }
+        .social-icons {
+            margin-top: 20px;
+        }
 
-    .footer-contact a:hover {
-        color: #ffffff;
-    }
+        .social-icons a {
+            margin: 0 10px;
+            display: inline-block;
+        }
 
-    .social-icons {
-        margin-top: 20px;
-    }
+        .social-icons img {
+            width: 30px;
+            transition: transform 0.3s;
+        }
 
-    .social-icons a {
-        margin: 0 10px;
-        display: inline-block;
-    }
+        .social-icons a:hover img {
+            transform: scale(1.2);
+        }
 
-    .social-icons img {
-        width: 30px;
-        transition: transform 0.3s;
-    }
+        .footer-bottom {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+            color: #bbb;
+        }
 
-    .social-icons a:hover img {
-        transform: scale(1.2);
-    }
-
-    .footer-bottom {
-        margin-top: 30px;
-        text-align: center;
-        font-size: 14px;
-        color: #bbb;
-    }
-
-       
-
-        
-        
+        /* About Hero Section */
         .about-hero {
             border-radius: 5px;
             height: 70vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+                url('images/bg-DESKTOP-RI8354E.jpg') no-repeat center center/cover;
             color: white;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
             padding: 0 2rem;
-            margin-top: 0;
+            margin-top: 105px; /* Added margin to account for fixed headers */
             transition: all 0.3s ease;
         }
 
@@ -363,109 +327,66 @@
         }
 
         /* Section Styles */
-        
-        
+        .section {
+            display: flex;
+            padding: 50px 20px; /* Added horizontal padding */
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateX(100%);
+        }
 
-/* Enhanced Section Styles */
+        .section:nth-child(even) {
+            flex-direction: row-reverse;
+            transform: translateX(-100%);
+        }
 
+        .text,
+        .image {
+            flex: 1;
+            padding: 40px;
+            box-sizing: border-box;
+        }
 
+        .text h2 {
+            font-size: 2rem;
+            color: #008080;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
 
-.section {
-    display: flex;
-    padding: 50px 20px; /* Added horizontal padding */
-    align-items: center;
-    max-width: 1200px;
-    margin: auto;
-    transition: all 0.3s ease;
-    opacity: 0;
-    transform: translateX(100%);
-}
+        .text p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.8;
+            text-align: justify;
+        }
 
-.section:nth-child(even) {
-    flex-direction: row-reverse;
-    transform: translateX(-100%);
-}
+        .image-left,
+        .image-right {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
 
-.text,
-.image {
-    flex: 1;
-    padding: 40px;
-    box-sizing: border-box;
-}
+        .image-left img,
+        .image-right img {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* Set a reasonable max-width */
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
 
-.text h2 {
-    font-size: 2rem;
-    color: #008080;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-.text p {
-    font-size: 1.1rem;
-    color: #333;
-    line-height: 1.8;
-    text-align: justify;
-}
-
-.image-left,
-.image-right {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.image-left img,
-.image-right img {
-    width: 100%;
-    height: auto;
-    max-width: 500px; /* Set a reasonable max-width */
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.image-left img:hover,
-.image-right img:hover {
-    transform: scale(1.05);
-}
-
-        /* Responsive Styles for Sections */
-@media (max-width: 768px) {
-    .section {
-        flex-direction: column;
-        padding: 30px 10px;
-        text-align: center;
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .text {
-        padding: 10px 0;
-    }
-
-    .image-left,
-    .image-right {
-        padding: 10px 0;
-        text-align: center;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 90%;
-        max-width: 400px;
-        margin: 20px auto;
-    }
-
-    .text h2 {
-        font-size: 1.8rem;
-    }
-
-    .text p {
-        font-size: 1.1rem;
-        line-height: 1.6;
-    }}
+        .image-left img:hover,
+        .image-right img:hover {
+            transform: scale(1.05);
+        }
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -493,10 +414,11 @@
         }
 
         .whatsapp-icon {
-            width: 200%;
+            width: 100%; /* Changed from 200% to 100% */
             height: auto;
         }
 
+        /* Fade In Animation */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -507,15 +429,44 @@
             }
         }
 
-
-          
-
-
-
-  
-
+        /* Responsive Styles for Sections */
         @media (max-width: 768px) {
-               .hamburger {
+            .section {
+                flex-direction: column;
+                padding: 30px 10px;
+                text-align: center;
+                opacity: 1 !important; /* Ensure sections are visible */
+                transform: translateX(0) !important; /* Reset transform */
+            }
+
+            .text {
+                padding: 10px 0;
+            }
+
+            .image-left,
+            .image-right {
+                padding: 10px 0;
+                text-align: center;
+            }
+
+            .image-left img,
+            .image-right img {
+                width: 90%;
+                max-width: 400px;
+                margin: 20px auto;
+            }
+
+            .text h2 {
+                font-size: 1.8rem;
+            }
+
+            .text p {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            /* Hamburger Menu Display */
+            .hamburger {
                 display: block;
             }
 
@@ -527,12 +478,12 @@
                 padding: 1rem;
             }
 
-              /* Updated Section Styles */
-   
-
-        
-         
-    
+            /* About Hero Adjustments for Mobile */
+            .about-hero {
+                height: auto; /* Adjust height for mobile */
+                padding: 20px 0;
+                margin-top: 105px; /* Equal to fixed headers' height */
+            }
 
             .about-hero h1 {
                 font-size: 2rem;
@@ -542,6 +493,7 @@
                 font-size: 1.2rem;
             }
 
+            /* Footer Adjustments for Mobile */
             .footer-content {
                 flex-direction: column;
                 align-items: center;
@@ -549,49 +501,63 @@
 
             .footer-info,
             .footer-links,
-            .footer-services,
             .footer-contact {
                 text-align: center;
                 margin: 20px 0;
             }
+
             .footer-logo {
-        display: block;
-        margin: 0 auto;
-    }
+                display: block;
+                margin: 0 auto;
+            }
 
+            /* Disable Section Animations on Mobile */
+            .section {
+                opacity: 1 !important;
+                transform: translateX(0) !important;
+            }
+        }
 
+        @media (max-width: 480px) {
+            .section {
+                padding: 20px 5px;
+            }
 
+            .text h2 {
+                font-size: 1.5rem;
+            }
 
-           
+            .text p {
+                font-size: 1rem;
+            }
 
+            .image-left img,
+            .image-right img {
+                width: 100%;
+                max-width: 100%;
+                margin: 15px auto;
+            }
         }
     </style>
 </head>
 
 <body>
     <!-- Top Bar Section -->
-    
+    <div class="top-bar">
+        <div style="display: flex; align-items: center;">
+            <!-- Phone Contact -->
+            <span style="display: flex; align-items: center; margin-right: 40px;">
+                <img src="images/call.png" alt="Phone Icon" class="phone-icon">
+                <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
+            </span>
 
-<!-- Top Bar Section -->
-<div class="top-bar" style="display: flex; justify-content: center; align-items: center; padding: 0 10px; height: 50px; background-color: lightgrey;">
-    <div style="display: flex; align-items: center;">
-        <!-- Phone Contact -->
-        <span style="display: flex; align-items: center; margin-right: 40px;">
-            <img src="images/call.png" alt="Phone Icon" class="phone-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="tel:+442032893891" style="text-decoration: none; color: #333; font-size: 13px;">+44 203 289 3891</a>
-        </span>
-        
-        <!-- Email Contact -->
-        <span style="display: flex; align-items: center;">
-            <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
-            <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
-        </span>
+            <!-- Email Contact -->
+            <span style="display: flex; align-items: center;">
+                <img src="images/mail-removebg-preview.png" alt="Email Icon" class="email-icon" style="width: 24px; height: 24px; margin-right: 8px;">
+                <a href="mailto:theinscribeco@gmail.com" style="text-decoration: none; color: #333; font-size: 13px;">theinscribeco@gmail.com</a>
+            </span>
+        </div>
     </div>
-</div>
-
-
-
-
 
     <!-- Header Section -->
     <header>
@@ -619,13 +585,12 @@
                 <li><a href="pricing.html">Pricing</a></li>
                 <li><a href="order.html">Order</a></li>
                 <li><a href="contactus.html">Contact us</a></li>
-                <br>
                 <button class="close-menu" id="close-menu">X</button>
             </ul>
         </nav>
     </header>
+
     <main>
-        <br><br>
         <section class="about-hero">
             <div class="about-hero-content">
                 <h1>About Us</h1>
@@ -640,7 +605,7 @@
                 <p>We strive to provide outstanding academic and professional writing services to assist our clients in achieving their educational and career goals. Our mission is rooted in a commitment to excellence, ensuring that every piece of work we produce is of the highest quality. We believe in fostering a strong partnership with our clients, working closely with them to understand their unique needs and requirements. By leveraging our expertise, we aim to provide personalized and impactful solutions that drive success, growth, and fulfillment in both academic and professional settings.</p>
             </div>
             <div class="image-right">
-                <img src="images/about1.jpg" alt="Our Mission">
+                <img src="images/about1.jpg" alt="Our Mission" loading="lazy">
             </div>
         </section>
 
@@ -651,7 +616,7 @@
                 <p>We aim to be the leading provider of high-quality writing services, helping individuals and organizations excel in their respective fields. Our vision is to empower clients with the tools and resources they need to succeed, regardless of the challenges they face. By staying ahead of industry trends and continuously improving our services, we aspire to set new standards for excellence in the writing and content development industry. We envision a future where every student, professional, and business can access the support they need to realize their full potential.</p>
             </div>
             <div class="image-left">
-                <img src="images/about2.jpeg" alt="Our Vision">
+                <img src="images/about2.jpeg" alt="Our Vision" loading="lazy">
             </div>
         </section>
 
@@ -662,7 +627,7 @@
                 <p>Integrity, excellence, and dedication are the core values that guide our operations and service delivery. We are committed to maintaining the highest standards of honesty and professionalism in every interaction. Our team believes in the importance of delivering value through our work, ensuring that our clients receive the best possible service at every step. We are dedicated to continuous learning, growth, and development, both individually and collectively, to better serve our clients and make a meaningful difference in their academic and professional journeys.</p>
             </div>
             <div class="image-right">
-                <img src="images/typ.jpeg" alt="Our Values">
+                <img src="images/typ.jpeg" alt="Our Values" loading="lazy">
             </div>
         </section>
 
@@ -673,166 +638,155 @@
                 <p>Our team consists of experienced writers, editors, and support staff who are committed to delivering the best possible results. Each member of our team brings a unique set of skills and expertise to the table, allowing us to provide comprehensive and specialized support to our clients. We value collaboration, innovation, and a shared commitment to excellence, which drives us to continually enhance the quality of our services. Our team members are not just professionals; they are passionate individuals who genuinely care about the success and satisfaction of our clients.</p>
             </div>
             <div class="image-left">
-                <img src="images/s.jpeg" alt="Our Team">
+                <img src="images/s.jpeg" alt="Our Team" loading="lazy">
             </div>
         </section>
     </main>
 
     <a href="https://api.whatsapp.com/send/?phone=442032893891&text&type=phone_number&app_absent=0" class="whatsapp-float">
-        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon">
+        <img src="images/whatsapp-removebg-preview.png" class="whatsapp-icon" alt="WhatsApp">
     </a>
 
-    
-        <!-- Footer Section -->
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <!-- Footer Logo and Description -->
+            <div class="footer-info">
+                <a href="index.html">
+                    <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
+                </a>
+                <p class="footer-paragraph">
+                    Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
+                </p>
+                <p class="footer-paragraph">
+                    Contact us today for a free consultation and discover how we can help you achieve your writing goals.
+                </p>
+            </div>
 
-<!-- Footer Section -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Footer Logo and Description -->
-        <div class="footer-info">
-            <a href="index.html">
-                <img src="images/logo (2).png" alt="Company Logo" class="footer-logo">
-            </a>
-            <p class="footer-paragraph">
-                Inscribe.co offers a range of professional writing services designed to help you excel in your academic and professional endeavors. Whether you need assistance with essays, dissertations, or business writing, our expert team is here to support you.
-            </p>
-            <p class="footer-paragraph">
-                Contact us today for a free consultation and discover how we can help you achieve your writing goals.
-            </p>
-        </div>
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about-us.html">About Us</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="pricing.html">Pricing</a></li>
+                    <li><a href="sample.html">Sample</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contactus.html">Contact us</a></li>
+                </ul>
+            </div>
 
-        <!-- Quick Links -->
-        <div class="footer-links">
-            <h3>Quick Links</h3>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-                <li><a href="order.html">Order</a></li>
-                <li><a href="pricing.html">Pricing</a></li>
-                <li><a href="sample.html">Sample</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="contactus.html">Contact us</a></li>
-            </ul>
-        </div>
-
-        <!-- Contact Information -->
-        <div class="footer-contact">
-            <h3>Quick Info</h3>
-            <p>Email: <a href="mailto:INCRIBE@gmail.com">INCRIBE@gmail.com</a></p>
-            <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
-            <h3>Follow Us</h3>
-            <div class="social-icons">
-                <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
-             
-             
+            <!-- Contact Information -->
+            <div class="footer-contact">
+                <h3>Quick Info</h3>
+                <p>Email: <a href="mailto:theinscribeco@gmail.com">theinscribeco@gmail.com</a></p>
+                <p>Phone: <a href="tel:+442032893891">+44 203 289 3891</a></p>
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/profile.php?id=61561225727357"><img src="images/fb-removebg-preview.png" alt="Facebook"></a>
+                    <!-- Add more social icons as needed -->
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Footer Bottom Section -->
-    <div class="footer-bottom">
-        <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
-    </div>
-</footer>
+        <!-- Footer Bottom Section -->
+        <div class="footer-bottom">
+            <p>&copy; 2013 Inscribe.co | All Rights Reserved</p>
+        </div>
+    </footer>
 
     <script>
-    // Hamburger Menu Functionality
-    document.addEventListener('DOMContentLoaded', function () {
-        const hamburger = document.getElementById('hamburger');
-        const closeMenuButton = document.getElementById('close-menu');
-        const navLinks = document.getElementById('nav-links');
+        // Hamburger Menu Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.getElementById('hamburger');
+            const closeMenuButton = document.getElementById('close-menu');
+            const navLinks = document.getElementById('nav-links');
 
-        function toggleMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.toggle('open');
-            navLinks.classList.toggle('show');
+            function toggleMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('show');
 
-            if (navLinks.classList.contains('show')) {
-                hamburger.classList.add('hide-hamburger');
-            } else {
+                if (navLinks.classList.contains('show')) {
+                    hamburger.classList.add('hide-hamburger');
+                } else {
+                    hamburger.classList.remove('hide-hamburger');
+                }
+
+                // Ensure the nav menu covers the entire viewport
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '0';
+                navLinks.style.right = '0';
+                navLinks.style.bottom = '0';
+                navLinks.style.left = '0';
+                navLinks.style.zIndex = "3000";
+                hamburger.style.zIndex = "3001";
+            }
+
+            function closeMenu(event) {
+                event.preventDefault();
+                event.stopPropagation();
+                hamburger.classList.remove('open');
+                navLinks.classList.remove('show');
                 hamburger.classList.remove('hide-hamburger');
             }
 
-            // Ensure the nav menu covers the entire viewport
-            navLinks.style.position = 'fixed';
-            navLinks.style.top = '0';
-            navLinks.style.right = '0';
-            navLinks.style.bottom = '0';
-            navLinks.style.left = '0';
-            navLinks.style.zIndex = "3000";
-            hamburger.style.zIndex = "3001";
-        }
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('touchstart', toggleMenu);
+            closeMenuButton.addEventListener('click', closeMenu);
+            closeMenuButton.addEventListener('touchstart', closeMenu);
 
-        function closeMenu(event) {
-            event.preventDefault();
-            event.stopPropagation();
-            hamburger.classList.remove('open');
-            navLinks.classList.remove('show');
-            hamburger.classList.remove('hide-hamburger');
-        }
-
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('touchstart', toggleMenu);
-        closeMenuButton.addEventListener('click', closeMenu);
-        closeMenuButton.addEventListener('touchstart', closeMenu);
-
-        // Close the menu when clicking outside of it
-        document.addEventListener('click', function (event) {
-            if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                if (navLinks.classList.contains('show')) {
-                    closeMenu(event);
+            // Close the menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+                    if (navLinks.classList.contains('show')) {
+                        closeMenu(event);
+                    }
                 }
+            });
+        });
+
+        // Section Animation for Transition Effect
+        window.addEventListener('scroll', function () {
+            const sections = document.querySelectorAll('.section');
+            const triggerHeight = window.innerHeight * 0.75;
+            const isMobile = window.innerWidth <= 768;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.getBoundingClientRect().top;
+
+                if (sectionTop < triggerHeight) {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateX(0)';
+                } else if (!isMobile) { // Apply transform only on non-mobile
+                    if ((index + 1) % 2 === 0) {
+                        section.style.transform = 'translateX(-100%)';
+                    } else {
+                        section.style.transform = 'translateX(100%)';
+                    }
+                    section.style.opacity = '0';
+                } else {
+                    // Reset transform on mobile
+                    section.style.transform = 'translateX(0)';
+                    section.style.opacity = '1';
+                }
+            });
+        });
+
+        // Disable initial opacity and transform on mobile devices
+        document.addEventListener('DOMContentLoaded', function () {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                const sections = document.querySelectorAll('.section');
+                sections.forEach(section => {
+                    section.style.opacity = '1';
+                    section.style.transform = 'translateX(0)';
+                });
             }
         });
-    });
-
-    // Section Animation for Transition Effect
-window.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('.section');
-    const triggerHeight = window.innerHeight * 0.75;
-    const isMobile = window.innerWidth <= 768;
-
-    sections.forEach((section, index) => {
-        const sectionTop = section.getBoundingClientRect().top;
-
-        if (sectionTop < triggerHeight) {
-            section.style.opacity = '1';
-            section.style.transform = 'translateX(0)';
-        } else if (!isMobile) { // Apply transform only on non-mobile
-            if ((index + 1) % 2 === 0) {
-                section.style.transform = 'translateX(-100%)';
-            } else {
-                section.style.transform = 'translateX(100%)';
-            }
-            section.style.opacity = '0';
-        } else {
-            // Reset transform on mobile
-            section.style.transform = 'translateX(0)';
-            section.style.opacity = '1';
-        }
-    });
-});
-
-// Disable initial opacity and transform on mobile devices
-document.addEventListener('DOMContentLoaded', function () {
-    const isMobile = window.innerWidth <= 768;
-    if (isMobile) {
-        const sections = document.querySelectorAll('.section');
-        sections.forEach(section => {
-            section.style.opacity = '1';
-            section.style.transform = 'translateX(0)';
-        });
-    }
-});
-
-     
-</script>
-
-
-  
-  
-        
+    </script>
 </body>
 
 </html>
