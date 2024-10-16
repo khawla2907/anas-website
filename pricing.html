@@ -23,8 +23,9 @@
 
        
         /* Header Styles */
-            /* Header Styles */
-        header {
+       
+         /* Header Styles */
+         header {
             background-color: rgba(255, 255, 255, 0.3);
             color: black;
             width: 100%;
@@ -37,26 +38,30 @@
         }
 
         .top-bar {
-            background-color: lightgrey;
-            color: black;
-            padding: 9px 0;
-            text-align: center;
-            font-family: 'Arial', sans-serif;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            height: 100px;
-        }
+    background-color: lightgrey;
+    color: black;
+    padding: 10px 0;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);  /* Enhanced shadow for better visibility */
+    margin-bottom: 5px;  /* Ensures separation from content below */
+}
+
+
 
         .phone-icon {
             width: 20px;
             height: 20px;
             margin-right: 10px;
+          
+           
         }
 
         .top-bar a {
@@ -100,7 +105,10 @@
             position: relative;
             z-index: 1500;
             transition: all 0.3s ease;
-            height: 100px;
+            height: 87px;
+            
+
+
         }
 
         .logo img {
@@ -187,7 +195,7 @@
             transform: scale(1.05);
         }
 
-
+        
         /* Close Menu Button Styles */
         /* Close Menu Button Styles */
         .close-menu {
@@ -388,7 +396,7 @@
         }
 
         .whatsapp-icon {
-            width: 100px;
+            width: 200px;
             height: 100px;
         }
 
@@ -793,7 +801,7 @@
     <!-- Footer -->
          <!-- Footer Section -->
 
-<<!-- Footer Section -->
+<!-- Footer Section -->
 <footer class="footer">
     <div class="footer-content">
         <!-- Footer Logo and Description -->
@@ -846,46 +854,53 @@
                
 
     <script>
-        // Hamburger Menu Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            const hamburger = document.getElementById('hamburger');
-            const closeMenuButton = document.getElementById('close-menu');
-            const navLinks = document.getElementById('nav-links');
+   
+    // Hamburger Menu Functionality
+    const hamburger = document.getElementById('hamburger');
+    const closeMenuButton = document.getElementById('close-menu');
+    const navLinks = document.getElementById('nav-links');
 
-            function toggleMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.toggle('open');
-                navLinks.classList.toggle('show');
-                navLinks.style.position = 'fixed';
-                navLinks.style.top = '0';
-                navLinks.style.right = '0';
-                navLinks.style.bottom = '0';
-                navLinks.style.left = '0';
-                navLinks.style.zIndex = "3000";
-                hamburger.style.zIndex = "3001";
+    function toggleMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.toggle('open');
+        navLinks.classList.toggle('show');
+        navLinks.style.position = 'fixed';
+        navLinks.style.top = '0';
+        navLinks.style.right = '0';
+        navLinks.style.bottom = '0';
+        navLinks.style.left = '0';
+        navLinks.style.zIndex = "3000";
+        hamburger.style.zIndex = "2999"; // Set to a lower value than nav-links-mobile
+    }
+
+    function closeMenu(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        hamburger.classList.remove('open');
+        navLinks.classList.remove('show');
+        // Reset hamburger z-index if needed
+        hamburger.style.zIndex = "2001"; // Ensure it's below nav-links-mobile
+    }
+
+    if (hamburger) {
+        hamburger.addEventListener('click', toggleMenu);
+        hamburger.addEventListener('touchstart', toggleMenu);
+    }
+
+    if (closeMenuButton) {
+        closeMenuButton.addEventListener('click', closeMenu);
+        closeMenuButton.addEventListener('touchstart', closeMenu);
+    }
+
+    document.addEventListener('click', function (event) {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            if (navLinks.classList.contains('show')) {
+                closeMenu(event);
             }
-
-            function closeMenu(event) {
-                event.preventDefault();
-                event.stopPropagation();
-                hamburger.classList.remove('open');
-                navLinks.classList.remove('show');
-            }
-
-            hamburger.addEventListener('click', toggleMenu);
-            hamburger.addEventListener('touchstart', toggleMenu);
-            closeMenuButton.addEventListener('click', closeMenu);
-            closeMenuButton.addEventListener('touchstart', closeMenu);
-
-            document.addEventListener('click', function (event) {
-                if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
-                    if (navLinks.classList.contains('show')) {
-                        closeMenu(event);
-                    }
-                }
-            });
-        });
+        }
+    });
+    
 
 
          function showContainer(containerId) {
