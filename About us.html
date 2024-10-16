@@ -367,6 +367,9 @@
         
 
 /* Enhanced Section Styles */
+
+
+
 .section {
     display: flex;
     padding: 50px 20px; /* Added horizontal padding */
@@ -428,7 +431,7 @@
     transform: scale(1.05);
 }
 
-/* Responsive Styles for Sections */
+        /* Responsive Styles for Sections */
 @media (max-width: 768px) {
     .section {
         flex-direction: column;
@@ -462,30 +465,7 @@
     .text p {
         font-size: 1.1rem;
         line-height: 1.6;
-    }
-}
-
-@media (max-width: 480px) {
-    .section {
-        padding: 20px 5px;
-    }
-
-    .text h2 {
-        font-size: 1.5rem;
-    }
-
-    .text p {
-        font-size: 1rem;
-    }
-
-    .image-left img,
-    .image-right img {
-        width: 100%;
-        max-width: 100%;
-        margin: 15px auto;
-    }
-}
-   
+    }}
 
         /* WhatsApp Button */
         .whatsapp-float {
@@ -513,7 +493,7 @@
         }
 
         .whatsapp-icon {
-            width: 100%;
+            width: 200%;
             height: auto;
         }
 
@@ -808,31 +788,45 @@
     });
 
     // Section Animation for Transition Effect
-    window.addEventListener('scroll', function () {
-        const sections = document.querySelectorAll('.section');
-        const triggerHeight = window.innerHeight * 0.75;
-        const isMobile = window.innerWidth <= 768;
+window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('.section');
+    const triggerHeight = window.innerHeight * 0.75;
+    const isMobile = window.innerWidth <= 768;
 
-        sections.forEach((section, index) => {
-            const sectionTop = section.getBoundingClientRect().top;
+    sections.forEach((section, index) => {
+        const sectionTop = section.getBoundingClientRect().top;
 
-            if (sectionTop < triggerHeight) {
-                section.style.opacity = '1';
-                section.style.transform = 'translateX(0)';
-            } else if (!isMobile) { // Apply transform only on non-mobile
-                if ((index + 1) % 2 === 0) {
-                    section.style.transform = 'translateX(-100%)';
-                } else {
-                    section.style.transform = 'translateX(100%)';
-                }
-                section.style.opacity = '0';
+        if (sectionTop < triggerHeight) {
+            section.style.opacity = '1';
+            section.style.transform = 'translateX(0)';
+        } else if (!isMobile) { // Apply transform only on non-mobile
+            if ((index + 1) % 2 === 0) {
+                section.style.transform = 'translateX(-100%)';
             } else {
-                // Reset transform on mobile
-                section.style.transform = 'translateX(0)';
-                section.style.opacity = '1';
+                section.style.transform = 'translateX(100%)';
             }
-        });
+            section.style.opacity = '0';
+        } else {
+            // Reset transform on mobile
+            section.style.transform = 'translateX(0)';
+            section.style.opacity = '1';
+        }
     });
+});
+
+// Disable initial opacity and transform on mobile devices
+document.addEventListener('DOMContentLoaded', function () {
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        const sections = document.querySelectorAll('.section');
+        sections.forEach(section => {
+            section.style.opacity = '1';
+            section.style.transform = 'translateX(0)';
+        });
+    }
+});
+
+     
 </script>
 
 
